@@ -1,0 +1,2001 @@
+ReportID,Age,Age_Unit,Sex,Drug,Reaction,Country,Serious,Seriousness_Death
+26219466,86,801,Male,LEUPROLIDE,Pituitary apoplexy,US,1,1
+26219467,73,801,Male,SKYRIZI,Macular degeneration,US,1,2
+26219468,60,801,Male,PREDNISONE,Myelodysplastic syndrome with excess blasts,US,1,2
+26219469,55,801,Female,HERCEPTIN,Disease progression,PK,1,2
+26219470,28,801,Male,LITHIUM CARBONATE,Nephrogenic diabetes insipidus,ZA,1,2
+26219472,63,801,Male,DAPAGLIFLOZIN,Death,US,1,1
+26219473,80,801,Female,DUPIXENT,Vision blurred,US,2,2
+26219475,34,801,Female,DUPIXENT,Injection site swelling,US,2,2
+26219478,64,801,Female,DUPIXENT,Fatigue,US,2,2
+26219479,43,801,Female,MABTHERA,Muscular weakness,CA,1,1
+26219480,65,801,Female,ENBREL,Injection site pain,US,2,2
+26219482,96,801,Female,ERIVEDGE,Death,US,1,1
+26219487,51,801,Male,ACTEMRA,Cerebral infarction,JP,1,2
+26219489,8,801,Male,ELOCTATE,Skin laceration,US,2,2
+26219491,74,801,Female,DUPIXENT,Skin discolouration,US,2,2
+26219493,60,801,Female,DUPIXENT,Wheezing,US,2,2
+26219494,37,801,Female,BENLYSTA,Viral infection,US,2,2
+26219499,70,801,Female,ACTEMRA,Breast cancer,JP,1,2
+26219502,78,801,Female,DUPIXENT,Influenza,US,2,2
+26219503,38,801,Female,TYSABRI,Low-lying placenta,BR,1,2
+26219504,63,801,Female,REVLIMID,Macule,US,,
+26219506,68,801,Male,CREON,Prostate cancer,US,1,2
+26219508,72,801,Male,SKYRIZI,Colectomy,US,1,2
+26219509,65,801,Female,POMALYST,Treatment noncompliance,US,,
+26219515,52,801,Female,RINVOQ,Intestinal resection,CA,1,2
+26219516,71,801,Female,SKYRIZI,Small intestinal stenosis,US,1,2
+26219519,75,801,Female,AVONEX,Hip fracture,US,1,2
+26219521,18,801,Male,RITUXIMAB,Off label use,EU,1,2
+26219522,15,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26219526,68,801,Female,PLEGRIDY,Neoplasm malignant,US,1,2
+26219536,43,801,Male,RISANKIZUMAB,Product storage error,US,2,2
+26219537,14,801,Female,DUPIXENT,Headache,US,2,2
+26219538,53,801,Male,TYVASO,Dizziness,US,2,2
+26219539,81,801,Female,TYVASO DPI,Brain oedema,US,2,2
+26219540,48,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26219541,53,801,Female,DUPIXENT,Eczema,US,2,2
+26219542,76,801,Male,POMALYST,Fatigue,US,,
+26219544,76,801,Male,TRELEGY ELLIPTA,Underdose,US,2,2
+26219545,55,801,Male,IMDELLTRA,Cytokine release syndrome,JP,1,2
+26219547,15,801,Male,DUPIXENT,Influenza,US,2,2
+26219548,79,801,Male,PLUVICTO,General physical health deterioration,US,1,2
+26219549,79,801,Female,LOVENOX,Off label use,US,2,2
+26219550,79,801,Female,DUPIXENT,Dry skin,US,2,2
+26219551,25,801,Male,DUPIXENT,Accidental exposure to product,US,2,2
+26219552,58,801,Female,ZEPOSIA,Product dose omission issue,US,,
+26219553,67,801,Female,QULIPTA,Surgery,US,1,2
+26219557,47,801,Female,ZEPBOUND,Nausea,US,2,2
+26219563,88,801,Female,SKYRIZI,Dyspnoea,US,1,2
+26219564,58,801,Male,GABAPENTIN,Serotonin syndrome,US,1,2
+26219566,52,801,Male,SKYRIZI,Escherichia infection,US,1,2
+26219567,81,801,Male,FOSCARBIDOPA\FOSLEVODOPA,Hip fracture,EU,1,2
+26219568,44,801,Female,SKYRIZI,Blood electrolytes decreased,US,1,2
+26219569,66,801,Male,TRAMADOL,Serotonin syndrome,US,1,2
+26219570,28,801,Female,ZEPOSIA,Maternal exposure during pregnancy,US,,
+26219571,69,801,Male,ZOLEDRONIC ACID,Spinal cord infarction,US,1,2
+26219573,75,801,Female,FOSCARBIDOPA\FOSLEVODOPA,Fall,EU,1,2
+26219574,74,801,Male,FOSCARBIDOPA\FOSLEVODOPA,Influenza,EU,1,2
+26219575,76,801,Female,DAPAGLIFLOZIN,Syncope,GB,1,2
+26219576,51,801,Male,SKYRIZI,Hip surgery,US,1,2
+26219577,74,801,Female,LINZESS,Shoulder arthroplasty,US,1,2
+26219578,62,801,Female,UBRELVY,Surgery,US,1,2
+26219579,79,801,Female,QULIPTA,Death,CA,1,1
+26219581,58,801,Female,MYCOPHENOLATE MOFETIL,Klebsiella bacteraemia,EU,1,2
+26219582,57,801,Female,DUPIXENT,Dry eye,US,2,2
+26219583,54,801,Female,DUPIXENT,Muscle spasms,US,2,2
+26219584,67,801,Female,ATORVASTATIN,Memory impairment,GB,1,2
+26219586,65,801,Female,DUPIXENT,Wheezing,US,2,2
+26219587,68,801,Female,AMOXICILLIN\CLAVULANATE POTASSIUM,Jaundice hepatocellular,GB,1,2
+26219588,35,801,Male,AVASTIN,Disease progression,PK,1,2
+26219589,59,801,Male,AVIBACTAM\AZTREONAM,Anuria,CN,1,2
+26219591,16,801,Male,GLIVEC,Death,NP,1,1
+26219593,44,801,Male,LEVOFLOXACIN,Pneumonia legionella,US,1,1
+26219594,13,801,Female,ARIPIPRAZOLE,Torticollis,EU,1,2
+26219595,66,801,Female,REMODULIN,Interstitial lung disease,US,1,2
+26219596,71,801,Male,HIZENTRA,Cerebrovascular accident,US,1,2
+26219597,38,801,Female,QULIPTA,Anal abscess,CA,1,2
+26219598,20,801,Female,TUBERSOL,Chest discomfort,CA,1,2
+26219600,89,801,Male,AMPICILLIN,Rash morbilliform,CA,1,2
+26219601,69,801,Female,VENETOCLAX,Immunoglobulins decreased,EU,1,2
+26219602,74,801,Female,QULIPTA,Food poisoning,US,1,2
+26219603,49,801,Female,SKYRIZI,Breast cancer,US,1,2
+26219604,30,801,Male,DUPIXENT,Injection site warmth,US,2,2
+26219605,81,801,Female,DUPIXENT,Hypoaesthesia,US,2,2
+26219606,41,801,Female,DUPIXENT,Urticaria,US,2,2
+26219607,78,801,Male,DUPIXENT,Prostate cancer,US,1,2
+26219612,65,801,Male,ALLOPURINOL,AGEP-DRESS overlap,TN,1,2
+26219613,28,801,Female,METFORMIN HYDROCHLORIDE,Pyoderma gangrenosum,EU,1,2
+26219614,47,801,Female,GLIVEC,Death,IN,1,1
+26219615,86,801,Male,APIXABAN,Headache,GB,1,2
+26219616,3,801,Male,DUPIXENT,Influenza,US,2,2
+26219623,75,801,Female,PULMICORT TURBUHALER,Headache,EU,1,2
+26219624,46,801,Female,OLANZAPINE,Thrombotic thrombocytopenic purpura,EU,1,2
+26219625,12,801,Female,ACETAMINOPHEN,Poisoning deliberate,EU,1,2
+26219627,71,801,Female,TICAGRELOR,Gastritis erosive,EU,1,2
+26219630,73,801,Male,POMALYST,Diarrhoea,US,,
+26219631,52,801,Male,GLIVEC,Death,NP,1,1
+26219632,19,801,Male,TACROLIMUS,Sinusitis fungal,US,1,2
+26219633,62,801,Male,RITUXIMAB,Metastases to pleura,CN,1,2
+26219636,21,801,Female,ACETAMINOPHEN,Drug abuse,EU,1,2
+26219639,64,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26219640,76,801,Male,REVLIMID,Product distribution issue,US,2,2
+26219641,57,801,Female,DARATUMUMAB,Myelosuppression,CN,1,2
+26219644,42,801,Male,TRASTUZUMAB,Stoma site haemorrhage,CA,1,2
+26219645,33,801,Female,ORILISSA,Oocyte harvest,US,1,2
+26219646,83,801,Male,CRESTOR,Neuropathy peripheral,GB,1,2
+26219647,41,801,Male,METHYLPREDNISOLONE,Drug ineffective,US,1,2
+26219649,64,801,Female,FOSCARBIDOPA\FOSLEVODOPA,Pulmonary embolism,EU,1,2
+26219650,47,801,Female,LANSOPRAZOLE,Hepatitis,EU,1,1
+26219651,54,801,Female,VORICONAZOLE,Neoplasm malignant,EU,1,1
+26219652,59,801,Female,REBIF,Disease recurrence,EU,1,2
+26219653,76,801,Male,ABIRATERONE,Acute kidney injury,EU,1,2
+26219654,64,801,Female,IMBRUVICA,Eyelid tumour,US,1,2
+26219655,86,801,Male,FUROSEMIDE,Hepatic cytolysis,EU,1,2
+26219657,66,801,Female,REVLIMID,Rash,US,,
+26219658,85,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26219659,2,801,Female,DUPIXENT,Dry skin,US,2,2
+26219660,20,801,Female,SPRAVATO,Chest pain,US,1,2
+26219661,51,801,Female,DUPIXENT,Granuloma annulare,US,2,2
+26219662,39,801,Female,DUPIXENT,Accidental exposure to product,US,2,2
+26219663,62,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26219664,56,801,Female,DUPIXENT,Injection site erythema,US,2,2
+26219666,67,801,Female,DUPIXENT,Injection site pain,US,2,2
+26219669,63,801,Male,METFORMIN HYDROCHLORIDE,Hyperlactacidaemia,EU,1,2
+26219670,80,801,Female,SYNTHROID,Cardiac failure,US,1,1
+26219671,46,801,Male,DIAZEPAM,Loss of consciousness,EU,1,2
+26219672,52,801,Female,GAZYVA,Infusion related reaction,CN,1,2
+26219673,30,801,Female,KESIMPTA,Diverticulitis,AU,1,2
+26219675,77,801,Female,METGLUCO,Carotid artery aneurysm,JP,1,2
+26219676,66,801,Male,TAMOXIFEN CITRATE,Ischaemic stroke,EU,1,2
+26219678,41,801,Female,OMALIZUMAB,Asthmatic crisis,US,1,2
+26219680,37,801,Male,FUROSEMIDE,Haemolysis,GB,1,2
+26219681,73,801,Female,ZOLEDRONIC ACID,Loss of consciousness,GB,1,2
+26219682,81,801,Male,DOXAZOSIN MESYLATE,Confusional state,GB,1,2
+26219683,76,801,Female,ATORVASTATIN,Thrombocytopenia,EU,1,2
+26219684,25,801,Male,RINVOQ,Gastrointestinal disorder,US,1,2
+26219687,20,801,Male,ACETAMINOPHEN,Psychomotor retardation,EU,1,2
+26219688,33,801,Male,CLARITHROMYCIN,Faeces discoloured,GB,1,2
+26219689,75,801,Female,NUCALA,Influenza,US,2,2
+26219690,62,801,Female,AVASTIN,Disease progression,PK,1,1
+26219691,63,801,Male,APIXABAN,Cerebral haemorrhage,GB,1,2
+26219692,60,801,Male,PLUVICTO,Death,US,1,1
+26219695,7,800,Male,DASATINIB,Immune-mediated hepatic disorder,US,1,2
+26219696,68,801,Female,POMALYST,Urinary tract infection,US,,
+26219697,72,801,Male,SPRAVATO,Sedation,US,1,2
+26219698,75,801,Female,APIXABAN,Upper gastrointestinal haemorrhage,CA,1,2
+26219700,60,801,Male,ADALIMUMAB,Granulomatous lymphadenitis,EU,1,2
+26219702,49,801,Female,PACLITAXEL,Drug-induced liver injury,EU,1,2
+26219703,35,801,Male,METFORMIN,Euglycaemic diabetic ketoacidosis,EU,1,2
+26219704,77,801,Male,DONEPEZIL HYDROCHLORIDE,Bradycardia,CA,1,2
+26219705,25,801,Female,DUPIXENT,Arthralgia,US,2,2
+26219707,70,801,Male,DUPIXENT,Stomatitis,US,2,2
+26219708,64,801,Male,METFORMIN,Lactic acidosis,US,1,2
+26219709,69,801,Male,AMIODARONE HYDROCHLORIDE,Cornea verticillata,US,1,2
+26219711,55,801,Female,SPRAVATO,Sedation,US,1,2
+26219712,60,801,Female,AVASTIN,Cardiac failure,EU,1,2
+26219713,74,801,Female,LISINOPRIL,Acute kidney injury,US,1,2
+26219714,8,800,Female,TECENTRIQ,Cytopenia,JP,1,2
+26219717,30,801,Female,OCREVUS,Neutropenia,CH,1,2
+26219718,6,800,Female,TECENTRIQ,Renal impairment,JP,1,2
+26219719,58,801,Male,COTELLIC,Off label use,US,1,2
+26219721,69,801,Female,AMOXICILLIN\CLAVULANIC ACID,Drug-induced liver injury,US,1,2
+26219723,61,801,Female,POMALYST,Neutropenia,US,1,2
+26219724,79,801,Female,POMALYST,Drug hypersensitivity,US,,
+26219726,42,801,Male,XOLAIR,Vertigo,EU,1,2
+26219727,63,801,Male,FOSCARBIDOPA\FOSLEVODOPA,Cataract,US,1,2
+26219728,42,801,Female,BENLYSTA,Weight decreased,US,2,2
+26219730,62,801,Male,RITUXIMAB,Neurological decompensation,CA,1,2
+26219731,78,801,Male,VENCLEXTA,Gout,US,1,2
+26219732,22,801,Female,BEVACIZUMAB,Death,JP,1,1
+26219733,64,801,Female,ATORVASTATIN CALCIUM,Chest pain,EU,1,2
+26219734,82,801,Male,VABYSMO,Gastric cancer,JP,1,2
+26219735,73,801,Female,POMALYST,Product distribution issue,US,,
+26219736,54,801,Male,OPDIVO,Autoimmune lung disease,EU,1,2
+26219737,80,801,Female,REVLIMID,Urinary tract infection,US,,
+26219738,68,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26219739,38,801,Female,IPILIMUMAB,Chorioretinopathy,EU,1,2
+26219740,56,801,Female,REVLIMID,Cytopenia,US,1,2
+26219741,84,801,Female,DUPIXENT,Viral infection,US,1,2
+26219742,13,801,Male,DUPIXENT,Mobility decreased,US,2,2
+26219745,90,801,Male,AZITHROMYCIN,Pancytopenia,EU,1,2
+26219746,54,801,Female,ALLOPURINOL,Severe cutaneous adverse reaction,EU,1,2
+26219748,73,801,Female,GLIVEC,Death,IN,1,1
+26219749,57,801,Male,GABAPENTIN,Coma,EU,1,2
+26219750,73,801,Male,NITROFURANTOIN,Tubulointerstitial nephritis,GB,1,2
+26219752,48,801,Female,ORENCIA,Rheumatoid arthritis,US,,
+26219753,66,801,Female,CAPECITABINE\OXALIPLATIN,Chest pain,GB,1,2
+26219754,7,800,Female,HERCEPTIN,Osteomyelitis,JP,1,2
+26219756,35,801,Female,RITUXIMAB,Diffuse large B-cell lymphoma,CA,1,2
+26219757,67,801,Male,PERINDOPRIL,Eczema,EU,1,2
+26219758,9,801,Male,PREDNISOLONE,Mania,GB,1,2
+26219761,72,801,Male,RITUXIMAB,Platelet count decreased,CN,1,2
+26219762,70,801,Male,CISPLATIN,Cerebrovascular accident,US,1,2
+26219763,72,801,Male,REVLIMID,Rhinovirus infection,US,,
+26219764,73,801,Female,OSELTAMIVIR PHOSPHATE,Palpitations,CN,1,2
+26219765,61,801,Male,CLOZAPINE,Constipation,EU,1,2
+26219767,20,801,Female,MYCOPHENOLATE MOFETIL,Urinary tract infection,SG,1,2
+26219768,5,801,Female,DOXORUBICIN,Septic shock,EG,1,1
+26219769,84,801,Male,CLOPIDOGREL BISULFATE,Craniocerebral injury,EU,1,2
+26219770,61,801,Female,RITUXIMAB,Ear pruritus,CA,1,2
+26219772,84,801,Female,LENALIDOMIDE,Product prescribing issue,US,2,2
+26219774,65,801,Female,IRINOTECAN,Pneumonia fungal,EG,1,1
+26219775,55,801,Female,IRINOTECAN,Loss of consciousness,EG,1,2
+26219777,65,801,Female,COTELLIC,Off label use,US,1,2
+26219778,73,801,Female,LETROZOLE,Joint stiffness,GB,1,2
+26219779,53,801,Female,XIFAXAN,Hepatic encephalopathy,US,1,2
+26219780,80,801,Female,XIFAXAN,Cardiac failure congestive,US,1,2
+26219782,65,801,Female,IMIQUIMOD,Pemphigus,EU,1,2
+26219783,17,801,Male,HEMLIBRA,Tonsillectomy,JP,1,2
+26219786,45,801,Male,XYWAV,Surgery,US,1,2
+26219788,43,801,Male,POMALYST,Product dose omission issue,US,,
+26219790,61,801,Female,ATORVASTATIN,Constipation,GB,1,2
+26219791,60,801,Female,PREDNISONE,Interstitial lung disease,US,1,2
+26219793,4,801,Female,AZITHROMYCIN,Hallucination,GB,1,2
+26219794,69,801,Male,GEMCITABINE,Arteriospasm coronary,EU,1,2
+26219795,43,801,Female,ORENCIA,Therapy non-responder,US,2,2
+26219796,60,801,Male,ATEZOLIZUMAB,Myelosuppression,CN,1,2
+26219797,80,801,Female,LENALIDOMIDE,Pneumonia,US,1,2
+26219798,59,801,Female,DUPIXENT,Vision blurred,US,2,2
+26219800,56,801,Female,RINVOQ,Urinary tract infection,AR,1,2
+26219802,38,801,Female,CARBAMAZEPINE,Epilepsy,MY,1,2
+26219803,42,801,Female,CELECOXIB,Rash vesicular,EU,1,2
+26219804,72,801,Female,AMIVANTAMAB,Chest discomfort,CN,1,2
+26219805,87,801,Female,NUCALA,Exposure via skin contact,US,2,2
+26219809,21,801,Female,AIMOVIG,Device difficult to use,US,2,2
+26219810,31,801,Female,FENTANYL,Increased bronchial secretion,US,1,2
+26219811,58,801,Female,DUPILUMAB,Arrhythmia,CO,1,2
+26219814,20,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26219815,71,801,Male,METFORMIN,Lactic acidosis,US,1,2
+26219816,76,801,Male,DAPTOMYCIN,Confusional state,EU,1,2
+26219818,15,801,Female,CARBAMAZEPINE,Hemiparesis,ID,1,2
+26219822,76,801,Male,DIANEAL LOW CALCIUM PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,SG,1,1
+26219824,76,801,Male,DIANEAL LOW CALCIUM PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,SG,1,1
+26219825,4,801,Female,DIANEAL PD-2 WITH DEXTROSE,Vision blurred,IN,1,2
+26219826,13,801,Male,REGUNEAL HCA,Peritonitis bacterial,JP,1,2
+26219827,58,801,Male,DIANEAL LOW CALCIUM PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,SG,1,1
+26219828,68,801,Male,DIANEAL,Discomfort,GB,1,2
+26219829,13,801,Male,REGUNEAL LCA,Epilepsy,JP,1,1
+26219830,61,801,Male,DIANEAL LOW CALCIUM PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,SG,1,1
+26219832,82,801,Female,CLOZAPINE,Pancytopenia,EU,1,2
+26219833,84,801,Male,TYVASO DPI,Condition aggravated,US,2,2
+26219834,38,801,Male,COBENFY,Myopia,US,,
+26219835,55,801,Male,RITUXIMAB,Death,CA,1,1
+26219836,52,801,Female,SULFAMETHOXAZOLE,Cough,CA,1,2
+26219838,70,801,Female,FUROSEMIDE,Fall,EU,1,2
+26219839,24,801,Female,DUPIXENT,Malaise,US,2,2
+26219841,46,801,Male,CLOZAPINE,Pericardial effusion,EU,1,2
+26219842,56,801,Female,RINVOQ,Hip arthroplasty,CA,1,2
+26219844,51,801,Female,RINVOQ,Haematochezia,US,1,2
+26219847,81,801,Female,REPATHA,Wrong technique in product usage process,US,2,2
+26219848,27,801,Female,ESOMEPRAZOLE,Withdrawal syndrome,GB,1,2
+26219849,35,801,Male,CLARITHROMYCIN,Condition aggravated,AU,1,2
+26219851,59,801,Female,OBINUTUZUMAB,Dizziness,CN,1,2
+26219854,59,801,Male,ZEPBOUND,Incorrect dose administered,US,2,2
+26219860,47,801,Female,DICLOFENAC,Anaphylactic shock,EU,1,2
+26219861,71,801,Female,NUCALA,Exposure via skin contact,US,2,2
+26219864,8,801,Female,CETIRIZINE,Acute generalised exanthematous pustulosis,EU,1,2
+26219865,1,801,Female,VIGAFYDE,Product dose omission issue,US,1,2
+26219867,76,801,Male,ORGOVYX,Cardiovascular disorder,US,1,2
+26219868,84,801,Male,GEMTESA,Death,US,1,1
+26219871,50,801,Female,ORENCIA,Therapy non-responder,US,,
+26219872,18,801,Male,ALTUVIIIO,Poor venous access,US,2,2
+26219873,74,801,Female,DUPIXENT,Injection site swelling,US,2,2
+26219875,61,801,Male,EMICIZUMAB,Diverticulitis,EU,1,2
+26219877,54,801,Female,DAPAGLIFLOZIN,Renal injury,CN,1,2
+26219880,40,801,Male,CETIRIZINE,Headache,EU,1,2
+26219881,85,801,Male,LENALIDOMIDE,White blood cell count decreased,US,,
+26219883,51,801,Male,DICLOFENAC,Anaphylactic shock,EU,1,2
+26219884,40,801,Female,FENTANYL,Stress cardiomyopathy,US,1,2
+26219885,64,801,Female,SACUBITRIL\VALSARTAN,Renal failure,CN,1,2
+26219886,61,801,Male,DICLOFENAC,Anaphylactic shock,EU,1,2
+26219889,59,801,Male,CIPROFLOXACIN,Rash morbilliform,EU,1,2
+26219890,62,801,Male,ORGOVYX,Arthralgia,US,2,2
+26219892,43,801,Female,AIMOVIG,Exposure via skin contact,US,2,2
+26219893,17,801,Male,DUPIXENT,Asthma,US,2,2
+26219895,77,801,Female,DUPIXENT,Eye infection,US,2,2
+26219897,62,801,Female,DICLOFENAC,Diarrhoea haemorrhagic,EU,1,2
+26219899,64,801,Female,RINVOQ,Hip arthroplasty,US,1,2
+26219900,70,801,Female,RINVOQ,Surgery,PR,1,2
+26219901,58,801,Female,CITALOPRAM,Visual acuity reduced transiently,GB,1,2
+26219903,81,801,Male,ACTEMRA,Hypertension,CA,1,2
+26219904,65,801,Male,GAZYVA,Chills,CA,1,2
+26219906,39,801,Female,AVASTIN,Metastasis,PK,1,1
+26219910,92,801,Male,APIXABAN,Gastrointestinal haemorrhage,US,1,2
+26219911,51,801,Male,POMALYST,Aphasia,US,1,2
+26219912,67,801,Male,PROPRANOLOL,Acute generalised exanthematous pustulosis,SG,1,2
+26219913,40,801,Male,CITALOPRAM,Arrhythmia,EU,1,2
+26219914,63,801,Female,GEMTESA,Drug effect less than expected,US,,
+26219915,55,801,Male,ALENDRONATE,Respiratory distress,US,1,2
+26219920,60,801,Female,ALENDRONIC ACID,Osteonecrosis,EU,1,2
+26219921,62,801,Female,ENTECAVIR,Colitis,EU,1,2
+26219922,78,801,Male,MEPOLIZUMAB,Death,CA,1,1
+26219924,74,801,Female,CARBOPLATIN,Paraesthesia,EU,1,2
+26219926,70,801,Female,REVLIMID,Influenza,US,1,2
+26219927,77,801,Female,CLOPIDOGREL,Bleeding time abnormal,CA,1,2
+26219928,80,801,Male,PRIVIGEN,Chills,EU,1,2
+26219929,95,801,Male,VENETOCLAX,Anaphylactic reaction,US,1,2
+26219931,53,801,Female,REVLIMID,Fatigue,US,2,2
+26219932,68,801,Male,POMALYST,Diarrhoea,US,,
+26219934,83,801,Female,POMALYST,Neutropenia,US,1,2
+26219935,88,801,Female,RITUXIMAB,Blood glucose increased,CA,1,2
+26219936,1,801,Female,BYLVAY,Liver transplant,RU,2,2
+26219938,65,801,Male,ORENCIA,Pain,US,,
+26219939,67,801,Female,ORENCIA,Nasopharyngitis,US,,
+26219940,28,801,Male,EVRYSDI,Nausea,EU,1,2
+26219941,60,801,Male,AMOXICILLIN,Hepatic cytolysis,EU,1,2
+26219942,38,801,Male,METHOTREXATE,Acute kidney injury,EU,1,1
+26219944,48,801,Male,DOXYCYCLINE,Hepatitis acute,EU,1,2
+26219945,17,801,Male,IBUPROFEN,Angioedema,EU,1,2
+26219946,11,801,Female,GUANFACINE,Respiratory depression,US,1,2
+26219948,61,801,Female,CARBOPLATIN,Adrenal insufficiency,EU,1,2
+26219950,27,801,Male,SERTRALINE,Urinary incontinence,EU,1,2
+26219951,33,801,Male,ERYTHROMYCIN,Depression,GB,1,2
+26219952,56,801,Female,PACLITAXEL,Flushing,CO,1,2
+26219953,62,801,Male,CARBOPLATIN,Hot flush,CO,1,2
+26219954,64,801,Female,VALGANCICLOVIR,Focal segmental glomerulosclerosis,US,1,2
+26219955,58,801,Female,GEMCITABINE HYDROCHLORIDE,Pancytopenia,CO,1,2
+26219956,35,801,Female,DOCETAXEL,Dysentery,CO,1,2
+26219957,45,801,Female,RINVOQ,Breast cancer female,US,1,2
+26219958,83,801,Female,PLAVIX,Atrial fibrillation,US,1,2
+26219960,31,801,Female,LUMIFY,Corneal disorder,US,2,2
+26219961,76,801,Female,CARBOPLATIN,Immune-mediated enterocolitis,EU,1,2
+26219962,50,801,Female,OXALIPLATIN,Band sensation,EU,1,2
+26219963,37,801,Female,SKYRIZI,Loss of consciousness,US,1,2
+26219964,71,801,Male,HUMIRA,Hypophagia,UY,1,2
+26219965,57,801,Female,ORENCIA,Joint swelling,US,,
+26219966,51,801,Female,ORENCIA,Cellulitis,US,1,2
+26219967,65,801,Female,REVLIMID,Inappropriate schedule of product administration,US,,
+26219973,70,801,Male,DAPTOMYCIN,Hypervolaemia,US,1,2
+26219974,69,801,Male,EPINEPHRINE,Kounis syndrome,US,1,1
+26219976,72,801,Male,FLUOROURACIL,Hyperammonaemic encephalopathy,US,1,2
+26219977,65,801,Male,YESCARTA,Nausea,US,2,2
+26219978,50,801,Male,VINCRISTINE,Pneumothorax spontaneous,US,1,2
+26219980,65,801,Male,MEROPENEM,Hepatitis cholestatic,EU,1,2
+26219981,77,801,Male,AZITHROMYCIN,Chromaturia,EU,1,2
+26219982,48,801,Female,CERDELGA,Weight decreased,US,2,2
+26219985,87,801,Male,ATORVASTATIN,Rhabdomyolysis,GB,1,2
+26219986,66,801,Female,VEDOLIZUMAB,Urinary tract infection,CA,1,2
+26219987,68,801,Female,CARBOPLATIN,Azotaemia,EU,1,2
+26219989,65,801,Female,POMALYST,Neutrophil count decreased,US,,
+26219990,61,801,Male,VEDOLIZUMAB,Chronic respiratory disease,CA,1,2
+26219991,87,801,Female,REVLIMID,Product prescribing issue,US,,
+26219992,38,801,Female,WARFARIN,Pulmonary hypertension,US,1,1
+26219993,70,801,Male,DUPIXENT,Injection site pain,US,2,2
+26220001,70,801,Female,RINVOQ,Brain operation,US,1,2
+26220002,71,801,Male,RINVOQ,Prostate cancer,US,1,2
+26220006,70,801,Male,CISPLATIN,Febrile neutropenia,CA,1,2
+26220007,55,801,Male,VEDOLIZUMAB,Gastrointestinal inflammation,CA,1,2
+26220008,65,801,Male,CARBOPLATIN,Neutropenia,EU,1,1
+26220009,82,801,Male,SKYRIZI,Injection site hypersensitivity,US,1,2
+26220010,57,801,Female,SKYRIZI,Nephrolithiasis,CO,1,2
+26220011,84,801,Female,ARNUITY ELLIPTA,Dyspnoea,US,,
+26220013,68,801,Female,ENBREL,Device difficult to use,US,2,2
+26220014,45,801,Female,DEXAMETHASONE,Pneumonia legionella,US,1,2
+26220016,33,801,Female,ELIQUIS,Product dose omission issue,US,,
+26220017,76,801,Male,ORENITRAM,Neoplasm malignant,US,1,2
+26220018,61,801,Male,AZACITIDINE,Seronegative arthritis,IN,1,2
+26220019,47,801,Female,DUPIXENT,Injection site pain,US,2,2
+26220021,28,801,Male,ESCITALOPRAM,Dermatitis exfoliative generalised,EU,1,2
+26220022,78,801,Male,VENETOCLAX,Myelosuppression,CN,1,2
+26220033,36,801,Female,SKYRIZI,Gallbladder disorder,US,1,2
+26220035,97,801,Female,ELIQUIS,Limb injury,US,,
+26220036,58,801,Male,ORENCIA,Rheumatoid arthritis,US,,
+26220037,44,801,Male,BRILINTA,Gastric ulcer haemorrhage,CN,1,2
+26220038,83,801,Male,REVLIMID,Hypotension,US,1,2
+26220040,51,801,Male,ZEPBOUND,Rhinorrhoea,US,2,2
+26220042,88,801,Female,METHOTREXATE,Fall,US,1,2
+26220043,45,801,Female,RINVOQ,Sepsis,US,1,2
+26220044,73,801,Female,HUMAN IMMUNOGLOBULIN G,Allergic oedema,CA,1,2
+26220045,20,801,Female,ESCITALOPRAM,Drug use disorder,EU,1,2
+26220046,27,801,Female,FILGRASTIM,Death,AU,1,1
+26220050,85,801,Female,REPATHA,Product communication issue,US,2,2
+26220051,53,801,Male,TACROLIMUS,Thrombotic thrombocytopenic purpura,US,1,2
+26220055,3,801,Male,ACYCLOVIR,Papule,CO,1,2
+26220056,25,801,Male,MARIBAVIR,Viral infection,US,1,2
+26220058,68,801,Female,CARBOPLATIN,Hyperhidrosis,CO,1,2
+26220060,70,801,Male,BUPRENORPHINE HYDROCHLORIDE,Delirium,US,1,2
+26220062,57,801,Female,ETOPOSIDE,Agranulocytosis,CO,1,2
+26220063,67,801,Female,GEMCITABINE,Hepatic cytolysis,CO,1,2
+26220064,84,801,Male,LEVETIRACETAM,Symmetrical drug-related intertriginous and flexural exanthema,CO,1,2
+26220065,67,801,Male,DUPIXENT,Accidental exposure to product,US,2,2
+26220066,73,801,Female,DUPIXENT,Off label use,US,2,2
+26220068,78,801,Male,DUPIXENT,Cerebrovascular accident,US,1,2
+26220069,72,801,Female,REVLIMID,Product dose omission issue,US,,
+26220071,8,800,Male,TECENTRIQ,Immune-mediated hepatic disorder,JP,1,2
+26220072,85,801,Female,ACTEMRA ACTPEN,Neuropathy peripheral,US,1,2
+26220074,40,801,Female,RITUXIMAB,Off label use,CA,1,2
+26220075,53,801,Female,LENALIDOMIDE,Myelosuppression,CN,1,2
+26220076,53,801,Male,JASCAYD,Pyrexia,US,,
+26220077,78,801,Male,REVLIMID,Dysphagia,US,,
+26220078,68,801,Male,GABAPENTIN,Hypoglycaemia,EU,1,2
+26220081,55,801,Female,DUPIXENT,Dry skin,US,2,2
+26220086,36,801,Male,VEDOLIZUMAB,Colitis ulcerative,US,1,2
+26220087,69,801,Male,ACALABRUTINIB,Spinal fracture,US,1,2
+26220088,3,801,Male,METHOTREXATE,Febrile neutropenia,EU,1,2
+26220089,3,801,Female,ALBUTEROL SULFATE,Product dose omission issue,US,,
+26220090,76,801,Female,BENLYSTA,Device use error,US,2,2
+26220092,73,801,Female,METFORMIN,Toxicity to various agents,US,1,
+26220093,84,801,Male,GLIMEPIRIDE,Encephalopathy,US,1,
+26220094,65,801,Female,REMODULIN,Cardiac failure,US,1,2
+26220108,84,801,Male,ORGOVYX,Hypoacusis,US,2,2
+26220110,87,801,Male,POMALYST,Burning sensation,US,,
+26220111,83,801,Male,LENALIDOMIDE,Ligament sprain,US,2,2
+26220112,55,801,Male,APIXABAN,Drug hypersensitivity,US,,
+26220113,49,801,Female,ORENCIA,Pain,US,,
+26220116,77,801,Female,ZEPBOUND,Hunger,US,2,2
+26220117,31,801,Female,ZEPBOUND,Maternal exposure during pregnancy,US,2,2
+26220118,64,801,Male,MOUNJARO,Incorrect dose administered,US,2,2
+26220119,62,801,Male,MIRTAZAPINE,Urticaria,GB,1,2
+26220121,52,801,Female,LANTUS SOLOSTAR,Product dispensing error,US,2,2
+26220124,75,801,Male,DOCETAXEL,Diverticulitis,EU,1,2
+26220125,54,801,Female,SKYRIZI,Systemic lupus erythematosus,US,1,2
+26220127,60,801,Female,RINVOQ,Systemic lupus erythematosus,US,1,2
+26220128,90,801,Female,POMALYST,Influenza,US,1,2
+26220129,78,801,Female,KEVZARA,Epistaxis,US,2,2
+26220130,75,801,Female,AMIODARONE,Hypoglycaemia,GB,1,2
+26220131,66,801,Female,BEVACIZUMAB,Transaminases increased,EU,1,2
+26220139,62,801,Male,CARBOPLATIN,Hypokalaemia,EU,1,2
+26220144,75,801,Male,ENTYVIO,Rash erythematous,US,,
+26220145,75,801,Female,MARIBAVIR,Death,US,1,1
+26220146,82,801,Male,ORGOVYX,Death,US,1,1
+26220147,34,801,Female,TRANEXAMIC ACID,Gastrooesophageal reflux disease,GB,1,2
+26220148,3,801,Male,TOPOTECAN,Hepatic cytolysis,EU,1,2
+26220149,60,801,Female,REMODULIN,Syncope,US,1,2
+26220150,48,801,Female,ROSUVASTATIN CALCIUM,Muscle spasms,GB,1,2
+26220151,76,801,Female,CARBOPLATIN,Immune-mediated enterocolitis,EU,1,2
+26220152,33,801,Female,CLOPIDOGREL,Anaphylactic reaction,US,1,2
+26220154,55,801,Male,REVLIMID,Adverse event,US,,
+26220155,34,801,Male,FENTANYL,Accidental exposure to product,US,1,2
+26220157,74,801,Female,LENALIDOMIDE,Septic shock,EU,1,2
+26220160,58,801,Female,LANTUS SOLOSTAR,Weight decreased,US,2,2
+26220161,27,801,Male,DUPIXENT,Dermatitis,US,2,2
+26220162,75,801,Male,DALBAVANCIN HYDROCHLORIDE,Pelvic haemorrhage,EU,1,2
+26220163,71,801,Female,CARBOPLATIN,Atrial fibrillation,EU,1,2
+26220164,68,801,Female,OXYTROL,Burning sensation,US,2,2
+26220165,70,801,Female,FRUQUINTINIB,Nephrotic syndrome,EU,1,2
+26220167,28,801,Female,AMOXICILLIN\CLAVULANIC ACID,Pathogen resistance,EU,1,2
+26220169,60,801,Female,BLINATUMOMAB,Graft versus host disease in gastrointestinal tract,EU,1,2
+26220170,54,801,Female,DUPIXENT,Injection site bruising,US,2,2
+26220172,73,801,Female,DUPIXENT,Inappropriate schedule of product administration,US,2,2
+26220173,75,801,Male,ERLEADA,Death,CA,1,1
+26220175,70,801,Female,DOCETAXEL,General physical health deterioration,EU,1,2
+26220178,54,801,Female,BEXAROTENE,Graves^ disease,EU,1,2
+26220179,8,800,Female,ALENDRONIC ACID,Foreign body aspiration,EU,1,2
+26220180,81,801,Female,METHOTREXATE,Pancytopenia,EU,1,1
+26220181,42,801,Female,AMLODIPINE,Toxicity to various agents,US,1,2
+26220184,83,801,Female,ORENCIA,Arthralgia,US,2,2
+26220186,59,801,Male,GABAPENTIN,Pancreatitis acute,EU,1,2
+26220187,73,801,Male,MEPOLIZUMAB,Elbow operation,CA,1,2
+26220188,60,801,Female,CARBOPLATIN,Back pain,EU,1,2
+26220190,23,801,Male,VEDOLIZUMAB,Colitis ulcerative,US,1,2
+26220191,27,801,Male,OCREVUS,Bone infarction,CH,1,2
+26220192,89,801,Female,ACETAMINOPHEN,Delirium,EU,1,2
+26220194,30,801,Female,DOXORUBICIN,Drug ineffective,EU,1,2
+26220195,73,801,Female,MOMELOTINIB DIHYDROCHLORIDE,Cardiac arrest,EU,1,1
+26220198,64,801,Male,BREZTRI,Drug ineffective,RU,1,1
+26220199,6,802,Female,BEYFORTUS,Respiratory syncytial virus bronchiolitis,EU,1,2
+26220200,75,801,Female,POMALYST,Ear congestion,US,1,2
+26220202,82,801,Male,POMALYST,Adverse event,US,1,2
+26220203,70,801,Male,LENALIDOMIDE,Adverse event,US,1,2
+26220204,31,801,Male,METHYLPREDNISOLONE,Drug ineffective,US,1,2
+26220205,72,801,Female,REPATHA,Injury associated with device,US,2,2
+26220206,75,801,Male,GABAPENTIN,Hallucination,GB,1,2
+26220207,39,801,Male,RITUXIMAB,Heart rate increased,CA,1,2
+26220209,55,801,Female,ESTRADIOL,Headache,US,2,2
+26220215,56,801,Female,MYCOPHENOLATE MOFETIL,Drug ineffective,US,1,2
+26220220,63,801,Male,VENETOCLAX,Chronic lymphocytic leukaemia,EU,1,2
+26220221,50,801,Female,OXALIPLATIN,Band sensation,EU,1,2
+26220223,92,801,Male,GABAPENTIN,Hallucination,GB,1,2
+26220224,27,801,Female,DIAZEPAM,Drug ineffective,GB,1,2
+26220225,45,801,Female,XOLAIR PFS,Anaphylactic reaction,US,1,2
+26220226,63,801,Female,BEVACIZUMAB,Papule,CN,1,2
+26220229,33,801,Female,MONTELUKAST,Suicidal ideation,GB,1,2
+26220232,60,801,Male,FLUOROURACIL,Pneumatosis intestinalis,JP,1,1
+26220233,68,801,Female,ATEZOLIZUMAB,Blood creatinine increased,EU,2,2
+26220234,70,801,Female,LENALIDOMIDE,Plasma cell myeloma,US,1,2
+26220235,52,801,Male,ELIQUIS,Treatment noncompliance,US,,
+26220236,85,801,Female,TYVASO DPI,Epistaxis,US,1,2
+26220237,37,801,Female,GABAPENTIN,Leukopenia,EU,1,2
+26220241,78,801,Male,LENALIDOMIDE,Neutropenia,US,1,2
+26220246,58,801,Female,RITUXIMAB,Anaemia,EU,1,2
+26220249,63,801,Male,KYPROLIS,Infusion site extravasation,US,2,2
+26220252,51,801,Male,GABAPENTIN,Arthralgia,EU,1,2
+26220253,67,801,Female,OXALIPLATIN,Pain in extremity,EU,1,2
+26220258,31,801,Female,SULFAMETHOXAZOLE\TRIMETHOPRIM,Acute respiratory distress syndrome,US,1,2
+26220262,60,801,Female,PERTUZUMAB\TRASTUZUMAB,Cytopenia,CN,1,2
+26220263,52,801,Female,CLARITHROMYCIN,Ocular hyperaemia,GB,1,2
+26220264,53,801,Female,GABAPENTIN,Syncope,EU,1,2
+26220265,75,801,Male,HYDROXYZINE,Confusional state,EU,1,2
+26220266,86,801,Male,RITUXIMAB,Myelosuppression,CN,1,2
+26220268,32,801,Male,NUCALA,Product dose omission issue,US,2,2
+26220270,63,801,Male,MYCOPHENOLATE MOFETIL,Bacteraemia,US,1,2
+26220272,41,801,Male,AMOXICILLIN,Condition aggravated,CA,1,2
+26220273,85,801,Female,HYDROXYZINE,Erythema multiforme,EU,1,2
+26220274,84,801,Male,DIANEAL LOW CALCIUM PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,SG,1,1
+26220275,77,801,Male,DIANEAL LOW CALCIUM PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,SG,1,1
+26220276,61,801,Male,EXTRANEAL,Pancreatitis,US,1,2
+26220277,75,801,Female,DIANEAL LOW CALCIUM PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,SG,1,1
+26220279,56,801,Male,ATORVASTATIN,Pain,EU,1,2
+26220280,67,801,Female,ATORVASTATIN,Muscular weakness,GB,1,2
+26220282,70,801,Female,IBANDRONIC ACID,Osteitis,EU,1,2
+26220284,65,801,Female,XOLAIR,Breast pain,US,1,2
+26220286,59,801,Female,KEVZARA,Pain,US,2,2
+26220288,70,801,Female,AIMOVIG,Drug ineffective,US,2,2
+26220290,70,801,Female,REPATHA,Injection site pain,US,2,2
+26220291,32,801,Female,VEDOLIZUMAB,Crohn^s disease,CA,1,2
+26220293,11,801,Female,METHYLPHENIDATE HYDROCHLORIDE,Respiratory depression,US,1,2
+26220294,74,801,Female,CLOPIDOGREL,Contusion,GB,1,2
+26220295,71,801,Male,CAPECITABINE,Pneumonitis,EU,1,2
+26220298,73,801,Female,PULMICORT TURBUHALER,Death,EU,1,1
+26220299,8,800,Female,PREDNISONE,Pseudomonas infection,US,1,2
+26220301,16,801,Female,DEFERASIROX,Coma,EU,1,2
+26220303,23,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26220307,49,801,Female,VEDOLIZUMAB,Deep vein thrombosis,CA,1,2
+26220308,60,801,Female,ATEZOLIZUMAB,Rash,SG,1,2
+26220309,8,800,Male,TECENTRIQ,Pulmonary toxicity,JP,1,2
+26220311,43,801,Male,OXALIPLATIN,Portal hypertension,US,1,2
+26220312,47,801,Female,TECENTRIQ,Pneumonia,TH,1,1
+26220313,48,801,Female,ENSPRYNG,Urinary tract infection,JP,1,2
+26220314,39,801,Female,VEDOLIZUMAB,Crohn^s disease,CA,1,2
+26220317,8,801,Female,ILARIS,Incorrect dose administered by device,US,2,2
+26220320,59,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26220321,60,801,Female,ZEPBOUND,Accidental underdose,US,2,2
+26220323,70,801,Female,VEDOLIZUMAB,Salmonellosis,CA,1,2
+26220326,27,801,Female,VEDOLIZUMAB,Coeliac disease,CA,1,2
+26220327,86,801,Female,ALBUTEROL SULFATE,Product dose omission issue,US,2,2
+26220331,57,801,Female,BUPROPION,Intentional product misuse,US,1,2
+26220333,9,800,Male,VABYSMO,Retinal haemorrhage,JP,1,2
+26220334,55,801,Male,VEDOLIZUMAB,Sepsis,CA,1,2
+26220335,14,801,Male,MABTHERA,Arrhythmia,CN,1,2
+26220337,54,801,Male,MICAFUNGIN,Drug ineffective,US,1,1
+26220338,21,801,Female,PROPRANOLOL,Dissociation,GB,1,2
+26220339,48,801,Female,PEMETREXED,Cardiac failure,EU,1,2
+26220340,54,801,Male,ZEPZELCA,Melaena,CN,1,2
+26220345,78,801,Female,OXYTROL,Burning sensation,US,2,2
+26220346,62,801,Female,OCREVUS,Colitis,EU,1,2
+26220349,54,801,Female,ENTYVIO,Vaginal dysplasia,US,1,2
+26220350,76,801,Female,VEDOLIZUMAB,Death,CA,1,1
+26220351,90,801,Female,KADCYLA,Breast cancer,SG,1,1
+26220353,60,801,Male,AVASTIN,Death,TH,1,1
+26220354,39,801,Female,LOSEC,Pruritus,CN,1,2
+26220355,86,801,Female,RITUXIMAB,Feeling cold,CA,1,2
+26220357,39,801,Male,REVLIMID,Product distribution issue,US,,
+26220358,45,801,Male,PREDNISONE,Capillary leak syndrome,US,1,2
+26220359,53,801,Male,MYFORTIC,Febrile neutropenia,EU,1,2
+26220360,20,801,Male,ALTUVIIIO,Haemorrhage,US,2,2
+26220361,71,801,Female,DUPIXENT,Injection site pain,US,2,2
+26220363,33,801,Female,VERZENIO,Off label use,US,2,2
+26220365,2,801,Male,HEMLIBRA,Haemorrhage,US,1,2
+26220366,73,801,Male,CRESEMBA,Gastrointestinal perforation,JP,1,2
+26220368,69,801,Male,TEGRETOL,Drug reaction with eosinophilia and systemic symptoms,KR,1,2
+26220371,59,801,Male,HYDROXYCHLOROQUINE,Pneumonia,US,1,2
+26220372,63,801,Female,GEMTESA,Drug ineffective,US,,
+26220373,43,801,Female,HYDROCHLOROTHIAZIDE,Ventricular fibrillation,US,1,2
+26220375,82,801,Male,ORGOVYX,Night sweats,US,,
+26220378,85,801,Female,GEMTESA,Therapeutic product effect incomplete,US,,
+26220379,72,801,Female,BEXAROTENE,Drug ineffective,US,1,2
+26220380,36,801,Female,VEDOLIZUMAB,Ileal stenosis,CA,1,2
+26220382,79,801,Male,POMALYST,Blood creatine increased,US,,
+26220383,70,801,Male,GEMTESA,Arthralgia,US,,
+26220384,75,801,Male,ORGOVYX,Fatigue,US,2,2
+26220386,82,801,Male,ORGOVYX,Malaise,US,,
+26220387,66,801,Female,VEDOLIZUMAB,Crohn^s disease,US,1,2
+26220388,76,801,Male,ORGOVYX,Death,US,1,1
+26220389,70,801,Female,RITUXIMAB,Salivary hypersecretion,PK,1,2
+26220390,73,801,Female,OTEZLA,Pain in extremity,US,2,2
+26220393,65,801,Female,BENLYSTA,Injection site reaction,US,2,2
+26220395,70,801,Female,EMGALITY,Injection site pain,US,2,2
+26220396,70,801,Female,CARBAMAZEPINE,Hepatic enzyme increased,CN,1,2
+26220397,33,801,Male,RISPERIDONE,Somnolence,EU,1,2
+26220399,54,801,Female,SKYRIZI,Injury,US,2,2
+26220400,53,801,Female,VEDOLIZUMAB,Colitis ulcerative,US,1,2
+26220402,76,801,Female,RITUXIMAB,Breast cancer female,CA,1,2
+26220404,62,801,Female,ORENCIA,Bronchitis,US,1,2
+26220405,43,801,Male,ADVATE,Haemarthrosis,CN,1,2
+26220406,11,802,Female,SULFAMETHOXAZOLE\TRIMETHOPRIM,IgA nephropathy,CA,1,2
+26220408,81,801,Male,VEDOLIZUMAB,Neck pain,US,1,2
+26220411,69,801,Female,GABAPENTIN,Hypoglycaemia,EU,1,2
+26220412,6,801,Female,LINEZOLID,Neutropenia,EU,1,2
+26220413,48,801,Female,BUPROPION HYDROCHLORIDE,Dizziness,EU,1,2
+26220415,29,801,Female,FABRAZYME,Globotriaosylsphingosine increased,US,2,2
+26220416,2,801,Female,DUPIXENT,Eczema,US,2,2
+26220417,86,801,Female,RIFAMPIN,Renal failure,EU,1,2
+26220418,75,801,Male,DUPIXENT,Rash,US,2,2
+26220419,58,801,Male,FLUCONAZOLE,Acute kidney injury,EU,1,2
+26220420,63,801,Male,XIFAXAN,Hospitalisation,US,1,2
+26220421,72,801,Male,XIFAXAN,Death,US,1,1
+26220422,32,801,Male,DUPIXENT,COVID-19,US,2,2
+26220423,69,801,Male,PLAVIX,Oesophageal varices haemorrhage,EU,1,2
+26220424,86,801,Male,VEDOLIZUMAB,Malaise,CA,1,2
+26220425,35,801,Female,SILIQ,Appendicitis perforated,CA,1,2
+26220426,67,801,Male,DEXAMETHASONE,Pulmonary haemorrhage,EU,1,1
+26220427,53,801,Female,ORENCIA,Device operational issue,US,,
+26220428,72,801,Male,REVLIMID,Arthropathy,US,1,2
+26220429,72,801,Female,LENALIDOMIDE,Adverse event,US,,
+26220433,47,801,Female,ZEPBOUND,Drug ineffective,US,2,2
+26220435,79,801,Male,METFORMIN,Lactic acidosis,US,1,2
+26220436,69,801,Female,LEVOTHYROXINE SODIUM,Drug reaction with eosinophilia and systemic symptoms,EU,1,2
+26220439,67,801,Male,ORGOVYX,Transient ischaemic attack,US,1,2
+26220444,67,801,Male,ENTYVIO,Crohn^s disease,EU,1,2
+26220449,84,801,Male,RITUXIMAB,Drug hypersensitivity,CN,1,2
+26220450,59,801,Male,OTEZLA,Arthralgia,US,2,2
+26220452,71,801,Male,XIFAXAN,Chronic hepatic failure,US,1,2
+26220453,77,801,Male,XIFAXAN,Hepatic cirrhosis,US,1,1
+26220456,53,801,Female,ENALAPRIL,Haematochezia,EU,1,2
+26220458,77,801,Female,CARBOPLATIN,Neuroendocrine carcinoma of the skin,US,1,2
+26220459,31,801,Female,KEVZARA,Rheumatoid arthritis,US,1,2
+26220460,32,801,Male,DUPILUMAB,Colitis,US,1,2
+26220461,30,801,Male,YEZTUGO,Injection site discharge,US,2,2
+26220462,29,801,Female,RITUXIMAB,Maternal exposure before pregnancy,EU,1,2
+26220464,77,801,Male,RINVOQ,Loss of consciousness,US,1,2
+26220465,48,801,Female,SKYRIZI,Fibromyalgia,US,1,2
+26220468,70,801,Female,ATORVASTATIN,Hepatitis acute,GB,1,1
+26220469,9,801,Female,SAIZEN,Vomiting,EU,1,2
+26220470,64,801,Female,ORENCIA,Arthralgia,US,,
+26220471,88,801,Female,OLANZAPINE,Electrocardiogram QT prolonged,US,1,2
+26220472,75,801,Male,POMALYST,Neutropenia,US,1,2
+26220473,64,801,Female,RITUXIMAB,Lymphoma transformation,PK,1,2
+26220476,90,801,Female,VALSARTAN,Acute kidney injury,EU,1,2
+26220477,13,801,Female,FLUOXETINE,Personality change,EU,1,2
+26220479,64,801,Male,POMALYST,Hospitalisation,US,1,2
+26220481,42,801,Female,FLECAINIDE ACETATE,Respiratory failure,US,1,2
+26220482,74,801,Male,POMALYST,Decreased appetite,US,,
+26220483,77,801,Female,GEMCITABINE,Pneumonitis,EU,1,2
+26220486,64,801,Female,AIMOVIG,Intercepted product storage error,US,2,2
+26220488,78,801,Female,POMALYST,Plasma cell myeloma,US,1,2
+26220489,8,801,Male,DUPIXENT,Nasal congestion,US,2,2
+26220490,73,801,Female,CLOPIDOGREL BISULFATE,Organising pneumonia,JP,1,2
+26220491,58,801,Male,ALPROLIX,Haemorrhage,US,2,2
+26220492,43,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26220493,74,801,Female,ENTRESTO,Shock,CN,1,2
+26220494,50,801,Female,HYALURONIDASE-ZZXF\PERTUZUMAB\TRASTUZUMAB,Myelosuppression,CN,1,2
+26220495,81,801,Male,DUPILUMAB,Cerebrovascular accident,US,1,2
+26220498,28,801,Female,SUNOSI,Bipolar disorder,US,1,
+26220501,67,801,Female,POMALYST,Drug ineffective,US,1,2
+26220502,58,801,Female,ORENCIA,Diarrhoea,US,,
+26220505,65,801,Female,VEDOLIZUMAB,Lung disorder,CA,1,1
+26220506,55,801,Male,VEDOLIZUMAB,Lower respiratory tract infection,CA,1,2
+26220507,47,801,Female,DUPIXENT,Rheumatoid arthritis,US,1,2
+26220508,78,801,Male,POMALYST,Illness,US,1,2
+26220509,57,801,Female,DASATINIB,Large intestine polyp,US,1,2
+26220510,46,801,Male,ESCITALOPRAM,Treatment failure,EU,1,2
+26220511,40,801,Female,TRISENOX,Differentiation syndrome,EU,1,2
+26220512,80,801,Female,DUPIXENT,Incorrect dose administered,US,2,2
+26220514,76,801,Female,LANTUS,Off label use,US,2,2
+26220515,80,801,Female,DUPIXENT,Back pain,US,2,2
+26220517,63,801,Male,ZEPBOUND,Injection site pain,US,2,2
+26220519,77,801,Male,RIFAMPIN,Hepatitis cholestatic,EU,1,2
+26220521,47,801,Female,DOCETAXEL,Hypersensitivity,EU,2,2
+26220522,66,801,Female,NUCALA,Rib fracture,US,2,2
+26220523,79,801,Male,AMLODIPINE,Atrial fibrillation,AU,1,2
+26220524,29,801,Female,SERTRALINE,Seizure,EU,1,2
+26220527,55,801,Female,REVLIMID,Pneumonia,US,1,2
+26220529,39,801,Male,ARIPIPRAZOLE,Pleural fibrosis,EU,1,2
+26220531,65,801,Female,DUPIXENT,Adverse drug reaction,US,2,2
+26220532,33,801,Female,DUPIXENT,Product use in unapproved indication,US,2,2
+26220533,54,801,Female,REPATHA,Diabetes mellitus,US,1,2
+26220534,83,801,Female,REPATHA,Diabetes mellitus,US,1,2
+26220536,45,801,Male,ATORVASTATIN,Immune-mediated myositis,GB,1,2
+26220537,69,801,Male,CLOPIDOGREL,Skin cancer,EU,1,2
+26220539,30,801,Male,YESCARTA,Guillain-Barre syndrome,US,1,2
+26220542,55,801,Female,PREDNISONE,Septic shock,US,1,2
+26220543,74,801,Female,FLUOROURACIL,Hypokalaemia,EU,1,2
+26220544,56,801,Male,DUPIXENT,Influenza like illness,US,2,2
+26220545,18,801,Male,DUPIXENT,Dermatitis,US,2,2
+26220546,37,801,Male,TREMFYA,Pemphigus,US,1,2
+26220547,81,801,Female,XIIDRA,Pain,US,2,2
+26220549,45,801,Female,EZETIMIBE,Hypoglycaemic seizure,EU,1,2
+26220550,79,801,Female,CLOPIDOGREL,Skin cancer,EU,1,2
+26220552,85,801,Female,DUPIXENT,Fall,US,1,2
+26220553,32,801,Male,DIAZEPAM,Somnolence,GB,1,2
+26220555,59,801,Female,DUPIXENT,No adverse event,US,2,2
+26220557,62,801,Female,TIRZEPATIDE,Nausea,US,2,2
+26220562,69,801,Female,DUPIXENT,Headache,US,2,2
+26220566,63,801,Male,LANTHANUM CARBONATE,Death,US,1,1
+26220570,83,801,Female,POMALYST,Therapy non-responder,US,1,2
+26220572,4,801,Female,TEDUGLUTIDE,Vascular device infection,US,1,2
+26220574,80,801,Female,POMALYST,Diarrhoea,US,,
+26220579,9,801,Female,TOCILIZUMAB,Leukopenia,MY,1,2
+26220581,95,801,Female,ACETAMINOPHEN,Hypothermia,EU,1,2
+26220582,68,801,Male,DUPIXENT,Swelling,US,2,2
+26220583,62,801,Male,DUPIXENT,Nasopharyngitis,US,2,2
+26220585,70,801,Female,ZEPOSIA,Intentional product misuse,US,,
+26220587,81,801,Male,AMOXICILLIN,Face oedema,EU,1,2
+26220588,73,801,Male,POLATUZUMAB VEDOTIN,Death,CN,1,1
+26220589,39,801,Male,DUPIXENT,Erectile dysfunction,US,1,2
+26220591,62,801,Female,ARIPIPRAZOLE,Neuroleptic malignant syndrome,TR,1,2
+26220592,49,801,Female,HYALURONIDASE-ZZXF\PERTUZUMAB\TRASTUZUMAB,Myelosuppression,CN,1,2
+26220596,48,801,Male,TECENTRIQ,General physical health deterioration,PK,1,1
+26220598,51,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26220602,76,801,Female,VEDOLIZUMAB,Patella fracture,CA,1,2
+26220603,18,801,Female,DUPIXENT,Accidental exposure to product,US,2,2
+26220604,57,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26220605,21,801,Male,DUPIXENT,Product dose omission in error,US,2,2
+26220606,80,801,Female,VEDOLIZUMAB,Death,CA,1,1
+26220609,77,801,Female,LENALIDOMIDE,Neutropenia,US,1,2
+26220610,72,801,Female,POMALYST,Diarrhoea,US,,
+26220611,9,800,Female,TECENTRIQ,Ascites,JP,1,2
+26220612,54,801,Female,SKYRIZI,Psoriasis,US,2,2
+26220613,28,801,Female,XOFLUZA,Diarrhoea,CN,1,2
+26220614,76,801,Female,OXALIPLATIN,Speech disorder,EU,1,2
+26220615,60,801,Male,KEVZARA,Pain,US,2,2
+26220617,16,801,Male,DUPIXENT,Accidental exposure to product,US,2,2
+26220618,23,801,Male,FINASTERIDE,Anhedonia,GB,1,2
+26220620,18,801,Male,IDURSULFASE,Cardiac arrest,EU,1,1
+26220622,70,801,Male,TRULICITY,Incorrect dose administered,US,2,2
+26220623,66,801,Male,DUPIXENT,Injection site pain,US,2,2
+26220628,71,801,Male,TECENTRIQ,Glomerulonephritis,JP,1,2
+26220631,15,801,Female,DEXAMETHASONE,Serum ferritin decreased,EU,2,2
+26220633,10,801,Male,LANTUS SOLOSTAR,Off label use,US,2,2
+26220635,73,801,Female,METFORMIN,Sudden death,EU,1,1
+26220637,49,801,Female,ACTEMRA,Platelet count decreased,JP,1,2
+26220638,72,801,Female,ORENCIA,Pain,US,,
+26220639,73,801,Female,DUPIXENT,Injection site mass,US,2,2
+26220640,1,802,Male,DEXAMETHASONE,Aspergillus infection,BR,1,1
+26220641,39,801,Male,CRESTOR,Diarrhoea,EU,1,2
+26220643,59,801,Female,LOSARTAN,Heart rate irregular,GB,1,2
+26220645,61,801,Female,TECENTRIQ,Colitis ulcerative,EU,1,2
+26220647,66,801,Male,POMALYST,Neuropathy peripheral,US,1,2
+26220648,92,801,Male,IDHIFA,Pericardial effusion,US,1,2
+26220650,73,801,Male,DUPIXENT,Pneumonia,US,1,2
+26220651,84,801,Female,DARZALEX,White blood cell count decreased,CN,1,2
+26220653,93,801,Male,ELIQUIS,Anaemia,TW,1,2
+26220656,10,801,Male,HEMLIBRA,Arthropathy,US,1,2
+26220660,27,801,Male,BETAMETHASONE,Topical steroid withdrawal reaction,GB,1,2
+26220661,15,801,Male,AMLODIPINE,Hypotension,ZA,1,2
+26220663,15,801,Male,BLINATUMOMAB,Hepatic function abnormal,CN,1,2
+26220666,51,801,Female,AJOVY,Musculoskeletal stiffness,EU,1,2
+26220671,62,801,Female,ACTEMRA,Myocardial infarction,CA,1,2
+26220673,79,801,Female,APIXABAN,Rectal haemorrhage,EU,1,2
+26220676,38,801,Male,DUPIXENT,Product prescribing issue,US,2,2
+26220677,54,801,Female,VERZENIO,Alanine aminotransferase increased,US,2,2
+26220678,44,801,Male,MOSUNETUZUMAB,Lymphoma,CN,1,2
+26220679,76,801,Male,REZUROCK,Photophobia,US,2,2
+26220683,40,801,Female,RITUXIMAB,Arthropathy,CA,1,1
+26220686,60,801,Female,DUPIXENT,Pneumonia,US,1,2
+26220687,62,801,Male,NITROGLYCERIN,Methaemoglobinaemia,US,1,2
+26220688,5,800,Female,PROLIA,Hungry bone syndrome,IN,1,2
+26220691,80,801,Male,LEVOFLOXACIN,Electrolyte imbalance,EU,1,2
+26220696,86,801,Female,MIEBO,Eye swelling,US,2,2
+26220699,77,801,Male,BEVACIZUMAB,Hepatocellular carcinoma,JP,1,2
+26220700,65,801,Female,ROMIPLOSTIM,Blood loss anaemia,US,1,2
+26220701,70,801,Female,KEVZARA,Product use in unapproved indication,US,2,2
+26220704,4,801,Female,AMOXICILLIN,Rash morbilliform,EU,1,2
+26220708,86,801,Female,AIRSUPRA,Cardiac arrest,US,1,1
+26220710,68,801,Female,TEPEZZA,Postmenopausal haemorrhage,US,1,2
+26220711,59,801,Male,KEVZARA,Headache,US,2,2
+26220713,29,801,Female,VUMERITY,Asthenia,US,,
+26220715,84,801,Female,ELIQUIS,Hospitalisation,US,1,2
+26220717,59,801,Male,MABTHERA,Diffuse large B-cell lymphoma recurrent,PK,1,2
+26220718,72,801,Male,DUPIXENT,Rash erythematous,US,2,2
+26220719,72,801,Female,POMALYST,Product dose omission in error,US,,
+26220720,70,801,Female,ORENCIA,Arthralgia,US,,
+26220721,9,802,Female,BUDESONIDE,Pertussis,RU,1,2
+26220722,52,801,Female,DAPAGLIFLOZIN,Urine ketone body present,CN,1,2
+26220724,74,801,Female,SPRYCEL,Drug ineffective,US,1,2
+26220725,19,801,Male,VEDOLIZUMAB,Colitis ulcerative,US,1,2
+26220727,79,801,Male,POMALYST,Product administration interrupted,US,,
+26220730,84,801,Male,INQOVI,Kidney infection,US,1,
+26220731,74,801,Female,ZOLEDRONIC ACID,Renal tubular necrosis,EU,1,1
+26220732,73,801,Female,COSENTYX,Drug-induced liver injury,EU,1,2
+26220740,78,801,Male,POMALYST,Death,US,1,1
+26220741,49,801,Female,ZEPBOUND,Pancreatitis,US,1,2
+26220742,72,801,Male,LONSURF,Malignant neoplasm progression,UA,1,
+26220743,74,801,Female,VORTIOXETINE,Neoplasm malignant,US,1,2
+26220746,68,801,Male,BENDAMUSTINE,Pyrexia,CN,1,2
+26220748,40,801,Female,ONIVYDE,Death,IN,1,1
+26220751,78,801,Female,REPATHA,Cognitive disorder,US,2,2
+26220752,59,801,Male,HUMAN IMMUNOGLOBULIN G\HYALURONIDASE RECOMBINANT HUMAN,Death,GB,1,1
+26220754,57,801,Male,DUPIXENT,Eczema,US,2,2
+26220757,78,801,Male,DUPIXENT,Breast mass,US,2,2
+26220758,19,801,Male,HUMAN IMMUNOGLOBULIN G,Off label use,AU,1,2
+26220759,52,801,Female,REZUROCK,Influenza,US,2,2
+26220760,60,801,Female,REPATHA,Low density lipoprotein decreased,US,2,2
+26220761,72,801,Female,ENBREL,Cataract,US,1,2
+26220762,68,801,Female,ELIQUIS,Product availability issue,US,,
+26220763,74,801,Female,ORENCIA,Illness,US,,
+26220764,20,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26220765,85,801,Female,DUPIXENT,Incorrect dose administered,US,2,2
+26220766,77,801,Male,BEVACIZUMAB,Death,US,1,1
+26220768,70,801,Male,WELLBUTRIN XL,Suicidal ideation,US,1,2
+26220769,86,801,Male,PLUVICTO,Colitis ulcerative,EU,1,2
+26220770,81,801,Female,ELIQUIS,Blood cholesterol increased,US,2,2
+26220772,66,801,Female,DUPIXENT,Cough,US,2,2
+26220777,48,801,Male,DUPIXENT,Chest discomfort,US,2,2
+26220780,14,801,Male,AZITHROMYCIN,Bilirubin conjugated increased,EU,1,2
+26220782,27,801,Male,IMATINIB,Pulmonary hypertension,EU,1,2
+26220784,86,801,Male,OCTREOTIDE,Lung neoplasm malignant,GB,1,2
+26220786,82,801,Female,RISPERIDONE,Thrombocytopenia,EU,1,2
+26220787,15,801,Female,FABRAZYME,Influenza,US,2,2
+26220788,55,801,Female,TYSABRI,Malaise,US,,
+26220791,38,801,Female,TYSABRI,Multiple sclerosis relapse,US,,
+26220793,60,801,Female,PLEGRIDY,Night sweats,US,,
+26220794,21,801,Female,DUPIXENT,Dry skin,US,2,2
+26220795,38,801,Female,EVEROLIMUS,Skin toxicity,EU,1,2
+26220797,81,801,Female,ELIQUIS,Off label use,US,2,2
+26220799,53,801,Female,AJOVY,Malaise,GB,1,2
+26220802,6,801,Female,AMOXICILLIN,Enterocolitis,EU,1,2
+26220804,14,801,Female,AMOXICILLIN,Dizziness,EU,1,2
+26220806,18,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26220808,26,801,Female,CIPROFLOXACIN HYDROCHLORIDE,Cholestasis,EU,1,2
+26220809,74,801,Female,IDHIFA,Infusion site haemorrhage,US,1,2
+26220812,40,801,Female,SKYRIZI,Loss of consciousness,US,1,2
+26220813,64,801,Female,VENCLEXTA,Investigation abnormal,US,1,2
+26220814,32,801,Male,SKYRIZI,Osteonecrosis,US,1,2
+26220815,53,801,Female,RINVOQ,Gallbladder disorder,US,1,2
+26220816,61,801,Female,SKYRIZI,Neoplasm malignant,US,1,2
+26220817,81,801,Female,HUMALOG,Illness,US,2,2
+26220818,47,801,Male,ANDROGEL,Compulsive shopping,EU,1,2
+26220820,17,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26220821,49,801,Male,ALBUTEROL,Asthma,CA,1,2
+26220823,57,801,Male,HUMALOG,Product dose omission issue,US,2,2
+26220825,71,801,Male,ALBUTEROL,Body mass index increased,CA,1,2
+26220826,71,801,Female,ORENCIA,Joint swelling,US,,
+26220828,79,801,Female,TRELEGY ELLIPTA,Product dose omission issue,US,,
+26220829,56,801,Male,TRULICITY,Illness,US,2,2
+26220830,49,801,Female,ESTROGEL,Myocarditis,EU,1,2
+26220831,5,801,Male,ALPROLIX,Fall,US,2,2
+26220833,79,801,Male,JASCAYD,Pain in extremity,US,2,2
+26220835,72,801,Female,REVLIMID,Rash,US,,
+26220838,68,801,Female,HUMALOG,Blood glucose increased,US,1,2
+26220846,35,801,Female,BUSPAR,Tachycardia,US,2,2
+26220847,52,801,Female,ALBUTEROL,Asthma,BR,2,2
+26220848,80,801,Female,FLUTICASONE FUROATE,Hospitalisation,CA,1,2
+26220850,48,801,Female,IBSRELA,Volvulus,US,1,2
+26220852,70,801,Female,IMFINZI,Supraventricular tachycardia,EU,1,2
+26220853,61,801,Female,ZEPBOUND,Eczema,US,2,2
+26220854,51,801,Female,ZEPBOUND,Nausea,US,2,2
+26220855,28,801,Female,AYVAKIT,Malaise,US,2,2
+26220856,51,801,Female,AYVAKIT,Tryptase increased,US,2,2
+26220857,68,801,Female,AYVAKIT,Haematochezia,US,1,2
+26220861,73,801,Male,ZEPBOUND,Diarrhoea,US,2,2
+26220862,39,801,Female,EMGALITY,Incorrect dose administered by device,US,2,2
+26220863,78,801,Female,TAGRISSO,Lung adenocarcinoma,EU,1,2
+26220864,46,801,Male,ESKETAMINE,Depression,EU,1,2
+26220865,57,801,Male,OPSUMIT,Oxygen saturation decreased,US,1,2
+26220869,68,801,Male,AYVAKIT,Influenza,US,2,2
+26220870,56,801,Female,AYVAKIT,Nausea,US,2,2
+26220871,40,801,Male,SPRAVATO,Rehabilitation therapy,US,1,2
+26220875,59,801,Female,MIEBO,Death,US,1,1
+26220876,26,801,Male,SPRAVATO,Dissociation,US,1,2
+26220878,87,801,Female,LENALIDOMIDE,Hospitalisation,US,1,2
+26220879,75,801,Male,LENALIDOMIDE,Atrial fibrillation,US,1,2
+26220883,77,801,Female,FORTEO,Pneumonia,US,1,2
+26220884,52,801,Female,ZEPBOUND,Injection site bruising,US,2,2
+26220887,66,801,Female,LENALIDOMIDE,Hypoaesthesia,US,2,2
+26220888,46,801,Male,HUMIRA,Knee operation,CA,1,2
+26220890,72,801,Male,VYALEV,Decubitus ulcer,US,1,2
+26220891,63,801,Female,SKYRIZI,Breast cancer stage I,CA,1,2
+26220895,79,801,Male,FOSCARBIDOPA\FOSLEVODOPA,Death,EU,1,1
+26220897,45,801,Female,OTEZLA,Discomfort,US,2,2
+26220898,57,801,Male,RISPERIDONE,Neuroleptic malignant syndrome,EU,1,2
+26220899,73,801,Female,CREON,Pancreatic carcinoma,US,1,2
+26220901,78,801,Female,SKYRIZI,Death,GB,1,1
+26220903,62,801,Female,EMGALITY,Injection site pain,US,2,2
+26220904,66,801,Female,DOCETAXEL,Osteonecrosis of jaw,JP,1,2
+26220907,90,801,Male,LUPRON,Swelling,CA,1,2
+26220909,65,801,Female,SKYRIZI,Haemoglobin decreased,US,1,2
+26220911,71,801,Male,VENCLEXTA,Leukaemia,US,1,2
+26220913,11,801,Female,EBGLYSS,Injection site urticaria,US,2,2
+26220914,60,801,Female,INFLIXIMAB,Wrist surgery,GB,1,2
+26220919,61,801,Female,REPATHA,Injection site pruritus,US,2,2
+26220923,24,801,Male,REMODULIN,Device loosening,US,2,2
+26220924,71,801,Male,VENCLEXTA,Pneumonia,MX,1,1
+26220926,71,801,Male,CARBIDOPA\LEVODOPA,Pneumonia aspiration,EU,1,1
+26220927,53,801,Male,SKYRIZI,Small intestinal resection,CA,1,2
+26220928,81,801,Female,CARBIDOPA\LEVODOPA,Shock haemorrhagic,EU,1,2
+26220929,32,801,Female,DUPIXENT,Eosinophilic oesophagitis,US,2,2
+26220931,70,801,Male,OSIMERTINIB,Neuropathy peripheral,CN,1,2
+26220932,72,801,Male,ERIVEDGE,Death,US,1,1
+26220936,33,801,Female,BETAMETHASONE DIPROPIONATE,Drug ineffective,AU,1,2
+26220938,56,801,Female,QALSODY,Mobility decreased,US,2,2
+26220939,29,801,Female,TYSABRI,Central nervous system lesion,US,2,2
+26220941,27,801,Female,REMODULIN,Hot flush,US,,
+26220944,37,801,Female,VUMERITY,Malaise,US,,
+26220946,61,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26220948,20,801,Male,SELUMETINIB,Cafe au lait spots,KZ,1,2
+26220952,25,801,Female,AVONEX,Arthritis,US,2,2
+26220955,73,801,Female,XARELTO,Leukopenia,EU,1,2
+26220956,53,801,Male,EMPAGLIFLOZIN\METFORMIN HYDROCHLORIDE,Drug ineffective,EU,1,2
+26220958,68,801,Female,FOSCARBIDOPA\FOSLEVODOPA,Iron deficiency anaemia,EU,1,2
+26220959,84,801,Male,VENCLEXTA,Prostatic artery embolisation,US,1,2
+26220960,31,801,Female,BETAMETHASONE DIPROPIONATE,Drug ineffective,AU,1,2
+26220961,41,801,Female,SKYRIZI,Intestinal resection,US,1,2
+26220963,40,801,Female,DUPIXENT,Fatigue,US,2,2
+26220964,91,801,Female,LENALIDOMIDE,Diarrhoea,US,2,2
+26220966,46,801,Male,REVLIMID,Rash,US,1,2
+26220967,63,801,Male,PREDNISONE,Cytokine release syndrome,US,1,2
+26220969,87,801,Male,ARANESP,Death,GB,1,1
+26220971,38,801,Female,SPRAVATO,Sedation,US,1,2
+26220973,85,801,Female,PREDNISONE,Pneumocystis jirovecii pneumonia,US,1,2
+26220974,29,801,Female,SPIRONOLACTONE,Simple partial seizures,US,1,2
+26220976,62,801,Male,STELARA,Off label use,US,2,2
+26220977,75,801,Female,XARELTO,Nausea,CA,1,2
+26220979,67,801,Female,SKYRIZI,Irritable bowel syndrome,GB,1,2
+26220980,59,801,Female,SPRAVATO,Dissociation,US,1,2
+26220981,63,801,Female,AVONEX,Multiple sclerosis,US,,
+26220982,27,801,Female,IBUPROFEN,Ruptured ectopic pregnancy,CN,1,2
+26220991,49,801,Male,DUPIXENT,Rash,US,2,2
+26220992,17,801,Female,DUPIXENT,Illness,US,2,2
+26220994,58,801,Male,DASATINIB,Alopecia,US,,
+26220995,77,801,Male,TOUJEO,Off label use,US,2,2
+26220996,71,801,Male,REPATHA,Therapy interrupted,US,2,2
+26220997,72,801,Female,RITUXIMAB,Pemphigus,US,1,2
+26220998,83,801,Male,NUPLAZID,Death,US,1,1
+26221000,55,801,Male,TYVASO DPI,Headache,US,2,2
+26221003,48,801,Female,ZEPBOUND,Extra dose administered,US,2,2
+26221004,66,801,Female,EBGLYSS,Injection site pain,US,2,2
+26221007,54,801,Female,LANTUS SOLOSTAR,Off label use,US,2,2
+26221009,52,801,Female,EMGALITY,Injection site pain,US,2,2
+26221010,65,801,Male,MOUNJARO,Incorrect dose administered,US,2,2
+26221012,66,801,Female,ROSUVASTATIN CALCIUM,Rhabdomyolysis,US,1,2
+26221015,32,801,Female,DUPIXENT,Dizziness,US,2,2
+26221017,7,800,Male,DUPIXENT,Cardiac failure,JP,1,2
+26221018,69,801,Male,FRUZAQLA,Thyroiditis,JP,1,2
+26221019,62,801,Female,CARBOPLATIN,General physical health deterioration,CO,1,2
+26221020,71,801,Female,REPATHA,Therapy interrupted,US,2,2
+26221021,67,801,Male,REPATHA,Accidental exposure to product,US,2,2
+26221022,73,801,Male,CARBOPLATIN,Hot flush,CO,1,2
+26221023,69,801,Male,LEUCOVORIN CALCIUM,Hypochromic anaemia,CO,1,2
+26221024,58,801,Male,FRUQUINTINIB,Lacunar infarction,JP,1,2
+26221029,55,801,Female,CAPIVASERTIB,Thrombosis,US,1,2
+26221031,51,801,Female,ABECMA,Leukopenia,EU,1,2
+26221032,84,801,Male,XTANDI,Blood pressure decreased,US,2,
+26221034,50,801,Male,DAPSONE,Adverse event,US,1,2
+26221037,78,801,Male,NUPLAZID,Death,US,1,1
+26221038,76,801,Female,PROPOFOL,Thrombocytopenia,EU,1,2
+26221039,40,801,Female,CYCLOPHOSPHAMIDE,Gastrointestinal disorder,CN,1,2
+26221040,74,801,Female,CYCLOPHOSPHAMIDE,Gastrooesophageal reflux disease,CN,1,2
+26221042,32,801,Male,PALIPERIDONE PALMITATE,Erectile dysfunction,EU,1,2
+26221043,63,801,Female,DUPIXENT,Asthma,US,2,2
+26221044,79,801,Female,LANTUS SOLOSTAR,Off label use,US,2,2
+26221045,9,801,Male,OMNITROPE,Circumstance or information capable of leading to medication error,US,2,2
+26221046,68,801,Female,DAPTOMYCIN,Acute respiratory failure,US,1,2
+26221047,64,801,Female,CAPIVASERTIB,Gallbladder disorder,US,1,2
+26221048,62,801,Female,DOXIL,Pulmonary toxicity,JP,1,2
+26221049,57,801,Male,DOXORUBICIN,Pneumonia,US,1,2
+26221050,40,801,Male,ALENDRONATE,Osteonecrosis,CA,1,2
+26221051,69,801,Female,CYCLOPHOSPHAMIDE,Bacterial sepsis,IL,1,1
+26221052,28,801,Male,CYCLOPHOSPHAMIDE,Hepatic enzyme increased,CN,1,2
+26221053,62,801,Female,DOXORUBICIN,Pancytopenia,CH,1,2
+26221054,34,801,Male,IFOSFAMIDE,Disseminated intravascular coagulation,CH,1,2
+26221057,49,801,Male,TOUJEO MAX,Off label use,US,2,2
+26221059,66,801,Female,ROSUVASTATIN CALCIUM,Rhabdomyolysis,US,1,2
+26221060,84,801,Female,TOUJEO,Suicidal ideation,CH,1,2
+26221062,26,801,Female,DUPIXENT,Rash erythematous,US,2,2
+26221063,52,801,Female,DUPIXENT,Nasal polyps,US,2,2
+26221068,46,801,Female,TREMFYA,Product dose omission issue,US,2,2
+26221069,74,801,Male,DAPAGLIFLOZIN,Arthralgia,GB,1,2
+26221070,69,801,Male,POMALYST,Mental impairment,US,1,2
+26221074,75,801,Female,RINVOQ,Diverticulitis,CA,1,2
+26221075,27,801,Female,DUPIXENT,Skull fracture,US,1,2
+26221076,50,801,Female,FLUOROURACIL,Febrile neutropenia,CA,1,2
+26221079,61,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221084,72,801,Female,REMICADE,Pneumonia,CA,1,2
+26221086,90,801,Male,CAMZYOS,Heart failure with reduced ejection fraction,US,1,1
+26221087,39,801,Male,TREMFYA,Fatigue,US,,
+26221088,44,801,Female,USTEKINUMAB,Crohn^s disease,GB,1,2
+26221091,62,801,Female,DAPSONE,Methaemoglobinaemia,US,1,2
+26221094,77,801,Female,ETOPOSIDE,Systemic candida,US,1,2
+26221095,56,801,Female,ROSUVASTATIN,Suicidal ideation,EU,1,2
+26221096,31,801,Female,DUPIXENT,Stress,US,2,2
+26221098,73,801,Female,DUPIXENT,Pneumonia,US,1,2
+26221100,42,801,Female,TREMFYA,Product leakage,US,2,2
+26221102,10,801,Male,ALPROLIX,Gait disturbance,US,2,2
+26221103,44,801,Female,DUPIXENT,Asthma,US,2,2
+26221106,19,801,Female,DUPIXENT,Inappropriate schedule of product administration,US,2,2
+26221107,63,801,Male,DUPIXENT,Injection site bruising,US,2,2
+26221109,61,801,Male,AXICABTAGENE CILOLEUCEL,Illness,US,1,2
+26221110,76,801,Male,ORGOVYX,Dizziness,US,1,2
+26221111,35,801,Female,DUPIXENT,Sleep disorder due to a general medical condition,US,2,2
+26221114,47,801,Male,FLUOROURACIL,Substance-induced psychotic disorder,US,1,2
+26221118,97,801,Male,GEMTESA,Death,US,1,1
+26221123,74,801,Female,METHOTREXATE,Pneumocystis jirovecii pneumonia,US,1,2
+26221131,89,801,Male,NUPLAZID,Death,US,1,1
+26221133,72,801,Female,IMODIUM MULTI-SYMPTOM RELIEF,Foreign body in throat,US,1,2
+26221136,58,801,Female,DUPIXENT,Pain,US,2,2
+26221138,45,801,Female,DUPIXENT,Accidental exposure to product,US,2,2
+26221141,44,801,Female,PYRAZINAMIDE,Drug ineffective,CN,1,1
+26221142,78,801,Female,PREDNISONE,Tenosynovitis,EU,1,2
+26221143,15,801,Female,ESCITALOPRAM,Rapid eye movement sleep behaviour disorder,CN,1,2
+26221145,13,802,Female,NITROFURANTOIN,Medication error,US,2,2
+26221146,69,801,Male,CISPLATIN,Chest pain,CO,1,2
+26221148,70,801,Female,CISPLATIN,Dyspnoea,CO,1,2
+26221149,48,801,Female,PREDNISONE,Neutropenia,IR,1,2
+26221150,71,801,Male,VORICONAZOLE,"Hallucination, visual",CN,1,2
+26221151,64,801,Male,DUPIXENT,COVID-19,US,1,2
+26221154,80,801,Male,TAXOTERE,Osteonecrosis of jaw,JP,1,2
+26221155,14,801,Male,ALVESCO,Surgery,US,1,2
+26221159,27,801,Male,HEMLIBRA,Haemorrhage,US,,
+26221164,88,801,Male,JARDIANCE,Thrombocytopenia,CH,1,2
+26221166,59,801,Female,RINVOQ,Cyst,US,1,2
+26221170,27,801,Male,TYLENOL,Metabolic acidosis,US,1,2
+26221173,47,801,Female,DUPIXENT,Intentional product misuse,US,2,2
+26221175,71,801,Female,DUPIXENT,Cough,US,2,2
+26221176,47,801,Female,DUPIXENT,Injection site pain,US,2,2
+26221177,78,801,Male,NUPLAZID,Nightmare,US,2,2
+26221179,85,801,Male,DUPIXENT,Sinusitis,US,2,2
+26221180,33,801,Male,ALTUVIIIO,Haemorrhage,US,2,2
+26221181,43,801,Male,ZEPBOUND,Extra dose administered,US,2,2
+26221182,74,801,Female,KISUNLA,Tremor,US,2,2
+26221184,42,801,Female,ZEPBOUND,Alopecia,US,2,2
+26221187,70,801,Male,VEDOLIZUMAB,Crohn^s disease,CA,1,2
+26221188,60,801,Female,ROSUVASTATIN,Transient ischaemic attack,EU,1,2
+26221189,51,801,Male,METOPROLOL SUCCINATE,Acute kidney injury,US,1,2
+26221190,22,801,Female,INFLIXIMAB,Leptospirosis,BR,1,2
+26221191,81,801,Male,CARBIDOPA\LEVODOPA,Impaired gastric emptying,EU,1,2
+26221197,80,801,Male,OFEV,Liver injury,CN,1,2
+26221199,57,801,Male,SKYRIZI,Rash macular,US,2,2
+26221200,10,801,Female,DAYBUE,Diarrhoea,US,2,2
+26221201,71,801,Female,AYVAKIT,Neoplasm,US,2,2
+26221204,65,801,Male,METFORMIN,Muscle spasms,GB,1,2
+26221207,4,801,Female,DAYBUE,Diarrhoea,US,2,2
+26221208,72,801,Female,VEDOLIZUMAB,Diarrhoea,CA,1,2
+26221210,27,801,Female,ACETAMINOPHEN,Encephalopathy,US,1,2
+26221213,18,801,Male,BUPROPION HYDROCHLORIDE XL,Intestinal pseudo-obstruction,US,1,2
+26221214,72,801,Female,DUPIXENT,Injection site rash,US,2,2
+26221215,2,801,Male,DUPIXENT,Viral upper respiratory tract infection,US,2,2
+26221219,51,801,Male,SIMPONI,Product dose omission issue,MX,,
+26221220,80,801,Female,REPATHA,Device difficult to use,US,2,2
+26221221,61,801,Male,DUPIXENT,Eczema,US,2,2
+26221224,55,801,Female,DUPIXENT,Drug effect less than expected,US,2,2
+26221225,46,801,Female,DARATUMUMAB,Tumour lysis syndrome,BR,1,2
+26221226,47,801,Male,FLUCONAZOLE,Treatment failure,US,1,2
+26221230,83,801,Male,COLCHICINE,Multiple organ dysfunction syndrome,US,1,1
+26221233,35,801,Female,COLCHICINE,Condition aggravated,GB,1,2
+26221234,69,801,Male,OFEV,Pulmonary fibrosis,EU,1,1
+26221235,29,801,Male,EBGLYSS,Pelvic pain,US,2,2
+26221236,55,801,Female,ZEPBOUND,Extra dose administered,US,2,2
+26221237,40,801,Female,METFORMIN HYDROCHLORIDE,Depression,CA,1,1
+26221238,72,801,Male,METGLUCO,Hypopharyngeal cancer,JP,1,2
+26221245,24,801,Female,METHYLPREDNISOLONE,Necrotising myositis,CA,1,1
+26221249,53,801,Female,TRASTUZUMAB,Liver injury,CN,1,2
+26221250,63,801,Female,SERETIDE,Chronic obstructive pulmonary disease,CN,1,2
+26221252,49,801,Male,AMOXICILLIN\CLAVULANIC ACID,Colitis ischaemic,US,1,2
+26221254,48,801,Female,SPRYCEL,Ageusia,US,,
+26221264,76,801,Female,DUPIXENT,Injection site pain,US,2,2
+26221266,47,801,Female,BEVACIZUMAB,Thrombotic microangiopathy,EU,1,2
+26221269,45,801,Female,ACALABRUTINIB,Stevens-Johnson syndrome,MY,1,2
+26221271,21,801,Female,JAVYGTOR,Cough,US,2,
+26221272,62,801,Female,EPCLUSA,Extrasystoles,EU,1,2
+26221274,82,801,Male,CYCLOSPORINE,Ocular discomfort,US,2,2
+26221275,43,801,Male,OXALIPLATIN,Portal hypertension,US,1,2
+26221276,71,801,Male,APIXABAN,Epistaxis,US,,
+26221280,92,801,Male,VIZZ,Headache,US,2,2
+26221281,43,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26221282,66,801,Female,MOUNJARO,Incorrect dose administered,US,2,2
+26221286,73,801,Male,TYVASO DPI,Accident,US,,
+26221288,50,801,Male,MACITENTAN\TADALAFIL,Product dose omission issue,US,,
+26221289,62,801,Male,GUSELKUMAB,Incorrect dose administered,US,2,2
+26221290,69,801,Female,SKYRIZI,Shoulder operation,US,1,2
+26221291,82,801,Female,DUPIXENT,Cough,US,2,2
+26221292,48,801,Female,DUPIXENT,Mouth ulceration,US,2,2
+26221296,55,801,Female,DUPIXENT,Injection site bruising,US,2,2
+26221297,75,801,Male,DUPIXENT,Nausea,US,2,2
+26221301,2,803,Male,PALIVIZUMAB,Hypersomnia,MX,1,2
+26221302,66,801,Male,ELIGARD,Death,CA,1,1
+26221303,92,801,Male,DUPIXENT,Basal cell carcinoma,US,1,2
+26221306,40,801,Female,ADALIMUMAB,Myelitis transverse,GB,1,2
+26221307,41,801,Female,HYALURONIDASE-ZZXF\PERTUZUMAB\TRASTUZUMAB,Drug-induced liver injury,CN,1,2
+26221311,23,801,Female,LACOSAMIDE,Inability to afford medication,CA,1,2
+26221313,84,801,Female,LINAGLIPTIN,Abdominal pain,TW,1,2
+26221314,47,801,Female,NUCALA,Dyspnoea,EU,1,2
+26221315,78,801,Female,NUCALA,Injection site pain,US,2,2
+26221316,47,801,Female,GEMTESA,Breast cancer female,US,1,2
+26221319,81,801,Female,NUCALA,Wrong technique in device usage process,US,,
+26221322,88,801,Female,METHOTREXATE,Pulmonary hypertension,US,1,2
+26221329,59,801,Female,VIZZ,Visual impairment,US,2,2
+26221330,47,801,Male,VIZZ,Drug effect less than expected,US,2,2
+26221331,50,801,Male,VIZZ,Drug effect less than expected,US,2,2
+26221335,56,801,Female,VIZZ,Drug ineffective,US,2,2
+26221336,60,801,Female,VIZZ,Headache,US,2,2
+26221337,40,801,Male,VIZZ,Pseudomyopia,US,2,2
+26221338,60,801,Female,VIZZ,Drug effect less than expected,US,2,2
+26221342,77,801,Female,VIZZ,Xanthopsia,US,2,2
+26221347,84,801,Female,SUCRALFATE,Abdominal pain upper,CA,1,2
+26221348,31,801,Male,COBENFY,Haematochezia,US,1,2
+26221350,54,801,Female,NIVOLUMAB,Immune-mediated enterocolitis,US,1,2
+26221352,72,801,Female,DUPIXENT,Secretion discharge,US,2,2
+26221358,63,801,Female,SPEVIGO,Clavicle fracture,US,1,2
+26221362,54,801,Female,ACALABRUTINIB,Colitis microscopic,US,1,2
+26221364,40,801,Female,DAYBUE,Diarrhoea,US,2,2
+26221366,63,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26221367,33,801,Female,DUPIXENT,Dry skin,US,2,2
+26221368,67,801,Male,ALTUVIIIO,Epistaxis,US,2,2
+26221369,73,801,Female,LANTUS SOLOSTAR,Blood glucose increased,US,2,2
+26221370,42,801,Female,DUPIXENT,Nasopharyngitis,US,2,2
+26221371,31,801,Female,DUPIXENT,Nasal polyps,US,2,2
+26221372,78,801,Male,NUPLAZID,"Hallucination, visual",US,1,2
+26221375,58,801,Female,PANTOPRAZOLE,Death,RS,1,1
+26221378,84,801,Female,POMALYST,Influenza,US,1,2
+26221379,76,801,Male,POMALYST,Rash,US,,
+26221380,45,801,Female,BEVACIZUMAB,Fatigue,GB,1,2
+26221381,63,801,Male,METFORMIN,Hyperlactacidaemia,EU,1,2
+26221383,58,801,Male,TADALAFIL,Pancreatitis,EU,1,2
+26221384,52,801,Male,SILDENAFIL CITRATE,Rash,US,2,2
+26221386,88,801,Male,SILDENAFIL CITRATE,Product administration error,US,,
+26221387,52,801,Female,FABRAZYME,White blood cell count decreased,CN,1,2
+26221392,78,801,Female,ELIQUIS,Off label use,US,,
+26221393,34,801,Female,PACLITAXEL,Dyspnoea,EU,1,2
+26221394,82,801,Female,DUPIXENT,Pruritus,US,2,2
+26221395,73,801,Female,DUPIXENT,Hospitalisation,US,1,2
+26221396,28,801,Female,DUPIXENT,Maternal exposure during pregnancy,US,2,2
+26221399,32,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221401,80,801,Female,DUPIXENT,Sleep disorder due to a general medical condition,US,2,2
+26221402,52,801,Male,DUPIXENT,Mood altered,US,2,2
+26221403,81,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26221404,83,801,Male,MOUNJARO,Extra dose administered,US,2,2
+26221405,65,801,Male,MOUNJARO,Accidental overdose,US,2,2
+26221407,16,802,Female,CARBOPLATIN,Nasal congestion,CA,1,2
+26221409,46,801,Female,OLAPARIB,Joint stiffness,GB,1,2
+26221411,54,801,Female,VIZZ,Glare,US,2,2
+26221413,62,801,Female,VIZZ,Ocular discomfort,US,2,2
+26221415,49,801,Male,VIZZ,Visual acuity reduced,US,2,2
+26221421,62,801,Female,VIZZ,Visual impairment,US,2,2
+26221422,55,801,Female,VIZZ,Migraine,US,2,2
+26221428,66,801,Female,CISPLATIN,Acute myocardial infarction,CA,1,2
+26221429,47,801,Female,CAPSAICIN,Nasopharyngitis,US,2,2
+26221432,68,801,Female,FLUTICASONE PROPIONATE\SALMETEROL XINAFOATE,Vision blurred,US,2,2
+26221435,44,801,Female,PERJETA,Death,SG,1,1
+26221436,57,801,Male,LINAGLIPTIN\METFORMIN HYDROCHLORIDE,Drug reaction with eosinophilia and systemic symptoms,TW,1,2
+26221437,76,801,Female,PADCEV,Lumbar vertebral fracture,AR,1,2
+26221439,66,801,Female,QUTENZA,Burning sensation,US,2,2
+26221440,75,801,Female,ONIVYDE,Heart rate decreased,CN,1,2
+26221441,66,801,Male,TREMFYA,Hepatic cancer,CA,1,2
+26221442,77,801,Female,DABIGATRAN,Rectal haemorrhage,US,1,2
+26221443,77,801,Female,ESTRADIOL,Rash macular,US,2,2
+26221444,79,801,Female,QUTENZA,Feeling hot,US,2,2
+26221445,59,801,Male,DOXORUBICIN,Aspergillus infection,US,1,1
+26221447,7,800,Female,ACETAZOLAMIDE,Therapy non-responder,US,1,2
+26221448,9,802,Male,ACETAZOLAMIDE,Off label use,US,2,2
+26221449,33,801,Female,ACETAZOLAMIDE,Drug effective for unapproved indication,US,2,2
+26221451,49,801,Female,ACETAZOLAMIDE,Drug ineffective for unapproved indication,US,1,2
+26221453,8,801,Male,ACETAZOLAMIDE,Drug ineffective,US,1,2
+26221454,6,800,Male,ACETAZOLAMIDE,Therapy non-responder,US,2,2
+26221455,45,801,Female,ACETAZOLAMIDE,Treatment noncompliance,US,2,2
+26221456,44,801,Male,ACETAZOLAMIDE,Drug ineffective,US,2,2
+26221457,59,801,Female,ACETAZOLAMIDE,Drug ineffective for unapproved indication,US,1,2
+26221458,21,801,Female,HUMATE-P,Ovarian cyst ruptured,US,1,2
+26221459,48,801,Male,ACETAZOLAMIDE,Off label use,US,2,2
+26221460,51,801,Female,ACETAZOLAMIDE,Hypokalaemia,US,1,2
+26221461,13,801,Male,ACETAZOLAMIDE,Off label use,US,2,2
+26221462,65,801,Male,ACETAZOLAMIDE,Drug ineffective for unapproved indication,US,1,2
+26221463,44,801,Female,ACETAZOLAMIDE,Drug intolerance,US,2,2
+26221464,64,801,Male,ACETAZOLAMIDE,Off label use,US,2,2
+26221465,66,801,Female,LIDOCAINE,Drug hypersensitivity,US,2,2
+26221466,15,801,Male,HEMLIBRA,Tonsillar haemorrhage,US,1,2
+26221467,51,801,Male,CARBAMAZEPINE,Gait disturbance,CN,1,2
+26221469,68,801,Male,DUPIXENT,Pruritus,US,2,2
+26221470,14,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26221472,71,801,Female,SPRAVATO,Cerebrovascular accident,US,1,2
+26221473,84,801,Female,VYZULTA,Ophthalmic migraine,US,2,2
+26221475,64,801,Female,DILTIAZEM,Dizziness,CA,1,2
+26221479,60,801,Female,EBGLYSS,Musculoskeletal discomfort,US,2,2
+26221485,11,801,Female,ZYRTEC,Drug ineffective,US,2,2
+26221486,69,801,Female,ACALABRUTINIB,Food poisoning,US,1,2
+26221487,14,801,Female,CONCERTA,Albuminuria,CN,1,2
+26221490,60,801,Female,AVASTIN,Rash maculo-papular,EU,1,2
+26221491,34,801,Male,METOPROLOL,Drug ineffective,US,1,2
+26221492,81,801,Male,MULTAQ,Atrioventricular block complete,EU,1,2
+26221493,44,801,Female,DUPIXENT,Product dose omission in error,US,2,2
+26221494,30,801,Female,DUPIXENT,Nausea,US,2,2
+26221495,38,801,Male,DUPIXENT,Extra dose administered,US,2,2
+26221496,38,801,Male,DUPIXENT,Injection site pain,US,2,2
+26221497,68,801,Male,DUPIXENT,Pruritus,US,2,2
+26221498,73,801,Female,CIPROFLOXACIN,Renal impairment,EU,1,2
+26221500,56,801,Male,AZITHROMYCIN,Condition aggravated,GB,1,2
+26221501,3,801,Female,DAYBUE,Mood swings,US,2,2
+26221502,32,801,Male,BUPRENORPHINE,Death,EU,1,1
+26221506,39,801,Male,CISPLATIN,Pyrexia,CA,1,2
+26221508,62,801,Male,TECENTRIQ,Splenic infarction,JP,1,2
+26221509,64,801,Male,SIMLANDI,Fall,CA,1,2
+26221511,22,801,Female,ZENATANE,Abortion induced,US,1,
+26221512,30,801,Male,ADBRY,Skin disorder,US,2,
+26221514,65,801,Female,TAXOTERE,Leukaemia recurrent,EU,1,2
+26221515,78,801,Female,DUPIXENT,Injection site pain,US,2,2
+26221516,36,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221520,63,801,Male,AYVAKIT,Night sweats,US,2,2
+26221521,33,801,Female,PACLITAXEL,Flushing,EU,1,2
+26221522,44,801,Female,RITUXIMAB,Exostosis,CA,1,1
+26221523,13,801,Female,ADBRY,Urticaria,US,2,
+26221526,42,801,Male,DUPIXENT,Accidental exposure to product,US,2,2
+26221528,24,801,Female,ZENATANE,Exposure during pregnancy,US,1,
+26221529,61,801,Male,TAMSULOSIN HYDROCHLORIDE,Myalgia,GB,1,2
+26221530,55,801,Male,SKYRIZI,Product use in unapproved indication,US,2,2
+26221532,20,801,Female,TREMFYA,Urticaria,US,,
+26221535,24,801,Female,EMGALITY,Migraine,US,2,2
+26221537,17,801,Female,REMICADE,Pneumonia,CA,1,2
+26221538,35,801,Male,ZEPBOUND,Extra dose administered,US,2,2
+26221539,46,801,Female,ZEPBOUND,Somnolence,US,2,2
+26221542,15,801,Male,RISPERIDONE,Loss of consciousness,EU,1,2
+26221544,72,801,Female,RITUXIMAB,Blood pressure increased,CA,1,2
+26221545,28,801,Female,FLUOXETINE HYDROCHLORIDE,Exposure during pregnancy,EU,1,
+26221548,55,801,Male,DICLOFENAC,Acute myocardial infarction,EU,1,2
+26221549,87,801,Female,VALACYCLOVIR HYDROCHLORIDE,Antiviral drug level above therapeutic,EU,1,2
+26221550,43,801,Female,CANDESARTAN,Fibromyalgia,CA,1,1
+26221552,70,801,Male,DARZALEX,White blood cell count decreased,CN,1,2
+26221553,49,801,Male,OXALIPLATIN,Drug ineffective,US,1,1
+26221554,90,801,Female,VELTASSA,Death,JP,1,1
+26221555,15,801,Female,ESCITALOPRAM,Rapid eye movement sleep behaviour disorder,CN,1,2
+26221559,42,801,Female,TYSABRI,Influenza,US,,
+26221561,85,801,Male,ADBRY,Drug ineffective,US,2,
+26221562,78,801,Male,RIVAROXABAN,Anaemia,EU,1,
+26221563,86,801,Male,XTANDI,Retching,US,1,
+26221564,84,801,Male,REVLIMID,Somnolence,US,1,2
+26221566,87,801,Male,VIDAZA,Febrile neutropenia,EU,1,1
+26221567,81,801,Female,POMALYST,Pneumonia,US,1,2
+26221569,68,801,Male,ISAVUCONAZONIUM SULFATE,Erythema,CN,1,
+26221570,93,801,Male,DUPIXENT,Localised oedema,US,2,2
+26221571,69,801,Male,DUPIXENT,Accidental exposure to product,US,2,2
+26221572,88,801,Male,XTANDI,Pain,CO,1,
+26221573,80,801,Male,KORSUVA,Cerebral infarction,JP,1,2
+26221575,72,801,Male,TECENTRIQ,Atrial fibrillation,JP,1,2
+26221576,23,801,Female,DUPIXENT,Chapped lips,US,2,2
+26221577,56,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26221578,71,801,Male,BOTOX,Muscle contractions involuntary,EU,1,2
+26221579,2,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221580,50,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221581,70,801,Female,DUPIXENT,Product dose omission in error,US,2,2
+26221582,42,801,Female,DUPIXENT,COVID-19,US,1,2
+26221583,70,801,Female,DUPIXENT,Injection site urticaria,US,2,2
+26221586,83,801,Female,RITUXIMAB,Infusion related reaction,US,1,2
+26221587,45,801,Male,SKYRIZI,Influenza,US,2,2
+26221588,22,801,Female,DUPIXENT,Dry skin,US,2,2
+26221592,65,801,Female,IQIRVO,Liver function test increased,US,2,2
+26221594,83,801,Female,APIXABAN,Haemorrhagic stroke,CA,1,2
+26221596,61,801,Female,MOUNJARO,Injection site pain,US,2,2
+26221598,78,801,Female,DOXYCYCLINE HYCLATE,Asthenia,CA,1,2
+26221599,86,801,Female,TAVNEOS,Neutropenia,JP,1,2
+26221600,28,801,Female,SKYRIZI,Inflammatory bowel disease,EU,1,2
+26221601,68,801,Female,PLEGRIDY,Death,US,1,1
+26221602,22,801,Female,SPRAVATO,Dissociation,US,1,2
+26221604,76,801,Male,HARNAL,Urinary retention,JP,1,2
+26221605,80,801,Female,CAPECITABINE,Stress cardiomyopathy,US,1,
+26221609,70,801,Female,XYWAV,Surgery,US,1,2
+26221610,24,801,Female,METRONIDAZOLE,Dysmenorrhoea,CA,1,2
+26221611,57,801,Female,RELISTOR,Drug screen positive,US,2,2
+26221612,67,801,Female,PRAVASTATIN SODIUM,Cholestasis,EU,1,2
+26221613,79,801,Male,CARBIDOPA\LEVODOPA,General physical health deterioration,EU,1,2
+26221614,9,801,Female,DAYBUE,Brain injury,US,1,1
+26221616,76,801,Female,POMALYST,Hospitalisation,US,1,2
+26221617,21,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221618,44,801,Female,DUPIXENT,Influenza,US,2,2
+26221619,76,801,Male,PRAVASTATIN,Nightmare,GB,1,2
+26221620,49,801,Female,DUPIXENT,Eyelid margin crusting,US,2,2
+26221621,69,801,Female,DUPIXENT,Alopecia,US,2,2
+26221622,11,801,Female,REMICADE,Pneumonia,CA,1,2
+26221625,21,801,Female,METFORMIN,Hypovolaemia,CA,1,2
+26221626,56,801,Male,DIANEAL PD-2 PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,IN,1,1
+26221627,70,801,Male,DIANEAL PD-2 PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Haematological infection,IN,1,1
+26221628,73,801,Male,DIANEAL LOW CALCIUM PERITONEAL DIALYSIS SOLUTION WITH DEXTROSE,Death,SG,1,1
+26221631,76,801,Male,CARBOPLATIN,Febrile neutropenia,US,1,2
+26221632,43,801,Female,RITUXIMAB,Alopecia,CA,1,1
+26221633,42,801,Female,EMPAGLIFLOZIN,Ketoacidosis,EU,1,2
+26221635,79,801,Male,DUPIXENT,Hypersensitivity,US,2,2
+26221636,61,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26221638,88,801,Male,QINLOCK,Hypothyroidism,US,1,2
+26221639,60,801,Female,OXAZEPAM,Depressed level of consciousness,EU,1,2
+26221640,43,801,Female,NAPROXEN,C-reactive protein increased,CA,1,1
+26221641,49,801,Male,METFORMIN,Lactic acidosis,US,1,2
+26221643,62,801,Male,STRENSIQ,Myocardial infarction,US,1,2
+26221644,73,801,Female,MAVACAMTEN,Diarrhoea,GB,1,2
+26221646,77,801,Male,DUPIXENT,Pruritus,US,2,2
+26221648,52,801,Male,CEFAZOLIN,Kounis syndrome,US,1,2
+26221649,81,801,Male,VENETOCLAX,Hyponatraemia,EU,1,2
+26221651,72,801,Female,FOSCARBIDOPA\FOSLEVODOPA,Weight decreased,EU,1,2
+26221652,61,801,Female,ESTRADIOL,Acne cystic,US,,
+26221653,31,801,Male,TYRUKO,Aphthous ulcer,EU,1,2
+26221654,38,801,Male,QINLOCK,Pain,US,2,2
+26221656,25,801,Male,FINASTERIDE,Completed suicide,EU,1,1
+26221658,37,801,Female,TREMFYA,Device deployment issue,US,2,2
+26221661,35,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26221662,20,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221664,26,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221666,54,801,Female,TECENTRIQ,Vomiting,CH,1,1
+26221667,79,801,Male,OPDIVO,End stage renal disease,JP,1,2
+26221668,61,801,Female,AIMOVIG,Cellulitis,CA,1,2
+26221669,9,800,Female,CARBOPLATIN,Hyponatraemia,US,1,2
+26221670,71,801,Male,CARBOPLATIN,Proteus test positive,CA,1,2
+26221673,63,801,Male,MYCOPHENOLIC ACID,Pulmonary mucormycosis,US,1,2
+26221675,80,801,Male,BENLYSTA,Injection site haemorrhage,US,2,2
+26221676,86,801,Female,PREDNISONE,Pneumocystis jirovecii pneumonia,US,1,2
+26221677,29,801,Female,RITUXIMAB,Flushing,CA,1,2
+26221681,43,801,Female,OBINUTUZUMAB,Myelosuppression,CN,1,2
+26221683,71,801,Female,UPTRAVI,Epistaxis,US,2,2
+26221684,74,801,Female,SULFAMETHOXAZOLE\TRIMETHOPRIM,Meningitis aseptic,US,1,2
+26221686,65,801,Female,CARBOPLATIN,Dermatitis bullous,EU,1,2
+26221692,19,801,Female,FILSUVEZ,Wrong technique in product usage process,US,,
+26221694,39,801,Male,LAMOTRIGINE,Rash pruritic,CA,1,2
+26221698,62,801,Female,COLISTIMETHATE SODIUM,Polyuria,EU,1,2
+26221702,17,801,Male,FILSUVEZ,Product use issue,US,,
+26221703,13,801,Female,FILSUVEZ,Localised infection,US,,
+26221705,69,801,Female,BRINSUPRI,Rash erythematous,US,2,2
+26221706,83,801,Female,BRINSUPRI,Pruritus,US,2,2
+26221708,78,801,Female,BRINSUPRI,Blister,US,2,2
+26221713,78,801,Male,BRINSUPRI,Rash,US,2,2
+26221717,66,801,Female,BRINSUPRI,Rash,US,2,2
+26221718,75,801,Female,BRINSUPRI,Weight decreased,US,2,2
+26221724,78,801,Female,MULTAQ,Off label use,US,2,2
+26221725,19,801,Female,DUPIXENT,Incorrect dose administered,US,2,2
+26221731,69,801,Male,OFEV,Weight decreased,EU,1,2
+26221733,43,801,Male,ZEPBOUND,Accidental overdose,US,2,2
+26221734,62,801,Female,MOUNJARO,Influenza,US,2,2
+26221735,55,801,Male,ZEPBOUND,Extra dose administered,US,2,2
+26221736,55,801,Male,ZEPBOUND,Incorrect dose administered,US,2,2
+26221738,69,801,Female,ZEPBOUND,Urticaria,US,2,2
+26221741,68,801,Male,ZEPBOUND,Injection site irritation,US,2,2
+26221746,78,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26221747,40,801,Male,EMGALITY,No adverse event,US,2,2
+26221749,51,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26221750,55,801,Male,ZEPBOUND,Hypoacusis,US,2,2
+26221751,72,801,Female,BRINSUPRI,Pruritus,US,2,2
+26221766,78,801,Female,BRINSUPRI,Cough,US,2,2
+26221768,66,801,Female,BRINSUPRI,Nausea,US,2,2
+26221774,69,801,Male,PANTOPRAZOLE,Renal phospholipidosis,EU,1,2
+26221776,52,801,Male,DEXAMETHASONE,Nausea,GB,1,2
+26221777,98,801,Female,OSIMERTINIB,Death,US,1,1
+26221778,66,801,Female,TREPROSTINIL,Haemoptysis,JP,1,2
+26221780,53,801,Male,COLCHICINE,Gastrointestinal disorder,GB,1,2
+26221781,73,801,Male,PRAVASTATIN SODIUM,Intestinal obstruction,EU,1,2
+26221782,76,801,Female,SKYRIZI,Knee arthroplasty,US,1,2
+26221783,57,801,Female,ENOXAPARIN SODIUM,Chest pain,IL,1,2
+26221786,72,801,Female,TOUJEO,Off label use,US,2,2
+26221787,72,801,Male,FOSCARBIDOPA\FOSLEVODOPA,Abdominal pain,EU,1,2
+26221788,92,801,Female,REFRESH OPTIVE MEGA-3,Meibomian gland dysfunction,US,1,2
+26221789,32,801,Female,DUPIXENT,Pruritus,US,2,2
+26221790,69,801,Male,VENETOCLAX,Myelosuppression,CN,1,2
+26221791,85,801,Male,SKYRIZI,Death,GB,1,1
+26221792,44,801,Female,ZYRTEC,Drug ineffective,US,,
+26221793,74,801,Female,XIIDRA,Eye irritation,US,2,2
+26221794,80,801,Female,PACLITAXEL,Type I hypersensitivity,EU,1,2
+26221796,74,801,Female,CARBOPLATIN,Bacterial translocation,CA,1,2
+26221797,85,801,Female,REVLIMID,Constipation,US,,
+26221798,82,801,Female,CAMZYOS,Atrial fibrillation,US,1,2
+26221801,62,801,Male,VENETOCLAX,Myelosuppression,CN,1,2
+26221804,68,801,Female,OSIMERTINIB,Sepsis,US,1,2
+26221805,23,801,Male,GLUCOPHAGE,Liver function test abnormal,CN,1,2
+26221808,76,801,Female,METFORMIN,Abdominal pain,CA,1,2
+26221809,56,801,Male,TESTOSTERONE,Sudden cardiac death,US,1,1
+26221810,58,801,Female,IMFINZI,Malignant neoplasm progression,IN,1,2
+26221812,71,801,Male,OXALIPLATIN,Acute respiratory failure,US,1,2
+26221813,81,801,Female,DUPIXENT,Dermatitis,US,2,2
+26221815,34,801,Female,BROMELAINS,Septic shock,CO,1,2
+26221816,66,801,Female,EVENITY,Choking sensation,EU,1,2
+26221817,9,801,Male,SAIZEN,Hallucination,EG,1,2
+26221818,51,801,Female,ULTRAVIST,Skin plaque,BR,1,2
+26221819,70,801,Female,KERENDIA,Asphyxia,EU,1,2
+26221820,38,801,Female,ADEMPAS,Palpitations,US,2,2
+26221823,76,801,Male,ASTEPRO,Upper-airway cough syndrome,US,2,2
+26221824,66,801,Female,OSIMERTINIB,Death,US,1,1
+26221826,63,801,Female,DENOSUMAB,Pneumonia influenzal,CN,1,2
+26221827,60,801,Male,CIPRO,Electrolyte imbalance,CA,1,2
+26221831,43,801,Female,SKYRIZI,Intestinal obstruction,US,1,2
+26221832,69,801,Female,SKYRIZI,Pruritus,US,2,2
+26221835,71,801,Male,BORTEZOMIB,Myoclonus,US,1,2
+26221836,45,801,Male,TREMFYA,Product storage error,US,,
+26221840,43,801,Male,DUPIXENT,Incorrect dose administered,US,2,2
+26221844,75,801,Female,METFORMIN,Dehydration,CA,1,2
+26221845,56,801,Male,FINGOLIMOD,Visceral leishmaniasis,EU,1,2
+26221846,75,801,Male,TECENTRIQ,Diabetic ketoacidosis,EU,1,1
+26221847,65,801,Male,BORTEZOMIB,Fall,US,1,2
+26221848,72,801,Female,XOLAIR,Drug ineffective,US,2,2
+26221850,73,801,Female,ACYCLOVIR,Hypokalaemia,CO,1,2
+26221854,74,801,Male,ORGOVYX,Tooth disorder,US,1,2
+26221857,50,801,Female,AFATINIB,Nephropathy toxic,US,1,2
+26221858,83,801,Male,METFORMIN,Lactic acidosis,US,1,1
+26221861,95,801,Female,ACTEMRA,Pulmonary oedema,JP,1,2
+26221863,80,801,Male,NUPLAZID,Hypersomnia,US,2,2
+26221865,53,801,Male,ALLOPURINOL,Fatigue,GB,1,2
+26221866,48,801,Female,DOXORUBICIN,Troponin increased,EU,1,2
+26221867,72,801,Female,CARBOPLATIN,Colitis,CO,1,2
+26221868,64,801,Male,RITUXIMAB,Ankylosing spondylitis,CA,1,2
+26221869,53,801,Male,METFORMIN,Frequent bowel movements,CA,1,2
+26221870,76,801,Male,ORGOVYX,Contusion,US,,
+26221871,58,801,Male,CIPROFLOXACIN,Adrenal insufficiency,CO,1,2
+26221872,74,801,Male,RINVOQ,Appendicectomy,US,1,2
+26221873,74,801,Female,CEFAZOLIN SODIUM,Feeling hot,CO,1,2
+26221875,71,801,Female,METFORMIN HYDROCHLORIDE,Hypoglycaemia,CA,1,2
+26221877,64,801,Female,QINLOCK,Pain,US,,
+26221879,33,801,Female,NUPLAZID,Memory impairment,US,2,2
+26221880,86,801,Female,SKYRIZI,Cerebral haemorrhage,US,1,2
+26221882,62,801,Male,ORENCIA,Pain,US,,
+26221883,66,801,Female,SKYRIZI,Spinal fracture,US,1,2
+26221884,50,801,Female,NOREPINEPHRINE BITARTRATE,Cardiogenic shock,US,1,2
+26221887,58,801,Male,METFORMIN HYDROCHLORIDE,Euglycaemic diabetic ketoacidosis,CA,1,2
+26221892,13,801,Male,MYCOPHENOLATE MOFETIL,Blood creatinine increased,CA,1,2
+26221893,60,801,Male,SKYRIZI,Large intestinal haemorrhage,US,1,2
+26221895,60,801,Female,TYVASO DPI,Acute respiratory failure,US,1,2
+26221897,69,801,Female,VEDOLIZUMAB,Haematochezia,US,1,2
+26221898,75,801,Female,SYNTHROID,Hospice care,US,1,2
+26221899,90,801,Male,IMBRUVICA,Brain operation,US,1,2
+26221900,75,801,Male,DUPIXENT,Palpitations,US,2,2
+26221902,25,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26221904,37,801,Male,DUPIXENT,Influenza,US,2,2
+26221906,54,801,Male,DUPIXENT,Sleep disorder,US,2,2
+26221907,56,801,Male,DUPIXENT,Product use in unapproved indication,US,2,2
+26221908,53,801,Male,QINLOCK,Alopecia,US,,
+26221909,54,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26221910,26,801,Female,LANTUS SOLOSTAR,Off label use,US,2,2
+26221911,77,801,Female,VANCOMYCIN,Renal impairment,US,1,2
+26221916,93,801,Male,LUPRON,Death,CA,1,1
+26221917,51,801,Male,CARFILZOMIB,Chronic kidney disease,CN,1,2
+26221927,84,801,Female,LANTUS,Off label use,US,2,2
+26221928,58,801,Female,DUPIXENT,Injection site pain,US,2,2
+26221929,87,801,Male,VENCLEXTA,Hypervolaemia,US,1,2
+26221930,74,801,Female,METHOTREXATE,Pneumocystis jirovecii pneumonia,US,1,2
+26221933,41,801,Female,DUPIXENT,Injection site mass,US,2,2
+26221934,35,801,Female,SPRAVATO,Device malfunction,US,2,2
+26221935,59,801,Female,VEDOLIZUMAB,Crohn^s disease,US,1,2
+26221936,66,801,Female,ROPINIROLE,Dependence,GB,1,2
+26221937,63,801,Female,FOSCARBIDOPA\FOSLEVODOPA,Femoral neck fracture,EU,1,2
+26221939,87,801,Female,REVLIMID,Urinary tract infection,US,,
+26221941,85,801,Female,GEMTESA,Drug ineffective,US,,
+26221942,77,801,Female,RITUXIMAB,Oxygen saturation decreased,EU,1,2
+26221943,69,801,Female,CAMZYOS,Fatigue,CA,1,2
+26221944,54,801,Female,ZEPBOUND,Extra dose administered,US,2,2
+26221946,39,801,Male,VEDOLIZUMAB,Brain injury,US,1,2
+26221947,53,801,Male,ZEPBOUND,Accidental underdose,US,2,2
+26221948,24,801,Female,ZEPBOUND,Illness,US,2,2
+26221950,49,801,Female,ZEPBOUND,Tremor,US,2,2
+26221951,70,801,Male,ZEPBOUND,Headache,US,2,2
+26221953,75,801,Female,QINLOCK,Malignant neoplasm progression,US,1,2
+26221957,75,801,Male,QINLOCK,Flatulence,US,1,2
+26221958,63,801,Female,RINVOQ,Spinal pain,US,1,2
+26221960,23,801,Male,DICLOFENAC,Respiratory distress,ET,1,2
+26221961,61,801,Female,AVONEX,Multiple sclerosis relapse,BR,1,2
+26221963,58,801,Male,METHOTREXATE,Myelodysplastic syndrome,IN,1,2
+26221966,54,801,Female,CARBOPLATIN,Colitis,EU,1,2
+26221969,51,801,Female,REMODULIN,Ascites,JP,1,2
+26221970,41,801,Female,QALSODY,Nasopharyngitis,US,,
+26221971,78,801,Female,EMPAGLIFLOZIN,Metabolic acidosis,EU,1,2
+26221972,50,801,Male,ADALIMUMAB,Overlap syndrome,EU,1,2
+26221973,64,801,Female,NUPLAZID,Tremor,US,2,2
+26221975,35,801,Male,TREMFYA,Product dose omission issue,US,,
+26221977,64,801,Female,TOCILIZUMAB,Pneumonitis,SG,1,2
+26221980,63,801,Male,HUMAN IMMUNOGLOBULIN G,Gastrointestinal disorder,CA,1,2
+26221981,52,801,Female,DIAZEPAM,Sinus bradycardia,GB,1,2
+26221982,63,801,Female,ORENCIA,Illness,US,,
+26221983,45,801,Male,DUPIXENT,Injection site pain,US,2,2
+26221984,53,801,Male,ALLOPURINOL,Gastrointestinal disorder,GB,1,2
+26221990,31,801,Male,NEXIUM,Diarrhoea,US,,
+26221992,75,801,Female,PHESGO,Breast operation,SG,1,2
+26221996,79,801,Male,POMALYST,Ear infection,US,,
+26222000,67,801,Male,BELIMUMAB,Exposure via skin contact,US,,
+26222001,65,801,Female,BREO ELLIPTA,Vision blurred,US,2,2
+26222003,27,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222006,50,801,Male,DUPIXENT,Drug ineffective for unapproved indication,US,2,2
+26222007,59,801,Male,DUPIXENT,Sleep apnoea syndrome,US,2,2
+26222009,65,801,Female,NUPLAZID,Cataract,US,1,2
+26222011,67,801,Female,CAPECITABINE,Arteriospasm coronary,PE,1,2
+26222012,60,801,Female,QINLOCK,Decreased appetite,US,2,2
+26222013,15,801,Male,OMNITROPE,Injection site discomfort,US,2,2
+26222015,77,801,Female,TYMLOS,Death,US,1,1
+26222016,76,801,Male,NUPLAZID,Confusional state,US,2,2
+26222017,71,801,Male,ELIQUIS,Wrong patient received product,EU,1,2
+26222018,73,801,Female,HIZENTRA,Renal impairment,EU,1,2
+26222020,51,801,Female,PREGABALIN,Persistent genital arousal disorder,EU,1,2
+26222021,62,801,Female,TERIPARATIDE,Spinal fracture,CA,1,2
+26222022,47,801,Female,SIMPONI,Type 2 diabetes mellitus,CA,1,2
+26222023,36,801,Male,VUMERITY,Type 1 diabetes mellitus,US,1,2
+26222027,29,801,Female,EMGALITY,Incorrect dose administered by device,US,2,2
+26222028,54,801,Female,EMGALITY,Incorrect dose administered,US,2,2
+26222029,37,801,Female,ZEPBOUND,Presyncope,US,2,2
+26222030,68,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26222031,65,801,Female,MOUNJARO,Headache,US,2,2
+26222032,46,801,Female,ZEPBOUND,Injection site bruising,US,2,2
+26222033,55,801,Female,MOUNJARO,Hunger,US,2,2
+26222034,61,801,Male,ZEPBOUND,Extra dose administered,US,2,2
+26222035,78,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26222038,73,801,Female,ZEPBOUND,Decreased appetite,US,2,2
+26222041,9,801,Male,VIGADRONE,Hypophagia,US,2,2
+26222042,58,801,Female,ZEPBOUND,Nausea,US,2,2
+26222045,70,801,Female,ENTYVIO,Arthritis enteropathic,US,,
+26222047,63,801,Female,AIMOVIG,Pain,CA,1,2
+26222048,83,801,Female,METFORMIN,Blood iron decreased,CA,1,2
+26222049,60,801,Female,TRASTUZUMAB,Myopericarditis,CH,1,2
+26222051,76,801,Male,METHOTREXATE,Interstitial lung disease,US,1,2
+26222055,49,801,Female,DABIGATRAN,Post procedural stroke,TW,1,2
+26222056,11,801,Male,RISPERIDONE,Chronic tic disorder,EU,1,2
+26222058,65,801,Female,LANTUS,Hypoglycaemic coma,EU,1,1
+26222059,70,801,Male,ORGOVYX,Hot flush,US,,
+26222060,82,801,Male,AVACOPAN,Diabetes mellitus,JP,1,2
+26222061,47,801,Male,FLUOROURACIL,Substance-induced psychotic disorder,US,1,2
+26222062,63,801,Male,QINLOCK,Decreased appetite,US,,
+26222063,71,801,Male,GEMTESA,Drug effect less than expected,US,,
+26222064,18,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222067,63,801,Male,DUPIXENT,Breath odour,US,2,2
+26222068,3,801,Female,DUPIXENT,Dry eye,US,2,2
+26222070,64,801,Female,HYDROCORTISONE,Erythrodermic psoriasis,US,1,2
+26222071,47,801,Male,QUVIVIQ,Suicidal ideation,GB,1,2
+26222072,31,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222073,27,801,Female,QUVIVIQ,Coma,CN,1,2
+26222075,35,801,Male,DUPIXENT,Renal disorder,US,2,2
+26222077,61,801,Female,TRINTELLIX,Mood altered,US,,
+26222081,55,801,Male,LEQVIO,Hepatitis,CA,1,2
+26222082,21,801,Female,ADBRY,Pruritus,US,2,
+26222084,87,801,Male,ORGOVYX,Constipation,US,,
+26222085,61,801,Male,QINLOCK,Rash macular,US,,
+26222087,50,801,Female,METHOTREXATE,Incorrect dose administered,US,1,2
+26222088,51,801,Female,ORENCIA,Joint swelling,US,,
+26222094,44,801,Male,POMALYST,Constipation,US,2,2
+26222095,53,801,Female,REVLIMID,Product dose omission issue,US,,
+26222097,75,801,Male,DUPIXENT,Cerebral venous thrombosis,US,1,2
+26222098,58,801,Male,DUPIXENT,Tooth infection,US,2,2
+26222099,2,801,Female,DUPIXENT,Rash,US,2,2
+26222100,69,801,Male,ORGOVYX,Testicular atrophy,US,,
+26222101,41,801,Male,METHADONE,Drug withdrawal syndrome,US,1,2
+26222103,56,801,Male,DUPIXENT,Dry skin,US,2,2
+26222105,54,801,Male,ARIPIPRAZOLE,Acute myocardial infarction,GB,1,2
+26222106,1,801,Female,DIACOMIT,Product preparation issue,US,1,2
+26222107,29,801,Male,SKYRIZI,Nephrolithiasis,US,1,2
+26222109,47,801,Female,KOMBIGLYZE XR,Abdominal distension,CN,1,2
+26222111,66,801,Female,AVACOPAN,Pneumonia viral,EU,1,2
+26222113,50,801,Male,RINVOQ,Urinary tract infection,US,1,2
+26222118,87,801,Male,ORGOVYX,Hypoacusis,US,,
+26222119,23,801,Male,RINVOQ,Wound,CL,1,2
+26222120,72,801,Male,NUPLAZID,Product dose omission issue,US,2,2
+26222121,67,801,Female,BORTEZOMIB,Guillain-Barre syndrome,CN,1,2
+26222122,39,801,Female,TYSABRI,Hemiparesis,IL,1,2
+26222123,67,801,Female,TYMLOS,Pulmonary embolism,US,1,2
+26222125,74,801,Male,LEUCOVORIN CALCIUM,Paraesthesia,EU,1,2
+26222126,72,801,Female,CARBOPLATIN,Colitis,GB,1,2
+26222131,40,801,Male,IBUPROFEN,Oesophagitis,GB,1,2
+26222134,32,801,Male,DIAZEPAM,Sedation,GB,1,2
+26222136,68,801,Male,VEDOLIZUMAB,Motor neurone disease,GB,1,1
+26222137,73,801,Male,QINLOCK,Diarrhoea,US,,
+26222138,85,801,Female,REPATHA,Asthenia,US,2,2
+26222139,70,801,Male,PREDNISOLONE,Cerebral haemorrhage,GB,1,1
+26222142,39,801,Male,ROSUVASTATIN,Depressed mood,GB,1,2
+26222152,40,801,Male,TESTOSTERONE,Rhabdomyolysis,US,1,2
+26222154,54,801,Female,TYVASO DPI,Loss of consciousness,US,1,2
+26222165,81,801,Male,DUPIXENT,Off label use,US,2,2
+26222166,59,801,Female,DUPIXENT,Chapped lips,US,2,2
+26222170,27,801,Female,DUPIXENT,Eczema,US,2,2
+26222171,23,801,Female,DUPIXENT,Dermatitis,US,2,2
+26222173,59,801,Female,ENHERTU,Neutropenia,IN,1,2
+26222174,69,801,Male,DUPIXENT,Rash erythematous,US,2,2
+26222175,64,801,Female,TRINTELLIX,Migraine,US,,
+26222180,43,801,Female,LIVDELZI,Alanine aminotransferase increased,US,1,2
+26222181,61,801,Female,METFORMIN,Diarrhoea,CA,1,2
+26222185,25,801,Female,VEDOLIZUMAB,Colitis ulcerative,US,1,2
+26222189,88,801,Female,GABAPENTIN,Drug ineffective,EU,1,2
+26222190,35,801,Female,CYCLOPHOSPHAMIDE,Myelosuppression,CN,1,2
+26222191,77,801,Female,METFORMIN,Alopecia,CA,1,2
+26222192,16,801,Female,DUPIXENT,Drug effect less than expected,US,2,2
+26222193,57,801,Female,DUPIXENT,Injection site warmth,US,2,2
+26222194,36,801,Female,DUPIXENT,Rash erythematous,US,2,2
+26222195,67,801,Male,DUPIXENT,Chronic obstructive pulmonary disease,US,2,2
+26222202,76,801,Female,METFORMIN,Abdominal discomfort,CA,1,2
+26222203,56,801,Male,RYBREVANT,Atrial fibrillation,EU,1,2
+26222204,64,801,Female,XGEVA,Neutropenia,EU,1,2
+26222205,71,801,Female,TAVNEOS,Drug-induced liver injury,JP,1,2
+26222206,78,801,Female,DUPIXENT,Constipation,US,2,2
+26222207,73,801,Female,DURVALUMAB,Cholangitis,JP,1,2
+26222209,29,801,Male,DICLOFENAC,Intentional product misuse,GB,1,2
+26222210,45,801,Female,REMODULIN,Malaise,US,,
+26222212,89,801,Female,BETAMETHASONE DIPROPIONATE\BETAMETHASONE SODIUM PHOSPHATE,"Hallucination, visual",EU,1,2
+26222214,89,801,Female,SIMPONI,Pneumonia,CA,1,2
+26222216,73,801,Male,METFORMIN HYDROCHLORIDE,Lactic acidosis,CA,1,2
+26222218,75,801,Female,REPATHA,Injection site indentation,US,2,2
+26222222,75,801,Male,POMALYST,Myalgia,US,,
+26222223,85,801,Male,REVLIMID,Chest pain,PR,1,2
+26222224,56,801,Male,METFORMIN,Diabetic ketoacidosis,CA,1,2
+26222225,49,801,Female,TRASTUZUMAB DERUXTECAN,Colitis,US,1,2
+26222226,16,801,Male,CEPHALEXIN,Diarrhoea,US,2,2
+26222229,8,802,Male,DUPIXENT,Eczema,US,2,2
+26222231,68,801,Female,DUPIXENT,Sunburn,US,2,2
+26222232,44,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222234,55,801,Male,DUPIXENT,Rash,US,2,2
+26222236,25,801,Female,DUPIXENT,Alopecia,US,2,2
+26222238,63,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26222240,58,801,Male,ZEPBOUND,Headache,US,2,2
+26222246,69,801,Male,ZEPBOUND,Nervousness,US,2,2
+26222247,75,801,Male,ATORVASTATIN CALCIUM,Immune-mediated myositis,US,1,1
+26222248,30,801,Male,ZEPBOUND,Injection site pain,US,2,2
+26222252,46,801,Female,REMODULIN,Injection site bruising,US,,
+26222253,57,801,Male,TRULICITY,Incorrect dose administered,US,2,2
+26222254,80,801,Female,FORTEO,Tooth deposit,US,2,2
+26222255,76,801,Female,ZEPBOUND,Nausea,US,2,2
+26222256,33,801,Male,ZEPBOUND,Extra dose administered,US,2,2
+26222258,64,801,Male,HUMULIN 70/30,Accidental underdose,US,2,2
+26222260,45,801,Female,ZEPBOUND,Product dose omission issue,US,2,2
+26222261,42,801,Female,VELAGLUCERASE ALFA,Joint dislocation,AR,1,2
+26222263,6,801,Male,METHOTREXATE,Idiopathic intracranial hypertension,IN,1,2
+26222264,94,801,Male,TRIPTORELIN,Fall,EU,1,2
+26222266,67,801,Male,QINLOCK,Sensitive skin,US,,
+26222268,7,802,Female,METHOTREXATE,Idiopathic intracranial hypertension,US,1,2
+26222269,21,801,Female,LAMOTRIGINE,Stevens-Johnson syndrome,CA,1,2
+26222272,58,801,Female,LATANOPROST,Vision blurred,EU,1,2
+26222274,76,801,Female,VENCLEXTA,Hospitalisation,US,1,2
+26222281,15,801,Male,DUPIXENT,Condition aggravated,US,2,2
+26222282,52,801,Female,DUPIXENT,Incorrect dose administered,US,2,2
+26222284,46,801,Female,DUPIXENT,Skin fissures,US,2,2
+26222285,50,801,Female,DUPIXENT,Influenza,US,2,2
+26222286,45,801,Female,DUPIXENT,Somnolence,US,2,2
+26222287,74,801,Female,DUPIXENT,Ocular hyperaemia,US,2,2
+26222288,42,801,Female,DUPIXENT,Rhinorrhoea,US,2,2
+26222294,65,801,Female,TALQUETAMAB,Device related sepsis,EU,1,1
+26222297,74,801,Female,REVLIMID,Palpitations,US,,
+26222299,77,801,Female,POMALYST,Oedema,US,2,2
+26222301,74,801,Female,LENALIDOMIDE,Central nervous system listeria infection,EU,1,1
+26222302,60,801,Male,POMALYST,Plasma cell myeloma,US,1,2
+26222303,40,801,Female,DUPIXENT,Dyspnoea,US,2,2
+26222304,64,801,Female,DUPIXENT,Pruritus,US,2,2
+26222306,68,801,Male,METFORMIN HYDROCHLORIDE,Lactic acidosis,EU,1,2
+26222307,79,801,Male,TICAGRELOR,Melaena,EU,1,2
+26222309,39,801,Female,XYWAV,Nephrolithiasis,US,1,2
+26222310,48,801,Male,QINLOCK,Heart rate increased,US,,
+26222312,46,801,Female,HUMIRA,Pulmonary artery thrombosis,EU,1,2
+26222315,29,801,Male,KESIMPTA,Gait disturbance,IL,1,2
+26222316,26,801,Male,RISANKIZUMAB,Agranulocytosis,EU,1,2
+26222317,63,801,Male,METFORMIN,Syncope,CA,1,2
+26222319,3,801,Male,ECULIZUMAB,Pulmonary haemorrhage,EU,1,2
+26222320,71,801,Male,QINLOCK,Acrochordon,US,2,2
+26222321,68,801,Female,CAPIVASERTIB,Vomiting,US,1,2
+26222324,62,801,Female,CARBOPLATIN,Appendiceal abscess,EU,1,2
+26222325,76,801,Female,BORTEZOMIB,Plasma cell myeloma,AU,1,2
+26222328,78,801,Female,REPATHA,Accidental exposure to product,US,2,2
+26222329,70,801,Female,METFORMIN,Nephrolithiasis,CA,1,2
+26222330,59,801,Male,PREDNISONE,Mucocutaneous rash,US,1,2
+26222331,85,801,Female,ELIQUIS,Skin discolouration,US,,
+26222332,47,801,Female,SYMBICORT,Hypoaesthesia,CN,1,2
+26222333,45,801,Female,USTEKINUMAB,Disseminated coccidioidomycosis,US,1,2
+26222336,68,801,Female,ADCIRCA,Gingival bleeding,US,2,2
+26222338,73,801,Female,DULOXETINE HYDROCHLORIDE,Abdominal pain upper,US,2,2
+26222340,68,801,Female,ZEPBOUND,Pyelonephritis,US,2,2
+26222341,30,801,Female,ZEPBOUND,Injection site injury,US,2,2
+26222342,48,801,Male,MOUNJARO,Incorrect dose administered,US,2,2
+26222343,78,801,Male,POMALYST,Pain,US,1,2
+26222345,63,801,Male,CITALOPRAM,Treatment noncompliance,US,,
+26222347,54,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26222349,77,801,Female,DUPIXENT,Chronic obstructive pulmonary disease,US,2,2
+26222351,76,801,Male,ROSUVASTATIN,Myopathy,EU,1,2
+26222353,82,801,Male,DUPIXENT,Cough,US,2,2
+26222354,24,801,Female,DUPIXENT,Product use in unapproved indication,US,2,2
+26222355,74,801,Male,DUPIXENT,Accidental exposure to product,US,2,2
+26222356,58,801,Female,DUPIXENT,Injection site pain,US,2,2
+26222357,39,801,Male,DICLOFENAC SODIUM,Skin lesion,CN,1,2
+26222358,65,801,Male,DUPIXENT,Pain,US,2,2
+26222362,74,801,Male,METHOTREXATE,Proctitis,EU,1,2
+26222364,68,801,Male,QINLOCK,Nausea,US,,
+26222366,33,801,Male,OLANZAPINE,Hepatic cytolysis,EU,1,2
+26222367,69,801,Male,PIRFENIDONE,Idiopathic pulmonary fibrosis,EU,1,2
+26222369,12,801,Female,FLUOXETINE,Serotonin syndrome,EU,1,2
+26222371,75,801,Female,LEVOTHYROXINE,Eye pain,US,2,2
+26222373,24,801,Female,MONTELUKAST,Pyrexia,EU,1,2
+26222374,77,801,Female,METFORMIN HYDROCHLORIDE,Lactic acidosis,EU,1,2
+26222376,73,801,Male,DICLOFENAC SODIUM,Gastrointestinal haemorrhage,CN,1,2
+26222378,70,801,Female,RISPERIDONE,Liver injury,EU,1,2
+26222379,66,801,Female,EYLEA,Subretinal fluid,EU,1,2
+26222381,62,801,Female,CARBOPLATIN,Hepatotoxicity,EU,1,2
+26222384,86,801,Male,QINLOCK,Intestinal mass,US,,
+26222388,27,801,Female,FUROSEMIDE,Renal impairment,US,1,2
+26222389,4,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26222390,57,801,Female,RASAGILINE MESYLATE,Visual impairment,EU,1,2
+26222391,38,801,Female,DUPIXENT,Headache,US,2,2
+26222392,55,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222393,23,801,Female,DUPIXENT,Injection site pruritus,US,2,2
+26222394,60,801,Female,DUPIXENT,Pain in extremity,US,2,2
+26222395,50,801,Female,CISPLATIN,Pneumatosis intestinalis,US,1,2
+26222398,65,801,Male,METFORMIN HYDROCHLORIDE,Metabolic acidosis,CA,1,2
+26222399,72,801,Male,QINLOCK,Hypertension,US,,
+26222400,70,801,Female,CARBOPLATIN,Guillain-Barre syndrome,EU,1,2
+26222402,67,801,Female,LATANOPROST,Swelling,GB,1,2
+26222407,30,801,Female,XOLAIR PFS,Anaphylactic reaction,US,1,2
+26222408,43,801,Female,METFORMIN,Abdominal pain upper,CA,1,2
+26222409,64,801,Male,QINLOCK,Joint swelling,US,,
+26222411,79,801,Female,LAMOTRIGINE,Anal incontinence,CA,1,2
+26222414,81,801,Male,ATORVASTATIN,Blood creatine phosphokinase increased,CA,1,1
+26222415,67,801,Female,REMICADE,Systemic lupus erythematosus,CA,1,2
+26222418,69,801,Female,CARBOPLATIN,Jaundice cholestatic,EU,1,2
+26222420,52,801,Female,BISOPROLOL,Malignant melanoma,EU,1,2
+26222421,66,801,Female,METFORMIN,Abdominal pain,CA,1,2
+26222422,69,801,Male,QINLOCK,Influenza,US,,
+26222424,10,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222426,30,801,Female,VEDOLIZUMAB,Procedural intestinal perforation,CA,1,2
+26222427,50,801,Female,PERTUZUMAB,Neutropenia,CN,1,2
+26222428,74,801,Female,PRALUENT,Uterine repair,GB,1,2
+26222429,78,801,Female,NUPLAZID,Vomiting,US,2,2
+26222430,17,801,Male,VEDOLIZUMAB,Procedural intestinal perforation,CA,1,2
+26222433,54,801,Female,CARBOPLATIN,Urosepsis,EU,1,2
+26222434,87,801,Female,QINLOCK,Arthritis,US,,
+26222438,79,801,Female,MOUNJARO,Alopecia,US,2,2
+26222439,70,801,Female,MOUNJARO,Decreased appetite,US,2,2
+26222443,46,801,Male,ZEPBOUND,Incorrect dose administered,US,2,2
+26222444,60,801,Female,ZEPBOUND,Abdominal pain upper,US,2,2
+26222445,53,801,Female,ZEPBOUND,Throat irritation,US,2,2
+26222446,65,801,Male,ZEPBOUND,Increased appetite,US,2,2
+26222448,52,801,Female,ZEPBOUND,Extra dose administered,US,2,2
+26222449,34,801,Female,ZEPBOUND,Off label use,US,2,2
+26222450,71,801,Female,MOUNJARO,Incorrect dose administered,US,2,2
+26222451,48,801,Female,ZEPBOUND,Feeling abnormal,US,2,2
+26222452,31,801,Female,ZEPBOUND,Vertigo,US,2,2
+26222453,64,801,Female,DUPIXENT,Cough,US,2,2
+26222456,79,801,Male,DUPIXENT,Dry skin,US,2,2
+26222458,51,801,Male,DUPIXENT,Dry skin,US,2,2
+26222460,50,801,Female,TRASTUZUMAB,Diarrhoea,EU,1,2
+26222461,74,801,Male,NUPLAZID,Death,US,1,1
+26222462,26,801,Female,VEDOLIZUMAB,Syncope,CA,1,2
+26222466,55,801,Female,AMOXICILLIN,Acute kidney injury,EU,1,2
+26222473,73,801,Male,HYDROCORTISONE,Adrenal insufficiency,EU,1,2
+26222475,61,801,Female,TACROLIMUS,Cytopenia,CA,1,
+26222476,38,801,Female,ENHERTU,Immunodeficiency,IN,1,2
+26222478,63,801,Male,IRBESARTAN,Acute kidney injury,EU,1,2
+26222480,6,800,Female,DATROWAY,Pyrexia,JP,1,2
+26222482,85,801,Male,VEDOLIZUMAB,Death,CA,1,1
+26222483,19,801,Male,VALPROIC ACID,Pancreatitis necrotising,US,1,2
+26222485,69,801,Male,FLUOROURACIL,Therapy partial responder,BR,1,2
+26222487,68,801,Male,TACROLIMUS,Malacoplakia,US,1,2
+26222488,27,801,Female,ASPIRIN,Exposure during pregnancy,US,1,2
+26222491,70,801,Male,PREDNISONE,VEXAS syndrome,US,1,2
+26222494,74,801,Female,SULFAMETHOXAZOLE\TRIMETHOPRIM,Meningitis aseptic,US,1,2
+26222495,80,801,Female,METHOTREXATE,Pancytopenia,EU,1,1
+26222496,75,801,Female,DURVALUMAB,Cholangitis,JP,1,2
+26222497,74,801,Female,VEDOLIZUMAB,Lower respiratory tract infection,GB,1,2
+26222499,55,801,Female,IXAZOMIB CITRATE,Bone pain,CO,1,2
+26222500,66,801,Female,BUMETANIDE,Schistocytosis,US,1,2
+26222501,71,801,Female,RENFLEXIS,Infective exacerbation of chronic obstructive airways disease,CA,1,
+26222502,83,801,Female,CARBOPLATIN,Interstitial lung disease,EU,1,2
+26222503,34,801,Male,DOXYCYCLINE,Septic shock,AU,1,2
+26222504,46,801,Male,EDOXABAN,Rash,VN,1,2
+26222507,50,801,Female,FABHALTA,Septic shock,US,1,2
+26222508,79,801,Male,REVLIMID,Ocular hyperaemia,US,2,2
+26222510,76,801,Female,LANTUS SOLOSTAR,Accidental exposure to product,US,2,2
+26222511,65,801,Female,BRIGATINIB,Device related infection,US,1,2
+26222514,55,801,Female,DUPIXENT,Rash macular,US,2,2
+26222515,80,801,Male,NUPLAZID,Parkinson^s disease,US,1,2
+26222516,82,801,Female,NUPLAZID,Psychotic disorder,US,1,2
+26222517,55,801,Female,NILOTINIB HYDROCHLORIDE ANHYDROUS,Hospitalisation,CA,1,2
+26222519,77,801,Female,VENETOCLAX,Interstitial lung disease,EU,1,2
+26222523,36,801,Female,ADBRY,Conjunctivitis,US,2,
+26222524,81,801,Male,EYLEA,Retinal oedema,EU,1,2
+26222525,65,801,Male,REPATHA,Blood glucose increased,US,2,2
+26222526,83,801,Male,REPATHA,Injection site pain,US,2,2
+26222527,77,801,Male,NEULASTA,Device adhesion issue,US,2,2
+26222528,50,801,Female,BORTEZOMIB,Thyroid cancer,CA,1,2
+26222529,54,801,Male,METFORMIN,Respiratory acidosis,CA,1,2
+26222530,73,801,Female,VEDOLIZUMAB,Loss of consciousness,CA,1,2
+26222531,84,801,Male,DUPIXENT,Productive cough,US,2,2
+26222532,37,801,Female,ADBRY,Surgery,US,2,
+26222533,79,801,Male,DUPIXENT,Vision blurred,US,2,2
+26222535,75,801,Female,BORTEZOMIB,Pneumonia respiratory syncytial viral,AU,1,2
+26222537,56,801,Female,METFORMIN HYDROCHLORIDE,Acute kidney injury,CA,1,2
+26222539,67,801,Male,METFORMIN HYDROCHLORIDE,Drug ineffective,CA,1,2
+26222540,70,801,Female,DUPIXENT,Intentional product misuse,US,2,2
+26222541,44,801,Female,DUPIXENT,Injection site bruising,US,2,2
+26222542,51,801,Male,ZOLPIDEM TARTRATE,Drug use disorder,EU,1,2
+26222547,65,801,Female,ENTYVIO,Glaucoma,US,1,2
+26222549,74,801,Female,OXYTROL,Pruritus,US,2,2
+26222554,71,801,Female,MYCOPHENOLATE MOFETIL,Platelet count decreased,CN,1,2
+26222555,63,801,Male,SYNTHROID,Metastases to lung,US,1,2
+26222556,77,801,Female,DIAZEPAM,Drug ineffective,EU,1,2
+26222559,41,801,Male,METHAMPHETAMINE,Substance use disorder,US,1,
+26222560,43,801,Female,PREDNISOLONE,Drug ineffective,MY,1,2
+26222562,16,801,Female,PREDNISOLONE,Hypertransaminasaemia,MY,1,2
+26222564,19,801,Male,PREDNISOLONE,Hypertransaminasaemia,MY,1,2
+26222565,50,801,Male,PROGRAF,Diabetic ketoacidosis,EU,1,
+26222566,52,801,Female,SIMVASTATIN,Musculoskeletal stiffness,GB,1,2
+26222567,27,801,Male,PALIPERIDONE PALMITATE,Epilepsy,EU,1,2
+26222568,60,801,Female,AMBRISENTAN,Rectal haemorrhage,US,1,2
+26222569,21,801,Male,ADBRY,Nausea,US,2,
+26222570,71,801,Male,IMBRUVICA,Neoplasm malignant,CO,1,2
+26222571,34,801,Female,PREDNISOLONE,Hypertransaminasaemia,MY,1,2
+26222572,67,801,Female,SYNTHROID,Platelet disorder,US,1,2
+26222573,14,801,Female,DOPTELET,Vomiting,US,2,
+26222575,38,801,Female,LAMOTRIGINE,Confusional state,EU,1,2
+26222576,78,801,Male,POMALYST,Abdominal distension,US,,
+26222577,65,801,Female,ENHERTU,Breast cancer,KR,1,1
+26222578,66,801,Female,BISOPROLOL,BRASH syndrome,EU,1,2
+26222579,63,801,Female,CAMZYOS,Vision blurred,US,,
+26222580,69,801,Female,DOPTELET,Anaemia,US,1,
+26222581,54,801,Female,VALACYCLOVIR HYDROCHLORIDE,Liver function test abnormal,EU,1,2
+26222582,64,801,Male,TRIPTORELIN,Bradycardia,GB,1,2
+26222583,12,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26222584,62,801,Male,DUPIXENT,Rash,US,2,2
+26222585,80,801,Female,ADBRY,Eye pruritus,US,2,
+26222587,42,801,Male,DUPIXENT,Eczema,US,2,2
+26222588,69,801,Female,METGLUCO,Urine albumin/creatinine ratio increased,JP,1,2
+26222590,74,801,Female,SULFAMETHOXAZOLE AND TRIMETHOPRIM,Meningitis aseptic,US,1,2
+26222592,36,801,Female,SKYRIZI,Ileal operation,US,1,2
+26222593,73,801,Female,TRASTUZUMAB DERUXTECAN,Myelosuppression,CN,1,2
+26222594,86,801,Male,EDOXABAN TOSYLATE,Melaena,EU,1,2
+26222595,62,801,Female,AMIODARONE,Extrasystoles,EU,1,2
+26222596,46,801,Female,INGREZZA SPRINKLE,Constipation,US,,
+26222597,67,801,Female,ADBRY,Dermatitis atopic,US,2,
+26222598,90,801,Female,EDOXABAN,Prothrombin time abnormal,CN,1,2
+26222599,72,801,Female,IBUPROFEN,Peptic ulcer,CN,1,2
+26222600,31,801,Female,ADBRY,Rash papular,US,2,
+26222602,49,801,Male,CREON,Incision site pain,US,1,2
+26222604,70,801,Female,VYALEV,Intentional self-injury,US,1,2
+26222616,16,801,Female,ACETAMINOPHEN,Hypertransaminasaemia,EU,1,2
+26222618,77,801,Female,BENRALIZUMAB,Death,US,1,1
+26222619,46,801,Male,FRUQUINTINIB,Colorectal cancer metastatic,CA,1,2
+26222620,62,801,Female,HYDROXYCHLOROQUINE SULFATE,Methaemoglobinaemia,US,1,2
+26222621,78,801,Male,DICLOFENAC SODIUM,Cerebral infarction,EU,1,2
+26222622,68,801,Male,LUPRON,Death,CA,1,1
+26222624,49,801,Female,ESTRADIOL\NORETHINDRONE ACETATE\RELUGOLIX,Myalgia,GB,1,2
+26222625,47,801,Female,REVLIMID,Nasopharyngitis,US,1,2
+26222626,18,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222628,78,801,Female,SPIRIVA,Dyspnoea,US,2,2
+26222629,26,801,Male,DUPIXENT,Injection site swelling,US,2,2
+26222630,58,801,Female,MOUNJARO,Extra dose administered,US,2,2
+26222632,29,801,Female,DUPIXENT,Rhinorrhoea,US,2,2
+26222633,57,801,Male,LANTUS SOLOSTAR,Gastrointestinal disorder,US,2,2
+26222634,40,801,Male,DUPIXENT,Tendonitis,US,2,2
+26222635,36,801,Female,ZEPBOUND,Accidental underdose,US,2,2
+26222636,74,801,Female,TRULICITY,Drug ineffective,US,2,2
+26222637,24,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26222638,67,801,Male,JAYPIRCA,Tendon pain,US,2,2
+26222639,70,801,Female,DUPIXENT,Eczema,US,2,2
+26222641,52,801,Female,ZEPBOUND,Injection site mass,US,2,2
+26222643,52,801,Female,DUPIXENT,Injection site pain,US,2,2
+26222644,58,801,Female,DUPIXENT,Injection site pain,US,2,2
+26222645,12,801,Female,DUPIXENT,Eczema,US,2,2
+26222648,64,801,Female,MOUNJARO,Accidental overdose,US,2,2
+26222650,57,801,Male,MOUNJARO,Injection site swelling,US,2,2
+26222652,28,801,Female,ZEPBOUND,Injection site pain,US,2,2
+26222655,73,801,Female,SKYRIZI,Influenza,CA,1,2
+26222659,40,801,Female,PERTUZUMAB\TRASTUZUMAB,Myelosuppression,CN,1,2
+26222662,65,801,Male,VEDOLIZUMAB,Erectile dysfunction,CA,1,2
+26222663,64,801,Male,ASPIRIN,Post procedural haematoma,EU,1,2
+26222664,28,801,Male,ADBRY,Hypersensitivity,US,2,
+26222665,50,801,Male,CISPLATIN,Immune-mediated hyperthyroidism,CA,1,2
+26222666,59,801,Female,PREDNISONE,Pneumocystis jirovecii pneumonia,US,1,
+26222667,86,801,Male,NUPLAZID,Death,US,1,1
+26222668,71,801,Female,ONIVYDE,Malignant neoplasm progression,TH,1,1
+26222669,71,801,Female,ONIVYDE,Biliary obstruction,IN,1,2
+26222671,81,801,Male,FASTURTEC,Infusion related reaction,EU,1,2
+26222674,65,801,Female,DUPIXENT,Accidental exposure to product,US,2,2
+26222675,73,801,Female,VEDOLIZUMAB,Large intestinal stenosis,US,1,2
+26222676,66,801,Male,BORTEZOMIB,Guillain-Barre syndrome,CN,1,2
+26222680,63,801,Female,NICOTINE POLACRILEX,Onychoclasis,US,,
+26222681,29,801,Female,CEFTRIAXONE,Anaphylactic reaction,US,1,2
+26222682,9,800,Female,DEXAMETHASONE,General physical health deterioration,EU,1,2
+26222684,60,801,Female,TRASTUZUMAB DERUXTECAN,Death,IQ,1,1
+26222689,78,801,Male,VENCLEXTA,Death,US,1,1
+26222691,64,801,Female,ENHERTU,Neuropathy peripheral,IN,1,2
+26222692,24,801,Female,APIXABAN,Joint swelling,GB,1,2
+26222694,72,801,Male,NUPLAZID,Hallucination,US,1,2
+26222695,64,801,Male,EMPAGLIFLOZIN,Fournier^s gangrene,EU,1,2
+26222696,58,801,Male,LANTUS SOLOSTAR,Product dispensing error,US,2,2
+26222697,36,801,Male,BIKTARVY,Lactic acidosis,US,1,2
+26222698,63,801,Female,DUPIXENT,Accidental exposure to product,US,2,2
+26222699,49,801,Female,DUPIXENT,Dry skin,US,2,2
+26222700,44,801,Female,DUPIXENT,Eczema,US,2,2
+26222701,36,801,Male,CEREZYME,Lethargy,US,2,2
+26222702,9,801,Male,DUPIXENT,Influenza,US,2,2
+26222703,52,801,Male,SKYRIZI,Myocardial infarction,GB,1,1
+26222704,74,801,Female,DARZALEX,Central nervous system listeria infection,EU,1,1
+26222705,18,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222706,73,801,Female,IMBRUVICA,Death,CO,1,1
+26222709,59,801,Female,NUPLAZID,"Hallucination, visual",US,1,2
+26222710,56,801,Male,DIMETHYL FUMARATE,Visceral leishmaniasis,EU,1,2
+26222711,40,801,Male,MIRCERA,Unresponsive to stimuli,EU,1,2
+26222712,69,801,Male,METHOTREXATE,Proctitis haemorrhagic,EU,1,2
+26222713,59,801,Female,VEDOLIZUMAB,Colitis ulcerative,US,1,2
+26222714,74,801,Female,PEMETREXED,Infusion related reaction,EU,1,2
+26222715,77,801,Male,RIFAMPIN,Immune reconstitution inflammatory syndrome,SG,1,1
+26222718,81,801,Female,LISINOPRIL,Acute kidney injury,GB,1,2
+26222721,54,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26222722,8,801,Female,DUPIXENT,Pruritus,US,2,2
+26222725,81,801,Male,LANTUS SOLOSTAR,Inappropriate schedule of product administration,US,2,2
+26222727,30,801,Female,TOBRADEX,Glaucoma,CN,1,2
+26222729,42,801,Female,PREDNISOLONE,Haematochezia,MY,1,2
+26222731,59,801,Female,LYNPARZA,Death,MA,1,1
+26222733,52,801,Male,RITUXIMAB,Monoplegia,CA,1,2
+26222736,29,801,Female,LABETALOL,Premature delivery,US,1,2
+26222737,28,801,Female,BUPIVACAINE,Spinal anaesthesia,RS,1,2
+26222738,16,801,Female,MEROPENEM,Multiple organ dysfunction syndrome,US,1,2
+26222741,60,801,Female,MYCOPHENOLATE MOFETIL,Vasogenic cerebral oedema,US,1,1
+26222742,55,801,Male,MIDAZOLAM,Condition aggravated,US,1,2
+26222743,56,801,Male,CYCLOSPORINE,Condition aggravated,GB,1,2
+26222744,19,801,Female,TRASTUZUMAB,Acquired gene mutation,US,1,2
+26222745,48,801,Female,NEVIRAPINE,Haemolytic anaemia,EU,1,2
+26222748,71,801,Female,METGLUCO,Mental impairment,JP,1,2
+26222749,63,801,Female,DAPAGLIFLOZIN,Skin exfoliation,GB,1,2
+26222750,5,801,Male,DAYBUE,Influenza,US,2,2
+26222752,62,801,Female,ENHERTU,Pulmonary oedema,IN,1,2
+26222755,70,801,Female,REVLIMID,Diarrhoea,US,1,2
+26222756,78,801,Female,IXAZOMIB CITRATE,Pneumonia,CA,1,2
+26222758,34,801,Female,CARBOPLATIN,Hypothyroidism,EU,1,2
+26222761,10,801,Male,DIAZOXIDE CHOLINE,Pericardial effusion,US,1,2
+26222762,7,801,Female,DIAZOXIDE CHOLINE,Oedema peripheral,US,2,2
+26222764,11,801,Male,DUPIXENT,Eczema,US,2,2
+26222766,51,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222767,27,801,Female,DUPIXENT,Skin fissures,US,2,2
+26222768,76,801,Female,TOUJEO,Malaise,US,2,2
+26222769,36,801,Female,LEVETIRACETAM,Rhabdomyolysis,US,1,2
+26222770,74,801,Male,ZEPBOUND,Injection site pain,US,2,2
+26222771,71,801,Female,TRULICITY,Food craving,US,2,2
+26222772,65,801,Female,CARBOPLATIN,Pyelonephritis,EU,1,2
+26222773,66,801,Female,ZEPBOUND,Wrong technique in product usage process,US,2,2
+26222774,54,801,Male,MOUNJARO,Injection site erythema,US,2,2
+26222775,72,801,Female,ZEPBOUND,Injury associated with device,US,2,2
+26222777,39,801,Female,ZEPBOUND,Extra dose administered,US,2,2
+26222778,61,801,Female,ZEPBOUND,Product dose omission issue,US,2,2
+26222784,64,801,Female,CISPLATIN,Pneumatosis intestinalis,EU,1,2
+26222786,65,801,Male,NUPLAZID,Heart rate irregular,US,2,2
+26222790,60,801,Female,RAMIPRIL,Inappropriate antidiuretic hormone secretion,EU,1,2
+26222796,77,801,Male,AZITHROMYCIN,Chromaturia,EU,1,2
+26222798,66,801,Male,DUOPA,Device breakage,US,1,2
+26222799,69,801,Male,MEPOLIZUMAB,Hospitalisation,US,1,2
+26222800,2,801,Female,CARBOPLATIN,Metastases to spine,US,1,2
+26222801,73,801,Male,HYDROCHLOROTHIAZIDE\LOSARTAN,Pulmonary oedema,US,1,2
+26222802,33,801,Female,FLUCONAZOLE,Cutaneous vasculitis,PH,1,2
+26222803,76,801,Male,CARBOPLATIN,Condition aggravated,US,1,2
+26222804,52,801,Male,OXALIPLATIN,Thrombocytopenia,US,1,2
+26222805,65,801,Male,BORTEZOMIB,Orthostatic hypotension,US,1,2
+26222806,55,801,Female,METHYLPREDNISOLONE,Acute respiratory distress syndrome,US,1,2
+26222807,27,801,Male,PREDNISONE,Drug ineffective,PH,1,2
+26222808,80,801,Female,LINEZOLID,Clostridium difficile colitis,EU,1,2
+26222809,42,801,Female,DOXYCYCLINE,Condition aggravated,US,1,2
+26222810,76,801,Female,VENLAFAXINE,Metabolic encephalopathy,US,1,2
+26222811,54,801,Female,BREZTRI,Incorrect dose administered by device,EU,,
+26222814,54,801,Male,ATORVASTATIN,Drug interaction,US,1,
+26222815,23,801,Male,DICLOFENAC,Suicide attempt,ET,1,2
+26222816,54,801,Female,PREDNISONE,Systemic lupus erythematosus,CN,1,2
+26222817,37,801,Male,CAFFEINE,Suicide attempt,JP,1,2
+26222818,62,801,Female,DAPSONE,Methaemoglobinaemia,US,1,2
+26222819,84,801,Male,HYDROCHLOROTHIAZIDE\TELMISARTAN,Wrong patient received product,EU,1,2
+26222820,72,801,Male,BORTEZOMIB,Anaphylactic reaction,EU,1,
+26222822,77,801,Male,AMOXICILLIN,Acute kidney injury,EU,1,2
+26222824,60,801,Male,POMALYST,Hospitalisation,US,1,2
+26222825,64,801,Female,PERINDOPRIL,Subacute pancreatitis,EU,1,2
+26222826,70,801,Female,POMALYST,Adverse event,US,,
+26222827,50,801,Female,METHOTREXATE,Eosinophilic pneumonia,US,1,2
+26222829,35,801,Female,AMITRIPTYLINE,Hallucination,US,1,2
+26222832,63,801,Female,TACROLIMUS,Kaposi^s sarcoma,US,1,
+26222833,70,801,Male,CYCLOPHOSPHAMIDE,Pancytopenia,US,1,
+26222834,28,801,Female,HYQVIA,Abortion spontaneous,EU,1,2
+26222836,76,801,Male,ATENOLOL,Toxic skin eruption,EU,1,2
+26222838,65,801,Male,GOSERELIN,Metastases to liver,EU,1,2
+26222839,81,801,Female,APIXABAN,Basal ganglia haemorrhage,GB,1,2
+26222840,77,801,Female,VANCOMYCIN,Drug level above therapeutic,US,1,2
+26222841,20,801,Male,MYALEPT,Hyperglycaemia,US,1,2
+26222843,75,801,Male,ORGOVYX,Death,US,1,1
+26222844,59,801,Male,OPSUMIT,Device dislocation,US,1,2
+26222845,58,801,Female,METFORMIN HYDROCHLORIDE,Multiple organ dysfunction syndrome,EU,1,1
+26222848,65,801,Male,REPATHA,Injection site haemorrhage,US,2,2
+26222849,78,801,Female,REPATHA,Fear of injection,US,2,2
+26222851,68,801,Female,METFORMIN,Cataract,CA,1,2
+26222852,26,801,Female,PREDNISOLONE,Febrile neutropenia,CN,1,2
+26222853,70,801,Male,PREDNISOLONE,Cerebral haemorrhage,GB,1,1
+26222854,75,801,Male,PREDNISOLONE,Pneumocystis jirovecii pneumonia,JP,1,1
+26222855,46,801,Male,TRASTUZUMAB,Acquired gene mutation,US,1,1
+26222858,9,801,Male,PREDNISONE,Mood swings,GB,1,2
+26222859,40,801,Male,IBUPROFEN,Oesophagitis,GB,1,2
+26222860,77,801,Male,ORGOVYX,Asthenia,US,,
+26222861,70,801,Female,PREDNISONE,Condition aggravated,US,1,2
+26222862,85,801,Female,VONJO,Splenomegaly,US,2,
+26222863,54,801,Male,HUMIRA,Injection site pruritus,US,2,2
+26222864,60,801,Female,ACETAMINOPHEN,Drug abuse,EU,1,2
+26222865,65,801,Female,TRIMETHOPRIM,Psychotic disorder,GB,1,2
+26222866,89,801,Female,NUPLAZID,Chronic kidney disease,US,1,2
+26222867,44,801,Male,TESTOSTERONE,Respiratory alkalosis,US,1,2
+26222868,44,801,Female,ZEPBOUND,Extra dose administered,US,2,2
+26222870,74,801,Male,IRINOTECAN,Cerebrovascular accident,JP,1,2
+26222871,70,801,Male,QUETIAPINE,Bladder cancer,EU,1,2
+26222873,67,801,Female,MOUNJARO,Off label use,US,2,2
+26222874,57,801,Male,MOUNJARO,Injection site pain,US,2,2
+26222875,72,801,Female,ZEPBOUND,Extra dose administered,US,2,2
+26222876,35,801,Female,ZEPBOUND,Incorrect dose administered,US,2,2
+26222878,64,801,Male,REZUROCK,Rash macular,US,2,2
+26222879,57,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222880,78,801,Female,GEMTESA,Rhinorrhoea,US,,
+26222881,62,801,Male,DUPIXENT,Dermatitis atopic,US,2,2
+26222882,44,801,Female,FABRAZYME,Influenza,US,2,2
+26222883,55,801,Female,DUPIXENT,Illness,US,2,2
+26222884,43,801,Female,ZEPBOUND,Heart rate variability decreased,US,2,2
+26222885,23,801,Male,DUPIXENT,Acne,US,2,2
+26222886,9,801,Female,DUPIXENT,Off label use,US,2,2
+26222887,23,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222888,22,801,Female,DUPIXENT,Dermatitis atopic,US,2,2
+26222889,27,801,Female,DUPIXENT,Ocular hyperaemia,US,2,2
+26222890,9,801,Male,DUPIXENT,Influenza,US,2,2
+26222891,68,801,Female,DUPIXENT,Rhinorrhoea,US,2,2
+26222893,53,801,Female,BUPROPION HYDROCHLORIDE,Intentional overdose,US,1,2
+26222896,88,801,Male,VOLTAREN,Anaphylactic shock,CN,1,2
+26222899,54,801,Male,ATORVASTATIN,Immune-mediated myositis,US,1,
+26222903,61,801,Female,IMAAVY,Abdominal discomfort,US,,
+26222908,70,801,Male,DUPIXENT,Product use in unapproved indication,US,2,2
+26222909,53,801,Female,DUPIXENT,Sinusitis,US,2,2
+26222923,31,801,Female,CHORIOGONADOTROPIN ALFA,Adnexal torsion,EU,1,2
+26222924,79,801,Male,IRINOTECAN HYDROCHLORIDE,Blood culture positive,CA,1,2
+26222925,67,801,Female,ORENCIA,Device issue,US,,
+26222926,75,801,Male,AMINO ACIDS\DEXTROSE\ELECTROLYTES NOS\SOYBEAN OIL,Gastroenteritis,KR,1,2
+26222927,57,801,Male,SPRYCEL,Labelled drug-drug interaction medication error,US,,
+26222928,51,801,Female,PREDNISONE,Lymphoma transformation,US,1,2
+26222932,74,801,Male,METHOTREXATE,Renal tubular injury,US,1,2
+26222933,21,801,Male,TREMFYA,Clostridium difficile infection,CA,1,2
+26222935,3,801,Female,OSELTAMIVIR PHOSPHATE,Hallucination,US,1,2
+26222936,78,801,Male,TREPROSTINIL,Pneumonia bacterial,JP,1,2
+26222937,83,801,Female,NUPLAZID,Death,US,1,1
+26222943,43,801,Female,PERJETA,Breast cancer metastatic,US,1,2
+26222946,66,801,Male,NUPLAZID,Hip fracture,US,1,2
+26222949,63,801,Male,CLOZARIL,Death,GB,1,1
+26222950,72,801,Male,ATORVASTATIN,Myalgia,GB,1,2
+26222951,83,801,Male,COLCHICINE,Drug interaction,US,1,1
+26222952,94,801,Female,ANORO ELLIPTA,Dyspnoea,US,2,2
+26222953,47,801,Female,ATORVASTATIN,Myalgia,GB,1,2
+26222954,51,801,Male,HYDRALAZINE HCL,Anti-neutrophil cytoplasmic antibody positive vasculitis,US,1,2

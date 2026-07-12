@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kramlan · Data Portfolio</title>
+  <title>Kristina Ramlan · Data Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
@@ -12,55 +12,55 @@
       font-family: 'Inter', sans-serif;
       background: #0a0a0b;
       color: #e4e4e7;
-      line-height: 1.6;
+      line-height: 1.7;
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
 
     /* ── NAV ── */
     nav {
       display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 0; border-bottom: 1px solid #1f1f23;
+      padding: 24px 0; border-bottom: 1px solid #1f1f23;
     }
-    nav .logo { font-weight: 800; font-size: 1.2rem; color: #fff; letter-spacing: -0.5px; }
+    nav .logo { font-weight: 800; font-size: 1.4rem; color: #fff; letter-spacing: -0.5px; }
     nav .logo span { color: #a78bfa; }
-    nav a { color: #a1a1aa; text-decoration: none; font-size: 0.9rem; margin-left: 28px; transition: color .2s; }
+    nav a { color: #a1a1aa; text-decoration: none; font-size: 1.05rem; margin-left: 28px; transition: color .2s; }
     nav a:hover { color: #fff; }
 
     /* ── HERO ── */
     .hero {
-      padding: 80px 0 60px;
-      display: flex; flex-wrap: wrap; align-items: center; gap: 40px;
+      padding: 100px 0 80px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 50px;
     }
     .hero-text { flex: 1 1 300px; }
     .hero-text .badge {
       display: inline-block; background: #1e1e24; color: #a78bfa;
-      font-size: 0.75rem; font-weight: 600; padding: 4px 14px; border-radius: 20px;
-      margin-bottom: 16px; letter-spacing: 0.3px;
+      font-size: 0.9rem; font-weight: 600; padding: 6px 18px; border-radius: 20px;
+      margin-bottom: 20px; letter-spacing: 0.3px;
     }
     .hero-text h1 {
-      font-size: 2.6rem; font-weight: 800; color: #fff; line-height: 1.15;
+      font-size: 3rem; font-weight: 800; color: #fff; line-height: 1.15;
       letter-spacing: -1px;
     }
     .hero-text h1 span { color: #a78bfa; }
-    .hero-text p { margin-top: 16px; font-size: 1.05rem; color: #a1a1aa; max-width: 520px; }
+    .hero-text p { margin-top: 20px; font-size: 1.2rem; color: #a1a1aa; max-width: 540px; }
     .hero-text .cta {
-      margin-top: 28px; display: flex; gap: 12px; flex-wrap: wrap;
+      margin-top: 32px; display: flex; gap: 14px; flex-wrap: wrap;
     }
     .hero-text .cta a {
-      display: inline-block; padding: 10px 24px; border-radius: 8px;
-      font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all .2s;
+      display: inline-block; padding: 12px 28px; border-radius: 8px;
+      font-weight: 600; font-size: 1rem; text-decoration: none; transition: all .2s;
     }
     .btn-primary { background: #a78bfa; color: #0a0a0b; }
     .btn-primary:hover { background: #8b6cf0; transform: translateY(-1px); }
     .btn-outline { border: 1px solid #27272a; color: #e4e4e7; }
     .btn-outline:hover { border-color: #a78bfa; color: #a78bfa; }
 
-    .hero-visual { flex: 0 0 240px; text-align: center; }
+    .hero-visual { flex: 0 0 260px; text-align: center; }
     .hero-visual .chart-box {
       background: #131316; border: 1px solid #1f1f23; border-radius: 16px;
-      padding: 24px 20px; position: relative;
+      padding: 28px 22px; position: relative;
     }
-    .chart-box .bar { height: 8px; border-radius: 4px; margin-bottom: 12px; background: #27272a; position: relative; overflow: hidden; }
+    .chart-box .bar { height: 10px; border-radius: 4px; margin-bottom: 14px; background: #27272a; position: relative; overflow: hidden; }
     .chart-box .bar::after {
       content: ''; display: block; height: 100%; border-radius: 4px;
       background: linear-gradient(90deg, #a78bfa, #6d28d9);
@@ -70,91 +70,92 @@
     .bar:nth-child(3)::after { width: 85%; }
     .bar:nth-child(4)::after { width: 64%; }
     .bar:nth-child(5)::after { width: 71%; }
-    .chart-box .label { font-size: 0.65rem; color: #71717a; margin-bottom: 4px; display: block; }
+    .chart-box .label { font-size: 0.75rem; color: #71717a; margin-bottom: 4px; display: block; }
 
     /* ── SECTION ── */
-    section { padding: 60px 0; }
+    section { padding: 80px 0; }
     .section-title {
-      font-size: 1.5rem; font-weight: 700; color: #fff; margin-bottom: 32px;
+      font-size: 1.8rem; font-weight: 700; color: #fff; margin-bottom: 36px;
       display: flex; align-items: center; gap: 10px;
     }
     .section-title::before {
-      content: ''; display: inline-block; width: 4px; height: 20px;
+      content: ''; display: inline-block; width: 4px; height: 24px;
       background: #a78bfa; border-radius: 2px;
     }
 
     /* ── SKILLS ── */
     .skills-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px;
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px;
     }
     .skill-card {
-      background: #131316; border: 1px solid #1f1f23; border-radius: 10px;
-      padding: 16px 14px; text-align: center; transition: all .2s;
+      background: #131316; border: 1px solid #1f1f23; border-radius: 12px;
+      padding: 20px 16px; text-align: center; transition: all .2s;
     }
     .skill-card:hover { border-color: #a78bfa; transform: translateY(-2px); }
-    .skill-card .icon { font-size: 1.6rem; margin-bottom: 6px; }
-    .skill-card .name { font-size: 0.82rem; font-weight: 600; color: #e4e4e7; }
-    .skill-card .level { font-size: 0.7rem; color: #71717a; margin-top: 4px; }
+    .skill-card .icon { font-size: 2rem; margin-bottom: 8px; }
+    .skill-card .name { font-size: 1rem; font-weight: 600; color: #e4e4e7; }
+    .skill-card .level { font-size: 0.82rem; color: #71717a; margin-top: 6px; }
 
     /* ── PROJECTS ── */
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px; }
     .project-card {
-      background: #131316; border: 1px solid #1f1f23; border-radius: 12px;
-      padding: 24px; transition: all .2s;
+      background: #131316; border: 1px solid #1f1f23; border-radius: 14px;
+      padding: 28px; transition: all .2s;
     }
     .project-card:hover { border-color: #a78bfa40; }
     .project-card .tag {
       display: inline-block; background: #1e1e24; color: #a78bfa;
-      font-size: 0.7rem; font-weight: 600; padding: 2px 10px; border-radius: 12px; margin-bottom: 10px;
+      font-size: 0.82rem; font-weight: 600; padding: 4px 12px; border-radius: 12px; margin-bottom: 12px;
     }
-    .project-card h3 { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
-    .project-card p { font-size: 0.88rem; color: #a1a1aa; margin-bottom: 14px; }
-    .project-card .tech { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-card h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .project-card p { font-size: 1rem; color: #a1a1aa; margin-bottom: 16px; line-height: 1.6; }
+    .project-card .tech { display: flex; flex-wrap: wrap; gap: 8px; }
     .project-card .tech span {
-      background: #1f1f23; color: #a1a1aa; font-size: 0.7rem;
-      padding: 2px 10px; border-radius: 10px;
+      background: #1f1f23; color: #a1a1aa; font-size: 0.82rem;
+      padding: 4px 12px; border-radius: 10px;
     }
 
     /* ── EXPERIENCE ── */
-    .timeline { position: relative; padding-left: 28px; }
+    .timeline { position: relative; padding-left: 32px; }
     .timeline::before {
       content: ''; position: absolute; left: 8px; top: 8px; bottom: 8px;
       width: 2px; background: #1f1f23;
     }
-    .timeline-item { position: relative; margin-bottom: 32px; }
+    .timeline-item { position: relative; margin-bottom: 36px; }
     .timeline-item::before {
-      content: ''; position: absolute; left: -24px; top: 6px;
-      width: 12px; height: 12px; border-radius: 50%; background: #a78bfa; border: 2px solid #0a0a0b;
+      content: ''; position: absolute; left: -28px; top: 6px;
+      width: 14px; height: 14px; border-radius: 50%; background: #a78bfa; border: 3px solid #0a0a0b;
     }
-    .timeline-item .date { font-size: 0.78rem; color: #71717a; margin-bottom: 4px; }
-    .timeline-item h3 { font-size: 1rem; font-weight: 700; color: #fff; }
-    .timeline-item .company { font-size: 0.88rem; color: #a78bfa; margin-bottom: 6px; }
-    .timeline-item p { font-size: 0.85rem; color: #a1a1aa; }
+    .timeline-item .date { font-size: 0.9rem; color: #71717a; margin-bottom: 4px; }
+    .timeline-item h3 { font-size: 1.15rem; font-weight: 700; color: #fff; }
+    .timeline-item .company { font-size: 1rem; color: #a78bfa; margin-bottom: 8px; }
+    .timeline-item p { font-size: 0.95rem; color: #a1a1aa; line-height: 1.6; }
 
     /* ── CONTACT ── */
     .contact-card {
-      background: #131316; border: 1px solid #1f1f23; border-radius: 12px;
-      padding: 32px; text-align: center; max-width: 500px; margin: 0 auto;
+      background: #131316; border: 1px solid #1f1f23; border-radius: 14px;
+      padding: 40px; text-align: center; max-width: 520px; margin: 0 auto;
     }
-    .contact-card p { color: #a1a1aa; margin-bottom: 20px; }
+    .contact-card p { color: #a1a1aa; margin-bottom: 24px; font-size: 1.05rem; }
     .contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
     .contact-links a {
-      color: #a1a1aa; text-decoration: none; font-size: 0.9rem;
-      padding: 8px 18px; border: 1px solid #27272a; border-radius: 8px; transition: all .2s;
+      color: #a1a1aa; text-decoration: none; font-size: 1rem;
+      padding: 10px 22px; border: 1px solid #27272a; border-radius: 8px; transition: all .2s;
     }
     .contact-links a:hover { border-color: #a78bfa; color: #a78bfa; }
 
     /* ── FOOTER ── */
     footer {
-      text-align: center; padding: 32px 0; border-top: 1px solid #1f1f23;
-      font-size: 0.8rem; color: #52525b;
+      text-align: center; padding: 36px 0; border-top: 1px solid #1f1f23;
+      font-size: 0.9rem; color: #52525b;
     }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .hero-text h1 { font-size: 2rem; }
+      .hero-text h1 { font-size: 2.2rem; }
       .hero-visual { flex-basis: 100%; }
-      nav a { margin-left: 16px; }
+      nav a { margin-left: 16px; font-size: 0.9rem; }
+      .projects-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -163,7 +164,7 @@
   <!-- NAV -->
   <div class="container">
     <nav>
-      <div class="logo">Kramlan<span>.</span></div>
+      <div class="logo">Kristina<span>.</span></div>
       <div>
         <a href="#skills">Skills</a>
         <a href="#projects">Projects</a>
@@ -179,7 +180,7 @@
       <div class="hero-text">
         <div class="badge">Data Analyst &amp; Visualisation</div>
         <h1>Turning <span>data</span> into<br/>clear, actionable <span>stories</span></h1>
-        <p>Data analyst with experience in government digital transformation, data governance, and public sector analytics. I build dashboards, uncover insights, and make complex data speak.</p>
+        <p>Enterprise data & analytics consultant with 12+ years of experience across international development, financial services, and government digital transformation. Specialised in data architecture, data visualisation, and data governance.</p>
         <div class="cta">
           <a href="#projects" class="btn-primary">See my work →</a>
           <a href="#contact" class="btn-outline">Contact</a>
@@ -202,14 +203,14 @@
     <section>
       <h2 class="section-title">Core Skills</h2>
       <div class="skills-grid">
-        <div class="skill-card"><div class="icon">🐍</div><div class="name">Python</div><div class="level">pandas, matplotlib, seaborn</div></div>
-        <div class="skill-card"><div class="icon">🗃️</div><div class="name">SQL</div><div class="level">PostgreSQL, BigQuery</div></div>
+        <div class="skill-card"><div class="icon">🐍</div><div class="name">Python</div><div class="level">pandas, matplotlib, PySpark</div></div>
+        <div class="skill-card"><div class="icon">🗃️</div><div class="name">SQL</div><div class="level">PostgreSQL, BigQuery, Teradata</div></div>
         <div class="skill-card"><div class="icon">📊</div><div class="name">Tableau</div><div class="level">Dashboards &amp; Stories</div></div>
         <div class="skill-card"><div class="icon">📉</div><div class="name">Power BI</div><div class="level">DAX, Power Query</div></div>
-        <div class="skill-card"><div class="icon">📗</div><div class="name">Excel</div><div class="level">Pivot, Power Query, VBA</div></div>
-        <div class="skill-card"><div class="icon">📈</div><div class="name">Data Viz</div><div class="level">Best practices, storytelling</div></div>
+        <div class="skill-card"><div class="icon">☁️</div><div class="name">AWS</div><div class="level">SageMaker, Textract, RDS</div></div>
+        <div class="skill-card"><div class="icon">📈</div><div class="name">Data Viz</div><div class="level">Storytelling with data</div></div>
         <div class="skill-card"><div class="icon">🔗</div><div class="name">Data Governance</div><div class="level">SPLP, DAMA, Metadata</div></div>
-        <div class="skill-card"><div class="icon">🌐</div><div class="name">SPBE</div><div class="level">Digital Gov Architecture</div></div>
+        <div class="skill-card"><div class="icon">🏛️</div><div class="name">Data Architecture</div><div class="level">ETL, Data Modeling, Cloud</div></div>
       </div>
     </section>
   </div>
@@ -224,23 +225,23 @@
           <h3>Prototype LKP</h3>
           <p>Interactive Tableau dashboard visualising Indonesia's <strong>Lembaga Kursus dan Pelatihan (LKP)</strong> landscape — 12,600+ institutions mapped by age range, SK Pendirian gap, and geographical distribution across cities/regencies and sub-districts.</p>
           <div class="tech"><span>Tableau</span><span>Public Sector</span><span>Education</span></div>
-          <a href="https://public.tableau.com/app/profile/kristina.fangidae/viz/PrototypeLKP/LKPOverview" target="_blank" style="display:inline-block;margin-top:12px;color:#a78bfa;font-size:0.82rem;text-decoration:none;font-weight:600;">🔗 Lihat di Tableau Public →</a>
+          <a href="https://public.tableau.com/app/profile/kristina.fangidae/viz/PrototypeLKP/LKPOverview" target="_blank" style="display:inline-block;margin-top:14px;color:#a78bfa;font-size:0.9rem;text-decoration:none;font-weight:600;">🔗 Lihat di Tableau Public →</a>
         </div>
         <div class="project-card">
           <div class="tag">Map · Interactive</div>
           <h3>Peta Sebaran Bantuan Dekranas — Tenun</h3>
           <p>Web-based interactive map (Leaflet) visualising Dekranas PKW program distribution for weaving (<em>tenun</em>) across 34 kab/kota in Indonesia, 2023–2025. Features heatmap, year/category filters, pie & bar charts, and detail tooltips.</p>
           <div class="tech"><span>Leaflet</span><span>Chart.js</span><span>HTML/CSS/JS</span></div>
-          <a href="https://krismeiria.github.io/peta-dekranas-tenun/" target="_blank" style="display:inline-block;margin-top:12px;color:#a78bfa;font-size:0.82rem;text-decoration:none;font-weight:600;">🔗 Live Demo →</a>
-          <a href="https://github.com/krismeiria/peta-dekranas-tenun" target="_blank" style="display:inline-block;margin-top:12px;margin-left:12px;color:#a1a1aa;font-size:0.82rem;text-decoration:none;">GitHub</a>
+          <a href="https://krismeiria.github.io/peta-dekranas-tenun/" target="_blank" style="display:inline-block;margin-top:14px;color:#a78bfa;font-size:0.9rem;text-decoration:none;font-weight:600;">🔗 Live Demo →</a>
+          <a href="https://github.com/krismeiria/peta-dekranas-tenun" target="_blank" style="display:inline-block;margin-top:14px;margin-left:14px;color:#a1a1aa;font-size:0.9rem;text-decoration:none;">GitHub</a>
         </div>
         <div class="project-card">
           <div class="tag">Flask · Full-stack</div>
           <h3>Complaints Dashboard Handler (PoC)</h3>
           <p>Financial Authority Complaints Review System — a comprehensive web app for market conduct supervision and consumer protection. Features dashboard with MTD stats, ticket management workflow, priority system, file attachments, and AI-powered document analysis.</p>
           <div class="tech"><span>Flask</span><span>SQLAlchemy</span><span>Chart.js</span><span>Bootstrap</span></div>
-          <a href="http://43.129.58.100:5000/" target="_blank" style="display:inline-block;margin-top:12px;color:#a78bfa;font-size:0.82rem;text-decoration:none;font-weight:600;">🔗 Live App →</a>
-          <a href="https://github.com/krismeiria/complaints-review-app" target="_blank" style="display:inline-block;margin-top:12px;margin-left:12px;color:#a1a1aa;font-size:0.82rem;text-decoration:none;">GitHub</a>
+          <a href="http://43.129.58.100:5000/" target="_blank" style="display:inline-block;margin-top:14px;color:#a78bfa;font-size:0.9rem;text-decoration:none;font-weight:600;">🔗 Live App →</a>
+          <a href="https://github.com/krismeiria/complaints-review-app" target="_blank" style="display:inline-block;margin-top:14px;margin-left:14px;color:#a1a1aa;font-size:0.9rem;text-decoration:none;">GitHub</a>
         </div>
       </div>
     </section>
@@ -252,22 +253,34 @@
       <h2 class="section-title">Experience</h2>
       <div class="timeline">
         <div class="timeline-item">
-          <div class="date">2024 – Present</div>
-          <h3>Data &amp; Digital Policy Analyst</h3>
-          <div class="company">Prospera · DFAT / DT Global</div>
-          <p>Working on data exchange infrastructure (SPLP), digital government transformation (SPBE), and cross-agency interoperability for DJKN and Kemenkeu.</p>
+          <div class="date">Mar 2026 – Present</div>
+          <h3>Digital &amp; Data Analyst (Policy Coherence)</h3>
+          <div class="company">International Development Consulting</div>
+          <p>Assessing government data exchange ecosystems — governance, interoperability, and implementation readiness. Identifying digital transformation use cases with government counterparts. Researching international good practices in digital public infrastructure and cross-government data governance.</p>
         </div>
         <div class="timeline-item">
-          <div class="date">2023 – 2024</div>
+          <div class="date">Sep 2022 – Feb 2026</div>
           <h3>Data Analyst</h3>
-          <div class="company">Public Sector Consulting</div>
-          <p>Data analysis, visualisation, and policy recommendations for government digital transformation projects. Built dashboards and process flow diagrams for decision-makers.</p>
+          <div class="company">International Development Program</div>
+          <p>Built end-to-end big data architecture (PySpark, AWS) transforming raw data into curated analytics datamarts. Developed consumer protection dashboards with interactive drill-down by product, issue category, and resolution status. Built API-based PoC for cross-government fiscal data exchange and ad scam monitoring pipelines.</p>
         </div>
         <div class="timeline-item">
-          <div class="date">2022 – 2023</div>
-          <h3>Junior Data Analyst</h3>
-          <div class="company">Previous Role</div>
-          <p>Data cleaning, exploratory analysis, reporting automation using Python and Excel. Supported senior analysts in client-facing deliverables.</p>
+          <div class="date">Nov 2020 – Sep 2022</div>
+          <h3>Data Consultant</h3>
+          <div class="company">Management Consulting</div>
+          <p>Designed OCR pipelines (AWS Textract) for automated identity document processing. Developed budget optimisation models using Python and AWS SageMaker. Architected cloud-based data pipelines and deployed regional data workflows across multiple markets.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">Aug 2018 – Oct 2020</div>
+          <h3>Senior Technical Business Analyst</h3>
+          <div class="company">Technology Consulting</div>
+          <p>Built scalable data models for high-volume telecommunications data processing. Developed Power BI dashboards for sales, customer profiling, and financial analytics. Translated business requirements into big data analytics solutions.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="date">Sep 2014 – May 2016</div>
+          <h3>Business Intelligence Associate</h3>
+          <div class="company">Enterprise Data Solutions</div>
+          <p>Built MIS dashboards and enterprise data solutions across Oracle and Teradata environments. Designed ETL pipelines and executive-ready BI dashboards for inventory, supply chain, and financial reporting.</p>
         </div>
       </div>
     </section>
@@ -280,9 +293,9 @@
       <div class="contact-card">
         <p>Looking for a data analyst or just want to connect?<br/>I'm always open to interesting conversations.</p>
         <div class="contact-links">
-          <a href="mailto:your.email@example.com">📧 Email</a>
-          <a href="https://linkedin.com/in/kramlan" target="_blank">💼 LinkedIn</a>
-          <a href="https://github.com/kramlan" target="_blank">🐙 GitHub</a>
+          <a href="mailto:kristina.fangidae@gmail.com">📧 Email</a>
+          <a href="https://linkedin.com/in/kristina-ramlan" target="_blank">💼 LinkedIn</a>
+          <a href="https://github.com/krismeiria" target="_blank">🐙 GitHub</a>
         </div>
       </div>
     </section>
@@ -291,7 +304,7 @@
   <!-- FOOTER -->
   <div class="container">
     <footer>
-      &copy; 2026 Kramlan · Built with data, coffee, and curiosity
+      &copy; 2026 Kristina Ramlan · Built with data, coffee, and curiosity
     </footer>
   </div>
 

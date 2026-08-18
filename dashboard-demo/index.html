@@ -11,7 +11,8 @@
   Libraries (CDN): Chart.js (charts), SheetJS (Excel export)
   Map: embedded SVG choropleth + bubbles (no external tiles — Tableau-style)
   PDF export: window.print() with dedicated print stylesheet (no library needed)
-  Data: dummy/anonymised sample — replace DATA below with real company data.
+  Data: loads sample_data.csv at runtime (client replaces that file to update).
+        Embedded dummy sample is only a fallback for file:// or missing CSV.
   ============================================================ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -104,6 +105,9 @@
   .kpi .delta.up { color: var(--ok); }
   .kpi .delta.down { color: var(--bad); }
   .kpi .delta.flat { color: var(--muted); }
+  .kpis.mini { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin: 14px 0 4px; }
+  .kpis.mini .kpi { border-left-width: 4px; background: #F7FAFD; border-radius: 8px; padding: 12px 14px; }
+  .kpis.mini .kpi .value { font-size: 1.25rem; margin-top: 4px; }
 
   /* Tables */
   .table-wrap { overflow-x: auto; }
@@ -226,6 +230,17 @@
         <div class="table-wrap" style="max-height:460px; overflow:auto"><table id="table-clients"></table></div>
       </div>
     </div>
+    <div class="grid two" style="margin-top:18px">
+      <div class="card">
+        <h3>Revenue share — top clients</h3>
+        <div class="chart-wrap h300"><canvas id="chart-clients-share"></canvas></div>
+      </div>
+      <div class="card">
+        <h3 id="client-detail-title">Monthly revenue trend</h3>
+        <div class="chart-wrap h300"><canvas id="chart-client-trend"></canvas></div>
+        <p class="note">Click a bar, segment or row to follow a client.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ============ TAB: SERVEIS ============ -->
@@ -238,6 +253,17 @@
       <div class="card">
         <h3>Service table</h3>
         <div class="table-wrap" style="max-height:460px; overflow:auto"><table id="table-serveis"></table></div>
+      </div>
+    </div>
+    <div class="grid two" style="margin-top:18px">
+      <div class="card">
+        <h3>Margin % by service line</h3>
+        <div class="chart-wrap h300"><canvas id="chart-serveis-margin"></canvas></div>
+      </div>
+      <div class="card">
+        <h3 id="service-detail-title">Monthly revenue trend</h3>
+        <div class="chart-wrap h300"><canvas id="chart-service-trend"></canvas></div>
+        <p class="note">Click a bar or row to follow a service line.</p>
       </div>
     </div>
   </section>
@@ -288,10 +314,15 @@
         <div class="chart-wrap h380"><canvas id="chart-trend-margin"></canvas></div>
       </div>
     </div>
-    <div class="grid" style="margin-top:18px">
+    <div class="grid two" style="margin-top:18px">
+      <div class="card">
+        <h3>Recurring vs one-off by month</h3>
+        <div class="chart-wrap h320"><canvas id="chart-trend-type"></canvas></div>
+      </div>
       <div class="card">
         <h3>Monthly table</h3>
-        <div class="table-wrap"><table id="table-monthly"></table></div>
+        <div class="table-wrap" style="max-height:320px; overflow:auto"><table id="table-monthly"></table></div>
+        <p class="note">Click a bar to highlight that month in the table.</p>
       </div>
     </div>
   </section>
@@ -300,7 +331,14 @@
   <section class="tab-panel" id="panel-dades">
     <div class="card">
       <h3>Transaction data</h3>
+      <div class="kpis mini" id="data-summary">
+        <div class="kpi"><div class="label">Rows</div><div class="value" id="sum-rows">0</div></div>
+        <div class="kpi"><div class="label">Revenue</div><div class="value" id="sum-rev">€0</div></div>
+        <div class="kpi"><div class="label">Cost</div><div class="value" id="sum-cost">€0</div></div>
+        <div class="kpi"><div class="label">Margin</div><div class="value" id="sum-margin">€0</div></div>
+      </div>
       <div class="toolbar no-print">
+        <button class="btn ghost" id="btn-refresh">Reload CSV</button>
         <button class="btn ghost" id="btn-csv">Export CSV</button>
         <button class="btn ghost" id="btn-xlsx">Export Excel</button>
         <button class="btn primary" id="btn-pdf">Export PDF</button>
@@ -2313,7 +2351,8 @@ const RAW = {
  ]
 }
 
-const DATA = RAW.rows;
+let DATA = RAW.rows; // fallback: embedded dummy sample (used only if sample_data.csv cannot be fetched)
+let dataSource = 'embedded';
 const CITIES = RAW.cities; // { City: [lat, lng] }
 
 /* Tableau-style SVG map data (embedded — no external tiles needed) */
@@ -2364,7 +2403,7 @@ const fmtNum = v => new Intl.NumberFormat('en-GB').format(v);
 function sum(arr, f) { return arr.reduce((a, r) => a + f(r), 0); }
 
 /* ---------- State & filters ---------- */
-let state = { month: 'all', search: '', region: null, monthFocus: null };
+let state = { month: 'all', search: '', region: null, monthFocus: null, client: null, service: null, trendMonth: null };
 
 function filteredRows() {
   let rows = DATA;
@@ -2513,26 +2552,51 @@ function renderOverview(rows) {
 }
 
 /* ---------- Charts: CLIENTS ---------- */
+/* Click a bar, doughnut segment or table row to follow that client in the detail chart. */
+function selectClient(name) {
+  state.client = (state.client === name) ? null : name;
+  renderClients(filteredRows());
+}
+
 function renderClients(rows) {
   const byC = aggBy(rows, 'client');
+  const sel = state.client;
   const top = byC.slice(0, 10);
   const labels = top.map(o => o.key).reverse();
   const vals = top.map(o => o.revenue).reverse();
   makeChart('chart-clients-bar', {
     type: 'bar',
-    data: { labels, datasets: [{ label: T.t.revenue, data: vals, backgroundColor: '#1F4E78', borderRadius: 6 }] },
+    data: { labels, datasets: [{ label: T.t.revenue, data: vals,
+      backgroundColor: labels.map(k => k === sel ? '#E9A13B' : '#1F4E78'), borderRadius: 6 }] },
     options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      onClick: (evt, elems) => { if (elems.length) selectClient(labels[elems[0].index]); },
       scales: { x: { ticks: { callback: v => fmtNum(v) } } },
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.x)}` } } } }
   });
 
+  // Revenue share doughnut (top 5 clients + Others)
+  const top5 = byC.slice(0, 5);
+  const restRev = sum(byC.slice(5), o => o.revenue);
+  const shareLabels = top5.map(o => o.key);
+  const shareVals = top5.map(o => o.revenue);
+  if (restRev > 0) { shareLabels.push('Others'); shareVals.push(restRev); }
+  makeChart('chart-clients-share', {
+    type: 'doughnut',
+    data: { labels: shareLabels, datasets: [{ data: shareVals,
+      backgroundColor: ['#1F4E78', '#4E8FC7', '#9DB8D2', '#C7A24E', '#E9A13B', '#B9C4CE'], borderWidth: 2, borderColor: '#fff' }] },
+    options: { responsive: true, maintainAspectRatio: false, cutout: '55%',
+      onClick: (evt, elems) => { if (elems.length) { const k = shareLabels[elems[0].index]; if (k !== 'Others') selectClient(k); } },
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.label}: ${fmtEUR(c.parsed)} (${(c.parsed / (sum(shareVals) || 1) * 100).toFixed(1)}%)` } } } }
+  });
+
+  // Client table — click a row to follow the client
   const total = sum(byC, o => o.revenue) || 1;
   const rowsHtml = byC.map(o => {
     const m = o.revenue - o.cost;
     const share = o.revenue / total * 100;
-    return `<tr>
+    return `<tr class="${o.key === sel ? 'selected' : ''}" onclick="selectClient(${JSON.stringify(o.key)})">
       <td class="l">${o.key}</td>
-      <td class="l">${o.n > 0 ? byC.find(x => x.key === o.key).n : ''}</td>
+      <td class="l">${o.n}</td>
       <td>${fmtEUR(o.revenue)}</td>
       <td>${fmtEUR(o.cost)}</td>
       <td>${fmtEUR(m)}</td>
@@ -2541,31 +2605,73 @@ function renderClients(rows) {
   }).join('');
   document.getElementById('table-clients').innerHTML =
     `<thead><tr><th class="l">${T.t.client}</th><th>${T.t.transactions}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th><th>${T.t.margin}</th><th>${T.t.share}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+
+  // Detail trend — follows the selected client (default: top client)
+  const focus = (sel && byC.some(o => o.key === sel)) ? sel : (byC.length ? byC[0].key : '');
+  document.getElementById('client-detail-title').textContent = `Monthly revenue trend — ${focus}`;
+  const byM = aggByMonth(rows.filter(r => r.client === focus));
+  makeChart('chart-client-trend', {
+    type: 'line',
+    data: {
+      labels: byM.map(o => monthLabel(o.month)),
+      datasets: [
+        { label: T.t.revenue, data: byM.map(o => o.revenue), borderColor: '#1F4E78', backgroundColor: 'rgba(31,78,120,.10)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 },
+        { label: T.t.cost, data: byM.map(o => o.cost), borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.08)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      scales: { y: { ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
+  });
 }
 
 /* ---------- Charts: SERVEIS ---------- */
+/* Click a bar or table row to follow that service line in the detail chart. */
+function selectService(name) {
+  state.service = (state.service === name) ? null : name;
+  renderServeis(filteredRows());
+}
+
 function renderServeis(rows) {
   const byS = aggBy(rows, 'service_line');
+  const sel = state.service;
+  const labels = byS.map(o => o.key);
+
+  // Revenue vs cost by service
   makeChart('chart-serveis-bar', {
     type: 'bar',
     data: {
-      labels: byS.map(o => o.key),
+      labels,
       datasets: [
-        { label: T.t.revenue, data: byS.map(o => o.revenue), backgroundColor: '#1F4E78', borderRadius: 5 },
-        { label: T.t.cost, data: byS.map(o => o.cost), backgroundColor: '#E9A13B', borderRadius: 5 }
+        { label: T.t.revenue, data: byS.map(o => o.revenue), backgroundColor: byS.map(o => o.key === sel ? '#E9A13B' : '#1F4E78'), borderRadius: 5 },
+        { label: T.t.cost, data: byS.map(o => o.cost), backgroundColor: 'rgba(233,161,59,.30)', borderRadius: 5 }
       ]
     },
     options: { responsive: true, maintainAspectRatio: false,
+      onClick: (evt, elems) => { if (elems.length) selectService(labels[elems[0].index]); },
       scales: { y: { ticks: { callback: v => fmtNum(v) } } },
       plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
   });
 
+  // Margin % by service
+  const marginVals = byS.map(o => o.revenue ? (o.revenue - o.cost) / o.revenue * 100 : 0);
+  makeChart('chart-serveis-margin', {
+    type: 'bar',
+    data: { labels, datasets: [{ label: T.t.margin_pct, data: marginVals,
+      backgroundColor: byS.map(o => o.key === sel ? '#E9A13B' : '#4E8FC7'), borderRadius: 6 }] },
+    options: { responsive: true, maintainAspectRatio: false,
+      onClick: (evt, elems) => { if (elems.length) selectService(labels[elems[0].index]); },
+      scales: { y: { ticks: { callback: v => v + '%' } } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.parsed.y.toFixed(1)}%` } } } }
+  });
+
+  // Service table — click a row to follow the service
   const total = sum(byS, o => o.revenue) || 1;
   const rowsHtml = byS.map(o => {
     const m = o.revenue - o.cost;
     const pct = o.revenue ? m / o.revenue * 100 : 0;
     const share = o.revenue / total * 100;
-    return `<tr>
+    return `<tr class="${o.key === sel ? 'selected' : ''}" onclick="selectService(${JSON.stringify(o.key)})">
       <td class="l">${o.key}</td>
       <td>${o.n}</td>
       <td>${fmtEUR(o.revenue)}</td>
@@ -2577,6 +2683,24 @@ function renderServeis(rows) {
   }).join('');
   document.getElementById('table-serveis').innerHTML =
     `<thead><tr><th class="l">${T.t.service}</th><th>${T.t.transactions}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th><th>${T.t.margin}</th><th>${T.t.margin_pct}</th><th>${T.t.share}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+
+  // Detail trend — follows the selected service (default: top service)
+  const focus = (sel && byS.some(o => o.key === sel)) ? sel : (byS.length ? byS[0].key : '');
+  document.getElementById('service-detail-title').textContent = `Monthly revenue trend — ${focus}`;
+  const byM = aggByMonth(rows.filter(r => r.service_line === focus));
+  makeChart('chart-service-trend', {
+    type: 'line',
+    data: {
+      labels: byM.map(o => monthLabel(o.month)),
+      datasets: [
+        { label: T.t.revenue, data: byM.map(o => o.revenue), borderColor: '#1F4E78', backgroundColor: 'rgba(31,78,120,.10)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 },
+        { label: T.t.cost, data: byM.map(o => o.cost), borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.08)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      scales: { y: { ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
+  });
 }
 
 /* ---------- Charts: REGIONS (Tableau-style SVG choropleth + bubbles, no external tiles) ---------- */
@@ -2726,6 +2850,12 @@ function renderRegions(rows) {
 }
 
 /* ---------- Charts: TENDENCIES ---------- */
+/* Click a bar in Recurring vs one-off (or a table row) to highlight that month. */
+function selectTrendMonth(m) {
+  state.trendMonth = (state.trendMonth === m) ? null : m;
+  renderTrends(filteredRows());
+}
+
 function renderTrends(rows) {
   const byM = aggByMonth(rows);
   const labels = byM.map(o => monthLabel(o.month));
@@ -2759,11 +2889,29 @@ function renderTrends(rows) {
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.parsed.y.toFixed(1)}%` } } } }
   });
 
-  // Monthly table
+  // Recurring vs one-off by month (click a bar to highlight that month in the table)
+  const types = [...new Set(rows.map(r => r.revenue_type))];
+  const tPalette = { Recurring: '#1F4E78', 'One-off': '#E9A13B' };
+  const tDatasets = types.map(t => ({
+    label: t,
+    data: byM.map(o => sum(rows.filter(r => r.month === o.month && r.revenue_type === t), r => r.revenue)),
+    backgroundColor: tPalette[t] || '#9DB8D2', borderRadius: 2
+  }));
+  makeChart('chart-trend-type', {
+    type: 'bar',
+    data: { labels, datasets: tDatasets },
+    options: { responsive: true, maintainAspectRatio: false,
+      onClick: (evt, elems) => { if (elems.length) selectTrendMonth(byM[elems[0].index].month); },
+      scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
+  });
+
+  // Monthly table — click a row / bar to highlight a month
+  const tm = state.trendMonth;
   const rowsHtml = byM.map(o => {
     const m = o.revenue - o.cost;
     const pct = o.revenue ? m / o.revenue * 100 : 0;
-    return `<tr>
+    return `<tr class="${o.month === tm ? 'selected' : ''}" onclick="selectTrendMonth(${JSON.stringify(o.month)})">
       <td class="l">${monthLabel(o.month)}</td>
       <td>${fmtEUR(o.revenue)}</td>
       <td>${fmtEUR(o.cost)}</td>
@@ -2777,6 +2925,14 @@ function renderTrends(rows) {
 
 /* ---------- Data table ---------- */
 function renderDataTable(rows) {
+  // Filtered summary cards
+  const rev = sum(rows, r => r.revenue);
+  const cost = sum(rows, r => r.cost);
+  document.getElementById('sum-rows').textContent = fmtNum(rows.length);
+  document.getElementById('sum-rev').textContent = fmtEUR(rev);
+  document.getElementById('sum-cost').textContent = fmtEUR(cost);
+  document.getElementById('sum-margin').textContent = fmtEUR(rev - cost);
+
   const rowsHtml = rows.map(r => `<tr>
     <td class="l">${r.client}</td>
     <td class="l">${r.service_line}</td>
@@ -2800,7 +2956,7 @@ function exportCSV() {
   const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
   const a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'dades_dashboard.csv';
+  a.download = 'services_dashboard.csv';
   a.click();
   URL.revokeObjectURL(a.href);
 }
@@ -2814,8 +2970,8 @@ function exportXLSX() {
   const wb = XLSX.utils.book_new();
   const ws = XLSX.utils.json_to_sheet(rows);
   ws['!cols'] = [{wch:28},{wch:24},{wch:18},{wch:9},{wch:14},{wch:12},{wch:12}];
-  XLSX.utils.book_append_sheet(wb, ws, 'Dades');
-  XLSX.writeFile(wb, 'dades_dashboard.xlsx');
+  XLSX.utils.book_append_sheet(wb, ws, 'Data');
+  XLSX.writeFile(wb, 'services_dashboard.xlsx');
 }
 
 /* ---------- Export: PDF (print stylesheet) ---------- */
@@ -2831,7 +2987,8 @@ function renderAll() {
   renderRegions(rows);
   renderTrends(rows);
   renderDataTable(rows);
-  document.getElementById('data-note').textContent = `${T.t.demo_note} · ${fmtNum(rows.length)} ${T.t.n_rows}`;
+  document.getElementById('data-note').textContent =
+    `${dataSource === 'csv' ? 'Live data: sample_data.csv' : T.t.demo_note} · ${fmtNum(rows.length)} ${T.t.n_rows}`;
 }
 
 /* ---------- Tabs ---------- */
@@ -2847,14 +3004,63 @@ document.getElementById('tabs').addEventListener('click', e => {
 
 /* ---------- Filters ---------- */
 const monthSel = document.getElementById('month-filter');
-[...new Set(DATA.map(r => r.month))].sort().forEach(m => {
-  const opt = document.createElement('option');
-  opt.value = m; opt.textContent = monthLabel(m);
-  monthSel.appendChild(opt);
-});
+function buildMonthOptions() {
+  monthSel.innerHTML = '<option value="all">All months</option>';
+  [...new Set(DATA.map(r => r.month))].sort().forEach(m => {
+    const opt = document.createElement('option');
+    opt.value = m; opt.textContent = monthLabel(m);
+    monthSel.appendChild(opt);
+  });
+}
+buildMonthOptions();
+
+/* ---------- CSV data source ----------
+   When served over http(s) (e.g. GitHub Pages), the dashboard fetches
+   sample_data.csv and uses it as the LIVE data source. The client only
+   replaces that file to update the dashboard — no HTML edits needed.
+   When opened from disk (file://) or the CSV is missing, the embedded
+   dummy sample is used instead so the demo never breaks. */
+function parseCSV(text) {
+  text = text.replace(/^\uFEFF/, ''); // strip UTF-8 BOM
+  const lines = text.split(/\r?\n/).filter(l => l.trim() !== '');
+  if (lines.length < 2) return [];
+  const header = lines[0].split(',').map(h => h.trim().replace(/^"|"$/g, ''));
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const fields = [];
+    let cur = '', inQ = false;
+    for (const ch of lines[i]) {
+      if (ch === '"') inQ = !inQ;
+      else if (ch === ',' && !inQ) { fields.push(cur); cur = ''; }
+      else cur += ch;
+    }
+    fields.push(cur);
+    const o = {};
+    header.forEach((h, j) => { o[h] = (fields[j] || '').trim().replace(/^"|"$/g, ''); });
+    if (!o.client) continue;
+    o.revenue = parseFloat(o.revenue) || 0;
+    o.cost = parseFloat(o.cost) || 0;
+    rows.push(o);
+  }
+  return rows;
+}
+function loadCSV() {
+  fetch('sample_data.csv?t=' + Date.now())
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+    .then(text => {
+      const rows = parseCSV(text);
+      if (!rows.length) throw new Error('empty CSV');
+      DATA = rows;
+      dataSource = 'csv';
+      buildMonthOptions();
+      renderAll();
+    })
+    .catch(() => { /* keep embedded fallback */ });
+}
 monthSel.addEventListener('change', () => { state.month = monthSel.value; renderAll(); });
 document.getElementById('reset-filter').addEventListener('click', () => {
   state.month = 'all'; state.search = ''; state.region = null; state.monthFocus = null;
+  state.client = null; state.service = null; state.trendMonth = null;
   monthSel.value = 'all';
   document.getElementById('data-search').value = '';
   renderAll();
@@ -2867,9 +3073,11 @@ document.getElementById('data-search').addEventListener('input', e => {
 document.getElementById('btn-csv').addEventListener('click', exportCSV);
 document.getElementById('btn-xlsx').addEventListener('click', exportXLSX);
 document.getElementById('btn-pdf').addEventListener('click', exportPDF);
+document.getElementById('btn-refresh').addEventListener('click', loadCSV);
 
 /* ---------- Init ---------- */
-renderAll();
+renderAll();  // embedded fallback first, then live CSV
+loadCSV();    // refresh from sample_data.csv when served over http(s)
 </script>
 </body>
 </html>

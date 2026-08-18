@@ -1,0 +1,217 @@
+﻿client,linia_servei,ubicacio,mes,tipus_ingres,ingressos,costos
+Ajuntament de Girona,Consultoria,Girona,2025-01,Puntual,12100,5800
+Ajuntament de Girona,Manteniment,Girona,2025-01,Recurrent,10400,7600
+Caixa d'Enginyers,Consultoria,Barcelona,2025-01,Puntual,10800,6500
+Caixa d'Enginyers,Desenvolupament de Programari,Barcelona,2025-01,Recurrent,14400,8600
+Caixa d'Enginyers,Formació,Barcelona,2025-01,Puntual,5800,3400
+Consell Comarcal d'Osona,Consultoria,Vic,2025-01,Recurrent,22300,14900
+Fira de Barcelona,Desenvolupament de Programari,Barcelona,2025-01,Recurrent,27300,12000
+Grup Bon Preu,Manteniment,Manresa,2025-01,Puntual,11900,6800
+Grup Bon Preu,Suport Tècnic,Manresa,2025-01,Puntual,11400,8100
+Hospital Clínic de Barcelona,Formació,Barcelona,2025-01,Recurrent,4700,3100
+Mútua de Terrassa,Manteniment,Terrassa,2025-01,Recurrent,8700,4500
+Port de Tarragona,Desenvolupament de Programari,Tarragona,2025-01,Recurrent,14200,6800
+Port de Tarragona,Suport Tècnic,Tarragona,2025-01,Recurrent,8500,4800
+Transports de Reus,Auditoria,Reus,2025-01,Recurrent,15100,8300
+Transports de Reus,Suport Tècnic,Reus,2025-01,Recurrent,8200,5300
+Universitat de Lleida,Manteniment,Lleida,2025-01,Recurrent,5200,3600
+Universitat de Lleida,Suport Tècnic,Lleida,2025-01,Puntual,8500,5400
+Ajuntament de Girona,Consultoria,Girona,2025-02,Recurrent,11000,6100
+Ajuntament de Girona,Consultoria,Girona,2025-02,Recurrent,10500,6200
+Caixa d'Enginyers,Auditoria,Barcelona,2025-02,Recurrent,11800,6900
+Consell Comarcal d'Osona,Manteniment,Vic,2025-02,Puntual,8500,5900
+Fira de Barcelona,Desenvolupament de Programari,Barcelona,2025-02,Puntual,39800,22700
+Fira de Barcelona,Suport Tècnic,Barcelona,2025-02,Puntual,5700,3000
+Grup Bon Preu,Auditoria,Manresa,2025-02,Recurrent,9000,5600
+Hospital Clínic de Barcelona,Formació,Barcelona,2025-02,Recurrent,9600,6200
+Hospital Clínic de Barcelona,Manteniment,Barcelona,2025-02,Puntual,4600,2500
+Mútua de Terrassa,Auditoria,Terrassa,2025-02,Puntual,24200,15300
+Mútua de Terrassa,Consultoria,Terrassa,2025-02,Recurrent,27300,17800
+Mútua de Terrassa,Suport Tècnic,Terrassa,2025-02,Recurrent,9300,7000
+Port de Tarragona,Manteniment,Tarragona,2025-02,Recurrent,3700,1900
+Transports de Reus,Formació,Reus,2025-02,Recurrent,8600,4300
+Transports de Reus,Manteniment,Reus,2025-02,Puntual,13200,7900
+Universitat de Lleida,Manteniment,Lleida,2025-02,Puntual,10300,6400
+Ajuntament de Girona,Desenvolupament de Programari,Girona,2025-03,Puntual,24000,15500
+Caixa d'Enginyers,Desenvolupament de Programari,Barcelona,2025-03,Recurrent,29000,17600
+Caixa d'Enginyers,Manteniment,Barcelona,2025-03,Recurrent,12900,8600
+Caixa d'Enginyers,Suport Tècnic,Barcelona,2025-03,Recurrent,12200,8800
+Consell Comarcal d'Osona,Consultoria,Vic,2025-03,Recurrent,15400,9300
+Consell Comarcal d'Osona,Formació,Vic,2025-03,Recurrent,16000,8000
+Fira de Barcelona,Desenvolupament de Programari,Barcelona,2025-03,Recurrent,37100,21700
+Fira de Barcelona,Formació,Barcelona,2025-03,Recurrent,13600,9000
+Fira de Barcelona,Manteniment,Barcelona,2025-03,Recurrent,4200,2900
+Grup Bon Preu,Formació,Manresa,2025-03,Puntual,8600,3800
+Grup Bon Preu,Formació,Manresa,2025-03,Recurrent,9600,5300
+Grup Bon Preu,Suport Tècnic,Manresa,2025-03,Recurrent,6600,4400
+Hospital Clínic de Barcelona,Desenvolupament de Programari,Barcelona,2025-03,Recurrent,54600,24900
+Hospital Clínic de Barcelona,Manteniment,Barcelona,2025-03,Recurrent,9400,6100
+Mútua de Terrassa,Consultoria,Terrassa,2025-03,Puntual,30300,16300
+Mútua de Terrassa,Manteniment,Terrassa,2025-03,Puntual,14900,8500
+Port de Tarragona,Desenvolupament de Programari,Tarragona,2025-03,Recurrent,22300,13200
+Transports de Reus,Consultoria,Reus,2025-03,Puntual,23100,14900
+Transports de Reus,Manteniment,Reus,2025-03,Recurrent,10300,5200
+Universitat de Lleida,Consultoria,Lleida,2025-03,Recurrent,34000,23100
+Universitat de Lleida,Desenvolupament de Programari,Lleida,2025-03,Recurrent,49600,32200
+Universitat de Lleida,Suport Tècnic,Lleida,2025-03,Puntual,6500,3700
+Ajuntament de Girona,Suport Tècnic,Girona,2025-04,Puntual,7900,4300
+Caixa d'Enginyers,Desenvolupament de Programari,Barcelona,2025-04,Recurrent,46100,23500
+Consell Comarcal d'Osona,Consultoria,Vic,2025-04,Recurrent,22400,13500
+Fira de Barcelona,Suport Tècnic,Barcelona,2025-04,Recurrent,8600,5000
+Grup Bon Preu,Consultoria,Manresa,2025-04,Recurrent,34100,14700
+Grup Bon Preu,Consultoria,Manresa,2025-04,Recurrent,16800,10500
+Grup Bon Preu,Suport Tècnic,Manresa,2025-04,Recurrent,13500,7700
+Hospital Clínic de Barcelona,Auditoria,Barcelona,2025-04,Recurrent,14000,7600
+Hospital Clínic de Barcelona,Consultoria,Barcelona,2025-04,Recurrent,23600,12300
+Mútua de Terrassa,Formació,Terrassa,2025-04,Recurrent,10900,6600
+Mútua de Terrassa,Formació,Terrassa,2025-04,Recurrent,9500,6200
+Port de Tarragona,Desenvolupament de Programari,Tarragona,2025-04,Recurrent,37200,18000
+Transports de Reus,Desenvolupament de Programari,Reus,2025-04,Puntual,13000,5900
+Transports de Reus,Suport Tècnic,Reus,2025-04,Puntual,14500,7500
+Universitat de Lleida,Auditoria,Lleida,2025-04,Puntual,24600,14200
+Ajuntament de Girona,Consultoria,Girona,2025-05,Recurrent,15200,7800
+Caixa d'Enginyers,Desenvolupament de Programari,Barcelona,2025-05,Recurrent,34600,14600
+Consell Comarcal d'Osona,Consultoria,Vic,2025-05,Puntual,10700,4600
+Consell Comarcal d'Osona,Consultoria,Vic,2025-05,Recurrent,17500,11100
+Consell Comarcal d'Osona,Suport Tècnic,Vic,2025-05,Recurrent,8900,5500
+Fira de Barcelona,Suport Tècnic,Barcelona,2025-05,Puntual,10000,5700
+Grup Bon Preu,Consultoria,Manresa,2025-05,Recurrent,10800,4700
+Grup Bon Preu,Desenvolupament de Programari,Manresa,2025-05,Recurrent,45500,27800
+Grup Bon Preu,Suport Tècnic,Manresa,2025-05,Recurrent,8400,6000
+Hospital Clínic de Barcelona,Desenvolupament de Programari,Barcelona,2025-05,Recurrent,35900,20100
+Hospital Clínic de Barcelona,Formació,Barcelona,2025-05,Puntual,14300,6000
+Mútua de Terrassa,Suport Tècnic,Terrassa,2025-05,Recurrent,10000,6800
+Port de Tarragona,Auditoria,Tarragona,2025-05,Recurrent,28600,14700
+Port de Tarragona,Consultoria,Tarragona,2025-05,Recurrent,21700,11100
+Transports de Reus,Desenvolupament de Programari,Reus,2025-05,Puntual,36300,21400
+Universitat de Lleida,Consultoria,Lleida,2025-05,Recurrent,28300,12900
+Universitat de Lleida,Desenvolupament de Programari,Lleida,2025-05,Recurrent,40900,20400
+Universitat de Lleida,Manteniment,Lleida,2025-05,Recurrent,4400,2800
+Ajuntament de Girona,Consultoria,Girona,2025-06,Puntual,23700,13300
+Caixa d'Enginyers,Suport Tècnic,Barcelona,2025-06,Puntual,9600,6900
+Caixa d'Enginyers,Suport Tècnic,Barcelona,2025-06,Puntual,7700,5300
+Consell Comarcal d'Osona,Manteniment,Vic,2025-06,Puntual,11300,6100
+Fira de Barcelona,Consultoria,Barcelona,2025-06,Puntual,24700,15900
+Fira de Barcelona,Desenvolupament de Programari,Barcelona,2025-06,Recurrent,14100,6800
+Fira de Barcelona,Suport Tècnic,Barcelona,2025-06,Recurrent,3800,2800
+Grup Bon Preu,Manteniment,Manresa,2025-06,Recurrent,10600,7100
+Grup Bon Preu,Suport Tècnic,Manresa,2025-06,Recurrent,12000,7600
+Hospital Clínic de Barcelona,Consultoria,Barcelona,2025-06,Puntual,16700,9000
+Hospital Clínic de Barcelona,Formació,Barcelona,2025-06,Recurrent,14700,7200
+Mútua de Terrassa,Desenvolupament de Programari,Terrassa,2025-06,Recurrent,26400,12500
+Mútua de Terrassa,Suport Tècnic,Terrassa,2025-06,Recurrent,12000,7800
+Port de Tarragona,Consultoria,Tarragona,2025-06,Recurrent,23700,14900
+Port de Tarragona,Suport Tècnic,Tarragona,2025-06,Recurrent,5500,3500
+Transports de Reus,Auditoria,Reus,2025-06,Puntual,31200,20700
+Transports de Reus,Desenvolupament de Programari,Reus,2025-06,Recurrent,29100,16300
+Transports de Reus,Suport Tècnic,Reus,2025-06,Recurrent,5900,4000
+Universitat de Lleida,Manteniment,Lleida,2025-06,Recurrent,5600,3700
+Universitat de Lleida,Suport Tècnic,Lleida,2025-06,Puntual,8200,6000
+Ajuntament de Girona,Desenvolupament de Programari,Girona,2025-07,Puntual,19400,11300
+Caixa d'Enginyers,Manteniment,Barcelona,2025-07,Recurrent,12600,8800
+Consell Comarcal d'Osona,Auditoria,Vic,2025-07,Recurrent,26800,15500
+Consell Comarcal d'Osona,Consultoria,Vic,2025-07,Recurrent,17500,9200
+Consell Comarcal d'Osona,Formació,Vic,2025-07,Recurrent,10400,6500
+Fira de Barcelona,Desenvolupament de Programari,Barcelona,2025-07,Recurrent,21700,13400
+Grup Bon Preu,Manteniment,Manresa,2025-07,Recurrent,6000,3200
+Hospital Clínic de Barcelona,Consultoria,Barcelona,2025-07,Recurrent,24100,12000
+Mútua de Terrassa,Desenvolupament de Programari,Terrassa,2025-07,Puntual,22700,14800
+Mútua de Terrassa,Manteniment,Terrassa,2025-07,Recurrent,7900,5900
+Mútua de Terrassa,Suport Tècnic,Terrassa,2025-07,Puntual,7700,5300
+Port de Tarragona,Suport Tècnic,Tarragona,2025-07,Recurrent,5400,4000
+Transports de Reus,Consultoria,Reus,2025-07,Recurrent,14900,6600
+Universitat de Lleida,Suport Tècnic,Lleida,2025-07,Recurrent,10100,5200
+Ajuntament de Girona,Formació,Girona,2025-08,Recurrent,11400,4900
+Caixa d'Enginyers,Desenvolupament de Programari,Barcelona,2025-08,Recurrent,38700,24600
+Caixa d'Enginyers,Formació,Barcelona,2025-08,Recurrent,13300,6400
+Caixa d'Enginyers,Suport Tècnic,Barcelona,2025-08,Recurrent,8400,5000
+Consell Comarcal d'Osona,Auditoria,Vic,2025-08,Recurrent,24100,16000
+Consell Comarcal d'Osona,Desenvolupament de Programari,Vic,2025-08,Recurrent,11800,7900
+Fira de Barcelona,Formació,Barcelona,2025-08,Recurrent,9800,6500
+Fira de Barcelona,Formació,Barcelona,2025-08,Puntual,11400,5100
+Grup Bon Preu,Consultoria,Manresa,2025-08,Recurrent,18200,10700
+Grup Bon Preu,Manteniment,Manresa,2025-08,Recurrent,9500,5500
+Grup Bon Preu,Manteniment,Manresa,2025-08,Recurrent,2900,1700
+Hospital Clínic de Barcelona,Consultoria,Barcelona,2025-08,Puntual,22100,12400
+Hospital Clínic de Barcelona,Suport Tècnic,Barcelona,2025-08,Recurrent,7800,3900
+Mútua de Terrassa,Formació,Terrassa,2025-08,Recurrent,11200,5900
+Mútua de Terrassa,Formació,Terrassa,2025-08,Recurrent,8900,4000
+Mútua de Terrassa,Suport Tècnic,Terrassa,2025-08,Recurrent,7000,3600
+Port de Tarragona,Consultoria,Tarragona,2025-08,Recurrent,7800,4800
+Port de Tarragona,Consultoria,Tarragona,2025-08,Puntual,14500,7900
+Port de Tarragona,Desenvolupament de Programari,Tarragona,2025-08,Recurrent,31900,17900
+Transports de Reus,Consultoria,Reus,2025-08,Recurrent,7000,3600
+Transports de Reus,Manteniment,Reus,2025-08,Recurrent,5500,3300
+Transports de Reus,Suport Tècnic,Reus,2025-08,Recurrent,5900,3000
+Universitat de Lleida,Formació,Lleida,2025-08,Puntual,5600,3000
+Ajuntament de Girona,Consultoria,Girona,2025-09,Recurrent,32800,21200
+Caixa d'Enginyers,Consultoria,Barcelona,2025-09,Recurrent,18200,8900
+Caixa d'Enginyers,Formació,Barcelona,2025-09,Recurrent,12800,6000
+Caixa d'Enginyers,Suport Tècnic,Barcelona,2025-09,Recurrent,11300,8200
+Consell Comarcal d'Osona,Formació,Vic,2025-09,Recurrent,7800,3400
+Fira de Barcelona,Formació,Barcelona,2025-09,Recurrent,7600,4300
+Fira de Barcelona,Manteniment,Barcelona,2025-09,Puntual,5300,4000
+Grup Bon Preu,Desenvolupament de Programari,Manresa,2025-09,Recurrent,21100,9300
+Grup Bon Preu,Formació,Manresa,2025-09,Puntual,12200,8000
+Hospital Clínic de Barcelona,Suport Tècnic,Barcelona,2025-09,Recurrent,14500,10400
+Mútua de Terrassa,Suport Tècnic,Terrassa,2025-09,Recurrent,11300,7600
+Port de Tarragona,Consultoria,Tarragona,2025-09,Puntual,36600,17900
+Port de Tarragona,Consultoria,Tarragona,2025-09,Puntual,36900,20800
+Port de Tarragona,Suport Tècnic,Tarragona,2025-09,Puntual,9700,5900
+Transports de Reus,Consultoria,Reus,2025-09,Recurrent,10200,6600
+Universitat de Lleida,Auditoria,Lleida,2025-09,Recurrent,11600,6900
+Universitat de Lleida,Consultoria,Lleida,2025-09,Recurrent,35400,21200
+Ajuntament de Girona,Auditoria,Girona,2025-10,Recurrent,15500,9200
+Ajuntament de Girona,Suport Tècnic,Girona,2025-10,Recurrent,12700,8600
+Caixa d'Enginyers,Desenvolupament de Programari,Barcelona,2025-10,Puntual,24700,13400
+Caixa d'Enginyers,Manteniment,Barcelona,2025-10,Recurrent,10600,5300
+Consell Comarcal d'Osona,Desenvolupament de Programari,Vic,2025-10,Puntual,27000,13000
+Consell Comarcal d'Osona,Suport Tècnic,Vic,2025-10,Recurrent,12700,7800
+Fira de Barcelona,Consultoria,Barcelona,2025-10,Puntual,32600,17900
+Fira de Barcelona,Manteniment,Barcelona,2025-10,Puntual,11500,6600
+Grup Bon Preu,Consultoria,Manresa,2025-10,Recurrent,14700,6900
+Grup Bon Preu,Suport Tècnic,Manresa,2025-10,Recurrent,14000,9700
+Hospital Clínic de Barcelona,Desenvolupament de Programari,Barcelona,2025-10,Recurrent,57800,25600
+Mútua de Terrassa,Auditoria,Terrassa,2025-10,Recurrent,16100,9100
+Mútua de Terrassa,Suport Tècnic,Terrassa,2025-10,Puntual,9900,5800
+Port de Tarragona,Formació,Tarragona,2025-10,Puntual,8600,3700
+Transports de Reus,Desenvolupament de Programari,Reus,2025-10,Recurrent,20100,10900
+Universitat de Lleida,Consultoria,Lleida,2025-10,Puntual,18800,12500
+Universitat de Lleida,Formació,Lleida,2025-10,Recurrent,5900,3000
+Ajuntament de Girona,Desenvolupament de Programari,Girona,2025-11,Recurrent,21400,11600
+Ajuntament de Girona,Manteniment,Girona,2025-11,Recurrent,15200,10300
+Caixa d'Enginyers,Formació,Barcelona,2025-11,Recurrent,13000,6700
+Caixa d'Enginyers,Formació,Barcelona,2025-11,Recurrent,8900,6000
+Consell Comarcal d'Osona,Auditoria,Vic,2025-11,Recurrent,12100,6800
+Consell Comarcal d'Osona,Manteniment,Vic,2025-11,Recurrent,10900,7700
+Consell Comarcal d'Osona,Manteniment,Vic,2025-11,Recurrent,6800,3700
+Fira de Barcelona,Desenvolupament de Programari,Barcelona,2025-11,Recurrent,42600,27400
+Fira de Barcelona,Formació,Barcelona,2025-11,Recurrent,6400,3000
+Fira de Barcelona,Suport Tècnic,Barcelona,2025-11,Recurrent,11300,6100
+Grup Bon Preu,Suport Tècnic,Manresa,2025-11,Recurrent,10000,7000
+Hospital Clínic de Barcelona,Manteniment,Barcelona,2025-11,Recurrent,10200,5400
+Mútua de Terrassa,Auditoria,Terrassa,2025-11,Recurrent,19900,14300
+Port de Tarragona,Suport Tècnic,Tarragona,2025-11,Recurrent,4600,3000
+Transports de Reus,Consultoria,Reus,2025-11,Recurrent,29600,16000
+Universitat de Lleida,Manteniment,Lleida,2025-11,Recurrent,12900,9600
+Universitat de Lleida,Suport Tècnic,Lleida,2025-11,Puntual,9500,6900
+Ajuntament de Girona,Manteniment,Girona,2025-12,Recurrent,13400,7500
+Caixa d'Enginyers,Suport Tècnic,Barcelona,2025-12,Recurrent,6800,3800
+Consell Comarcal d'Osona,Desenvolupament de Programari,Vic,2025-12,Recurrent,45300,29900
+Consell Comarcal d'Osona,Manteniment,Vic,2025-12,Recurrent,9500,5500
+Fira de Barcelona,Consultoria,Barcelona,2025-12,Recurrent,32600,17800
+Fira de Barcelona,Formació,Barcelona,2025-12,Recurrent,8300,4100
+Grup Bon Preu,Desenvolupament de Programari,Manresa,2025-12,Recurrent,40000,21900
+Grup Bon Preu,Formació,Manresa,2025-12,Puntual,13100,5500
+Grup Bon Preu,Manteniment,Manresa,2025-12,Recurrent,13400,7100
+Hospital Clínic de Barcelona,Consultoria,Barcelona,2025-12,Recurrent,29400,15600
+Hospital Clínic de Barcelona,Desenvolupament de Programari,Barcelona,2025-12,Recurrent,24400,16600
+Hospital Clínic de Barcelona,Formació,Barcelona,2025-12,Recurrent,11600,7100
+Mútua de Terrassa,Consultoria,Terrassa,2025-12,Puntual,12700,5600
+Mútua de Terrassa,Suport Tècnic,Terrassa,2025-12,Recurrent,4500,2300
+Port de Tarragona,Consultoria,Tarragona,2025-12,Recurrent,9000,4200
+Port de Tarragona,Consultoria,Tarragona,2025-12,Recurrent,24300,11700
+Port de Tarragona,Desenvolupament de Programari,Tarragona,2025-12,Recurrent,48000,23200
+Transports de Reus,Consultoria,Reus,2025-12,Recurrent,31200,21100
+Transports de Reus,Suport Tècnic,Reus,2025-12,Recurrent,13600,9200
+Universitat de Lleida,Manteniment,Lleida,2025-12,Recurrent,13900,10100

@@ -1,0 +1,2834 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Serveis Integrals Mediterranis SL</title>
+
+<!-- ============================================================
+  DASHBOARD DEMO — single self-contained HTML file
+  Language: Catalan UI (ca / es / en switcher)
+  Libraries (CDN): Chart.js (charts), Leaflet (map), SheetJS (Excel export)
+  PDF export: window.print() with dedicated print stylesheet (no library needed)
+  Data: dummy/anonymised sample — replace DATA below with real company data.
+  ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<!-- Leaflet map -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+<!-- Chart.js v4 -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<!-- SheetJS (Excel export) -->
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
+
+<style>
+  :root {
+    --primary: #1F4E78;
+    --primary-dark: #16385A;
+    --accent: #E9A13B;
+    --ok: #2E7D32;
+    --bad: #C62828;
+    --bg: #F4F6F9;
+    --card: #FFFFFF;
+    --text: #23303E;
+    --muted: #6B7785;
+    --border: #E3E8EF;
+    --radius: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background: var(--bg); color: var(--text); }
+  body { min-height: 100vh; }
+
+  /* ---------- Header ---------- */
+  header {
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: #fff; padding: 22px 28px 18px;
+  }
+  header .company { font-size: 1.25rem; font-weight: 800; letter-spacing: .2px; }
+  header .sub { font-size: .82rem; opacity: .75; margin-top: 3px; }
+  header .lang { float: right; }
+  header .lang button {
+    background: rgba(255,255,255,.12); color: #fff; border: 1px solid rgba(255,255,255,.25);
+    padding: 5px 11px; border-radius: 7px; cursor: pointer; font-weight: 600; font-size: .78rem;
+    margin-left: 5px;
+  }
+  header .lang button.active { background: var(--accent); border-color: var(--accent); color: var(--primary-dark); }
+
+  /* ---------- Tabs ---------- */
+  nav.tabs {
+    display: flex; flex-wrap: wrap; gap: 4px; background: var(--card);
+    border-bottom: 1px solid var(--border); padding: 0 18px;
+  }
+  nav.tabs button {
+    border: none; background: none; padding: 14px 18px; cursor: pointer;
+    font-weight: 600; font-size: .86rem; color: var(--muted);
+    border-bottom: 3px solid transparent; transition: color .15s, border-color .15s;
+  }
+  nav.tabs button:hover { color: var(--primary); }
+  nav.tabs button.active { color: var(--primary); border-bottom-color: var(--accent); }
+
+  /* ---------- Filters bar ---------- */
+  .filters {
+    display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+    padding: 14px 24px 0;
+  }
+  .filters label { font-size: .8rem; font-weight: 600; color: var(--muted); }
+  .filters select, .filters input {
+    padding: 8px 12px; border: 1px solid var(--border); border-radius: 8px;
+    font-size: .86rem; background: var(--card); color: var(--text); font-family: inherit;
+  }
+  .filters button {
+    padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border);
+    background: var(--card); color: var(--text); cursor: pointer; font-weight: 600; font-size: .82rem;
+  }
+  .filters button:hover { border-color: var(--primary); color: var(--primary); }
+
+  /* ---------- Layout ---------- */
+  main { padding: 22px 24px 40px; max-width: 1440px; margin: 0 auto; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+  .grid { display: grid; gap: 18px; }
+  .grid.kpis { grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); margin-bottom: 18px; }
+  .grid.two { grid-template-columns: 1fr 1fr; }
+  .grid.three { grid-template-columns: 1fr 1fr 1fr; }
+  @media (max-width: 980px) { .grid.two, .grid.three { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 18px; box-shadow: 0 1px 3px rgba(16,42,67,.05);
+  }
+  .card h3 { font-size: .8rem; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); margin-bottom: 12px; font-weight: 700; }
+  .card .chart-wrap { position: relative; }
+  .card .chart-wrap.h200 { height: 260px; }
+  .card .chart-wrap.h300 { height: 330px; }
+  .card .chart-wrap.h380 { height: 400px; }
+  .card .chart-wrap.h460 { height: 460px; }
+
+  /* KPI cards */
+  .kpi { border-left: 5px solid var(--primary); }
+  .kpi .label { font-size: .75rem; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); font-weight: 700; }
+  .kpi .value { font-size: 1.55rem; font-weight: 800; margin-top: 6px; color: var(--primary-dark); }
+  .kpi .delta { font-size: .78rem; font-weight: 600; margin-top: 5px; }
+  .kpi .delta.up { color: var(--ok); }
+  .kpi .delta.down { color: var(--bad); }
+  .kpi .delta.flat { color: var(--muted); }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+  th, td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; font-size: .8rem; }
+  th { font-size: .72rem; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
+  td.l, th.l { text-align: left; }
+  tbody tr:hover { background: #F8FAFD; }
+  .bar-cell { position: relative; }
+  .bar-cell .bg { position: absolute; inset: 0; opacity: .12; background: var(--primary); border-radius: 3px; }
+  .bar-cell .txt { position: relative; }
+
+  .btn {
+    display: inline-block; padding: 9px 16px; border-radius: 8px; border: none; cursor: pointer;
+    font-weight: 700; font-size: .82rem; font-family: inherit;
+  }
+  .btn.primary { background: var(--primary); color: #fff; }
+  .btn.primary:hover { background: var(--primary-dark); }
+  .btn.ghost { background: var(--card); color: var(--primary); border: 1px solid var(--primary); }
+  .btn.ghost:hover { background: #EEF3F8; }
+  .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end; margin-bottom: 14px; }
+  .toolbar .spacer { flex: 1; }
+
+  .map-wrap { height: 460px; border-radius: 10px; overflow: hidden; }
+  .leaflet-container { font-family: inherit; }
+  .note { font-size: .76rem; color: var(--muted); margin-top: 8px; }
+
+  /* Search box on Data tab */
+  .searchbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+  .searchbar input { flex: 1; min-width: 200px; }
+
+  /* ---------- Print (PDF export) ---------- */
+  @media print {
+    header { padding: 12px 16px; }
+    nav.tabs, .filters, .toolbar, .no-print { display: none !important; }
+    .tab-panel { display: none !important; }
+    .tab-panel.active { display: block !important; }
+    .card { box-shadow: none; break-inside: avoid; }
+    .map-wrap { display: none; }
+    .grid.two, .grid.three { grid-template-columns: 1fr; }
+    body { background: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="lang">
+    <button data-lang="ca">CA</button>
+    <button data-lang="es">ES</button>
+    <button data-lang="en" class="active">EN</button>
+  </div>
+  <div class="company" id="company-name">Serveis Integrals Mediterranis SL</div>
+  <div class="sub" id="company-sub" data-i18n="t.sub">Performance dashboard — clients, services and regions · Demo data</div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button data-tab="resum" class="active" data-i18n="t.tab_resum">Overview</button>
+  <button data-tab="clients" data-i18n="t.tab_clients">Clients</button>
+  <button data-tab="serveis" data-i18n="t.tab_serveis">Services</button>
+  <button data-tab="regions" data-i18n="t.tab_regions">Regions</button>
+  <button data-tab="tendencies" data-i18n="t.tab_tendencies">Trends</button>
+  <button data-tab="dades" data-i18n="t.tab_dades">Data</button>
+</nav>
+
+<div class="filters">
+  <label data-i18n="t.month">Month</label>
+  <select id="month-filter"><option value="all">All months</option></select>
+  <button id="reset-filter">Reset</button>
+  <span class="spacer"></span>
+  <span class="note" id="data-note"></span>
+</div>
+
+<main>
+
+  <!-- ============ TAB: RESUM ============ -->
+  <section class="tab-panel active" id="panel-resum">
+    <div class="grid kpis" id="kpi-row"></div>
+    <div class="grid two">
+      <div class="card">
+        <h3 data-i18n="t.ing_costs">Ingressos vs costos (mensual)</h3>
+        <div class="chart-wrap h300"><canvas id="chart-overview-line"></canvas></div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="t.rev_type">Tipus d'ingrés</h3>
+        <div class="chart-wrap h300"><canvas id="chart-overview-doughnut"></canvas></div>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:18px">
+      <div class="card">
+        <h3 data-i18n="t.by_service">Ingressos per línia de servei</h3>
+        <div class="chart-wrap h300"><canvas id="chart-overview-service"></canvas></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TAB: CLIENTS ============ -->
+  <section class="tab-panel" id="panel-clients">
+    <div class="grid two">
+      <div class="card">
+        <h3 data-i18n="t.top_clients">Clients principals (ingressos)</h3>
+        <div class="chart-wrap h460"><canvas id="chart-clients-bar"></canvas></div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="t.client_table">Taula de clients</h3>
+        <div class="table-wrap" style="max-height:460px; overflow:auto"><table id="table-clients"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TAB: SERVEIS ============ -->
+  <section class="tab-panel" id="panel-serveis">
+    <div class="grid two">
+      <div class="card">
+        <h3 data-i18n="t.svc_perf">Rendiment per línia de servei</h3>
+        <div class="chart-wrap h380"><canvas id="chart-serveis-bar"></canvas></div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="t.svc_table">Taula de serveis</h3>
+        <div class="table-wrap" style="max-height:460px; overflow:auto"><table id="table-serveis"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TAB: REGIONS ============ -->
+  <section class="tab-panel" id="panel-regions">
+    <div class="grid two">
+      <div class="card">
+        <h3 data-i18n="t.map">Mapa per ubicació</h3>
+        <div class="map-wrap" id="map"></div>
+        <p class="note" data-i18n="t.map_note">Mida del cercle = ingressos. Cliqueu per veure el detall.</p>
+      </div>
+      <div class="grid" style="display:grid; gap:18px; align-content:start">
+        <div class="card">
+          <h3 data-i18n="t.by_region">Ingressos per ubicació</h3>
+          <div class="chart-wrap h300"><canvas id="chart-regions-bar"></canvas></div>
+        </div>
+        <div class="card">
+          <h3 data-i18n="t.region_table">Taula de regions</h3>
+          <div class="table-wrap" style="max-height:300px; overflow:auto"><table id="table-regions"></table></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TAB: TENDENCIES ============ -->
+  <section class="tab-panel" id="panel-tendencies">
+    <div class="grid two">
+      <div class="card">
+        <h3 data-i18n="t.stacked">Ingressos mensuals per servei (acumulat)</h3>
+        <div class="chart-wrap h380"><canvas id="chart-trend-stacked"></canvas></div>
+      </div>
+      <div class="card">
+        <h3 data-i18n="t.margin_trend">Evolució del marge (%)</h3>
+        <div class="chart-wrap h380"><canvas id="chart-trend-margin"></canvas></div>
+      </div>
+    </div>
+    <div class="grid" style="margin-top:18px">
+      <div class="card">
+        <h3 data-i18n="t.monthly_table">Taula mensual</h3>
+        <div class="table-wrap"><table id="table-monthly"></table></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TAB: DADES ============ -->
+  <section class="tab-panel" id="panel-dades">
+    <div class="card">
+      <h3 data-i18n="t.data_table">Dades de transaccions</h3>
+      <div class="toolbar no-print">
+        <button class="btn ghost" id="btn-csv" data-i18n="t.exp_csv">Export CSV</button>
+        <button class="btn ghost" id="btn-xlsx" data-i18n="t.exp_xlsx">Export Excel</button>
+        <button class="btn primary" id="btn-pdf" data-i18n="t.exp_pdf">Export PDF</button>
+      </div>
+      <div class="searchbar no-print">
+        <input type="text" id="data-search" placeholder="Search by client, service or location…">
+      </div>
+      <div class="table-wrap" style="max-height:520px; overflow:auto"><table id="table-data"></table></div>
+      <p class="note" id="data-count"></p>
+    </div>
+  </section>
+
+</main>
+
+<script>
+/* ============================================================
+   DATA — DUMMY SAMPLE. Replace `RAW` with the real company data.
+   Expected row shape (from Excel/CSV):
+   { client, linia_servei, ubicacio, mes: "YYYY-MM", tipus_ingres, ingressos, costos }
+   ============================================================ */
+const RAW = {
+ "company": "Serveis Integrals Mediterranis SL",
+ "cities": {
+  "Barcelona": [
+   41.3874,
+   2.1686
+  ],
+  "Girona": [
+   41.9794,
+   2.8214
+  ],
+  "Lleida": [
+   41.6176,
+   0.62
+  ],
+  "Tarragona": [
+   41.1189,
+   1.2445
+  ],
+  "Vic": [
+   41.9303,
+   2.2546
+  ],
+  "Manresa": [
+   41.7272,
+   1.8236
+  ],
+  "Reus": [
+   41.1549,
+   1.1085
+  ],
+  "Sabadell": [
+   41.5486,
+   2.1074
+  ],
+  "Terrassa": [
+   41.5618,
+   2.0092
+  ],
+  "Vilanova i la Geltrú": [
+   41.2242,
+   1.7257
+  ]
+ },
+ "rows": [
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Girona",
+   "mes": "2025-01",
+   "tipus_ingres": "Puntual",
+   "ingressos": 12100,
+   "costos": 5800
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Girona",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10400,
+   "costos": 7600
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-01",
+   "tipus_ingres": "Puntual",
+   "ingressos": 10800,
+   "costos": 6500
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14400,
+   "costos": 8600
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-01",
+   "tipus_ingres": "Puntual",
+   "ingressos": 5800,
+   "costos": 3400
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Vic",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 22300,
+   "costos": 14900
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 27300,
+   "costos": 12000
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Manresa",
+   "mes": "2025-01",
+   "tipus_ingres": "Puntual",
+   "ingressos": 11900,
+   "costos": 6800
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Manresa",
+   "mes": "2025-01",
+   "tipus_ingres": "Puntual",
+   "ingressos": 11400,
+   "costos": 8100
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 4700,
+   "costos": 3100
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Terrassa",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8700,
+   "costos": 4500
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Tarragona",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14200,
+   "costos": 6800
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Tarragona",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8500,
+   "costos": 4800
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Reus",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 15100,
+   "costos": 8300
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Reus",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8200,
+   "costos": 5300
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Lleida",
+   "mes": "2025-01",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 5200,
+   "costos": 3600
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Lleida",
+   "mes": "2025-01",
+   "tipus_ingres": "Puntual",
+   "ingressos": 8500,
+   "costos": 5400
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Girona",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11000,
+   "costos": 6100
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Girona",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10500,
+   "costos": 6200
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11800,
+   "costos": 6900
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Vic",
+   "mes": "2025-02",
+   "tipus_ingres": "Puntual",
+   "ingressos": 8500,
+   "costos": 5900
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-02",
+   "tipus_ingres": "Puntual",
+   "ingressos": 39800,
+   "costos": 22700
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-02",
+   "tipus_ingres": "Puntual",
+   "ingressos": 5700,
+   "costos": 3000
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Manresa",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9000,
+   "costos": 5600
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9600,
+   "costos": 6200
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-02",
+   "tipus_ingres": "Puntual",
+   "ingressos": 4600,
+   "costos": 2500
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Terrassa",
+   "mes": "2025-02",
+   "tipus_ingres": "Puntual",
+   "ingressos": 24200,
+   "costos": 15300
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Terrassa",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 27300,
+   "costos": 17800
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Terrassa",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9300,
+   "costos": 7000
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Tarragona",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 3700,
+   "costos": 1900
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Formació",
+   "ubicacio": "Reus",
+   "mes": "2025-02",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8600,
+   "costos": 4300
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Reus",
+   "mes": "2025-02",
+   "tipus_ingres": "Puntual",
+   "ingressos": 13200,
+   "costos": 7900
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Lleida",
+   "mes": "2025-02",
+   "tipus_ingres": "Puntual",
+   "ingressos": 10300,
+   "costos": 6400
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Girona",
+   "mes": "2025-03",
+   "tipus_ingres": "Puntual",
+   "ingressos": 24000,
+   "costos": 15500
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 29000,
+   "costos": 17600
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12900,
+   "costos": 8600
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12200,
+   "costos": 8800
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Vic",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 15400,
+   "costos": 9300
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Formació",
+   "ubicacio": "Vic",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 16000,
+   "costos": 8000
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 37100,
+   "costos": 21700
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 13600,
+   "costos": 9000
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 4200,
+   "costos": 2900
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Formació",
+   "ubicacio": "Manresa",
+   "mes": "2025-03",
+   "tipus_ingres": "Puntual",
+   "ingressos": 8600,
+   "costos": 3800
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Formació",
+   "ubicacio": "Manresa",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9600,
+   "costos": 5300
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Manresa",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 6600,
+   "costos": 4400
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 54600,
+   "costos": 24900
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9400,
+   "costos": 6100
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Terrassa",
+   "mes": "2025-03",
+   "tipus_ingres": "Puntual",
+   "ingressos": 30300,
+   "costos": 16300
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Terrassa",
+   "mes": "2025-03",
+   "tipus_ingres": "Puntual",
+   "ingressos": 14900,
+   "costos": 8500
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Tarragona",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 22300,
+   "costos": 13200
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Reus",
+   "mes": "2025-03",
+   "tipus_ingres": "Puntual",
+   "ingressos": 23100,
+   "costos": 14900
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Reus",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10300,
+   "costos": 5200
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Lleida",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 34000,
+   "costos": 23100
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Lleida",
+   "mes": "2025-03",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 49600,
+   "costos": 32200
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Lleida",
+   "mes": "2025-03",
+   "tipus_ingres": "Puntual",
+   "ingressos": 6500,
+   "costos": 3700
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Girona",
+   "mes": "2025-04",
+   "tipus_ingres": "Puntual",
+   "ingressos": 7900,
+   "costos": 4300
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 46100,
+   "costos": 23500
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Vic",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 22400,
+   "costos": 13500
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8600,
+   "costos": 5000
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Manresa",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 34100,
+   "costos": 14700
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Manresa",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 16800,
+   "costos": 10500
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Manresa",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 13500,
+   "costos": 7700
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14000,
+   "costos": 7600
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 23600,
+   "costos": 12300
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Formació",
+   "ubicacio": "Terrassa",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10900,
+   "costos": 6600
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Formació",
+   "ubicacio": "Terrassa",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9500,
+   "costos": 6200
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Tarragona",
+   "mes": "2025-04",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 37200,
+   "costos": 18000
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Reus",
+   "mes": "2025-04",
+   "tipus_ingres": "Puntual",
+   "ingressos": 13000,
+   "costos": 5900
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Reus",
+   "mes": "2025-04",
+   "tipus_ingres": "Puntual",
+   "ingressos": 14500,
+   "costos": 7500
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Lleida",
+   "mes": "2025-04",
+   "tipus_ingres": "Puntual",
+   "ingressos": 24600,
+   "costos": 14200
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Girona",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 15200,
+   "costos": 7800
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 34600,
+   "costos": 14600
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Vic",
+   "mes": "2025-05",
+   "tipus_ingres": "Puntual",
+   "ingressos": 10700,
+   "costos": 4600
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Vic",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 17500,
+   "costos": 11100
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Vic",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8900,
+   "costos": 5500
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-05",
+   "tipus_ingres": "Puntual",
+   "ingressos": 10000,
+   "costos": 5700
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Manresa",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10800,
+   "costos": 4700
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Manresa",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 45500,
+   "costos": 27800
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Manresa",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8400,
+   "costos": 6000
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 35900,
+   "costos": 20100
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-05",
+   "tipus_ingres": "Puntual",
+   "ingressos": 14300,
+   "costos": 6000
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Terrassa",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10000,
+   "costos": 6800
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 28600,
+   "costos": 14700
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 21700,
+   "costos": 11100
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Reus",
+   "mes": "2025-05",
+   "tipus_ingres": "Puntual",
+   "ingressos": 36300,
+   "costos": 21400
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Lleida",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 28300,
+   "costos": 12900
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Lleida",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 40900,
+   "costos": 20400
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Lleida",
+   "mes": "2025-05",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 4400,
+   "costos": 2800
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Girona",
+   "mes": "2025-06",
+   "tipus_ingres": "Puntual",
+   "ingressos": 23700,
+   "costos": 13300
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-06",
+   "tipus_ingres": "Puntual",
+   "ingressos": 9600,
+   "costos": 6900
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-06",
+   "tipus_ingres": "Puntual",
+   "ingressos": 7700,
+   "costos": 5300
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Vic",
+   "mes": "2025-06",
+   "tipus_ingres": "Puntual",
+   "ingressos": 11300,
+   "costos": 6100
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-06",
+   "tipus_ingres": "Puntual",
+   "ingressos": 24700,
+   "costos": 15900
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14100,
+   "costos": 6800
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 3800,
+   "costos": 2800
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Manresa",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10600,
+   "costos": 7100
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Manresa",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12000,
+   "costos": 7600
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-06",
+   "tipus_ingres": "Puntual",
+   "ingressos": 16700,
+   "costos": 9000
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14700,
+   "costos": 7200
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Terrassa",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 26400,
+   "costos": 12500
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Terrassa",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12000,
+   "costos": 7800
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 23700,
+   "costos": 14900
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Tarragona",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 5500,
+   "costos": 3500
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Reus",
+   "mes": "2025-06",
+   "tipus_ingres": "Puntual",
+   "ingressos": 31200,
+   "costos": 20700
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Reus",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 29100,
+   "costos": 16300
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Reus",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 5900,
+   "costos": 4000
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Lleida",
+   "mes": "2025-06",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 5600,
+   "costos": 3700
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Lleida",
+   "mes": "2025-06",
+   "tipus_ingres": "Puntual",
+   "ingressos": 8200,
+   "costos": 6000
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Girona",
+   "mes": "2025-07",
+   "tipus_ingres": "Puntual",
+   "ingressos": 19400,
+   "costos": 11300
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12600,
+   "costos": 8800
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Vic",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 26800,
+   "costos": 15500
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Vic",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 17500,
+   "costos": 9200
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Formació",
+   "ubicacio": "Vic",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10400,
+   "costos": 6500
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 21700,
+   "costos": 13400
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Manresa",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 6000,
+   "costos": 3200
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 24100,
+   "costos": 12000
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Terrassa",
+   "mes": "2025-07",
+   "tipus_ingres": "Puntual",
+   "ingressos": 22700,
+   "costos": 14800
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Terrassa",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 7900,
+   "costos": 5900
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Terrassa",
+   "mes": "2025-07",
+   "tipus_ingres": "Puntual",
+   "ingressos": 7700,
+   "costos": 5300
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Tarragona",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 5400,
+   "costos": 4000
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Reus",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14900,
+   "costos": 6600
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Lleida",
+   "mes": "2025-07",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10100,
+   "costos": 5200
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Formació",
+   "ubicacio": "Girona",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11400,
+   "costos": 4900
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 38700,
+   "costos": 24600
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 13300,
+   "costos": 6400
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8400,
+   "costos": 5000
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Vic",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 24100,
+   "costos": 16000
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Vic",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11800,
+   "costos": 7900
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9800,
+   "costos": 6500
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-08",
+   "tipus_ingres": "Puntual",
+   "ingressos": 11400,
+   "costos": 5100
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Manresa",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 18200,
+   "costos": 10700
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Manresa",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9500,
+   "costos": 5500
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Manresa",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 2900,
+   "costos": 1700
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-08",
+   "tipus_ingres": "Puntual",
+   "ingressos": 22100,
+   "costos": 12400
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 7800,
+   "costos": 3900
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Formació",
+   "ubicacio": "Terrassa",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11200,
+   "costos": 5900
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Formació",
+   "ubicacio": "Terrassa",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8900,
+   "costos": 4000
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Terrassa",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 7000,
+   "costos": 3600
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 7800,
+   "costos": 4800
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-08",
+   "tipus_ingres": "Puntual",
+   "ingressos": 14500,
+   "costos": 7900
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Tarragona",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 31900,
+   "costos": 17900
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Reus",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 7000,
+   "costos": 3600
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Reus",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 5500,
+   "costos": 3300
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Reus",
+   "mes": "2025-08",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 5900,
+   "costos": 3000
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Formació",
+   "ubicacio": "Lleida",
+   "mes": "2025-08",
+   "tipus_ingres": "Puntual",
+   "ingressos": 5600,
+   "costos": 3000
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Girona",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 32800,
+   "costos": 21200
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 18200,
+   "costos": 8900
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12800,
+   "costos": 6000
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11300,
+   "costos": 8200
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Formació",
+   "ubicacio": "Vic",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 7800,
+   "costos": 3400
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 7600,
+   "costos": 4300
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-09",
+   "tipus_ingres": "Puntual",
+   "ingressos": 5300,
+   "costos": 4000
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Manresa",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 21100,
+   "costos": 9300
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Formació",
+   "ubicacio": "Manresa",
+   "mes": "2025-09",
+   "tipus_ingres": "Puntual",
+   "ingressos": 12200,
+   "costos": 8000
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14500,
+   "costos": 10400
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Terrassa",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11300,
+   "costos": 7600
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-09",
+   "tipus_ingres": "Puntual",
+   "ingressos": 36600,
+   "costos": 17900
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-09",
+   "tipus_ingres": "Puntual",
+   "ingressos": 36900,
+   "costos": 20800
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Tarragona",
+   "mes": "2025-09",
+   "tipus_ingres": "Puntual",
+   "ingressos": 9700,
+   "costos": 5900
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Reus",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10200,
+   "costos": 6600
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Lleida",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11600,
+   "costos": 6900
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Lleida",
+   "mes": "2025-09",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 35400,
+   "costos": 21200
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Girona",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 15500,
+   "costos": 9200
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Girona",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12700,
+   "costos": 8600
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-10",
+   "tipus_ingres": "Puntual",
+   "ingressos": 24700,
+   "costos": 13400
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10600,
+   "costos": 5300
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Vic",
+   "mes": "2025-10",
+   "tipus_ingres": "Puntual",
+   "ingressos": 27000,
+   "costos": 13000
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Vic",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12700,
+   "costos": 7800
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-10",
+   "tipus_ingres": "Puntual",
+   "ingressos": 32600,
+   "costos": 17900
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-10",
+   "tipus_ingres": "Puntual",
+   "ingressos": 11500,
+   "costos": 6600
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Manresa",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14700,
+   "costos": 6900
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Manresa",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 14000,
+   "costos": 9700
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 57800,
+   "costos": 25600
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Terrassa",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 16100,
+   "costos": 9100
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Terrassa",
+   "mes": "2025-10",
+   "tipus_ingres": "Puntual",
+   "ingressos": 9900,
+   "costos": 5800
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Formació",
+   "ubicacio": "Tarragona",
+   "mes": "2025-10",
+   "tipus_ingres": "Puntual",
+   "ingressos": 8600,
+   "costos": 3700
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Reus",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 20100,
+   "costos": 10900
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Lleida",
+   "mes": "2025-10",
+   "tipus_ingres": "Puntual",
+   "ingressos": 18800,
+   "costos": 12500
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Formació",
+   "ubicacio": "Lleida",
+   "mes": "2025-10",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 5900,
+   "costos": 3000
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Girona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 21400,
+   "costos": 11600
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Girona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 15200,
+   "costos": 10300
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 13000,
+   "costos": 6700
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8900,
+   "costos": 6000
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Vic",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12100,
+   "costos": 6800
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Vic",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10900,
+   "costos": 7700
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Vic",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 6800,
+   "costos": 3700
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 42600,
+   "costos": 27400
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 6400,
+   "costos": 3000
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11300,
+   "costos": 6100
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Manresa",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10000,
+   "costos": 7000
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Barcelona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 10200,
+   "costos": 5400
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Auditoria",
+   "ubicacio": "Terrassa",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 19900,
+   "costos": 14300
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Tarragona",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 4600,
+   "costos": 3000
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Reus",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 29600,
+   "costos": 16000
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Lleida",
+   "mes": "2025-11",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 12900,
+   "costos": 9600
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Lleida",
+   "mes": "2025-11",
+   "tipus_ingres": "Puntual",
+   "ingressos": 9500,
+   "costos": 6900
+  },
+  {
+   "client": "Ajuntament de Girona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Girona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 13400,
+   "costos": 7500
+  },
+  {
+   "client": "Caixa d'Enginyers",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Barcelona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 6800,
+   "costos": 3800
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Vic",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 45300,
+   "costos": 29900
+  },
+  {
+   "client": "Consell Comarcal d'Osona",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Vic",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9500,
+   "costos": 5500
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 32600,
+   "costos": 17800
+  },
+  {
+   "client": "Fira de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 8300,
+   "costos": 4100
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Manresa",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 40000,
+   "costos": 21900
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Formació",
+   "ubicacio": "Manresa",
+   "mes": "2025-12",
+   "tipus_ingres": "Puntual",
+   "ingressos": 13100,
+   "costos": 5500
+  },
+  {
+   "client": "Grup Bon Preu",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Manresa",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 13400,
+   "costos": 7100
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Barcelona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 29400,
+   "costos": 15600
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Barcelona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 24400,
+   "costos": 16600
+  },
+  {
+   "client": "Hospital Clínic de Barcelona",
+   "linia_servei": "Formació",
+   "ubicacio": "Barcelona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 11600,
+   "costos": 7100
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Terrassa",
+   "mes": "2025-12",
+   "tipus_ingres": "Puntual",
+   "ingressos": 12700,
+   "costos": 5600
+  },
+  {
+   "client": "Mútua de Terrassa",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Terrassa",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 4500,
+   "costos": 2300
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 9000,
+   "costos": 4200
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Tarragona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 24300,
+   "costos": 11700
+  },
+  {
+   "client": "Port de Tarragona",
+   "linia_servei": "Desenvolupament de Programari",
+   "ubicacio": "Tarragona",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 48000,
+   "costos": 23200
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Consultoria",
+   "ubicacio": "Reus",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 31200,
+   "costos": 21100
+  },
+  {
+   "client": "Transports de Reus",
+   "linia_servei": "Suport Tècnic",
+   "ubicacio": "Reus",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 13600,
+   "costos": 9200
+  },
+  {
+   "client": "Universitat de Lleida",
+   "linia_servei": "Manteniment",
+   "ubicacio": "Lleida",
+   "mes": "2025-12",
+   "tipus_ingres": "Recurrent",
+   "ingressos": 13900,
+   "costos": 10100
+  }
+ ]
+}
+
+const DATA = RAW.rows;
+const CITIES = RAW.cities; // { City: [lat, lng] }
+
+/* ---------- i18n ---------- */
+const I18N = {
+  ca: {
+    t: {
+      sub: "Panell d'indicadors — clients, serveis i regions · Dades de demostració",
+      tab_resum: "Resum", tab_clients: "Clients", tab_serveis: "Serveis",
+      tab_regions: "Regions", tab_tendencies: "Tendències", tab_dades: "Dades",
+      ing_costs: "Ingressos vs costos (mensual)", rev_type: "Tipus d'ingrés",
+      by_service: "Ingressos per línia de servei", top_clients: "Clients principals (ingressos)",
+      client_table: "Taula de clients", svc_perf: "Rendiment per línia de servei",
+      svc_table: "Taula de serveis", map: "Mapa per ubicació",
+      map_note: "Mida del cercle = ingressos. Cliqueu per veure el detall.",
+      by_region: "Ingressos per ubicació", region_table: "Taula de regions",
+      stacked: "Ingressos mensuals per servei (acumulat)", margin_trend: "Evolució del marge (%)",
+      monthly_table: "Taula mensual", data_table: "Dades de transaccions",
+      exp_csv: "Exporta CSV", exp_xlsx: "Exporta Excel", exp_pdf: "Exporta PDF",
+      all_months: "Tots els mesos", reset: "Restableix", month: "Mes",
+      search_ph: "Cerca per client, servei o ubicació…",
+      kpi_rev: "Ingressos", kpi_cost: "Costos", kpi_margin: "Marge brut",
+      kpi_clients: "Clients actius", kpi_month_avg: "Mitjana mensual",
+      kpi_growth: "Creixement vs mes anterior",
+      vs_prev: "vs mes anterior", of_total: "del total",
+      client: "Client", service: "Línia de servei", location: "Ubicació",
+      month_col: "Mes", rev_type_col: "Tipus d'ingrés", revenue: "Ingressos",
+      cost: "Costos", margin: "Marge", margin_pct: "Marge %", share: "% del total",
+      transactions: "Transaccions", n_rows: "registres mostrats",
+      demo_note: "Dades de demostració (mostra anonimitzada)"
+    }
+  },
+  es: {
+    t: {
+      sub: "Panel de indicadores — clientes, servicios y regiones · Datos de demostración",
+      tab_resum: "Resumen", tab_clients: "Clientes", tab_serveis: "Servicios",
+      tab_regions: "Regiones", tab_tendencies: "Tendencias", tab_dades: "Datos",
+      ing_costs: "Ingresos vs costes (mensual)", rev_type: "Tipo de ingreso",
+      by_service: "Ingresos por línea de servicio", top_clients: "Principales clientes (ingresos)",
+      client_table: "Tabla de clientes", svc_perf: "Rendimiento por línea de servicio",
+      svc_table: "Tabla de servicios", map: "Mapa por ubicación",
+      map_note: "Tamaño del círculo = ingresos. Haga clic para ver el detalle.",
+      by_region: "Ingresos por ubicación", region_table: "Tabla de regiones",
+      stacked: "Ingresos mensuales por servicio (acumulado)", margin_trend: "Evolución del margen (%)",
+      monthly_table: "Tabla mensual", data_table: "Datos de transacciones",
+      exp_csv: "Exportar CSV", exp_xlsx: "Exportar Excel", exp_pdf: "Exportar PDF",
+      all_months: "Todos los meses", reset: "Restablecer", month: "Mes",
+      search_ph: "Buscar por cliente, servicio o ubicación…",
+      kpi_rev: "Ingresos", kpi_cost: "Costes", kpi_margin: "Margen bruto",
+      kpi_clients: "Clientes activos", kpi_month_avg: "Media mensual",
+      kpi_growth: "Crecimiento vs mes anterior",
+      vs_prev: "vs mes anterior", of_total: "del total",
+      client: "Cliente", service: "Línea de servicio", location: "Ubicación",
+      month_col: "Mes", rev_type_col: "Tipo de ingreso", revenue: "Ingresos",
+      cost: "Costes", margin: "Margen", margin_pct: "Margen %", share: "% del total",
+      transactions: "Transacciones", n_rows: "registros mostrados",
+      demo_note: "Datos de demostración (muestra anonimizada)"
+    }
+  },
+  en: {
+    t: {
+      sub: "Performance dashboard — clients, services and regions · Demo data",
+      tab_resum: "Overview", tab_clients: "Clients", tab_serveis: "Services",
+      tab_regions: "Regions", tab_tendencies: "Trends", tab_dades: "Data",
+      ing_costs: "Revenue vs cost (monthly)", rev_type: "Revenue type",
+      by_service: "Revenue by service line", top_clients: "Top clients (revenue)",
+      client_table: "Client table", svc_perf: "Performance by service line",
+      svc_table: "Service table", map: "Map by location",
+      map_note: "Circle size = revenue. Click for details.",
+      by_region: "Revenue by location", region_table: "Region table",
+      stacked: "Monthly revenue by service (stacked)", margin_trend: "Margin trend (%)",
+      monthly_table: "Monthly table", data_table: "Transaction data",
+      exp_csv: "Export CSV", exp_xlsx: "Export Excel", exp_pdf: "Export PDF",
+      all_months: "All months", reset: "Reset", month: "Month",
+      search_ph: "Search by client, service or location…",
+      kpi_rev: "Revenue", kpi_cost: "Cost", kpi_margin: "Gross margin",
+      kpi_clients: "Active clients", kpi_month_avg: "Monthly average",
+      kpi_growth: "Growth vs previous month",
+      vs_prev: "vs previous month", of_total: "of total",
+      client: "Client", service: "Service line", location: "Location",
+      month_col: "Month", rev_type_col: "Revenue type", revenue: "Revenue",
+      cost: "Cost", margin: "Margin", margin_pct: "Margin %", share: "% of total",
+      transactions: "Transactions", n_rows: "rows shown",
+      demo_note: "Demo data (anonymised sample)"
+    }
+  }
+};
+let T = I18N.en; // current language (English default)
+
+/* ---------- Helpers ---------- */
+// Language-aware number/currency formatting (ca / es / en)
+const LOCALE = { ca: 'ca-ES', es: 'es-ES', en: 'en-GB' };
+const langCode = () => T === I18N.es ? 'es' : T === I18N.ca ? 'ca' : 'en';
+const fmtEUR = v => new Intl.NumberFormat(LOCALE[langCode()], { style: 'currency', currency: 'EUR', maximumFractionDigits: 0 }).format(v);
+const fmtNum = v => new Intl.NumberFormat(LOCALE[langCode()]).format(v);
+const CAT_MONTHS = ['gen','febr','març','abr','maig','juny','jul','ag','set','oct','nov','des'];
+const ES_MONTHS  = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+const EN_MONTHS  = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+const monthLabel = m => {
+  const [y, mm] = m.split('-');
+  const arr = langCode() === 'en' ? EN_MONTHS : langCode() === 'es' ? ES_MONTHS : CAT_MONTHS;
+  return `${arr[+mm-1]} ${y}`;
+};
+
+function sum(arr, f) { return arr.reduce((a, r) => a + f(r), 0); }
+
+/* ---------- State & filters ---------- */
+let state = { month: 'all', search: '' };
+
+function filteredRows() {
+  let rows = DATA;
+  if (state.month !== 'all') rows = rows.filter(r => r.mes === state.month);
+  if (state.search) {
+    const q = state.search.toLowerCase();
+    rows = rows.filter(r => (r.client + ' ' + r.linia_servei + ' ' + r.ubicacio).toLowerCase().includes(q));
+  }
+  return rows;
+}
+
+/* ---------- Aggregations ---------- */
+function aggBy(rows, key, fields = ['ingressos', 'costos']) {
+  const map = new Map();
+  for (const r of rows) {
+    const k = r[key];
+    if (!map.has(k)) map.set(k, { key: k, ingressos: 0, costos: 0, n: 0 });
+    const o = map.get(k);
+    fields.forEach(f => o[f] += r[f] || 0);
+    o.n += 1;
+  }
+  return [...map.values()].sort((a, b) => b.ingressos - a.ingressos);
+}
+const aggByMonth = rows => {
+  const map = new Map();
+  for (const r of rows) {
+    if (!map.has(r.mes)) map.set(r.mes, { mes: r.mes, ingressos: 0, costos: 0 });
+    const o = map.get(r.mes);
+    o.ingressos += r.ingressos; o.costos += r.costos;
+  }
+  return [...map.values()].sort((a, b) => a.mes.localeCompare(b.mes));
+};
+
+/* ---------- Chart registry (destroy before recreate) ---------- */
+const charts = {};
+function makeChart(id, cfg) {
+  if (charts[id]) { charts[id].destroy(); }
+  charts[id] = new Chart(document.getElementById(id), cfg);
+}
+
+Chart.defaults.font.family = "'Inter', system-ui, sans-serif";
+Chart.defaults.color = '#6B7785';
+
+/* ---------- KPI cards ---------- */
+function renderKPIs(rows) {
+  const rev = sum(rows, r => r.ingressos);
+  const cost = sum(rows, r => r.costos);
+  const margin = rev - cost;
+  const marginPct = rev ? margin / rev * 100 : 0;
+  const clients = new Set(rows.map(r => r.client)).size;
+  const months = new Set(rows.map(r => r.mes));
+  const avgMonth = months.size ? rev / months.size : 0;
+
+  // MoM growth (last vs previous month in range)
+  const byM = aggByMonth(rows);
+  let growth = null;
+  if (byM.length >= 2) {
+    const last = byM[byM.length - 1].ingressos, prev = byM[byM.length - 2].ingressos;
+    growth = prev ? (last - prev) / prev * 100 : null;
+  }
+
+  const cards = [
+    { label: T.t.kpi_rev, value: fmtEUR(rev), cls: '', delta: growth === null ? null : { v: growth, up: growth >= 0 } },
+    { label: T.t.kpi_cost, value: fmtEUR(cost), cls: '' },
+    { label: T.t.kpi_margin, value: `${fmtEUR(margin)} (${marginPct.toFixed(1)}%)`, cls: margin >= 0 ? '' : 'down' },
+    { label: T.t.kpi_clients, value: String(clients), cls: '' },
+    { label: T.t.kpi_month_avg, value: fmtEUR(avgMonth), cls: '' },
+  ];
+  const el = document.getElementById('kpi-row');
+  el.innerHTML = cards.map(c => `
+    <div class="card kpi ${c.cls}">
+      <div class="label">${c.label}</div>
+      <div class="value">${c.value}</div>
+      ${c.delta !== null && c.delta !== undefined
+        ? `<div class="delta ${c.delta.up ? 'up' : 'down'}">${c.delta.up ? '▲' : '▼'} ${Math.abs(c.delta.v).toFixed(1)}% ${T.t.vs_prev}</div>`
+        : ''}
+    </div>`).join('');
+}
+
+/* ---------- Charts: RESUM ---------- */
+function renderOverview(rows) {
+  const byM = aggByMonth(rows);
+  const labels = byM.map(o => monthLabel(o.mes));
+  makeChart('chart-overview-line', {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [
+        { label: T.t.revenue, data: byM.map(o => o.ingressos), borderColor: '#1F4E78', backgroundColor: 'rgba(31,78,120,.12)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 },
+        { label: T.t.cost, data: byM.map(o => o.costos), borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.10)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      scales: { y: { ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
+  });
+
+  const byType = aggBy(rows, 'tipus_ingres');
+  makeChart('chart-overview-doughnut', {
+    type: 'doughnut',
+    data: {
+      labels: byType.map(o => o.key),
+      datasets: [{ data: byType.map(o => o.ingressos), backgroundColor: ['#1F4E78', '#E9A13B'], borderWidth: 2, borderColor: '#fff' }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, cutout: '58%',
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.label}: ${fmtEUR(c.parsed)}` } } } }
+  });
+
+  const bySvc = aggBy(rows, 'linia_servei');
+  makeChart('chart-overview-service', {
+    type: 'bar',
+    data: {
+      labels: bySvc.map(o => o.key),
+      datasets: [{ label: T.t.revenue, data: bySvc.map(o => o.ingressos), backgroundColor: '#1F4E78', borderRadius: 6 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      scales: { y: { ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.y)}` } } } }
+  });
+}
+
+/* ---------- Charts: CLIENTS ---------- */
+function renderClients(rows) {
+  const byC = aggBy(rows, 'client');
+  const top = byC.slice(0, 10);
+  const labels = top.map(o => o.key).reverse();
+  const vals = top.map(o => o.ingressos).reverse();
+  makeChart('chart-clients-bar', {
+    type: 'bar',
+    data: { labels, datasets: [{ label: T.t.revenue, data: vals, backgroundColor: '#1F4E78', borderRadius: 6 }] },
+    options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false,
+      scales: { x: { ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.x)}` } } } }
+  });
+
+  const total = sum(byC, o => o.ingressos) || 1;
+  const rowsHtml = byC.map(o => {
+    const m = o.ingressos - o.costos;
+    const share = o.ingressos / total * 100;
+    return `<tr>
+      <td class="l">${o.key}</td>
+      <td class="l">${o.n > 0 ? byC.find(x => x.key === o.key).n : ''}</td>
+      <td>${fmtEUR(o.ingressos)}</td>
+      <td>${fmtEUR(o.costos)}</td>
+      <td>${fmtEUR(m)}</td>
+      <td>${share.toFixed(1)}%</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('table-clients').innerHTML =
+    `<thead><tr><th class="l">${T.t.client}</th><th>${T.t.transactions}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th><th>${T.t.margin}</th><th>${T.t.share}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+}
+
+/* ---------- Charts: SERVEIS ---------- */
+function renderServeis(rows) {
+  const byS = aggBy(rows, 'linia_servei');
+  makeChart('chart-serveis-bar', {
+    type: 'bar',
+    data: {
+      labels: byS.map(o => o.key),
+      datasets: [
+        { label: T.t.revenue, data: byS.map(o => o.ingressos), backgroundColor: '#1F4E78', borderRadius: 5 },
+        { label: T.t.cost, data: byS.map(o => o.costos), backgroundColor: '#E9A13B', borderRadius: 5 }
+      ]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      scales: { y: { ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
+  });
+
+  const total = sum(byS, o => o.ingressos) || 1;
+  const rowsHtml = byS.map(o => {
+    const m = o.ingressos - o.costos;
+    const pct = o.ingressos ? m / o.ingressos * 100 : 0;
+    const share = o.ingressos / total * 100;
+    return `<tr>
+      <td class="l">${o.key}</td>
+      <td>${o.n}</td>
+      <td>${fmtEUR(o.ingressos)}</td>
+      <td>${fmtEUR(o.costos)}</td>
+      <td>${fmtEUR(m)}</td>
+      <td>${pct.toFixed(1)}%</td>
+      <td>${share.toFixed(1)}%</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('table-serveis').innerHTML =
+    `<thead><tr><th class="l">${T.t.service}</th><th>${T.t.transactions}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th><th>${T.t.margin}</th><th>${T.t.margin_pct}</th><th>${T.t.share}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+}
+
+/* ---------- Charts: REGIONS (map + bars) ---------- */
+let map = null, mapReady = false;
+
+// Leaflet can't measure the container while its tab is hidden (display:none),
+// so we create the map eagerly but only size/position it when the tab is shown.
+// Default view covers Catalonia; adjust [lat, lng, zoom] for other regions.
+function ensureMapReady() {
+  if (!map || mapReady) return;
+  mapReady = true;
+  setTimeout(() => {
+    map.invalidateSize();
+    map.setView([41.55, 1.9], 9);
+  }, 120);
+}
+
+function renderRegions(rows) {
+  const byCity = aggBy(rows, 'ubicacio');
+  const total = sum(byCity, o => o.ingressos) || 1;
+
+  // Map (created once; view is set by ensureMapReady when the tab becomes visible)
+  if (!map) {
+    map = L.map('map');
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+    mapReady = false;
+  }
+  const maxRev = Math.max(...byCity.map(o => o.ingressos), 1);
+  map.eachLayer(l => { if (l instanceof L.CircleMarker) map.removeLayer(l); });
+  byCity.forEach(o => {
+    const [lat, lng] = CITIES[o.key] || [41.55, 1.9];
+    const r = 6 + Math.sqrt(o.ingressos / maxRev) * 26;
+    const m = o.ingressos - o.costos;
+    L.circleMarker([lat, lng], {
+      radius: r, color: '#fff', weight: 2,
+      fillColor: '#1F4E78', fillOpacity: .75
+    }).addTo(map)
+      .bindPopup(`<b>${o.key}</b><br>${T.t.revenue}: ${fmtEUR(o.ingressos)}<br>${T.t.cost}: ${fmtEUR(o.costos)}<br>${T.t.margin}: ${fmtEUR(m)}<br>${T.t.share}: ${(o.ingressos / total * 100).toFixed(1)}%`);
+  });
+  ensureMapReady(); // size/position the map once its tab is visible
+
+  // Bar
+  makeChart('chart-regions-bar', {
+    type: 'bar',
+    data: {
+      labels: byCity.map(o => o.key),
+      datasets: [{ label: T.t.revenue, data: byCity.map(o => o.ingressos), backgroundColor: '#1F4E78', borderRadius: 6 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false,
+      scales: { y: { ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.y)}` } } } }
+  });
+
+  // Table
+  const rowsHtml = byCity.map(o => {
+    const m = o.ingressos - o.costos;
+    const pct = o.ingressos ? m / o.ingressos * 100 : 0;
+    const share = o.ingressos / total * 100;
+    return `<tr>
+      <td class="l">${o.key}</td>
+      <td>${o.n}</td>
+      <td>${fmtEUR(o.ingressos)}</td>
+      <td>${fmtEUR(o.costos)}</td>
+      <td>${fmtEUR(m)}</td>
+      <td>${pct.toFixed(1)}%</td>
+      <td>${share.toFixed(1)}%</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('table-regions').innerHTML =
+    `<thead><tr><th class="l">${T.t.location}</th><th>${T.t.transactions}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th><th>${T.t.margin}</th><th>${T.t.margin_pct}</th><th>${T.t.share}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+}
+
+/* ---------- Charts: TENDENCIES ---------- */
+function renderTrends(rows) {
+  const byM = aggByMonth(rows);
+  const labels = byM.map(o => monthLabel(o.mes));
+
+  // Stacked by service
+  const services = aggBy(rows, 'linia_servei').map(o => o.key);
+  const palette = ['#1F4E78','#E9A13B','#4E8FC7','#9DB8D2','#C7A24E','#2E7D32'];
+  const datasets = services.map((s, i) => ({
+    label: s,
+    data: byM.map(o => sum(rows.filter(r => r.mes === o.mes && r.linia_servei === s), r => r.ingressos)),
+    backgroundColor: palette[i % palette.length], borderRadius: 2
+  }));
+  makeChart('chart-trend-stacked', {
+    type: 'bar',
+    data: { labels, datasets },
+    options: { responsive: true, maintainAspectRatio: false,
+      scales: { x: { stacked: true }, y: { stacked: true, ticks: { callback: v => fmtNum(v) } } },
+      plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
+  });
+
+  // Margin % trend
+  const marginPct = byM.map(o => o.ingressos ? (o.ingressos - o.costos) / o.ingressos * 100 : 0);
+  makeChart('chart-trend-margin', {
+    type: 'line',
+    data: {
+      labels,
+      datasets: [{ label: T.t.margin_pct, data: marginPct, borderColor: '#2E7D32', backgroundColor: 'rgba(46,125,50,.10)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 }]
+    },
+    options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      scales: { y: { ticks: { callback: v => v + '%' } } },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${c.parsed.y.toFixed(1)}%` } } } }
+  });
+
+  // Monthly table
+  const rowsHtml = byM.map(o => {
+    const m = o.ingressos - o.costos;
+    const pct = o.ingressos ? m / o.ingressos * 100 : 0;
+    return `<tr>
+      <td class="l">${monthLabel(o.mes)}</td>
+      <td>${fmtEUR(o.ingressos)}</td>
+      <td>${fmtEUR(o.costos)}</td>
+      <td>${fmtEUR(m)}</td>
+      <td>${pct.toFixed(1)}%</td>
+    </tr>`;
+  }).join('');
+  document.getElementById('table-monthly').innerHTML =
+    `<thead><tr><th class="l">${T.t.month_col}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th><th>${T.t.margin}</th><th>${T.t.margin_pct}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+}
+
+/* ---------- Data table ---------- */
+function renderDataTable(rows) {
+  const rowsHtml = rows.map(r => `<tr>
+    <td class="l">${r.client}</td>
+    <td class="l">${r.linia_servei}</td>
+    <td class="l">${r.ubicacio}</td>
+    <td class="l">${monthLabel(r.mes)}</td>
+    <td class="l">${r.tipus_ingres}</td>
+    <td>${fmtEUR(r.ingressos)}</td>
+    <td>${fmtEUR(r.costos)}</td>
+  </tr>`).join('');
+  document.getElementById('table-data').innerHTML =
+    `<thead><tr><th class="l">${T.t.client}</th><th class="l">${T.t.service}</th><th class="l">${T.t.location}</th><th class="l">${T.t.month_col}</th><th class="l">${T.t.rev_type_col}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+  document.getElementById('data-count').textContent = `${fmtNum(rows.length)} ${T.t.n_rows}`;
+}
+
+/* ---------- Export: CSV ---------- */
+function exportCSV() {
+  const rows = filteredRows();
+  const header = ['client','linia_servei','ubicacio','mes','tipus_ingres','ingressos','costos'];
+  const esc = v => `"${String(v).replace(/"/g, '""')}"`;
+  const lines = [header.join(',')].concat(rows.map(r => header.map(h => esc(r[h])).join(',')));
+  const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'dades_dashboard.csv';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+/* ---------- Export: Excel (SheetJS) ---------- */
+function exportXLSX() {
+  const rows = filteredRows().map(r => ({
+    'Client': r.client, 'Línia de servei': r.linia_servei, 'Ubicació': r.ubicacio,
+    'Mes': r.mes, "Tipus d'ingrés": r.tipus_ingres, 'Ingressos': r.ingressos, 'Costos': r.costos
+  }));
+  const wb = XLSX.utils.book_new();
+  const ws = XLSX.utils.json_to_sheet(rows);
+  ws['!cols'] = [{wch:28},{wch:24},{wch:18},{wch:9},{wch:14},{wch:12},{wch:12}];
+  XLSX.utils.book_append_sheet(wb, ws, 'Dades');
+  XLSX.writeFile(wb, 'dades_dashboard.xlsx');
+}
+
+/* ---------- Export: PDF (print stylesheet) ---------- */
+function exportPDF() { window.print(); }
+
+/* ---------- Master render ---------- */
+function renderAll() {
+  const rows = filteredRows();
+  renderKPIs(rows);
+  renderOverview(rows);
+  renderClients(rows);
+  renderServeis(rows);
+  renderRegions(rows);
+  renderTrends(rows);
+  renderDataTable(rows);
+  document.getElementById('data-note').textContent = `${T.t.demo_note} · ${fmtNum(rows.length)} ${T.t.n_rows}`;
+}
+
+/* ---------- Tabs ---------- */
+document.getElementById('tabs').addEventListener('click', e => {
+  const btn = e.target.closest('button');
+  if (!btn) return;
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+  // Refresh map size when its tab becomes visible (Leaflet needs a sized container)
+  if (btn.dataset.tab === 'regions') { ensureMapReady(); }
+  window.scrollTo({ top: 0 });
+});
+
+/* ---------- Filters ---------- */
+const monthSel = document.getElementById('month-filter');
+[...new Set(DATA.map(r => r.mes))].sort().forEach(m => {
+  const opt = document.createElement('option');
+  opt.value = m; opt.textContent = monthLabel(m);
+  monthSel.appendChild(opt);
+});
+monthSel.addEventListener('change', () => { state.month = monthSel.value; renderAll(); });
+document.getElementById('reset-filter').addEventListener('click', () => {
+  state.month = 'all'; state.search = '';
+  monthSel.value = 'all';
+  document.getElementById('data-search').value = '';
+  renderAll();
+});
+document.getElementById('data-search').addEventListener('input', e => {
+  state.search = e.target.value; renderAll();
+});
+
+/* ---------- Language switcher ---------- */
+function setLang(code) {
+  T = I18N[code] || I18N.en;
+  document.querySelectorAll('header .lang button').forEach(b => b.classList.toggle('active', b.dataset.lang === code));
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n.replace(/^t\./, ''); // "t.ing_costs" -> "ing_costs"
+    if (T.t[key]) el.textContent = T.t[key];
+  });
+  document.getElementById('data-search').placeholder = T.t.search_ph;
+  document.getElementById('month-filter').options[0].textContent = T.t.all_months;
+  document.getElementById('reset-filter').textContent = T.t.reset;
+  document.getElementById('btn-csv').textContent = T.t.exp_csv;
+  document.getElementById('btn-xlsx').textContent = T.t.exp_xlsx;
+  document.getElementById('btn-pdf').textContent = T.t.exp_pdf;
+  renderAll();
+}
+document.querySelectorAll('header .lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+/* ---------- Export buttons ---------- */
+document.getElementById('btn-csv').addEventListener('click', exportCSV);
+document.getElementById('btn-xlsx').addEventListener('click', exportXLSX);
+document.getElementById('btn-pdf').addEventListener('click', exportPDF);
+
+/* ---------- Init ---------- */
+setLang('en'); // English default; applies all labels + renders
+</script>
+</body>
+</html>

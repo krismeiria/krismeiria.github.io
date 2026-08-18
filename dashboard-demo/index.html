@@ -121,7 +121,10 @@
   th, td { text-align: right; padding: 7px 8px; border-bottom: 1px solid var(--border); white-space: nowrap; font-size: .8rem; }
   th { font-size: .72rem; text-transform: uppercase; letter-spacing: .5px; color: var(--muted); }
   td.l, th.l { text-align: left; }
-  tbody tr:hover { background: #F8FAFD; }
+  tbody tr { cursor: pointer; }
+  tbody tr:hover td { background: #F0F4F9; }
+  tbody tr.selected td { background: #FFF3DC; }
+  .card .chart-wrap.h240 { height: 240px; }
   .bar-cell { position: relative; }
   .bar-cell .bg { position: absolute; inset: 0; opacity: .12; background: var(--primary); border-radius: 3px; }
   .bar-cell .txt { position: relative; }
@@ -242,18 +245,22 @@
   <section class="tab-panel" id="panel-regions">
     <div class="grid two">
       <div class="card">
-        <h3 data-i18n="t.map">Mapa per ubicació</h3>
+        <h3 data-i18n="t.map">Map by location</h3>
         <div class="map-wrap" id="map"></div>
-        <p class="note" data-i18n="t.map_note">Mida del cercle = ingressos. Cliqueu per veure el detall.</p>
+        <p class="note" data-i18n="t.map_note">Circle size = revenue. Click a circle, bar or row to select a region.</p>
       </div>
       <div class="grid" style="display:grid; gap:18px; align-content:start">
         <div class="card">
-          <h3 data-i18n="t.by_region">Ingressos per ubicació</h3>
+          <h3 data-i18n="t.by_region">Revenue by location</h3>
           <div class="chart-wrap h300"><canvas id="chart-regions-bar"></canvas></div>
         </div>
         <div class="card">
-          <h3 data-i18n="t.region_table">Taula de regions</h3>
+          <h3 data-i18n="t.region_table">Region table</h3>
           <div class="table-wrap" style="max-height:300px; overflow:auto"><table id="table-regions"></table></div>
+        </div>
+        <div class="card" id="region-detail-card" style="display:none">
+          <h3 id="region-detail-title">Monthly revenue trend</h3>
+          <div class="chart-wrap h240"><canvas id="chart-region-trend"></canvas></div>
         </div>
       </div>
     </div>
@@ -2310,7 +2317,8 @@ const I18N = {
       by_service: "Ingressos per línia de servei", top_clients: "Clients principals (ingressos)",
       client_table: "Taula de clients", svc_perf: "Rendiment per línia de servei",
       svc_table: "Taula de serveis", map: "Mapa per ubicació",
-      map_note: "Mida del cercle = ingressos. Cliqueu per veure el detall.",
+ map_note: "Mida del cercle = ingressos. Cliqueu un cercle, una barra o una fila per seleccionar la regió.",
+ region_trend: "Evolució mensual",
       by_region: "Ingressos per ubicació", region_table: "Taula de regions",
       stacked: "Ingressos mensuals per servei (acumulat)", margin_trend: "Evolució del marge (%)",
       monthly_table: "Taula mensual", data_table: "Dades de transaccions",
@@ -2337,7 +2345,8 @@ const I18N = {
       by_service: "Ingresos por línea de servicio", top_clients: "Principales clientes (ingresos)",
       client_table: "Tabla de clientes", svc_perf: "Rendimiento por línea de servicio",
       svc_table: "Tabla de servicios", map: "Mapa por ubicación",
-      map_note: "Tamaño del círculo = ingresos. Haga clic para ver el detalle.",
+ map_note: "Tamaño del círculo = ingresos. Haga clic en un círculo, barra o fila para seleccionar la región.",
+ region_trend: "Evolución mensual",
       by_region: "Ingresos por ubicación", region_table: "Tabla de regiones",
       stacked: "Ingresos mensuales por servicio (acumulado)", margin_trend: "Evolución del margen (%)",
       monthly_table: "Tabla mensual", data_table: "Datos de transacciones",
@@ -2364,7 +2373,8 @@ const I18N = {
       by_service: "Revenue by service line", top_clients: "Top clients (revenue)",
       client_table: "Client table", svc_perf: "Performance by service line",
       svc_table: "Service table", map: "Map by location",
-      map_note: "Circle size = revenue. Click for details.",
+ map_note: "Circle size = revenue. Click a circle, bar or row to select a region.",
+ region_trend: "Monthly revenue trend",
       by_region: "Revenue by location", region_table: "Region table",
       stacked: "Monthly revenue by service (stacked)", margin_trend: "Margin trend (%)",
       monthly_table: "Monthly table", data_table: "Transaction data",
@@ -2403,7 +2413,7 @@ const monthLabel = m => {
 function sum(arr, f) { return arr.reduce((a, r) => a + f(r), 0); }
 
 /* ---------- State & filters ---------- */
-let state = { month: 'all', search: '' };
+let state = { month: 'all', search: '', region: null };
 
 function filteredRows() {
   let rows = DATA;
@@ -2607,9 +2617,16 @@ function ensureMapReady() {
   }, 120);
 }
 
+/* Region selection — cross-links map, bar chart and table (click again to clear) */
+function selectRegion(name) {
+  state.region = (state.region === name) ? null : name;
+  renderAll();
+}
+
 function renderRegions(rows) {
   const byCity = aggBy(rows, 'ubicacio');
   const total = sum(byCity, o => o.ingressos) || 1;
+  const sel = state.region;
 
   // Map (created once; view is set by ensureMapReady when the tab becomes visible)
   if (!map) {
@@ -2623,34 +2640,47 @@ function renderRegions(rows) {
   map.eachLayer(l => { if (l instanceof L.CircleMarker) map.removeLayer(l); });
   byCity.forEach(o => {
     const [lat, lng] = CITIES[o.key] || [41.55, 1.9];
+    const isSel = o.key === sel;
     const r = 6 + Math.sqrt(o.ingressos / maxRev) * 26;
     const m = o.ingressos - o.costos;
     L.circleMarker([lat, lng], {
-      radius: r, color: '#fff', weight: 2,
-      fillColor: '#1F4E78', fillOpacity: .75
+      radius: isSel ? r + 5 : r,
+      color: isSel ? '#E9A13B' : '#fff',
+      weight: isSel ? 3 : 2,
+      fillColor: isSel ? '#E9A13B' : '#1F4E78',
+      fillOpacity: isSel ? .95 : .75
     }).addTo(map)
-      .bindPopup(`<b>${o.key}</b><br>${T.t.revenue}: ${fmtEUR(o.ingressos)}<br>${T.t.cost}: ${fmtEUR(o.costos)}<br>${T.t.margin}: ${fmtEUR(m)}<br>${T.t.share}: ${(o.ingressos / total * 100).toFixed(1)}%`);
+      .bindPopup(`<b>${o.key}</b><br>${T.t.revenue}: ${fmtEUR(o.ingressos)}<br>${T.t.cost}: ${fmtEUR(o.costos)}<br>${T.t.margin}: ${fmtEUR(m)}<br>${T.t.share}: ${(o.ingressos / total * 100).toFixed(1)}%`)
+      .on('click', () => selectRegion(o.key));
   });
   ensureMapReady(); // size/position the map once its tab is visible
 
-  // Bar
+  // Bar chart — click a bar to select the region
+  const labels = byCity.map(o => o.key);
   makeChart('chart-regions-bar', {
     type: 'bar',
     data: {
-      labels: byCity.map(o => o.key),
-      datasets: [{ label: T.t.revenue, data: byCity.map(o => o.ingressos), backgroundColor: '#1F4E78', borderRadius: 6 }]
+      labels,
+      datasets: [{
+        label: T.t.revenue, data: byCity.map(o => o.ingressos),
+        backgroundColor: byCity.map(o => o.key === sel ? '#E9A13B' : '#1F4E78'),
+        borderRadius: 6
+      }]
     },
-    options: { responsive: true, maintainAspectRatio: false,
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      onClick: (evt, elems) => { if (elems.length) selectRegion(labels[elems[0].index]); },
       scales: { y: { ticks: { callback: v => fmtNum(v) } } },
-      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.y)}` } } } }
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.y)}` } } }
+    }
   });
 
-  // Table
+  // Table — click a row to select the region
   const rowsHtml = byCity.map(o => {
     const m = o.ingressos - o.costos;
     const pct = o.ingressos ? m / o.ingressos * 100 : 0;
     const share = o.ingressos / total * 100;
-    return `<tr>
+    return `<tr class="${o.key === sel ? 'selected' : ''}" onclick="selectRegion(${JSON.stringify(o.key)})">
       <td class="l">${o.key}</td>
       <td>${o.n}</td>
       <td>${fmtEUR(o.ingressos)}</td>
@@ -2662,6 +2692,31 @@ function renderRegions(rows) {
   }).join('');
   document.getElementById('table-regions').innerHTML =
     `<thead><tr><th class="l">${T.t.location}</th><th>${T.t.transactions}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th><th>${T.t.margin}</th><th>${T.t.margin_pct}</th><th>${T.t.share}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
+
+  // Detail trend card for the selected region
+  const detailCard = document.getElementById('region-detail-card');
+  if (sel && byCity.some(o => o.key === sel)) {
+    detailCard.style.display = 'block';
+    document.getElementById('region-detail-title').textContent = `${T.t.region_trend}: ${sel}`;
+    const byM = aggByMonth(rows.filter(r => r.ubicacio === sel));
+    makeChart('chart-region-trend', {
+      type: 'line',
+      data: {
+        labels: byM.map(o => monthLabel(o.mes)),
+        datasets: [{
+          label: T.t.revenue, data: byM.map(o => o.ingressos),
+          borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.12)',
+          fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3
+        }]
+      },
+      options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+        scales: { y: { ticks: { callback: v => fmtNum(v) } } },
+        plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.y)}` } } } }
+    });
+  } else {
+    detailCard.style.display = 'none';
+    if (charts['chart-region-trend']) { charts['chart-region-trend'].destroy(); delete charts['chart-region-trend']; }
+  }
 }
 
 /* ---------- Charts: TENDENCIES ---------- */
@@ -2795,7 +2850,7 @@ const monthSel = document.getElementById('month-filter');
 });
 monthSel.addEventListener('change', () => { state.month = monthSel.value; renderAll(); });
 document.getElementById('reset-filter').addEventListener('click', () => {
-  state.month = 'all'; state.search = '';
+  state.month = 'all'; state.search = ''; state.region = null;
   monthSel.value = 'all';
   document.getElementById('data-search').value = '';
   renderAll();

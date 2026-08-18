@@ -8,16 +8,14 @@
 <!-- ============================================================
   DASHBOARD DEMO — single self-contained HTML file
   Language: Catalan UI (ca / es / en switcher)
-  Libraries (CDN): Chart.js (charts), Leaflet (map), SheetJS (Excel export)
+  Libraries (CDN): Chart.js (charts), SheetJS (Excel export)
+  Map: embedded SVG choropleth + bubbles (no external tiles — Tableau-style)
   PDF export: window.print() with dedicated print stylesheet (no library needed)
   Data: dummy/anonymised sample — replace DATA below with real company data.
   ============================================================ -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<!-- Leaflet map -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
-<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <!-- Chart.js v4 -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 <!-- SheetJS (Excel export) -->
@@ -140,8 +138,21 @@
   .toolbar { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; justify-content: flex-end; margin-bottom: 14px; }
   .toolbar .spacer { flex: 1; }
 
-  .map-wrap { height: 460px; border-radius: 10px; overflow: hidden; }
-  .leaflet-container { font-family: inherit; }
+  .map-wrap { position: relative; }
+  .map-wrap svg { width: 100%; height: auto; display: block; border-radius: 10px; background: #FBFCFE; }
+  .map-wrap .prov { stroke: #fff; stroke-width: 1.6; transition: opacity .15s; cursor: default; }
+  .map-wrap .prov:hover { opacity: .82; }
+  .map-wrap .city { cursor: pointer; stroke: #fff; stroke-width: 1.4; transition: fill .15s; }
+  .map-wrap .city:hover { fill: #E9A13B !important; }
+  .map-tooltip {
+    position: absolute; pointer-events: none; background: #23303E; color: #fff;
+    padding: 8px 11px; border-radius: 8px; font-size: .78rem; line-height: 1.45;
+    box-shadow: 0 4px 14px rgba(16,42,67,.25); z-index: 10; white-space: nowrap;
+    transform: translate(-50%, calc(-100% - 10px));
+  }
+  .map-tooltip b { color: #E9A13B; }
+  .map-legend { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: .74rem; color: var(--muted); }
+  .map-legend .bar { width: 160px; height: 9px; border-radius: 5px; background: linear-gradient(90deg, rgb(232,240,247), rgb(31,78,120)); }
   .note { font-size: .76rem; color: var(--muted); margin-top: 8px; }
 
   /* Search box on Data tab */
@@ -246,7 +257,16 @@
     <div class="grid two">
       <div class="card">
         <h3 data-i18n="t.map">Map by location</h3>
-        <div class="map-wrap" id="map"></div>
+        <div class="map-wrap" id="region-map-container">
+          <svg id="region-map-svg" viewBox="0 0 620 760" preserveAspectRatio="xMidYMid meet"></svg>
+          <div class="map-tooltip" id="map-tooltip" style="display:none"></div>
+        </div>
+        <div class="map-legend">
+          <span data-i18n="t.legend_low">Low</span>
+          <div class="bar"></div>
+          <span data-i18n="t.legend_high">High</span>
+          <span style="margin-left:14px" data-i18n="t.legend_prov">province revenue</span>
+        </div>
         <p class="note" data-i18n="t.map_note">Circle size = revenue. Click a circle, bar or row to select a region.</p>
       </div>
       <div class="grid" style="display:grid; gap:18px; align-content:start">
@@ -2306,6 +2326,10 @@ const RAW = {
 const DATA = RAW.rows;
 const CITIES = RAW.cities; // { City: [lat, lng] }
 
+/* Tableau-style SVG map data (embedded — no external tiles needed) */
+const MAPDATA = {"viewBox": "0 0 620 760", "provinces": [{"name": "Girona", "paths": ["M 311.5 177.4 L 325.6 179.5 L 338.5 189.2 L 346.9 187.6 L 352.3 206.1 L 361.7 214.5 L 374.8 210.9 L 386.8 196.1 L 397.8 196.9 L 407.3 191.5 L 440.4 202.8 L 440.5 206.9 L 449.5 216.2 L 458.9 218.2 L 466.4 211.8 L 485.4 216.2 L 481.6 204.7 L 485.3 204.5 L 485.5 200.4 L 497.1 195.0 L 509.5 196.6 L 517.1 186.3 L 531.9 187.1 L 537.3 180.6 L 541.1 184.8 L 553.5 182.4 L 563.3 194.8 L 580.2 192.4 L 577.5 194.2 L 579.5 197.1 L 576.2 203.4 L 578.8 204.1 L 576.5 206.6 L 578.0 211.2 L 584.0 217.4 L 590.5 213.5 L 594.3 219.0 L 597.7 216.3 L 608.0 221.6 L 601.3 225.5 L 603.7 230.4 L 599.3 229.7 L 601.5 235.1 L 595.1 238.4 L 597.1 242.1 L 590.5 238.7 L 588.4 243.5 L 577.9 235.5 L 568.3 250.2 L 570.6 269.7 L 580.6 274.0 L 579.2 275.5 L 587.7 286.6 L 584.8 289.7 L 584.2 298.6 L 591.3 314.5 L 587.6 318.1 L 588.8 321.6 L 586.4 322.9 L 585.5 329.4 L 581.8 330.3 L 580.6 335.7 L 572.1 341.9 L 566.5 341.1 L 557.9 355.6 L 552.9 357.6 L 553.0 359.8 L 543.0 363.1 L 535.0 373.8 L 513.3 380.5 L 505.4 390.3 L 501.7 382.9 L 505.2 368.7 L 482.8 365.6 L 462.0 372.8 L 456.1 362.1 L 447.3 358.1 L 447.8 355.1 L 425.4 350.5 L 420.3 338.4 L 420.7 331.5 L 428.5 330.9 L 430.9 334.4 L 435.6 328.3 L 442.3 330.4 L 449.5 323.2 L 439.7 309.9 L 448.2 309.8 L 450.8 305.9 L 447.2 303.6 L 452.9 301.7 L 454.2 293.9 L 449.7 289.7 L 451.2 285.1 L 445.2 282.1 L 437.5 285.7 L 433.2 280.2 L 434.3 276.2 L 427.8 271.5 L 414.4 276.2 L 415.3 268.2 L 409.7 265.5 L 399.4 266.3 L 396.7 270.7 L 386.1 268.9 L 382.6 273.6 L 376.2 265.7 L 370.2 268.0 L 359.6 264.4 L 357.3 256.1 L 352.4 257.0 L 352.3 251.9 L 360.2 253.2 L 358.0 258.6 L 359.8 261.2 L 370.3 257.2 L 368.9 246.7 L 364.5 247.7 L 362.0 243.4 L 372.0 228.6 L 340.6 220.6 L 329.1 224.9 L 327.7 212.6 L 331.5 208.9 L 326.8 206.0 L 322.3 208.8 L 321.5 195.0 L 308.3 191.1 L 306.9 179.4 L 311.5 177.4 Z", "M 358.3 179.5 L 356.3 183.3 L 361.3 189.1 L 350.7 186.7 L 354.9 177.4 L 358.3 179.5 Z", "M 364.6 270.0 L 360.3 275.0 L 359.3 270.4 L 364.6 270.0 Z"], "cx": 470.2, "cy": 261.1}, {"name": "Barcelona", "paths": ["M 343.4 222.0 L 372.0 228.6 L 362.0 243.4 L 364.5 247.7 L 368.9 246.7 L 370.3 257.2 L 359.8 261.2 L 358.0 258.6 L 360.2 253.2 L 352.3 251.9 L 352.4 257.0 L 357.3 256.1 L 359.6 264.4 L 370.2 268.0 L 376.2 265.7 L 382.6 273.6 L 386.1 268.9 L 396.7 270.7 L 399.4 266.3 L 409.7 265.5 L 415.3 268.2 L 414.4 276.2 L 427.8 271.5 L 434.3 276.2 L 433.2 280.2 L 437.5 285.7 L 445.2 282.1 L 451.2 285.1 L 449.7 289.7 L 454.2 293.9 L 452.9 301.7 L 447.2 303.6 L 450.8 305.9 L 448.2 309.8 L 439.7 309.9 L 449.5 323.2 L 442.3 330.4 L 435.6 328.3 L 430.9 334.4 L 428.5 330.9 L 420.7 331.5 L 420.3 338.4 L 425.1 350.0 L 447.8 355.1 L 447.3 358.1 L 456.1 362.1 L 462.0 372.8 L 482.8 365.6 L 505.2 368.7 L 501.7 382.9 L 505.4 390.3 L 463.5 408.0 L 428.4 430.5 L 409.1 438.3 L 396.2 456.5 L 391.2 469.6 L 393.7 458.1 L 380.7 480.8 L 292.4 505.5 L 291.2 494.7 L 288.0 497.9 L 280.3 494.5 L 277.9 488.3 L 287.2 490.1 L 290.4 479.5 L 281.3 480.1 L 282.6 476.2 L 275.7 467.6 L 279.3 462.7 L 271.6 456.9 L 266.4 454.6 L 259.6 458.1 L 262.8 452.9 L 259.9 445.8 L 263.7 444.3 L 258.7 442.2 L 261.7 434.4 L 245.1 424.8 L 247.4 419.2 L 255.0 418.7 L 251.6 414.0 L 256.1 410.6 L 249.5 407.2 L 244.5 409.1 L 247.1 402.7 L 238.2 399.4 L 244.2 394.3 L 254.9 393.8 L 248.6 384.1 L 250.2 381.7 L 242.4 376.2 L 250.5 369.4 L 246.4 366.2 L 249.0 353.8 L 259.2 352.2 L 257.3 358.3 L 261.4 359.7 L 261.3 354.7 L 265.6 355.5 L 270.4 364.4 L 278.3 356.9 L 282.3 358.0 L 281.4 351.3 L 285.6 348.0 L 289.2 337.6 L 287.1 331.9 L 277.6 332.3 L 293.5 320.0 L 292.9 307.2 L 297.7 306.5 L 296.6 309.6 L 299.1 310.3 L 305.9 306.0 L 301.9 298.4 L 301.8 305.8 L 292.5 302.0 L 294.0 296.8 L 295.9 301.2 L 302.2 294.8 L 300.9 290.4 L 296.7 290.9 L 300.7 280.1 L 306.5 279.1 L 302.1 267.9 L 309.7 257.6 L 309.5 254.3 L 298.6 250.1 L 298.6 245.5 L 303.2 241.9 L 299.4 237.4 L 300.5 232.2 L 296.7 231.1 L 343.4 222.0 Z", "M 363.0 269.9 L 359.3 270.4 L 360.3 275.0 L 364.5 271.5 L 363.0 269.9 Z", "M 304.4 329.7 L 305.9 331.7 L 307.0 329.0 L 304.1 328.0 L 304.4 329.7 Z", "M 294.2 273.2 L 300.8 274.3 L 291.9 273.7 L 294.2 273.2 Z", "M 288.9 475.8 L 291.5 475.2 L 288.9 475.8 Z"], "cx": 338.2, "cy": 343.5}, {"name": "Lleida", "paths": ["M 116.9 85.8 L 143.2 93.7 L 156.6 103.2 L 162.9 99.0 L 167.4 103.8 L 185.3 103.4 L 201.7 123.4 L 213.6 118.7 L 218.0 122.0 L 237.8 120.7 L 236.6 125.0 L 243.8 129.0 L 243.4 133.6 L 248.4 136.9 L 253.9 150.2 L 250.8 155.2 L 254.3 158.9 L 248.4 166.8 L 255.3 166.0 L 258.7 173.6 L 249.4 180.1 L 253.6 182.3 L 254.2 190.8 L 274.4 193.1 L 276.1 186.5 L 279.6 188.7 L 283.0 184.6 L 294.2 184.1 L 296.7 175.0 L 303.0 178.6 L 307.2 175.0 L 308.3 191.1 L 321.5 195.0 L 322.3 208.8 L 326.8 206.0 L 331.5 208.9 L 327.7 212.6 L 329.2 224.9 L 296.7 231.1 L 300.5 232.2 L 299.4 237.4 L 303.2 241.9 L 298.6 245.5 L 298.6 250.1 L 309.5 254.3 L 309.7 257.6 L 302.1 267.9 L 306.5 279.1 L 300.7 280.1 L 296.7 290.9 L 300.9 290.4 L 302.2 294.8 L 295.9 301.2 L 294.0 296.8 L 292.5 302.0 L 301.8 305.8 L 301.9 298.4 L 305.9 306.0 L 299.1 310.3 L 296.6 309.6 L 297.7 306.5 L 292.9 307.2 L 293.5 320.0 L 277.6 332.3 L 287.1 331.9 L 289.2 337.6 L 285.6 348.0 L 281.4 351.3 L 282.3 358.0 L 278.3 356.9 L 270.4 364.4 L 265.6 355.5 L 261.3 354.7 L 261.4 359.7 L 257.3 358.3 L 259.2 352.2 L 249.0 353.8 L 246.4 366.2 L 250.5 369.4 L 242.4 376.2 L 250.2 381.7 L 248.6 384.1 L 254.9 393.8 L 244.2 394.3 L 238.2 399.4 L 247.1 402.7 L 244.4 408.3 L 246.4 413.4 L 211.9 410.5 L 210.1 415.8 L 201.5 419.4 L 204.5 431.0 L 191.6 436.4 L 177.9 427.8 L 179.6 431.2 L 177.5 433.1 L 184.5 438.5 L 160.1 465.9 L 144.7 468.8 L 141.2 462.7 L 136.4 471.2 L 125.7 469.8 L 123.6 473.9 L 100.4 480.7 L 94.5 480.1 L 91.4 473.4 L 86.5 471.7 L 81.1 480.8 L 76.8 481.0 L 68.9 469.6 L 63.9 473.3 L 63.6 484.5 L 54.7 483.8 L 47.7 471.2 L 52.3 465.0 L 42.3 454.7 L 49.0 440.2 L 46.5 432.1 L 56.8 430.5 L 66.2 417.4 L 62.7 402.3 L 47.9 403.0 L 49.5 394.9 L 43.6 383.2 L 54.5 367.5 L 56.5 369.6 L 57.1 363.1 L 70.3 361.3 L 73.1 352.1 L 79.1 346.8 L 84.5 347.2 L 86.6 339.2 L 91.3 339.6 L 96.4 334.4 L 93.7 331.2 L 94.1 322.9 L 96.5 322.4 L 87.9 317.6 L 92.6 310.4 L 95.9 312.0 L 98.4 304.9 L 102.3 303.4 L 103.0 306.6 L 106.9 299.0 L 104.8 295.4 L 113.8 275.1 L 113.1 263.8 L 116.5 260.9 L 113.7 258.6 L 114.4 254.2 L 126.1 220.8 L 121.5 217.2 L 127.3 213.7 L 118.3 209.9 L 122.6 205.1 L 112.1 179.2 L 121.4 174.8 L 117.9 169.9 L 123.2 167.3 L 121.6 164.8 L 126.6 148.0 L 113.7 143.7 L 113.1 136.0 L 106.3 128.5 L 109.4 128.0 L 110.2 119.8 L 103.1 112.1 L 107.7 106.7 L 103.5 104.8 L 108.3 100.0 L 106.3 90.7 L 116.9 85.8 Z", "M 305.0 329.2 L 307.0 329.0 L 305.9 331.7 L 303.5 329.9 L 305.0 329.2 Z", "M 293.9 273.1 L 291.9 273.7 L 300.8 274.3 L 293.9 273.1 Z"], "cx": 189.0, "cy": 290.5}, {"name": "Tarragona", "paths": ["M 253.1 409.0 L 256.1 410.6 L 251.6 414.0 L 255.0 418.7 L 247.4 419.2 L 245.1 424.8 L 261.7 434.4 L 258.7 442.2 L 263.7 444.3 L 259.9 445.8 L 262.8 452.9 L 259.6 458.1 L 266.4 454.6 L 271.6 456.9 L 279.3 462.7 L 275.7 467.6 L 282.6 476.2 L 281.3 480.1 L 290.4 479.5 L 287.2 490.1 L 277.9 488.3 L 280.3 494.5 L 288.0 497.9 L 291.2 494.7 L 291.9 505.3 L 267.2 509.2 L 244.8 520.9 L 226.6 521.8 L 212.0 533.0 L 217.4 526.7 L 210.9 527.8 L 202.5 540.3 L 193.7 535.2 L 179.7 537.9 L 164.1 546.9 L 144.5 567.4 L 121.7 598.5 L 113.9 603.3 L 119.6 612.1 L 129.1 612.4 L 119.6 607.1 L 126.3 606.4 L 138.1 621.0 L 146.3 620.8 L 147.9 625.0 L 144.7 632.2 L 124.9 644.4 L 114.3 659.8 L 106.6 665.6 L 98.4 666.5 L 94.1 660.3 L 104.3 661.6 L 106.4 657.0 L 115.5 657.1 L 122.4 645.7 L 95.3 649.3 L 95.9 652.5 L 93.3 651.6 L 83.4 663.1 L 79.0 674.2 L 64.5 668.2 L 65.7 660.3 L 57.7 654.2 L 35.2 647.9 L 32.4 640.2 L 37.0 632.5 L 31.5 628.1 L 26.6 629.2 L 24.6 621.3 L 19.2 623.5 L 12.0 616.9 L 15.0 619.3 L 15.0 615.8 L 25.3 612.6 L 26.0 607.7 L 34.4 599.2 L 27.0 583.1 L 37.3 561.5 L 30.7 550.3 L 34.7 549.0 L 23.0 543.0 L 25.4 540.1 L 23.5 533.1 L 19.9 532.7 L 19.9 522.1 L 28.7 521.2 L 29.7 516.2 L 39.2 512.6 L 42.8 497.3 L 53.9 494.5 L 54.7 483.8 L 63.6 484.5 L 65.2 472.0 L 70.4 470.6 L 76.8 481.0 L 81.1 480.8 L 86.5 471.7 L 91.4 473.4 L 94.5 480.1 L 100.4 480.7 L 123.6 473.9 L 125.7 469.8 L 136.4 471.2 L 141.2 462.7 L 144.7 468.8 L 160.1 465.9 L 184.5 438.5 L 177.5 433.1 L 179.6 431.2 L 177.9 427.8 L 191.6 436.4 L 204.5 431.0 L 201.5 419.4 L 210.1 415.8 L 211.9 410.5 L 244.3 413.8 L 246.4 413.4 L 244.9 408.5 L 253.1 409.0 Z", "M 289.7 475.0 L 291.5 475.2 L 289.7 475.0 Z"], "cx": 143.2, "cy": 531.5}], "cities": {"Barcelona": {"x": 390.6, "y": 456.4}, "Girona": {"x": 513.6, "y": 307.3}, "Lleida": {"x": 98.8, "y": 398.4}, "Tarragona": {"x": 216.5, "y": 524.1}, "Vic": {"x": 406.8, "y": 319.6}, "Manresa": {"x": 325.6, "y": 370.8}, "Reus": {"x": 190.9, "y": 515.0}, "Sabadell": {"x": 379.1, "y": 415.8}, "Terrassa": {"x": 360.6, "y": 412.5}, "Vilanova i la Geltrú": {"x": 307.2, "y": 497.5}}};
+const PROVINCE_OF = {"Barcelona": "Barcelona", "Sabadell": "Barcelona", "Terrassa": "Barcelona", "Vic": "Barcelona", "Manresa": "Barcelona", "Vilanova i la Geltrú": "Barcelona", "Girona": "Girona", "Lleida": "Lleida", "Tarragona": "Tarragona", "Reus": "Tarragona"};
+
 /* ---------- i18n ---------- */
 const I18N = {
   ca: {
@@ -2317,8 +2341,9 @@ const I18N = {
       by_service: "Ingressos per línia de servei", top_clients: "Clients principals (ingressos)",
       client_table: "Taula de clients", svc_perf: "Rendiment per línia de servei",
       svc_table: "Taula de serveis", map: "Mapa per ubicació",
- map_note: "Mida del cercle = ingressos. Cliqueu un cercle, una barra o una fila per seleccionar la regió.",
- region_trend: "Evolució mensual",
+      map_note: "Mida del cercle = ingressos. Cliqueu un cercle, una barra o una fila per seleccionar la regió.",
+      region_trend: "Evolució mensual",
+      legend_low: "Baix", legend_high: "Alt", legend_prov: "ingressos de la província",
       by_region: "Ingressos per ubicació", region_table: "Taula de regions",
       stacked: "Ingressos mensuals per servei (acumulat)", margin_trend: "Evolució del marge (%)",
       monthly_table: "Taula mensual", data_table: "Dades de transaccions",
@@ -2345,8 +2370,9 @@ const I18N = {
       by_service: "Ingresos por línea de servicio", top_clients: "Principales clientes (ingresos)",
       client_table: "Tabla de clientes", svc_perf: "Rendimiento por línea de servicio",
       svc_table: "Tabla de servicios", map: "Mapa por ubicación",
- map_note: "Tamaño del círculo = ingresos. Haga clic en un círculo, barra o fila para seleccionar la región.",
- region_trend: "Evolución mensual",
+      map_note: "Tamaño del círculo = ingresos. Haga clic en un círculo, barra o fila para seleccionar la región.",
+      region_trend: "Evolución mensual",
+      legend_low: "Bajo", legend_high: "Alto", legend_prov: "ingresos de la provincia",
       by_region: "Ingresos por ubicación", region_table: "Tabla de regiones",
       stacked: "Ingresos mensuales por servicio (acumulado)", margin_trend: "Evolución del margen (%)",
       monthly_table: "Tabla mensual", data_table: "Datos de transacciones",
@@ -2373,8 +2399,9 @@ const I18N = {
       by_service: "Revenue by service line", top_clients: "Top clients (revenue)",
       client_table: "Client table", svc_perf: "Performance by service line",
       svc_table: "Service table", map: "Map by location",
- map_note: "Circle size = revenue. Click a circle, bar or row to select a region.",
- region_trend: "Monthly revenue trend",
+      map_note: "Circle size = revenue. Click a circle, bar or row to select a region.",
+      region_trend: "Monthly revenue trend",
+      legend_low: "Low", legend_high: "High", legend_prov: "province revenue",
       by_region: "Revenue by location", region_table: "Region table",
       stacked: "Monthly revenue by service (stacked)", margin_trend: "Margin trend (%)",
       monthly_table: "Monthly table", data_table: "Transaction data",
@@ -2602,58 +2629,87 @@ function renderServeis(rows) {
     `<thead><tr><th class="l">${T.t.service}</th><th>${T.t.transactions}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th><th>${T.t.margin}</th><th>${T.t.margin_pct}</th><th>${T.t.share}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
 }
 
-/* ---------- Charts: REGIONS (map + bars) ---------- */
-let map = null, mapReady = false;
+/* ---------- Charts: REGIONS (Tableau-style SVG choropleth + bubbles, no external tiles) ---------- */
 
-// Leaflet can't measure the container while its tab is hidden (display:none),
-// so we create the map eagerly but only size/position it when the tab is shown.
-// Default view covers Catalonia; adjust [lat, lng, zoom] for other regions.
-function ensureMapReady() {
-  if (!map || mapReady) return;
-  mapReady = true;
-  setTimeout(() => {
-    map.invalidateSize();
-    map.setView([41.55, 1.9], 9);
-  }, 120);
-}
-
-/* Region selection — cross-links map, bar chart and table (click again to clear) */
+/* Region selection - cross-links map, bar chart and table (click again to clear) */
 function selectRegion(name) {
   state.region = (state.region === name) ? null : name;
   renderAll();
 }
+
+const MAP_TOOLTIP = document.getElementById('map-tooltip');
+function showTooltip(html, evt) {
+  const box = document.getElementById('region-map-container').getBoundingClientRect();
+  MAP_TOOLTIP.innerHTML = html;
+  MAP_TOOLTIP.style.display = 'block';
+  MAP_TOOLTIP.style.left = (evt.clientX - box.left) + 'px';
+  MAP_TOOLTIP.style.top = (evt.clientY - box.top) + 'px';
+}
+function hideTooltip() { MAP_TOOLTIP.style.display = 'none'; }
 
 function renderRegions(rows) {
   const byCity = aggBy(rows, 'location');
   const total = sum(byCity, o => o.revenue) || 1;
   const sel = state.region;
 
-  // Map (created once; view is set by ensureMapReady when the tab becomes visible)
-  if (!map) {
-    map = L.map('map');
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-    mapReady = false;
-  }
+  // Province revenue for the choropleth fill
+  const provRev = {};
+  byCity.forEach(o => { const p = PROVINCE_OF[o.key] || o.key; provRev[p] = (provRev[p] || 0) + o.revenue; });
+  const maxProv = Math.max(...Object.values(provRev), 1);
+  const minProv = Math.min(...Object.values(provRev), 0);
+  const fillColor = v => {
+    const t = maxProv > minProv ? (v - minProv) / (maxProv - minProv) : 0.5;
+    return `rgb(${Math.round(232 - t * 201)},${Math.round(240 - t * 162)},${Math.round(247 - t * 127)})`;
+  };
+
+  // --- SVG map (embedded boundaries, deterministic - always renders) ---
+  const svg = document.getElementById('region-map-svg');
+  const NS = 'http://www.w3.org/2000/svg';
+  svg.innerHTML = '';
+
+  MAPDATA.provinces.forEach(p => {
+    const rev = provRev[p.name] || 0;
+    p.paths.forEach(d => {
+      const path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', d);
+      path.setAttribute('fill', rev ? fillColor(rev) : '#F1F4F8');
+      path.setAttribute('stroke', '#fff');
+      path.setAttribute('stroke-width', '1.6');
+      path.classList.add('prov');
+      path.addEventListener('mousemove', evt => showTooltip(
+        `<b>${p.name}</b><br>${T.t.revenue}: ${fmtEUR(rev)}<br>${T.t.share}: ${(rev / total * 100).toFixed(1)}%`, evt));
+      path.addEventListener('mouseleave', hideTooltip);
+      svg.appendChild(path);
+    });
+    const label = document.createElementNS(NS, 'text');
+    label.setAttribute('x', p.cx); label.setAttribute('y', p.cy);
+    label.setAttribute('text-anchor', 'middle');
+    label.setAttribute('font-size', '15'); label.setAttribute('font-weight', '700');
+    label.setAttribute('fill', rev ? '#16385A' : '#9AA7B4');
+    label.setAttribute('pointer-events', 'none');
+    label.textContent = p.name;
+    svg.appendChild(label);
+  });
+
+  // City bubbles (click to select)
   const maxRev = Math.max(...byCity.map(o => o.revenue), 1);
-  map.eachLayer(l => { if (l instanceof L.CircleMarker) map.removeLayer(l); });
   byCity.forEach(o => {
-    const [lat, lng] = CITIES[o.key] || [41.55, 1.9];
+    const pt = MAPDATA.cities[o.key] || { x: 310, y: 380 };
     const isSel = o.key === sel;
     const r = 6 + Math.sqrt(o.revenue / maxRev) * 26;
     const m = o.revenue - o.cost;
-    L.circleMarker([lat, lng], {
-      radius: isSel ? r + 5 : r,
-      color: isSel ? '#E9A13B' : '#fff',
-      weight: isSel ? 3 : 2,
-      fillColor: isSel ? '#E9A13B' : '#1F4E78',
-      fillOpacity: isSel ? .95 : .75
-    }).addTo(map)
-      .bindPopup(`<b>${o.key}</b><br>${T.t.revenue}: ${fmtEUR(o.revenue)}<br>${T.t.cost}: ${fmtEUR(o.cost)}<br>${T.t.margin}: ${fmtEUR(m)}<br>${T.t.share}: ${(o.revenue / total * 100).toFixed(1)}%`)
-      .on('click', () => selectRegion(o.key));
+    const c = document.createElementNS(NS, 'circle');
+    c.setAttribute('cx', pt.x); c.setAttribute('cy', pt.y);
+    c.setAttribute('r', isSel ? r + 5 : r);
+    c.setAttribute('fill', isSel ? '#E9A13B' : '#1F4E78');
+    c.setAttribute('fill-opacity', isSel ? 1 : .85);
+    c.classList.add('city');
+    c.addEventListener('mousemove', evt => showTooltip(
+      `<b>${o.key}</b><br>${T.t.revenue}: ${fmtEUR(o.revenue)}<br>${T.t.cost}: ${fmtEUR(o.cost)}<br>${T.t.margin}: ${fmtEUR(m)}<br>${T.t.share}: ${(o.revenue / total * 100).toFixed(1)}%`, evt));
+    c.addEventListener('mouseleave', hideTooltip);
+    c.addEventListener('click', () => selectRegion(o.key));
+    svg.appendChild(c);
   });
-  ensureMapReady(); // size/position the map once its tab is visible
 
   // Bar chart — click a bar to select the region
   const labels = byCity.map(o => o.key);
@@ -2836,8 +2892,6 @@ document.getElementById('tabs').addEventListener('click', e => {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   btn.classList.add('active');
   document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
-  // Refresh map size when its tab becomes visible (Leaflet needs a sized container)
-  if (btn.dataset.tab === 'regions') { ensureMapReady(); }
   window.scrollTo({ top: 0 });
 });
 

@@ -1,0 +1,217 @@
+﻿client,service_line,location,month,revenue_type,revenue,cost
+Ajuntament de Girona,Consulting,Girona,2025-01,One-off,12100,5800
+Ajuntament de Girona,Maintenance,Girona,2025-01,Recurring,10400,7600
+Caixa d'Enginyers,Consulting,Barcelona,2025-01,One-off,10800,6500
+Caixa d'Enginyers,Software Development,Barcelona,2025-01,Recurring,14400,8600
+Caixa d'Enginyers,Training,Barcelona,2025-01,One-off,5800,3400
+Consell Comarcal d'Osona,Consulting,Vic,2025-01,Recurring,22300,14900
+Fira de Barcelona,Software Development,Barcelona,2025-01,Recurring,27300,12000
+Grup Bon Preu,Maintenance,Manresa,2025-01,One-off,11900,6800
+Grup Bon Preu,Technical Support,Manresa,2025-01,One-off,11400,8100
+Hospital Clínic de Barcelona,Training,Barcelona,2025-01,Recurring,4700,3100
+Mútua de Terrassa,Maintenance,Terrassa,2025-01,Recurring,8700,4500
+Port de Tarragona,Software Development,Tarragona,2025-01,Recurring,14200,6800
+Port de Tarragona,Technical Support,Tarragona,2025-01,Recurring,8500,4800
+Transports de Reus,Auditing,Reus,2025-01,Recurring,15100,8300
+Transports de Reus,Technical Support,Reus,2025-01,Recurring,8200,5300
+Universitat de Lleida,Maintenance,Lleida,2025-01,Recurring,5200,3600
+Universitat de Lleida,Technical Support,Lleida,2025-01,One-off,8500,5400
+Ajuntament de Girona,Consulting,Girona,2025-02,Recurring,11000,6100
+Ajuntament de Girona,Consulting,Girona,2025-02,Recurring,10500,6200
+Caixa d'Enginyers,Auditing,Barcelona,2025-02,Recurring,11800,6900
+Consell Comarcal d'Osona,Maintenance,Vic,2025-02,One-off,8500,5900
+Fira de Barcelona,Software Development,Barcelona,2025-02,One-off,39800,22700
+Fira de Barcelona,Technical Support,Barcelona,2025-02,One-off,5700,3000
+Grup Bon Preu,Auditing,Manresa,2025-02,Recurring,9000,5600
+Hospital Clínic de Barcelona,Maintenance,Barcelona,2025-02,One-off,4600,2500
+Hospital Clínic de Barcelona,Training,Barcelona,2025-02,Recurring,9600,6200
+Mútua de Terrassa,Auditing,Terrassa,2025-02,One-off,24200,15300
+Mútua de Terrassa,Consulting,Terrassa,2025-02,Recurring,27300,17800
+Mútua de Terrassa,Technical Support,Terrassa,2025-02,Recurring,9300,7000
+Port de Tarragona,Maintenance,Tarragona,2025-02,Recurring,3700,1900
+Transports de Reus,Maintenance,Reus,2025-02,One-off,13200,7900
+Transports de Reus,Training,Reus,2025-02,Recurring,8600,4300
+Universitat de Lleida,Maintenance,Lleida,2025-02,One-off,10300,6400
+Ajuntament de Girona,Software Development,Girona,2025-03,One-off,24000,15500
+Caixa d'Enginyers,Maintenance,Barcelona,2025-03,Recurring,12900,8600
+Caixa d'Enginyers,Software Development,Barcelona,2025-03,Recurring,29000,17600
+Caixa d'Enginyers,Technical Support,Barcelona,2025-03,Recurring,12200,8800
+Consell Comarcal d'Osona,Consulting,Vic,2025-03,Recurring,15400,9300
+Consell Comarcal d'Osona,Training,Vic,2025-03,Recurring,16000,8000
+Fira de Barcelona,Maintenance,Barcelona,2025-03,Recurring,4200,2900
+Fira de Barcelona,Software Development,Barcelona,2025-03,Recurring,37100,21700
+Fira de Barcelona,Training,Barcelona,2025-03,Recurring,13600,9000
+Grup Bon Preu,Technical Support,Manresa,2025-03,Recurring,6600,4400
+Grup Bon Preu,Training,Manresa,2025-03,One-off,8600,3800
+Grup Bon Preu,Training,Manresa,2025-03,Recurring,9600,5300
+Hospital Clínic de Barcelona,Maintenance,Barcelona,2025-03,Recurring,9400,6100
+Hospital Clínic de Barcelona,Software Development,Barcelona,2025-03,Recurring,54600,24900
+Mútua de Terrassa,Consulting,Terrassa,2025-03,One-off,30300,16300
+Mútua de Terrassa,Maintenance,Terrassa,2025-03,One-off,14900,8500
+Port de Tarragona,Software Development,Tarragona,2025-03,Recurring,22300,13200
+Transports de Reus,Consulting,Reus,2025-03,One-off,23100,14900
+Transports de Reus,Maintenance,Reus,2025-03,Recurring,10300,5200
+Universitat de Lleida,Consulting,Lleida,2025-03,Recurring,34000,23100
+Universitat de Lleida,Software Development,Lleida,2025-03,Recurring,49600,32200
+Universitat de Lleida,Technical Support,Lleida,2025-03,One-off,6500,3700
+Ajuntament de Girona,Technical Support,Girona,2025-04,One-off,7900,4300
+Caixa d'Enginyers,Software Development,Barcelona,2025-04,Recurring,46100,23500
+Consell Comarcal d'Osona,Consulting,Vic,2025-04,Recurring,22400,13500
+Fira de Barcelona,Technical Support,Barcelona,2025-04,Recurring,8600,5000
+Grup Bon Preu,Consulting,Manresa,2025-04,Recurring,34100,14700
+Grup Bon Preu,Consulting,Manresa,2025-04,Recurring,16800,10500
+Grup Bon Preu,Technical Support,Manresa,2025-04,Recurring,13500,7700
+Hospital Clínic de Barcelona,Auditing,Barcelona,2025-04,Recurring,14000,7600
+Hospital Clínic de Barcelona,Consulting,Barcelona,2025-04,Recurring,23600,12300
+Mútua de Terrassa,Training,Terrassa,2025-04,Recurring,10900,6600
+Mútua de Terrassa,Training,Terrassa,2025-04,Recurring,9500,6200
+Port de Tarragona,Software Development,Tarragona,2025-04,Recurring,37200,18000
+Transports de Reus,Software Development,Reus,2025-04,One-off,13000,5900
+Transports de Reus,Technical Support,Reus,2025-04,One-off,14500,7500
+Universitat de Lleida,Auditing,Lleida,2025-04,One-off,24600,14200
+Ajuntament de Girona,Consulting,Girona,2025-05,Recurring,15200,7800
+Caixa d'Enginyers,Software Development,Barcelona,2025-05,Recurring,34600,14600
+Consell Comarcal d'Osona,Consulting,Vic,2025-05,One-off,10700,4600
+Consell Comarcal d'Osona,Consulting,Vic,2025-05,Recurring,17500,11100
+Consell Comarcal d'Osona,Technical Support,Vic,2025-05,Recurring,8900,5500
+Fira de Barcelona,Technical Support,Barcelona,2025-05,One-off,10000,5700
+Grup Bon Preu,Consulting,Manresa,2025-05,Recurring,10800,4700
+Grup Bon Preu,Software Development,Manresa,2025-05,Recurring,45500,27800
+Grup Bon Preu,Technical Support,Manresa,2025-05,Recurring,8400,6000
+Hospital Clínic de Barcelona,Software Development,Barcelona,2025-05,Recurring,35900,20100
+Hospital Clínic de Barcelona,Training,Barcelona,2025-05,One-off,14300,6000
+Mútua de Terrassa,Technical Support,Terrassa,2025-05,Recurring,10000,6800
+Port de Tarragona,Auditing,Tarragona,2025-05,Recurring,28600,14700
+Port de Tarragona,Consulting,Tarragona,2025-05,Recurring,21700,11100
+Transports de Reus,Software Development,Reus,2025-05,One-off,36300,21400
+Universitat de Lleida,Consulting,Lleida,2025-05,Recurring,28300,12900
+Universitat de Lleida,Maintenance,Lleida,2025-05,Recurring,4400,2800
+Universitat de Lleida,Software Development,Lleida,2025-05,Recurring,40900,20400
+Ajuntament de Girona,Consulting,Girona,2025-06,One-off,23700,13300
+Caixa d'Enginyers,Technical Support,Barcelona,2025-06,One-off,9600,6900
+Caixa d'Enginyers,Technical Support,Barcelona,2025-06,One-off,7700,5300
+Consell Comarcal d'Osona,Maintenance,Vic,2025-06,One-off,11300,6100
+Fira de Barcelona,Consulting,Barcelona,2025-06,One-off,24700,15900
+Fira de Barcelona,Software Development,Barcelona,2025-06,Recurring,14100,6800
+Fira de Barcelona,Technical Support,Barcelona,2025-06,Recurring,3800,2800
+Grup Bon Preu,Maintenance,Manresa,2025-06,Recurring,10600,7100
+Grup Bon Preu,Technical Support,Manresa,2025-06,Recurring,12000,7600
+Hospital Clínic de Barcelona,Consulting,Barcelona,2025-06,One-off,16700,9000
+Hospital Clínic de Barcelona,Training,Barcelona,2025-06,Recurring,14700,7200
+Mútua de Terrassa,Software Development,Terrassa,2025-06,Recurring,26400,12500
+Mútua de Terrassa,Technical Support,Terrassa,2025-06,Recurring,12000,7800
+Port de Tarragona,Consulting,Tarragona,2025-06,Recurring,23700,14900
+Port de Tarragona,Technical Support,Tarragona,2025-06,Recurring,5500,3500
+Transports de Reus,Auditing,Reus,2025-06,One-off,31200,20700
+Transports de Reus,Software Development,Reus,2025-06,Recurring,29100,16300
+Transports de Reus,Technical Support,Reus,2025-06,Recurring,5900,4000
+Universitat de Lleida,Maintenance,Lleida,2025-06,Recurring,5600,3700
+Universitat de Lleida,Technical Support,Lleida,2025-06,One-off,8200,6000
+Ajuntament de Girona,Software Development,Girona,2025-07,One-off,19400,11300
+Caixa d'Enginyers,Maintenance,Barcelona,2025-07,Recurring,12600,8800
+Consell Comarcal d'Osona,Auditing,Vic,2025-07,Recurring,26800,15500
+Consell Comarcal d'Osona,Consulting,Vic,2025-07,Recurring,17500,9200
+Consell Comarcal d'Osona,Training,Vic,2025-07,Recurring,10400,6500
+Fira de Barcelona,Software Development,Barcelona,2025-07,Recurring,21700,13400
+Grup Bon Preu,Maintenance,Manresa,2025-07,Recurring,6000,3200
+Hospital Clínic de Barcelona,Consulting,Barcelona,2025-07,Recurring,24100,12000
+Mútua de Terrassa,Maintenance,Terrassa,2025-07,Recurring,7900,5900
+Mútua de Terrassa,Software Development,Terrassa,2025-07,One-off,22700,14800
+Mútua de Terrassa,Technical Support,Terrassa,2025-07,One-off,7700,5300
+Port de Tarragona,Technical Support,Tarragona,2025-07,Recurring,5400,4000
+Transports de Reus,Consulting,Reus,2025-07,Recurring,14900,6600
+Universitat de Lleida,Technical Support,Lleida,2025-07,Recurring,10100,5200
+Ajuntament de Girona,Training,Girona,2025-08,Recurring,11400,4900
+Caixa d'Enginyers,Software Development,Barcelona,2025-08,Recurring,38700,24600
+Caixa d'Enginyers,Technical Support,Barcelona,2025-08,Recurring,8400,5000
+Caixa d'Enginyers,Training,Barcelona,2025-08,Recurring,13300,6400
+Consell Comarcal d'Osona,Auditing,Vic,2025-08,Recurring,24100,16000
+Consell Comarcal d'Osona,Software Development,Vic,2025-08,Recurring,11800,7900
+Fira de Barcelona,Training,Barcelona,2025-08,Recurring,9800,6500
+Fira de Barcelona,Training,Barcelona,2025-08,One-off,11400,5100
+Grup Bon Preu,Consulting,Manresa,2025-08,Recurring,18200,10700
+Grup Bon Preu,Maintenance,Manresa,2025-08,Recurring,9500,5500
+Grup Bon Preu,Maintenance,Manresa,2025-08,Recurring,2900,1700
+Hospital Clínic de Barcelona,Consulting,Barcelona,2025-08,One-off,22100,12400
+Hospital Clínic de Barcelona,Technical Support,Barcelona,2025-08,Recurring,7800,3900
+Mútua de Terrassa,Technical Support,Terrassa,2025-08,Recurring,7000,3600
+Mútua de Terrassa,Training,Terrassa,2025-08,Recurring,11200,5900
+Mútua de Terrassa,Training,Terrassa,2025-08,Recurring,8900,4000
+Port de Tarragona,Consulting,Tarragona,2025-08,Recurring,7800,4800
+Port de Tarragona,Consulting,Tarragona,2025-08,One-off,14500,7900
+Port de Tarragona,Software Development,Tarragona,2025-08,Recurring,31900,17900
+Transports de Reus,Consulting,Reus,2025-08,Recurring,7000,3600
+Transports de Reus,Maintenance,Reus,2025-08,Recurring,5500,3300
+Transports de Reus,Technical Support,Reus,2025-08,Recurring,5900,3000
+Universitat de Lleida,Training,Lleida,2025-08,One-off,5600,3000
+Ajuntament de Girona,Consulting,Girona,2025-09,Recurring,32800,21200
+Caixa d'Enginyers,Consulting,Barcelona,2025-09,Recurring,18200,8900
+Caixa d'Enginyers,Technical Support,Barcelona,2025-09,Recurring,11300,8200
+Caixa d'Enginyers,Training,Barcelona,2025-09,Recurring,12800,6000
+Consell Comarcal d'Osona,Training,Vic,2025-09,Recurring,7800,3400
+Fira de Barcelona,Maintenance,Barcelona,2025-09,One-off,5300,4000
+Fira de Barcelona,Training,Barcelona,2025-09,Recurring,7600,4300
+Grup Bon Preu,Software Development,Manresa,2025-09,Recurring,21100,9300
+Grup Bon Preu,Training,Manresa,2025-09,One-off,12200,8000
+Hospital Clínic de Barcelona,Technical Support,Barcelona,2025-09,Recurring,14500,10400
+Mútua de Terrassa,Technical Support,Terrassa,2025-09,Recurring,11300,7600
+Port de Tarragona,Consulting,Tarragona,2025-09,One-off,36600,17900
+Port de Tarragona,Consulting,Tarragona,2025-09,One-off,36900,20800
+Port de Tarragona,Technical Support,Tarragona,2025-09,One-off,9700,5900
+Transports de Reus,Consulting,Reus,2025-09,Recurring,10200,6600
+Universitat de Lleida,Auditing,Lleida,2025-09,Recurring,11600,6900
+Universitat de Lleida,Consulting,Lleida,2025-09,Recurring,35400,21200
+Ajuntament de Girona,Auditing,Girona,2025-10,Recurring,15500,9200
+Ajuntament de Girona,Technical Support,Girona,2025-10,Recurring,12700,8600
+Caixa d'Enginyers,Maintenance,Barcelona,2025-10,Recurring,10600,5300
+Caixa d'Enginyers,Software Development,Barcelona,2025-10,One-off,24700,13400
+Consell Comarcal d'Osona,Software Development,Vic,2025-10,One-off,27000,13000
+Consell Comarcal d'Osona,Technical Support,Vic,2025-10,Recurring,12700,7800
+Fira de Barcelona,Consulting,Barcelona,2025-10,One-off,32600,17900
+Fira de Barcelona,Maintenance,Barcelona,2025-10,One-off,11500,6600
+Grup Bon Preu,Consulting,Manresa,2025-10,Recurring,14700,6900
+Grup Bon Preu,Technical Support,Manresa,2025-10,Recurring,14000,9700
+Hospital Clínic de Barcelona,Software Development,Barcelona,2025-10,Recurring,57800,25600
+Mútua de Terrassa,Auditing,Terrassa,2025-10,Recurring,16100,9100
+Mútua de Terrassa,Technical Support,Terrassa,2025-10,One-off,9900,5800
+Port de Tarragona,Training,Tarragona,2025-10,One-off,8600,3700
+Transports de Reus,Software Development,Reus,2025-10,Recurring,20100,10900
+Universitat de Lleida,Consulting,Lleida,2025-10,One-off,18800,12500
+Universitat de Lleida,Training,Lleida,2025-10,Recurring,5900,3000
+Ajuntament de Girona,Maintenance,Girona,2025-11,Recurring,15200,10300
+Ajuntament de Girona,Software Development,Girona,2025-11,Recurring,21400,11600
+Caixa d'Enginyers,Training,Barcelona,2025-11,Recurring,13000,6700
+Caixa d'Enginyers,Training,Barcelona,2025-11,Recurring,8900,6000
+Consell Comarcal d'Osona,Auditing,Vic,2025-11,Recurring,12100,6800
+Consell Comarcal d'Osona,Maintenance,Vic,2025-11,Recurring,10900,7700
+Consell Comarcal d'Osona,Maintenance,Vic,2025-11,Recurring,6800,3700
+Fira de Barcelona,Software Development,Barcelona,2025-11,Recurring,42600,27400
+Fira de Barcelona,Technical Support,Barcelona,2025-11,Recurring,11300,6100
+Fira de Barcelona,Training,Barcelona,2025-11,Recurring,6400,3000
+Grup Bon Preu,Technical Support,Manresa,2025-11,Recurring,10000,7000
+Hospital Clínic de Barcelona,Maintenance,Barcelona,2025-11,Recurring,10200,5400
+Mútua de Terrassa,Auditing,Terrassa,2025-11,Recurring,19900,14300
+Port de Tarragona,Technical Support,Tarragona,2025-11,Recurring,4600,3000
+Transports de Reus,Consulting,Reus,2025-11,Recurring,29600,16000
+Universitat de Lleida,Maintenance,Lleida,2025-11,Recurring,12900,9600
+Universitat de Lleida,Technical Support,Lleida,2025-11,One-off,9500,6900
+Ajuntament de Girona,Maintenance,Girona,2025-12,Recurring,13400,7500
+Caixa d'Enginyers,Technical Support,Barcelona,2025-12,Recurring,6800,3800
+Consell Comarcal d'Osona,Maintenance,Vic,2025-12,Recurring,9500,5500
+Consell Comarcal d'Osona,Software Development,Vic,2025-12,Recurring,45300,29900
+Fira de Barcelona,Consulting,Barcelona,2025-12,Recurring,32600,17800
+Fira de Barcelona,Training,Barcelona,2025-12,Recurring,8300,4100
+Grup Bon Preu,Maintenance,Manresa,2025-12,Recurring,13400,7100
+Grup Bon Preu,Software Development,Manresa,2025-12,Recurring,40000,21900
+Grup Bon Preu,Training,Manresa,2025-12,One-off,13100,5500
+Hospital Clínic de Barcelona,Consulting,Barcelona,2025-12,Recurring,29400,15600
+Hospital Clínic de Barcelona,Software Development,Barcelona,2025-12,Recurring,24400,16600
+Hospital Clínic de Barcelona,Training,Barcelona,2025-12,Recurring,11600,7100
+Mútua de Terrassa,Consulting,Terrassa,2025-12,One-off,12700,5600
+Mútua de Terrassa,Technical Support,Terrassa,2025-12,Recurring,4500,2300
+Port de Tarragona,Consulting,Tarragona,2025-12,Recurring,9000,4200
+Port de Tarragona,Consulting,Tarragona,2025-12,Recurring,24300,11700
+Port de Tarragona,Software Development,Tarragona,2025-12,Recurring,48000,23200
+Transports de Reus,Consulting,Reus,2025-12,Recurring,31200,21100
+Transports de Reus,Technical Support,Reus,2025-12,Recurring,13600,9200
+Universitat de Lleida,Maintenance,Lleida,2025-12,Recurring,13900,10100

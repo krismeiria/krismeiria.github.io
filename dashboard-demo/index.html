@@ -309,7 +309,7 @@
 /* ============================================================
    DATA — DUMMY SAMPLE. Replace `RAW` with the real company data.
    Expected row shape (from Excel/CSV):
-   { client, linia_servei, ubicacio, mes: "YYYY-MM", tipus_ingres, ingressos, costos }
+   { client, service_line, location, month: "YYYY-MM", revenue_type, revenue, cost }
    ============================================================ */
 const RAW = {
  "company": "Serveis Integrals Mediterranis SL",
@@ -358,1947 +358,1947 @@ const RAW = {
  "rows": [
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Girona",
-   "mes": "2025-01",
-   "tipus_ingres": "Puntual",
-   "ingressos": 12100,
-   "costos": 5800
+   "service_line": "Consulting",
+   "location": "Girona",
+   "month": "2025-01",
+   "revenue_type": "One-off",
+   "revenue": 12100,
+   "cost": 5800
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Girona",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10400,
-   "costos": 7600
+   "service_line": "Maintenance",
+   "location": "Girona",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 10400,
+   "cost": 7600
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-01",
-   "tipus_ingres": "Puntual",
-   "ingressos": 10800,
-   "costos": 6500
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-01",
+   "revenue_type": "One-off",
+   "revenue": 10800,
+   "cost": 6500
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14400,
-   "costos": 8600
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 14400,
+   "cost": 8600
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-01",
-   "tipus_ingres": "Puntual",
-   "ingressos": 5800,
-   "costos": 3400
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-01",
+   "revenue_type": "One-off",
+   "revenue": 5800,
+   "cost": 3400
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Vic",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 22300,
-   "costos": 14900
+   "service_line": "Consulting",
+   "location": "Vic",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 22300,
+   "cost": 14900
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 27300,
-   "costos": 12000
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 27300,
+   "cost": 12000
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Manresa",
-   "mes": "2025-01",
-   "tipus_ingres": "Puntual",
-   "ingressos": 11900,
-   "costos": 6800
+   "service_line": "Maintenance",
+   "location": "Manresa",
+   "month": "2025-01",
+   "revenue_type": "One-off",
+   "revenue": 11900,
+   "cost": 6800
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Manresa",
-   "mes": "2025-01",
-   "tipus_ingres": "Puntual",
-   "ingressos": 11400,
-   "costos": 8100
+   "service_line": "Technical Support",
+   "location": "Manresa",
+   "month": "2025-01",
+   "revenue_type": "One-off",
+   "revenue": 11400,
+   "cost": 8100
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 4700,
-   "costos": 3100
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 4700,
+   "cost": 3100
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Terrassa",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8700,
-   "costos": 4500
+   "service_line": "Maintenance",
+   "location": "Terrassa",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 8700,
+   "cost": 4500
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Tarragona",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14200,
-   "costos": 6800
+   "service_line": "Software Development",
+   "location": "Tarragona",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 14200,
+   "cost": 6800
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Tarragona",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8500,
-   "costos": 4800
+   "service_line": "Technical Support",
+   "location": "Tarragona",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 8500,
+   "cost": 4800
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Reus",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 15100,
-   "costos": 8300
+   "service_line": "Auditing",
+   "location": "Reus",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 15100,
+   "cost": 8300
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Reus",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8200,
-   "costos": 5300
+   "service_line": "Technical Support",
+   "location": "Reus",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 8200,
+   "cost": 5300
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Lleida",
-   "mes": "2025-01",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 5200,
-   "costos": 3600
+   "service_line": "Maintenance",
+   "location": "Lleida",
+   "month": "2025-01",
+   "revenue_type": "Recurring",
+   "revenue": 5200,
+   "cost": 3600
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Lleida",
-   "mes": "2025-01",
-   "tipus_ingres": "Puntual",
-   "ingressos": 8500,
-   "costos": 5400
+   "service_line": "Technical Support",
+   "location": "Lleida",
+   "month": "2025-01",
+   "revenue_type": "One-off",
+   "revenue": 8500,
+   "cost": 5400
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Girona",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11000,
-   "costos": 6100
+   "service_line": "Consulting",
+   "location": "Girona",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 11000,
+   "cost": 6100
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Girona",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10500,
-   "costos": 6200
+   "service_line": "Consulting",
+   "location": "Girona",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 10500,
+   "cost": 6200
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11800,
-   "costos": 6900
+   "service_line": "Auditing",
+   "location": "Barcelona",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 11800,
+   "cost": 6900
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Vic",
-   "mes": "2025-02",
-   "tipus_ingres": "Puntual",
-   "ingressos": 8500,
-   "costos": 5900
+   "service_line": "Maintenance",
+   "location": "Vic",
+   "month": "2025-02",
+   "revenue_type": "One-off",
+   "revenue": 8500,
+   "cost": 5900
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-02",
-   "tipus_ingres": "Puntual",
-   "ingressos": 39800,
-   "costos": 22700
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-02",
+   "revenue_type": "One-off",
+   "revenue": 39800,
+   "cost": 22700
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-02",
-   "tipus_ingres": "Puntual",
-   "ingressos": 5700,
-   "costos": 3000
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-02",
+   "revenue_type": "One-off",
+   "revenue": 5700,
+   "cost": 3000
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Manresa",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9000,
-   "costos": 5600
+   "service_line": "Auditing",
+   "location": "Manresa",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 9000,
+   "cost": 5600
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9600,
-   "costos": 6200
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-02",
+   "revenue_type": "One-off",
+   "revenue": 4600,
+   "cost": 2500
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-02",
-   "tipus_ingres": "Puntual",
-   "ingressos": 4600,
-   "costos": 2500
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 9600,
+   "cost": 6200
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Terrassa",
-   "mes": "2025-02",
-   "tipus_ingres": "Puntual",
-   "ingressos": 24200,
-   "costos": 15300
+   "service_line": "Auditing",
+   "location": "Terrassa",
+   "month": "2025-02",
+   "revenue_type": "One-off",
+   "revenue": 24200,
+   "cost": 15300
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Terrassa",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 27300,
-   "costos": 17800
+   "service_line": "Consulting",
+   "location": "Terrassa",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 27300,
+   "cost": 17800
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Terrassa",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9300,
-   "costos": 7000
+   "service_line": "Technical Support",
+   "location": "Terrassa",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 9300,
+   "cost": 7000
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Tarragona",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 3700,
-   "costos": 1900
+   "service_line": "Maintenance",
+   "location": "Tarragona",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 3700,
+   "cost": 1900
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Formació",
-   "ubicacio": "Reus",
-   "mes": "2025-02",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8600,
-   "costos": 4300
+   "service_line": "Maintenance",
+   "location": "Reus",
+   "month": "2025-02",
+   "revenue_type": "One-off",
+   "revenue": 13200,
+   "cost": 7900
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Reus",
-   "mes": "2025-02",
-   "tipus_ingres": "Puntual",
-   "ingressos": 13200,
-   "costos": 7900
+   "service_line": "Training",
+   "location": "Reus",
+   "month": "2025-02",
+   "revenue_type": "Recurring",
+   "revenue": 8600,
+   "cost": 4300
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Lleida",
-   "mes": "2025-02",
-   "tipus_ingres": "Puntual",
-   "ingressos": 10300,
-   "costos": 6400
+   "service_line": "Maintenance",
+   "location": "Lleida",
+   "month": "2025-02",
+   "revenue_type": "One-off",
+   "revenue": 10300,
+   "cost": 6400
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Girona",
-   "mes": "2025-03",
-   "tipus_ingres": "Puntual",
-   "ingressos": 24000,
-   "costos": 15500
+   "service_line": "Software Development",
+   "location": "Girona",
+   "month": "2025-03",
+   "revenue_type": "One-off",
+   "revenue": 24000,
+   "cost": 15500
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 29000,
-   "costos": 17600
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 12900,
+   "cost": 8600
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12900,
-   "costos": 8600
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 29000,
+   "cost": 17600
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12200,
-   "costos": 8800
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 12200,
+   "cost": 8800
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Vic",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 15400,
-   "costos": 9300
+   "service_line": "Consulting",
+   "location": "Vic",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 15400,
+   "cost": 9300
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Formació",
-   "ubicacio": "Vic",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 16000,
-   "costos": 8000
+   "service_line": "Training",
+   "location": "Vic",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 16000,
+   "cost": 8000
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 37100,
-   "costos": 21700
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 4200,
+   "cost": 2900
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 13600,
-   "costos": 9000
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 37100,
+   "cost": 21700
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 4200,
-   "costos": 2900
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 13600,
+   "cost": 9000
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Formació",
-   "ubicacio": "Manresa",
-   "mes": "2025-03",
-   "tipus_ingres": "Puntual",
-   "ingressos": 8600,
-   "costos": 3800
+   "service_line": "Technical Support",
+   "location": "Manresa",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 6600,
+   "cost": 4400
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Formació",
-   "ubicacio": "Manresa",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9600,
-   "costos": 5300
+   "service_line": "Training",
+   "location": "Manresa",
+   "month": "2025-03",
+   "revenue_type": "One-off",
+   "revenue": 8600,
+   "cost": 3800
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Manresa",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 6600,
-   "costos": 4400
+   "service_line": "Training",
+   "location": "Manresa",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 9600,
+   "cost": 5300
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 54600,
-   "costos": 24900
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 9400,
+   "cost": 6100
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9400,
-   "costos": 6100
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 54600,
+   "cost": 24900
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Terrassa",
-   "mes": "2025-03",
-   "tipus_ingres": "Puntual",
-   "ingressos": 30300,
-   "costos": 16300
+   "service_line": "Consulting",
+   "location": "Terrassa",
+   "month": "2025-03",
+   "revenue_type": "One-off",
+   "revenue": 30300,
+   "cost": 16300
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Terrassa",
-   "mes": "2025-03",
-   "tipus_ingres": "Puntual",
-   "ingressos": 14900,
-   "costos": 8500
+   "service_line": "Maintenance",
+   "location": "Terrassa",
+   "month": "2025-03",
+   "revenue_type": "One-off",
+   "revenue": 14900,
+   "cost": 8500
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Tarragona",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 22300,
-   "costos": 13200
+   "service_line": "Software Development",
+   "location": "Tarragona",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 22300,
+   "cost": 13200
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Reus",
-   "mes": "2025-03",
-   "tipus_ingres": "Puntual",
-   "ingressos": 23100,
-   "costos": 14900
+   "service_line": "Consulting",
+   "location": "Reus",
+   "month": "2025-03",
+   "revenue_type": "One-off",
+   "revenue": 23100,
+   "cost": 14900
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Reus",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10300,
-   "costos": 5200
+   "service_line": "Maintenance",
+   "location": "Reus",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 10300,
+   "cost": 5200
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Lleida",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 34000,
-   "costos": 23100
+   "service_line": "Consulting",
+   "location": "Lleida",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 34000,
+   "cost": 23100
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Lleida",
-   "mes": "2025-03",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 49600,
-   "costos": 32200
+   "service_line": "Software Development",
+   "location": "Lleida",
+   "month": "2025-03",
+   "revenue_type": "Recurring",
+   "revenue": 49600,
+   "cost": 32200
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Lleida",
-   "mes": "2025-03",
-   "tipus_ingres": "Puntual",
-   "ingressos": 6500,
-   "costos": 3700
+   "service_line": "Technical Support",
+   "location": "Lleida",
+   "month": "2025-03",
+   "revenue_type": "One-off",
+   "revenue": 6500,
+   "cost": 3700
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Girona",
-   "mes": "2025-04",
-   "tipus_ingres": "Puntual",
-   "ingressos": 7900,
-   "costos": 4300
+   "service_line": "Technical Support",
+   "location": "Girona",
+   "month": "2025-04",
+   "revenue_type": "One-off",
+   "revenue": 7900,
+   "cost": 4300
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 46100,
-   "costos": 23500
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 46100,
+   "cost": 23500
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Vic",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 22400,
-   "costos": 13500
+   "service_line": "Consulting",
+   "location": "Vic",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 22400,
+   "cost": 13500
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8600,
-   "costos": 5000
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 8600,
+   "cost": 5000
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Manresa",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 34100,
-   "costos": 14700
+   "service_line": "Consulting",
+   "location": "Manresa",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 34100,
+   "cost": 14700
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Manresa",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 16800,
-   "costos": 10500
+   "service_line": "Consulting",
+   "location": "Manresa",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 16800,
+   "cost": 10500
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Manresa",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 13500,
-   "costos": 7700
+   "service_line": "Technical Support",
+   "location": "Manresa",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 13500,
+   "cost": 7700
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14000,
-   "costos": 7600
+   "service_line": "Auditing",
+   "location": "Barcelona",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 14000,
+   "cost": 7600
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 23600,
-   "costos": 12300
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 23600,
+   "cost": 12300
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Formació",
-   "ubicacio": "Terrassa",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10900,
-   "costos": 6600
+   "service_line": "Training",
+   "location": "Terrassa",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 10900,
+   "cost": 6600
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Formació",
-   "ubicacio": "Terrassa",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9500,
-   "costos": 6200
+   "service_line": "Training",
+   "location": "Terrassa",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 9500,
+   "cost": 6200
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Tarragona",
-   "mes": "2025-04",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 37200,
-   "costos": 18000
+   "service_line": "Software Development",
+   "location": "Tarragona",
+   "month": "2025-04",
+   "revenue_type": "Recurring",
+   "revenue": 37200,
+   "cost": 18000
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Reus",
-   "mes": "2025-04",
-   "tipus_ingres": "Puntual",
-   "ingressos": 13000,
-   "costos": 5900
+   "service_line": "Software Development",
+   "location": "Reus",
+   "month": "2025-04",
+   "revenue_type": "One-off",
+   "revenue": 13000,
+   "cost": 5900
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Reus",
-   "mes": "2025-04",
-   "tipus_ingres": "Puntual",
-   "ingressos": 14500,
-   "costos": 7500
+   "service_line": "Technical Support",
+   "location": "Reus",
+   "month": "2025-04",
+   "revenue_type": "One-off",
+   "revenue": 14500,
+   "cost": 7500
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Lleida",
-   "mes": "2025-04",
-   "tipus_ingres": "Puntual",
-   "ingressos": 24600,
-   "costos": 14200
+   "service_line": "Auditing",
+   "location": "Lleida",
+   "month": "2025-04",
+   "revenue_type": "One-off",
+   "revenue": 24600,
+   "cost": 14200
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Girona",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 15200,
-   "costos": 7800
+   "service_line": "Consulting",
+   "location": "Girona",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 15200,
+   "cost": 7800
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 34600,
-   "costos": 14600
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 34600,
+   "cost": 14600
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Vic",
-   "mes": "2025-05",
-   "tipus_ingres": "Puntual",
-   "ingressos": 10700,
-   "costos": 4600
+   "service_line": "Consulting",
+   "location": "Vic",
+   "month": "2025-05",
+   "revenue_type": "One-off",
+   "revenue": 10700,
+   "cost": 4600
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Vic",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 17500,
-   "costos": 11100
+   "service_line": "Consulting",
+   "location": "Vic",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 17500,
+   "cost": 11100
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Vic",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8900,
-   "costos": 5500
+   "service_line": "Technical Support",
+   "location": "Vic",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 8900,
+   "cost": 5500
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-05",
-   "tipus_ingres": "Puntual",
-   "ingressos": 10000,
-   "costos": 5700
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-05",
+   "revenue_type": "One-off",
+   "revenue": 10000,
+   "cost": 5700
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Manresa",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10800,
-   "costos": 4700
+   "service_line": "Consulting",
+   "location": "Manresa",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 10800,
+   "cost": 4700
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Manresa",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 45500,
-   "costos": 27800
+   "service_line": "Software Development",
+   "location": "Manresa",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 45500,
+   "cost": 27800
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Manresa",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8400,
-   "costos": 6000
+   "service_line": "Technical Support",
+   "location": "Manresa",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 8400,
+   "cost": 6000
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 35900,
-   "costos": 20100
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 35900,
+   "cost": 20100
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-05",
-   "tipus_ingres": "Puntual",
-   "ingressos": 14300,
-   "costos": 6000
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-05",
+   "revenue_type": "One-off",
+   "revenue": 14300,
+   "cost": 6000
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Terrassa",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10000,
-   "costos": 6800
+   "service_line": "Technical Support",
+   "location": "Terrassa",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 10000,
+   "cost": 6800
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 28600,
-   "costos": 14700
+   "service_line": "Auditing",
+   "location": "Tarragona",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 28600,
+   "cost": 14700
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 21700,
-   "costos": 11100
+   "service_line": "Consulting",
+   "location": "Tarragona",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 21700,
+   "cost": 11100
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Reus",
-   "mes": "2025-05",
-   "tipus_ingres": "Puntual",
-   "ingressos": 36300,
-   "costos": 21400
+   "service_line": "Software Development",
+   "location": "Reus",
+   "month": "2025-05",
+   "revenue_type": "One-off",
+   "revenue": 36300,
+   "cost": 21400
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Lleida",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 28300,
-   "costos": 12900
+   "service_line": "Consulting",
+   "location": "Lleida",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 28300,
+   "cost": 12900
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Lleida",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 40900,
-   "costos": 20400
+   "service_line": "Maintenance",
+   "location": "Lleida",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 4400,
+   "cost": 2800
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Lleida",
-   "mes": "2025-05",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 4400,
-   "costos": 2800
+   "service_line": "Software Development",
+   "location": "Lleida",
+   "month": "2025-05",
+   "revenue_type": "Recurring",
+   "revenue": 40900,
+   "cost": 20400
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Girona",
-   "mes": "2025-06",
-   "tipus_ingres": "Puntual",
-   "ingressos": 23700,
-   "costos": 13300
+   "service_line": "Consulting",
+   "location": "Girona",
+   "month": "2025-06",
+   "revenue_type": "One-off",
+   "revenue": 23700,
+   "cost": 13300
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-06",
-   "tipus_ingres": "Puntual",
-   "ingressos": 9600,
-   "costos": 6900
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-06",
+   "revenue_type": "One-off",
+   "revenue": 9600,
+   "cost": 6900
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-06",
-   "tipus_ingres": "Puntual",
-   "ingressos": 7700,
-   "costos": 5300
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-06",
+   "revenue_type": "One-off",
+   "revenue": 7700,
+   "cost": 5300
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Vic",
-   "mes": "2025-06",
-   "tipus_ingres": "Puntual",
-   "ingressos": 11300,
-   "costos": 6100
+   "service_line": "Maintenance",
+   "location": "Vic",
+   "month": "2025-06",
+   "revenue_type": "One-off",
+   "revenue": 11300,
+   "cost": 6100
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-06",
-   "tipus_ingres": "Puntual",
-   "ingressos": 24700,
-   "costos": 15900
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-06",
+   "revenue_type": "One-off",
+   "revenue": 24700,
+   "cost": 15900
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14100,
-   "costos": 6800
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 14100,
+   "cost": 6800
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 3800,
-   "costos": 2800
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 3800,
+   "cost": 2800
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Manresa",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10600,
-   "costos": 7100
+   "service_line": "Maintenance",
+   "location": "Manresa",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 10600,
+   "cost": 7100
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Manresa",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12000,
-   "costos": 7600
+   "service_line": "Technical Support",
+   "location": "Manresa",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 12000,
+   "cost": 7600
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-06",
-   "tipus_ingres": "Puntual",
-   "ingressos": 16700,
-   "costos": 9000
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-06",
+   "revenue_type": "One-off",
+   "revenue": 16700,
+   "cost": 9000
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14700,
-   "costos": 7200
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 14700,
+   "cost": 7200
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Terrassa",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 26400,
-   "costos": 12500
+   "service_line": "Software Development",
+   "location": "Terrassa",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 26400,
+   "cost": 12500
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Terrassa",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12000,
-   "costos": 7800
+   "service_line": "Technical Support",
+   "location": "Terrassa",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 12000,
+   "cost": 7800
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 23700,
-   "costos": 14900
+   "service_line": "Consulting",
+   "location": "Tarragona",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 23700,
+   "cost": 14900
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Tarragona",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 5500,
-   "costos": 3500
+   "service_line": "Technical Support",
+   "location": "Tarragona",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 5500,
+   "cost": 3500
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Reus",
-   "mes": "2025-06",
-   "tipus_ingres": "Puntual",
-   "ingressos": 31200,
-   "costos": 20700
+   "service_line": "Auditing",
+   "location": "Reus",
+   "month": "2025-06",
+   "revenue_type": "One-off",
+   "revenue": 31200,
+   "cost": 20700
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Reus",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 29100,
-   "costos": 16300
+   "service_line": "Software Development",
+   "location": "Reus",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 29100,
+   "cost": 16300
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Reus",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 5900,
-   "costos": 4000
+   "service_line": "Technical Support",
+   "location": "Reus",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 5900,
+   "cost": 4000
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Lleida",
-   "mes": "2025-06",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 5600,
-   "costos": 3700
+   "service_line": "Maintenance",
+   "location": "Lleida",
+   "month": "2025-06",
+   "revenue_type": "Recurring",
+   "revenue": 5600,
+   "cost": 3700
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Lleida",
-   "mes": "2025-06",
-   "tipus_ingres": "Puntual",
-   "ingressos": 8200,
-   "costos": 6000
+   "service_line": "Technical Support",
+   "location": "Lleida",
+   "month": "2025-06",
+   "revenue_type": "One-off",
+   "revenue": 8200,
+   "cost": 6000
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Girona",
-   "mes": "2025-07",
-   "tipus_ingres": "Puntual",
-   "ingressos": 19400,
-   "costos": 11300
+   "service_line": "Software Development",
+   "location": "Girona",
+   "month": "2025-07",
+   "revenue_type": "One-off",
+   "revenue": 19400,
+   "cost": 11300
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12600,
-   "costos": 8800
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 12600,
+   "cost": 8800
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Vic",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 26800,
-   "costos": 15500
+   "service_line": "Auditing",
+   "location": "Vic",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 26800,
+   "cost": 15500
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Vic",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 17500,
-   "costos": 9200
+   "service_line": "Consulting",
+   "location": "Vic",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 17500,
+   "cost": 9200
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Formació",
-   "ubicacio": "Vic",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10400,
-   "costos": 6500
+   "service_line": "Training",
+   "location": "Vic",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 10400,
+   "cost": 6500
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 21700,
-   "costos": 13400
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 21700,
+   "cost": 13400
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Manresa",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 6000,
-   "costos": 3200
+   "service_line": "Maintenance",
+   "location": "Manresa",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 6000,
+   "cost": 3200
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 24100,
-   "costos": 12000
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 24100,
+   "cost": 12000
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Terrassa",
-   "mes": "2025-07",
-   "tipus_ingres": "Puntual",
-   "ingressos": 22700,
-   "costos": 14800
+   "service_line": "Maintenance",
+   "location": "Terrassa",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 7900,
+   "cost": 5900
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Terrassa",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 7900,
-   "costos": 5900
+   "service_line": "Software Development",
+   "location": "Terrassa",
+   "month": "2025-07",
+   "revenue_type": "One-off",
+   "revenue": 22700,
+   "cost": 14800
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Terrassa",
-   "mes": "2025-07",
-   "tipus_ingres": "Puntual",
-   "ingressos": 7700,
-   "costos": 5300
+   "service_line": "Technical Support",
+   "location": "Terrassa",
+   "month": "2025-07",
+   "revenue_type": "One-off",
+   "revenue": 7700,
+   "cost": 5300
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Tarragona",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 5400,
-   "costos": 4000
+   "service_line": "Technical Support",
+   "location": "Tarragona",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 5400,
+   "cost": 4000
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Reus",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14900,
-   "costos": 6600
+   "service_line": "Consulting",
+   "location": "Reus",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 14900,
+   "cost": 6600
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Lleida",
-   "mes": "2025-07",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10100,
-   "costos": 5200
+   "service_line": "Technical Support",
+   "location": "Lleida",
+   "month": "2025-07",
+   "revenue_type": "Recurring",
+   "revenue": 10100,
+   "cost": 5200
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Formació",
-   "ubicacio": "Girona",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11400,
-   "costos": 4900
+   "service_line": "Training",
+   "location": "Girona",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 11400,
+   "cost": 4900
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 38700,
-   "costos": 24600
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 38700,
+   "cost": 24600
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 13300,
-   "costos": 6400
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 8400,
+   "cost": 5000
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8400,
-   "costos": 5000
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 13300,
+   "cost": 6400
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Vic",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 24100,
-   "costos": 16000
+   "service_line": "Auditing",
+   "location": "Vic",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 24100,
+   "cost": 16000
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Vic",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11800,
-   "costos": 7900
+   "service_line": "Software Development",
+   "location": "Vic",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 11800,
+   "cost": 7900
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9800,
-   "costos": 6500
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 9800,
+   "cost": 6500
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-08",
-   "tipus_ingres": "Puntual",
-   "ingressos": 11400,
-   "costos": 5100
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-08",
+   "revenue_type": "One-off",
+   "revenue": 11400,
+   "cost": 5100
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Manresa",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 18200,
-   "costos": 10700
+   "service_line": "Consulting",
+   "location": "Manresa",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 18200,
+   "cost": 10700
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Manresa",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9500,
-   "costos": 5500
+   "service_line": "Maintenance",
+   "location": "Manresa",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 9500,
+   "cost": 5500
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Manresa",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 2900,
-   "costos": 1700
+   "service_line": "Maintenance",
+   "location": "Manresa",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 2900,
+   "cost": 1700
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-08",
-   "tipus_ingres": "Puntual",
-   "ingressos": 22100,
-   "costos": 12400
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-08",
+   "revenue_type": "One-off",
+   "revenue": 22100,
+   "cost": 12400
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 7800,
-   "costos": 3900
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 7800,
+   "cost": 3900
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Formació",
-   "ubicacio": "Terrassa",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11200,
-   "costos": 5900
+   "service_line": "Technical Support",
+   "location": "Terrassa",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 7000,
+   "cost": 3600
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Formació",
-   "ubicacio": "Terrassa",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8900,
-   "costos": 4000
+   "service_line": "Training",
+   "location": "Terrassa",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 11200,
+   "cost": 5900
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Terrassa",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 7000,
-   "costos": 3600
+   "service_line": "Training",
+   "location": "Terrassa",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 8900,
+   "cost": 4000
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 7800,
-   "costos": 4800
+   "service_line": "Consulting",
+   "location": "Tarragona",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 7800,
+   "cost": 4800
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-08",
-   "tipus_ingres": "Puntual",
-   "ingressos": 14500,
-   "costos": 7900
+   "service_line": "Consulting",
+   "location": "Tarragona",
+   "month": "2025-08",
+   "revenue_type": "One-off",
+   "revenue": 14500,
+   "cost": 7900
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Tarragona",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 31900,
-   "costos": 17900
+   "service_line": "Software Development",
+   "location": "Tarragona",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 31900,
+   "cost": 17900
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Reus",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 7000,
-   "costos": 3600
+   "service_line": "Consulting",
+   "location": "Reus",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 7000,
+   "cost": 3600
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Reus",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 5500,
-   "costos": 3300
+   "service_line": "Maintenance",
+   "location": "Reus",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 5500,
+   "cost": 3300
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Reus",
-   "mes": "2025-08",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 5900,
-   "costos": 3000
+   "service_line": "Technical Support",
+   "location": "Reus",
+   "month": "2025-08",
+   "revenue_type": "Recurring",
+   "revenue": 5900,
+   "cost": 3000
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Formació",
-   "ubicacio": "Lleida",
-   "mes": "2025-08",
-   "tipus_ingres": "Puntual",
-   "ingressos": 5600,
-   "costos": 3000
+   "service_line": "Training",
+   "location": "Lleida",
+   "month": "2025-08",
+   "revenue_type": "One-off",
+   "revenue": 5600,
+   "cost": 3000
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Girona",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 32800,
-   "costos": 21200
+   "service_line": "Consulting",
+   "location": "Girona",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 32800,
+   "cost": 21200
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 18200,
-   "costos": 8900
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 18200,
+   "cost": 8900
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12800,
-   "costos": 6000
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 11300,
+   "cost": 8200
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11300,
-   "costos": 8200
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 12800,
+   "cost": 6000
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Formació",
-   "ubicacio": "Vic",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 7800,
-   "costos": 3400
+   "service_line": "Training",
+   "location": "Vic",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 7800,
+   "cost": 3400
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 7600,
-   "costos": 4300
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-09",
+   "revenue_type": "One-off",
+   "revenue": 5300,
+   "cost": 4000
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-09",
-   "tipus_ingres": "Puntual",
-   "ingressos": 5300,
-   "costos": 4000
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 7600,
+   "cost": 4300
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Manresa",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 21100,
-   "costos": 9300
+   "service_line": "Software Development",
+   "location": "Manresa",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 21100,
+   "cost": 9300
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Formació",
-   "ubicacio": "Manresa",
-   "mes": "2025-09",
-   "tipus_ingres": "Puntual",
-   "ingressos": 12200,
-   "costos": 8000
+   "service_line": "Training",
+   "location": "Manresa",
+   "month": "2025-09",
+   "revenue_type": "One-off",
+   "revenue": 12200,
+   "cost": 8000
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14500,
-   "costos": 10400
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 14500,
+   "cost": 10400
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Terrassa",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11300,
-   "costos": 7600
+   "service_line": "Technical Support",
+   "location": "Terrassa",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 11300,
+   "cost": 7600
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-09",
-   "tipus_ingres": "Puntual",
-   "ingressos": 36600,
-   "costos": 17900
+   "service_line": "Consulting",
+   "location": "Tarragona",
+   "month": "2025-09",
+   "revenue_type": "One-off",
+   "revenue": 36600,
+   "cost": 17900
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-09",
-   "tipus_ingres": "Puntual",
-   "ingressos": 36900,
-   "costos": 20800
+   "service_line": "Consulting",
+   "location": "Tarragona",
+   "month": "2025-09",
+   "revenue_type": "One-off",
+   "revenue": 36900,
+   "cost": 20800
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Tarragona",
-   "mes": "2025-09",
-   "tipus_ingres": "Puntual",
-   "ingressos": 9700,
-   "costos": 5900
+   "service_line": "Technical Support",
+   "location": "Tarragona",
+   "month": "2025-09",
+   "revenue_type": "One-off",
+   "revenue": 9700,
+   "cost": 5900
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Reus",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10200,
-   "costos": 6600
+   "service_line": "Consulting",
+   "location": "Reus",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 10200,
+   "cost": 6600
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Lleida",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11600,
-   "costos": 6900
+   "service_line": "Auditing",
+   "location": "Lleida",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 11600,
+   "cost": 6900
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Lleida",
-   "mes": "2025-09",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 35400,
-   "costos": 21200
+   "service_line": "Consulting",
+   "location": "Lleida",
+   "month": "2025-09",
+   "revenue_type": "Recurring",
+   "revenue": 35400,
+   "cost": 21200
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Girona",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 15500,
-   "costos": 9200
+   "service_line": "Auditing",
+   "location": "Girona",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 15500,
+   "cost": 9200
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Girona",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12700,
-   "costos": 8600
+   "service_line": "Technical Support",
+   "location": "Girona",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 12700,
+   "cost": 8600
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-10",
-   "tipus_ingres": "Puntual",
-   "ingressos": 24700,
-   "costos": 13400
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 10600,
+   "cost": 5300
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10600,
-   "costos": 5300
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-10",
+   "revenue_type": "One-off",
+   "revenue": 24700,
+   "cost": 13400
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Vic",
-   "mes": "2025-10",
-   "tipus_ingres": "Puntual",
-   "ingressos": 27000,
-   "costos": 13000
+   "service_line": "Software Development",
+   "location": "Vic",
+   "month": "2025-10",
+   "revenue_type": "One-off",
+   "revenue": 27000,
+   "cost": 13000
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Vic",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12700,
-   "costos": 7800
+   "service_line": "Technical Support",
+   "location": "Vic",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 12700,
+   "cost": 7800
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-10",
-   "tipus_ingres": "Puntual",
-   "ingressos": 32600,
-   "costos": 17900
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-10",
+   "revenue_type": "One-off",
+   "revenue": 32600,
+   "cost": 17900
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-10",
-   "tipus_ingres": "Puntual",
-   "ingressos": 11500,
-   "costos": 6600
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-10",
+   "revenue_type": "One-off",
+   "revenue": 11500,
+   "cost": 6600
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Manresa",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14700,
-   "costos": 6900
+   "service_line": "Consulting",
+   "location": "Manresa",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 14700,
+   "cost": 6900
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Manresa",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 14000,
-   "costos": 9700
+   "service_line": "Technical Support",
+   "location": "Manresa",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 14000,
+   "cost": 9700
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 57800,
-   "costos": 25600
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 57800,
+   "cost": 25600
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Terrassa",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 16100,
-   "costos": 9100
+   "service_line": "Auditing",
+   "location": "Terrassa",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 16100,
+   "cost": 9100
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Terrassa",
-   "mes": "2025-10",
-   "tipus_ingres": "Puntual",
-   "ingressos": 9900,
-   "costos": 5800
+   "service_line": "Technical Support",
+   "location": "Terrassa",
+   "month": "2025-10",
+   "revenue_type": "One-off",
+   "revenue": 9900,
+   "cost": 5800
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Formació",
-   "ubicacio": "Tarragona",
-   "mes": "2025-10",
-   "tipus_ingres": "Puntual",
-   "ingressos": 8600,
-   "costos": 3700
+   "service_line": "Training",
+   "location": "Tarragona",
+   "month": "2025-10",
+   "revenue_type": "One-off",
+   "revenue": 8600,
+   "cost": 3700
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Reus",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 20100,
-   "costos": 10900
+   "service_line": "Software Development",
+   "location": "Reus",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 20100,
+   "cost": 10900
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Lleida",
-   "mes": "2025-10",
-   "tipus_ingres": "Puntual",
-   "ingressos": 18800,
-   "costos": 12500
+   "service_line": "Consulting",
+   "location": "Lleida",
+   "month": "2025-10",
+   "revenue_type": "One-off",
+   "revenue": 18800,
+   "cost": 12500
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Formació",
-   "ubicacio": "Lleida",
-   "mes": "2025-10",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 5900,
-   "costos": 3000
+   "service_line": "Training",
+   "location": "Lleida",
+   "month": "2025-10",
+   "revenue_type": "Recurring",
+   "revenue": 5900,
+   "cost": 3000
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Girona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 21400,
-   "costos": 11600
+   "service_line": "Maintenance",
+   "location": "Girona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 15200,
+   "cost": 10300
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Girona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 15200,
-   "costos": 10300
+   "service_line": "Software Development",
+   "location": "Girona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 21400,
+   "cost": 11600
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 13000,
-   "costos": 6700
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 13000,
+   "cost": 6700
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8900,
-   "costos": 6000
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 8900,
+   "cost": 6000
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Vic",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12100,
-   "costos": 6800
+   "service_line": "Auditing",
+   "location": "Vic",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 12100,
+   "cost": 6800
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Vic",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10900,
-   "costos": 7700
+   "service_line": "Maintenance",
+   "location": "Vic",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 10900,
+   "cost": 7700
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Vic",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 6800,
-   "costos": 3700
+   "service_line": "Maintenance",
+   "location": "Vic",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 6800,
+   "cost": 3700
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 42600,
-   "costos": 27400
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 42600,
+   "cost": 27400
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 6400,
-   "costos": 3000
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 11300,
+   "cost": 6100
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11300,
-   "costos": 6100
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 6400,
+   "cost": 3000
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Manresa",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10000,
-   "costos": 7000
+   "service_line": "Technical Support",
+   "location": "Manresa",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 10000,
+   "cost": 7000
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Barcelona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 10200,
-   "costos": 5400
+   "service_line": "Maintenance",
+   "location": "Barcelona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 10200,
+   "cost": 5400
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Auditoria",
-   "ubicacio": "Terrassa",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 19900,
-   "costos": 14300
+   "service_line": "Auditing",
+   "location": "Terrassa",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 19900,
+   "cost": 14300
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Tarragona",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 4600,
-   "costos": 3000
+   "service_line": "Technical Support",
+   "location": "Tarragona",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 4600,
+   "cost": 3000
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Reus",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 29600,
-   "costos": 16000
+   "service_line": "Consulting",
+   "location": "Reus",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 29600,
+   "cost": 16000
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Lleida",
-   "mes": "2025-11",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 12900,
-   "costos": 9600
+   "service_line": "Maintenance",
+   "location": "Lleida",
+   "month": "2025-11",
+   "revenue_type": "Recurring",
+   "revenue": 12900,
+   "cost": 9600
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Lleida",
-   "mes": "2025-11",
-   "tipus_ingres": "Puntual",
-   "ingressos": 9500,
-   "costos": 6900
+   "service_line": "Technical Support",
+   "location": "Lleida",
+   "month": "2025-11",
+   "revenue_type": "One-off",
+   "revenue": 9500,
+   "cost": 6900
   },
   {
    "client": "Ajuntament de Girona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Girona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 13400,
-   "costos": 7500
+   "service_line": "Maintenance",
+   "location": "Girona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 13400,
+   "cost": 7500
   },
   {
    "client": "Caixa d'Enginyers",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Barcelona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 6800,
-   "costos": 3800
+   "service_line": "Technical Support",
+   "location": "Barcelona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 6800,
+   "cost": 3800
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Vic",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 45300,
-   "costos": 29900
+   "service_line": "Maintenance",
+   "location": "Vic",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 9500,
+   "cost": 5500
   },
   {
    "client": "Consell Comarcal d'Osona",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Vic",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9500,
-   "costos": 5500
+   "service_line": "Software Development",
+   "location": "Vic",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 45300,
+   "cost": 29900
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 32600,
-   "costos": 17800
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 32600,
+   "cost": 17800
   },
   {
    "client": "Fira de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 8300,
-   "costos": 4100
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 8300,
+   "cost": 4100
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Manresa",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 40000,
-   "costos": 21900
+   "service_line": "Maintenance",
+   "location": "Manresa",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 13400,
+   "cost": 7100
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Formació",
-   "ubicacio": "Manresa",
-   "mes": "2025-12",
-   "tipus_ingres": "Puntual",
-   "ingressos": 13100,
-   "costos": 5500
+   "service_line": "Software Development",
+   "location": "Manresa",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 40000,
+   "cost": 21900
   },
   {
    "client": "Grup Bon Preu",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Manresa",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 13400,
-   "costos": 7100
+   "service_line": "Training",
+   "location": "Manresa",
+   "month": "2025-12",
+   "revenue_type": "One-off",
+   "revenue": 13100,
+   "cost": 5500
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Barcelona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 29400,
-   "costos": 15600
+   "service_line": "Consulting",
+   "location": "Barcelona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 29400,
+   "cost": 15600
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Barcelona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 24400,
-   "costos": 16600
+   "service_line": "Software Development",
+   "location": "Barcelona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 24400,
+   "cost": 16600
   },
   {
    "client": "Hospital Clínic de Barcelona",
-   "linia_servei": "Formació",
-   "ubicacio": "Barcelona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 11600,
-   "costos": 7100
+   "service_line": "Training",
+   "location": "Barcelona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 11600,
+   "cost": 7100
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Terrassa",
-   "mes": "2025-12",
-   "tipus_ingres": "Puntual",
-   "ingressos": 12700,
-   "costos": 5600
+   "service_line": "Consulting",
+   "location": "Terrassa",
+   "month": "2025-12",
+   "revenue_type": "One-off",
+   "revenue": 12700,
+   "cost": 5600
   },
   {
    "client": "Mútua de Terrassa",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Terrassa",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 4500,
-   "costos": 2300
+   "service_line": "Technical Support",
+   "location": "Terrassa",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 4500,
+   "cost": 2300
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 9000,
-   "costos": 4200
+   "service_line": "Consulting",
+   "location": "Tarragona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 9000,
+   "cost": 4200
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Tarragona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 24300,
-   "costos": 11700
+   "service_line": "Consulting",
+   "location": "Tarragona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 24300,
+   "cost": 11700
   },
   {
    "client": "Port de Tarragona",
-   "linia_servei": "Desenvolupament de Programari",
-   "ubicacio": "Tarragona",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 48000,
-   "costos": 23200
+   "service_line": "Software Development",
+   "location": "Tarragona",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 48000,
+   "cost": 23200
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Consultoria",
-   "ubicacio": "Reus",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 31200,
-   "costos": 21100
+   "service_line": "Consulting",
+   "location": "Reus",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 31200,
+   "cost": 21100
   },
   {
    "client": "Transports de Reus",
-   "linia_servei": "Suport Tècnic",
-   "ubicacio": "Reus",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 13600,
-   "costos": 9200
+   "service_line": "Technical Support",
+   "location": "Reus",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 13600,
+   "cost": 9200
   },
   {
    "client": "Universitat de Lleida",
-   "linia_servei": "Manteniment",
-   "ubicacio": "Lleida",
-   "mes": "2025-12",
-   "tipus_ingres": "Recurrent",
-   "ingressos": 13900,
-   "costos": 10100
+   "service_line": "Maintenance",
+   "location": "Lleida",
+   "month": "2025-12",
+   "revenue_type": "Recurring",
+   "revenue": 13900,
+   "cost": 10100
   }
  ]
 }
@@ -2417,34 +2417,34 @@ let state = { month: 'all', search: '', region: null };
 
 function filteredRows() {
   let rows = DATA;
-  if (state.month !== 'all') rows = rows.filter(r => r.mes === state.month);
+  if (state.month !== 'all') rows = rows.filter(r => r.month === state.month);
   if (state.search) {
     const q = state.search.toLowerCase();
-    rows = rows.filter(r => (r.client + ' ' + r.linia_servei + ' ' + r.ubicacio).toLowerCase().includes(q));
+    rows = rows.filter(r => (r.client + ' ' + r.service_line + ' ' + r.location).toLowerCase().includes(q));
   }
   return rows;
 }
 
 /* ---------- Aggregations ---------- */
-function aggBy(rows, key, fields = ['ingressos', 'costos']) {
+function aggBy(rows, key, fields = ['revenue', 'cost']) {
   const map = new Map();
   for (const r of rows) {
     const k = r[key];
-    if (!map.has(k)) map.set(k, { key: k, ingressos: 0, costos: 0, n: 0 });
+    if (!map.has(k)) { const o = { key: k, n: 0 }; fields.forEach(f => o[f] = 0); map.set(k, o); }
     const o = map.get(k);
     fields.forEach(f => o[f] += r[f] || 0);
     o.n += 1;
   }
-  return [...map.values()].sort((a, b) => b.ingressos - a.ingressos);
+  return [...map.values()].sort((a, b) => b[fields[0]] - a[fields[0]]);
 }
 const aggByMonth = rows => {
   const map = new Map();
   for (const r of rows) {
-    if (!map.has(r.mes)) map.set(r.mes, { mes: r.mes, ingressos: 0, costos: 0 });
-    const o = map.get(r.mes);
-    o.ingressos += r.ingressos; o.costos += r.costos;
+    if (!map.has(r.month)) map.set(r.month, { month: r.month, revenue: 0, cost: 0 });
+    const o = map.get(r.month);
+    o.revenue += r.revenue; o.cost += r.cost;
   }
-  return [...map.values()].sort((a, b) => a.mes.localeCompare(b.mes));
+  return [...map.values()].sort((a, b) => a.month.localeCompare(b.month));
 };
 
 /* ---------- Chart registry (destroy before recreate) ---------- */
@@ -2459,19 +2459,19 @@ Chart.defaults.color = '#6B7785';
 
 /* ---------- KPI cards ---------- */
 function renderKPIs(rows) {
-  const rev = sum(rows, r => r.ingressos);
-  const cost = sum(rows, r => r.costos);
+  const rev = sum(rows, r => r.revenue);
+  const cost = sum(rows, r => r.cost);
   const margin = rev - cost;
   const marginPct = rev ? margin / rev * 100 : 0;
   const clients = new Set(rows.map(r => r.client)).size;
-  const months = new Set(rows.map(r => r.mes));
+  const months = new Set(rows.map(r => r.month));
   const avgMonth = months.size ? rev / months.size : 0;
 
   // MoM growth (last vs previous month in range)
   const byM = aggByMonth(rows);
   let growth = null;
   if (byM.length >= 2) {
-    const last = byM[byM.length - 1].ingressos, prev = byM[byM.length - 2].ingressos;
+    const last = byM[byM.length - 1].revenue, prev = byM[byM.length - 2].revenue;
     growth = prev ? (last - prev) / prev * 100 : null;
   }
 
@@ -2496,14 +2496,14 @@ function renderKPIs(rows) {
 /* ---------- Charts: RESUM ---------- */
 function renderOverview(rows) {
   const byM = aggByMonth(rows);
-  const labels = byM.map(o => monthLabel(o.mes));
+  const labels = byM.map(o => monthLabel(o.month));
   makeChart('chart-overview-line', {
     type: 'line',
     data: {
       labels,
       datasets: [
-        { label: T.t.revenue, data: byM.map(o => o.ingressos), borderColor: '#1F4E78', backgroundColor: 'rgba(31,78,120,.12)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 },
-        { label: T.t.cost, data: byM.map(o => o.costos), borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.10)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 }
+        { label: T.t.revenue, data: byM.map(o => o.revenue), borderColor: '#1F4E78', backgroundColor: 'rgba(31,78,120,.12)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 },
+        { label: T.t.cost, data: byM.map(o => o.cost), borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.10)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 }
       ]
     },
     options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
@@ -2511,23 +2511,23 @@ function renderOverview(rows) {
       plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
   });
 
-  const byType = aggBy(rows, 'tipus_ingres');
+  const byType = aggBy(rows, 'revenue_type');
   makeChart('chart-overview-doughnut', {
     type: 'doughnut',
     data: {
       labels: byType.map(o => o.key),
-      datasets: [{ data: byType.map(o => o.ingressos), backgroundColor: ['#1F4E78', '#E9A13B'], borderWidth: 2, borderColor: '#fff' }]
+      datasets: [{ data: byType.map(o => o.revenue), backgroundColor: ['#1F4E78', '#E9A13B'], borderWidth: 2, borderColor: '#fff' }]
     },
     options: { responsive: true, maintainAspectRatio: false, cutout: '58%',
       plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.label}: ${fmtEUR(c.parsed)}` } } } }
   });
 
-  const bySvc = aggBy(rows, 'linia_servei');
+  const bySvc = aggBy(rows, 'service_line');
   makeChart('chart-overview-service', {
     type: 'bar',
     data: {
       labels: bySvc.map(o => o.key),
-      datasets: [{ label: T.t.revenue, data: bySvc.map(o => o.ingressos), backgroundColor: '#1F4E78', borderRadius: 6 }]
+      datasets: [{ label: T.t.revenue, data: bySvc.map(o => o.revenue), backgroundColor: '#1F4E78', borderRadius: 6 }]
     },
     options: { responsive: true, maintainAspectRatio: false,
       scales: { y: { ticks: { callback: v => fmtNum(v) } } },
@@ -2540,7 +2540,7 @@ function renderClients(rows) {
   const byC = aggBy(rows, 'client');
   const top = byC.slice(0, 10);
   const labels = top.map(o => o.key).reverse();
-  const vals = top.map(o => o.ingressos).reverse();
+  const vals = top.map(o => o.revenue).reverse();
   makeChart('chart-clients-bar', {
     type: 'bar',
     data: { labels, datasets: [{ label: T.t.revenue, data: vals, backgroundColor: '#1F4E78', borderRadius: 6 }] },
@@ -2549,15 +2549,15 @@ function renderClients(rows) {
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.x)}` } } } }
   });
 
-  const total = sum(byC, o => o.ingressos) || 1;
+  const total = sum(byC, o => o.revenue) || 1;
   const rowsHtml = byC.map(o => {
-    const m = o.ingressos - o.costos;
-    const share = o.ingressos / total * 100;
+    const m = o.revenue - o.cost;
+    const share = o.revenue / total * 100;
     return `<tr>
       <td class="l">${o.key}</td>
       <td class="l">${o.n > 0 ? byC.find(x => x.key === o.key).n : ''}</td>
-      <td>${fmtEUR(o.ingressos)}</td>
-      <td>${fmtEUR(o.costos)}</td>
+      <td>${fmtEUR(o.revenue)}</td>
+      <td>${fmtEUR(o.cost)}</td>
       <td>${fmtEUR(m)}</td>
       <td>${share.toFixed(1)}%</td>
     </tr>`;
@@ -2568,14 +2568,14 @@ function renderClients(rows) {
 
 /* ---------- Charts: SERVEIS ---------- */
 function renderServeis(rows) {
-  const byS = aggBy(rows, 'linia_servei');
+  const byS = aggBy(rows, 'service_line');
   makeChart('chart-serveis-bar', {
     type: 'bar',
     data: {
       labels: byS.map(o => o.key),
       datasets: [
-        { label: T.t.revenue, data: byS.map(o => o.ingressos), backgroundColor: '#1F4E78', borderRadius: 5 },
-        { label: T.t.cost, data: byS.map(o => o.costos), backgroundColor: '#E9A13B', borderRadius: 5 }
+        { label: T.t.revenue, data: byS.map(o => o.revenue), backgroundColor: '#1F4E78', borderRadius: 5 },
+        { label: T.t.cost, data: byS.map(o => o.cost), backgroundColor: '#E9A13B', borderRadius: 5 }
       ]
     },
     options: { responsive: true, maintainAspectRatio: false,
@@ -2583,16 +2583,16 @@ function renderServeis(rows) {
       plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
   });
 
-  const total = sum(byS, o => o.ingressos) || 1;
+  const total = sum(byS, o => o.revenue) || 1;
   const rowsHtml = byS.map(o => {
-    const m = o.ingressos - o.costos;
-    const pct = o.ingressos ? m / o.ingressos * 100 : 0;
-    const share = o.ingressos / total * 100;
+    const m = o.revenue - o.cost;
+    const pct = o.revenue ? m / o.revenue * 100 : 0;
+    const share = o.revenue / total * 100;
     return `<tr>
       <td class="l">${o.key}</td>
       <td>${o.n}</td>
-      <td>${fmtEUR(o.ingressos)}</td>
-      <td>${fmtEUR(o.costos)}</td>
+      <td>${fmtEUR(o.revenue)}</td>
+      <td>${fmtEUR(o.cost)}</td>
       <td>${fmtEUR(m)}</td>
       <td>${pct.toFixed(1)}%</td>
       <td>${share.toFixed(1)}%</td>
@@ -2624,8 +2624,8 @@ function selectRegion(name) {
 }
 
 function renderRegions(rows) {
-  const byCity = aggBy(rows, 'ubicacio');
-  const total = sum(byCity, o => o.ingressos) || 1;
+  const byCity = aggBy(rows, 'location');
+  const total = sum(byCity, o => o.revenue) || 1;
   const sel = state.region;
 
   // Map (created once; view is set by ensureMapReady when the tab becomes visible)
@@ -2636,13 +2636,13 @@ function renderRegions(rows) {
     }).addTo(map);
     mapReady = false;
   }
-  const maxRev = Math.max(...byCity.map(o => o.ingressos), 1);
+  const maxRev = Math.max(...byCity.map(o => o.revenue), 1);
   map.eachLayer(l => { if (l instanceof L.CircleMarker) map.removeLayer(l); });
   byCity.forEach(o => {
     const [lat, lng] = CITIES[o.key] || [41.55, 1.9];
     const isSel = o.key === sel;
-    const r = 6 + Math.sqrt(o.ingressos / maxRev) * 26;
-    const m = o.ingressos - o.costos;
+    const r = 6 + Math.sqrt(o.revenue / maxRev) * 26;
+    const m = o.revenue - o.cost;
     L.circleMarker([lat, lng], {
       radius: isSel ? r + 5 : r,
       color: isSel ? '#E9A13B' : '#fff',
@@ -2650,7 +2650,7 @@ function renderRegions(rows) {
       fillColor: isSel ? '#E9A13B' : '#1F4E78',
       fillOpacity: isSel ? .95 : .75
     }).addTo(map)
-      .bindPopup(`<b>${o.key}</b><br>${T.t.revenue}: ${fmtEUR(o.ingressos)}<br>${T.t.cost}: ${fmtEUR(o.costos)}<br>${T.t.margin}: ${fmtEUR(m)}<br>${T.t.share}: ${(o.ingressos / total * 100).toFixed(1)}%`)
+      .bindPopup(`<b>${o.key}</b><br>${T.t.revenue}: ${fmtEUR(o.revenue)}<br>${T.t.cost}: ${fmtEUR(o.cost)}<br>${T.t.margin}: ${fmtEUR(m)}<br>${T.t.share}: ${(o.revenue / total * 100).toFixed(1)}%`)
       .on('click', () => selectRegion(o.key));
   });
   ensureMapReady(); // size/position the map once its tab is visible
@@ -2662,7 +2662,7 @@ function renderRegions(rows) {
     data: {
       labels,
       datasets: [{
-        label: T.t.revenue, data: byCity.map(o => o.ingressos),
+        label: T.t.revenue, data: byCity.map(o => o.revenue),
         backgroundColor: byCity.map(o => o.key === sel ? '#E9A13B' : '#1F4E78'),
         borderRadius: 6
       }]
@@ -2677,14 +2677,14 @@ function renderRegions(rows) {
 
   // Table — click a row to select the region
   const rowsHtml = byCity.map(o => {
-    const m = o.ingressos - o.costos;
-    const pct = o.ingressos ? m / o.ingressos * 100 : 0;
-    const share = o.ingressos / total * 100;
+    const m = o.revenue - o.cost;
+    const pct = o.revenue ? m / o.revenue * 100 : 0;
+    const share = o.revenue / total * 100;
     return `<tr class="${o.key === sel ? 'selected' : ''}" onclick="selectRegion(${JSON.stringify(o.key)})">
       <td class="l">${o.key}</td>
       <td>${o.n}</td>
-      <td>${fmtEUR(o.ingressos)}</td>
-      <td>${fmtEUR(o.costos)}</td>
+      <td>${fmtEUR(o.revenue)}</td>
+      <td>${fmtEUR(o.cost)}</td>
       <td>${fmtEUR(m)}</td>
       <td>${pct.toFixed(1)}%</td>
       <td>${share.toFixed(1)}%</td>
@@ -2698,13 +2698,13 @@ function renderRegions(rows) {
   if (sel && byCity.some(o => o.key === sel)) {
     detailCard.style.display = 'block';
     document.getElementById('region-detail-title').textContent = `${T.t.region_trend}: ${sel}`;
-    const byM = aggByMonth(rows.filter(r => r.ubicacio === sel));
+    const byM = aggByMonth(rows.filter(r => r.location === sel));
     makeChart('chart-region-trend', {
       type: 'line',
       data: {
-        labels: byM.map(o => monthLabel(o.mes)),
+        labels: byM.map(o => monthLabel(o.month)),
         datasets: [{
-          label: T.t.revenue, data: byM.map(o => o.ingressos),
+          label: T.t.revenue, data: byM.map(o => o.revenue),
           borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.12)',
           fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3
         }]
@@ -2722,14 +2722,14 @@ function renderRegions(rows) {
 /* ---------- Charts: TENDENCIES ---------- */
 function renderTrends(rows) {
   const byM = aggByMonth(rows);
-  const labels = byM.map(o => monthLabel(o.mes));
+  const labels = byM.map(o => monthLabel(o.month));
 
   // Stacked by service
-  const services = aggBy(rows, 'linia_servei').map(o => o.key);
+  const services = aggBy(rows, 'service_line').map(o => o.key);
   const palette = ['#1F4E78','#E9A13B','#4E8FC7','#9DB8D2','#C7A24E','#2E7D32'];
   const datasets = services.map((s, i) => ({
     label: s,
-    data: byM.map(o => sum(rows.filter(r => r.mes === o.mes && r.linia_servei === s), r => r.ingressos)),
+    data: byM.map(o => sum(rows.filter(r => r.month === o.month && r.service_line === s), r => r.revenue)),
     backgroundColor: palette[i % palette.length], borderRadius: 2
   }));
   makeChart('chart-trend-stacked', {
@@ -2741,7 +2741,7 @@ function renderTrends(rows) {
   });
 
   // Margin % trend
-  const marginPct = byM.map(o => o.ingressos ? (o.ingressos - o.costos) / o.ingressos * 100 : 0);
+  const marginPct = byM.map(o => o.revenue ? (o.revenue - o.cost) / o.revenue * 100 : 0);
   makeChart('chart-trend-margin', {
     type: 'line',
     data: {
@@ -2755,12 +2755,12 @@ function renderTrends(rows) {
 
   // Monthly table
   const rowsHtml = byM.map(o => {
-    const m = o.ingressos - o.costos;
-    const pct = o.ingressos ? m / o.ingressos * 100 : 0;
+    const m = o.revenue - o.cost;
+    const pct = o.revenue ? m / o.revenue * 100 : 0;
     return `<tr>
-      <td class="l">${monthLabel(o.mes)}</td>
-      <td>${fmtEUR(o.ingressos)}</td>
-      <td>${fmtEUR(o.costos)}</td>
+      <td class="l">${monthLabel(o.month)}</td>
+      <td>${fmtEUR(o.revenue)}</td>
+      <td>${fmtEUR(o.cost)}</td>
       <td>${fmtEUR(m)}</td>
       <td>${pct.toFixed(1)}%</td>
     </tr>`;
@@ -2773,12 +2773,12 @@ function renderTrends(rows) {
 function renderDataTable(rows) {
   const rowsHtml = rows.map(r => `<tr>
     <td class="l">${r.client}</td>
-    <td class="l">${r.linia_servei}</td>
-    <td class="l">${r.ubicacio}</td>
-    <td class="l">${monthLabel(r.mes)}</td>
-    <td class="l">${r.tipus_ingres}</td>
-    <td>${fmtEUR(r.ingressos)}</td>
-    <td>${fmtEUR(r.costos)}</td>
+    <td class="l">${r.service_line}</td>
+    <td class="l">${r.location}</td>
+    <td class="l">${monthLabel(r.month)}</td>
+    <td class="l">${r.revenue_type}</td>
+    <td>${fmtEUR(r.revenue)}</td>
+    <td>${fmtEUR(r.cost)}</td>
   </tr>`).join('');
   document.getElementById('table-data').innerHTML =
     `<thead><tr><th class="l">${T.t.client}</th><th class="l">${T.t.service}</th><th class="l">${T.t.location}</th><th class="l">${T.t.month_col}</th><th class="l">${T.t.rev_type_col}</th><th>${T.t.revenue}</th><th>${T.t.cost}</th></tr></thead><tbody>${rowsHtml}</tbody>`;
@@ -2788,7 +2788,7 @@ function renderDataTable(rows) {
 /* ---------- Export: CSV ---------- */
 function exportCSV() {
   const rows = filteredRows();
-  const header = ['client','linia_servei','ubicacio','mes','tipus_ingres','ingressos','costos'];
+  const header = ['client','service_line','location','month','revenue_type','revenue','cost'];
   const esc = v => `"${String(v).replace(/"/g, '""')}"`;
   const lines = [header.join(',')].concat(rows.map(r => header.map(h => esc(r[h])).join(',')));
   const blob = new Blob([lines.join('\n')], { type: 'text/csv;charset=utf-8;' });
@@ -2802,8 +2802,8 @@ function exportCSV() {
 /* ---------- Export: Excel (SheetJS) ---------- */
 function exportXLSX() {
   const rows = filteredRows().map(r => ({
-    'Client': r.client, 'Línia de servei': r.linia_servei, 'Ubicació': r.ubicacio,
-    'Mes': r.mes, "Tipus d'ingrés": r.tipus_ingres, 'Ingressos': r.ingressos, 'Costos': r.costos
+    'Client': r.client, 'Service line': r.service_line, 'Location': r.location,
+    'Month': r.month, 'Revenue type': r.revenue_type, 'Revenue': r.revenue, 'Cost': r.cost
   }));
   const wb = XLSX.utils.book_new();
   const ws = XLSX.utils.json_to_sheet(rows);
@@ -2843,7 +2843,7 @@ document.getElementById('tabs').addEventListener('click', e => {
 
 /* ---------- Filters ---------- */
 const monthSel = document.getElementById('month-filter');
-[...new Set(DATA.map(r => r.mes))].sort().forEach(m => {
+[...new Set(DATA.map(r => r.month))].sort().forEach(m => {
   const opt = document.createElement('option');
   opt.value = m; opt.textContent = monthLabel(m);
   monthSel.appendChild(opt);

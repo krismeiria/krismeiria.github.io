@@ -146,6 +146,8 @@
   .map-legend { display: flex; align-items: center; gap: 8px; margin-top: 8px; font-size: .74rem; color: var(--muted); }
   .map-legend .bar { width: 160px; height: 9px; border-radius: 5px; background: linear-gradient(90deg, rgb(232,240,247), rgb(31,78,120)); }
   .note { font-size: .76rem; color: var(--muted); margin-top: 8px; }
+  .chip { margin-left: 10px; padding: 2px 11px; border-radius: 12px; background: #E9A13B; color: #16325C;
+    font-size: .72rem; font-weight: 700; vertical-align: middle; cursor: pointer; letter-spacing: .3px; }
 
   /* Search box on Data tab */
   .searchbar { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
@@ -197,6 +199,7 @@
       <div class="card">
         <h3>Revenue vs cost (monthly)</h3>
         <div class="chart-wrap h300"><canvas id="chart-overview-line"></canvas></div>
+        <p class="note">Click a month point to focus the breakdown charts below. Click again to clear.</p>
       </div>
       <div class="card">
         <h3>Revenue type</h3>
@@ -205,7 +208,7 @@
     </div>
     <div class="grid" style="margin-top:18px">
       <div class="card">
-        <h3>Revenue by service line</h3>
+        <h3>Revenue by service line <span class="chip" id="ov-focus-chip" style="display:none"></span></h3>
         <div class="chart-wrap h300"><canvas id="chart-overview-service"></canvas></div>
       </div>
     </div>
@@ -2361,7 +2364,7 @@ const fmtNum = v => new Intl.NumberFormat('en-GB').format(v);
 function sum(arr, f) { return arr.reduce((a, r) => a + f(r), 0); }
 
 /* ---------- State & filters ---------- */
-let state = { month: 'all', search: '', region: null };
+let state = { month: 'all', search: '', region: null, monthFocus: null };
 
 function filteredRows() {
   let rows = DATA;
@@ -2442,24 +2445,40 @@ function renderKPIs(rows) {
 }
 
 /* ---------- Charts: RESUM ---------- */
+/* Month focus: clicking a point on the Revenue vs Cost chart filters the
+   breakdown charts (revenue type + service line) to that month. */
+function toggleMonthFocus(m) {
+  state.monthFocus = (state.monthFocus === m) ? null : m;
+  renderOverview(filteredRows());
+}
+
 function renderOverview(rows) {
   const byM = aggByMonth(rows);
   const labels = byM.map(o => monthLabel(o.month));
+  const focus = state.monthFocus;
+  const isFocus = o => o.month === focus;
+
   makeChart('chart-overview-line', {
     type: 'line',
     data: {
       labels,
       datasets: [
-        { label: T.t.revenue, data: byM.map(o => o.revenue), borderColor: '#1F4E78', backgroundColor: 'rgba(31,78,120,.12)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 },
-        { label: T.t.cost, data: byM.map(o => o.cost), borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.10)', fill: true, tension: .35, borderWidth: 2.5, pointRadius: 3 }
+        { label: T.t.revenue, data: byM.map(o => o.revenue), borderColor: '#1F4E78', backgroundColor: 'rgba(31,78,120,.12)', fill: true, tension: .35, borderWidth: 2.5,
+          pointRadius: byM.map(o => isFocus(o) ? 6 : 3), pointBackgroundColor: byM.map(o => isFocus(o) ? '#E9A13B' : '#1F4E78'), pointBorderColor: '#fff', pointBorderWidth: 1.5 },
+        { label: T.t.cost, data: byM.map(o => o.cost), borderColor: '#E9A13B', backgroundColor: 'rgba(233,161,59,.10)', fill: true, tension: .35, borderWidth: 2.5,
+          pointRadius: byM.map(o => isFocus(o) ? 6 : 3), pointBackgroundColor: byM.map(o => isFocus(o) ? '#E9A13B' : '#E9A13B'), pointBorderColor: '#fff', pointBorderWidth: 1.5 }
       ]
     },
     options: { responsive: true, maintainAspectRatio: false, interaction: { mode: 'index', intersect: false },
+      onClick: (evt, elems) => { if (elems.length) toggleMonthFocus(byM[elems[0].index].month); },
       scales: { y: { ticks: { callback: v => fmtNum(v) } } },
       plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.dataset.label}: ${fmtEUR(c.parsed.y)}` } } } }
   });
 
-  const byType = aggBy(rows, 'revenue_type');
+  // Breakdown charts follow the focused month (full period when no focus)
+  const focusRows = focus ? rows.filter(r => r.month === focus) : rows;
+
+  const byType = aggBy(focusRows, 'revenue_type');
   makeChart('chart-overview-doughnut', {
     type: 'doughnut',
     data: {
@@ -2470,7 +2489,7 @@ function renderOverview(rows) {
       plugins: { legend: { position: 'bottom' }, tooltip: { callbacks: { label: c => ` ${c.label}: ${fmtEUR(c.parsed)}` } } } }
   });
 
-  const bySvc = aggBy(rows, 'service_line');
+  const bySvc = aggBy(focusRows, 'service_line');
   makeChart('chart-overview-service', {
     type: 'bar',
     data: {
@@ -2481,6 +2500,16 @@ function renderOverview(rows) {
       scales: { y: { ticks: { callback: v => fmtNum(v) } } },
       plugins: { legend: { display: false }, tooltip: { callbacks: { label: c => ` ${fmtEUR(c.parsed.y)}` } } } }
   });
+
+  // Focus chip (click to clear)
+  const chip = document.getElementById('ov-focus-chip');
+  if (focus) {
+    chip.style.display = 'inline-block';
+    chip.textContent = monthLabel(focus) + ' ✕';
+    chip.onclick = () => toggleMonthFocus(focus);
+  } else {
+    chip.style.display = 'none';
+  }
 }
 
 /* ---------- Charts: CLIENTS ---------- */
@@ -2825,7 +2854,7 @@ const monthSel = document.getElementById('month-filter');
 });
 monthSel.addEventListener('change', () => { state.month = monthSel.value; renderAll(); });
 document.getElementById('reset-filter').addEventListener('click', () => {
-  state.month = 'all'; state.search = ''; state.region = null;
+  state.month = 'all'; state.search = ''; state.region = null; state.monthFocus = null;
   monthSel.value = 'all';
   document.getElementById('data-search').value = '';
   renderAll();

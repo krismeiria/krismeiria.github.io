@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DSA visual summary</title>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5.5.1/dist/echarts.min.js"></script>
+<style>
+  :root { --navy:#16325C; --gold:#DCAF27; --slate:#7A8CA6; --ink:#1F2937; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:14px 16px 24px; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         color:var(--ink); background:#fff; }
+  h1 { font-size:17px; color:var(--navy); margin:0 0 4px; }
+  .sub { font-size:12.5px; color:#5B6472; margin:0 0 14px; line-height:1.5; }
+  .hint { display:inline-block; background:#F4F7FB; border-left:3px solid var(--gold); padding:6px 10px; font-size:12px;
+          color:#3C4655; margin:0 0 14px; }
+  .card { border:1px solid #E4E8EF; border-radius:8px; padding:10px 12px 4px; margin:0 0 16px; }
+  .card h2 { font-size:14px; color:var(--navy); margin:0 0 2px; }
+  .card p { font-size:12px; color:#5B6472; margin:0 0 6px; line-height:1.45; }
+  .chart { width:100%; }
+  .foot { font-size:11.5px; color:#6B7480; margin-top:6px; line-height:1.5; }
+  .tt { font-size:12px; line-height:1.45; }
+  .tt b { color:var(--navy); }
+  .tt .row { margin-top:3px; }
+  .tt .st { color:#6B7480; }
+</style>
+</head>
+<body>
+<h1>DSA visual summary</h1>
+<p class="sub">Same two figures as the PNGs on this page, but interactive: hover a segment or a cell to see which use
+cases it holds. Source: DSA Discussion Paper, September 2026; status column of the use-case inventory
+(5 under way &middot; 2 requested by a counterpart &middot; 2 subscribed or awaiting &middot; 34 proposals).</p>
+<span class="hint">Hover or tap a bar segment, a heatmap cell or a bar to list the use cases behind it.</span>
+<div id="app"></div>
+<p class="foot">Capability codes are sections of the paper: 2.1 text at scale &middot; 2.2 classification links &middot;
+2.3 documents and rules &middot; 2.4 maps and satellites &middot; 2.5 models and ML &middot; 2.6 frontier methods &middot;
+2.7 official microdata &middot; 2.8 combination. Internal types are a coding of each row's solution text, not the paper's
+wording; the rule per type is in the table on the page.</p>
+<script>
+const CAPS = ["2.1", "2.2", "2.3", "2.4", "2.5", "2.6", "2.7", "2.8"];
+const CAP_LABEL = {"2.1": "2.1 Text at scale", "2.2": "2.2 Classification links", "2.3": "2.3 Documents and rules", "2.4": "2.4 Maps and satellites", "2.5": "2.5 Models and ML", "2.6": "2.6 Frontier methods", "2.7": "2.7 Official microdata", "2.8": "2.8 Combination"};
+const STATUS_ORDER = ["Under way", "Requested by counterpart", "Subscribed / awaiting", "Proposed"];
+const STATUS_COLOR = {"Under way": "#16325C", "Requested by counterpart": "#DCAF27", "Subscribed / awaiting": "#7A8CA6", "Proposed": "#C9D3E0"};
+const EXT = [{"id": "EX-01", "team": "Macroeconomic Stability", "counterpart": "Kementerian Keuangan; Bappenas", "name": "Quarterly growth nowcast", "caps": ["2.5", "2.4"], "status": "Proposed"}, {"id": "EX-02", "team": "Macroeconomic Stability", "counterpart": "Kementerian Keuangan; Bappenas", "name": "Choice of forecasting method", "caps": ["2.5"], "status": "Proposed"}, {"id": "EX-03", "team": "Macroeconomic Stability", "counterpart": "Kementerian Keuangan; Bappenas", "name": "A maintained FPP framework", "caps": ["2.5"], "status": "Proposed"}, {"id": "EX-04", "team": "Macroeconomic Stability", "counterpart": "Ditjen Kementerian Keuangan (peminta)", "name": "Impact of investment in a single industry", "caps": ["2.5"], "status": "Under way"}, {"id": "EX-05", "team": "Macroeconomic Stability", "counterpart": "BPS", "name": "High-frequency indicator panel", "caps": ["2.5"], "status": "Proposed"}, {"id": "EX-06", "team": "Financial Sector", "counterpart": "OJK; Bank Indonesia", "name": "Classifying consumer complaints", "caps": ["2.1"], "status": "Proposed"}, {"id": "EX-07", "team": "Financial Sector", "counterpart": "OJK; Bank Indonesia", "name": "Screening portfolios against the green taxonomy", "caps": ["2.2"], "status": "Proposed"}, {"id": "EX-08", "team": "Financial Sector", "counterpart": "OJK; Bank Indonesia", "name": "Mapping access to financial services", "caps": ["2.4"], "status": "Proposed"}, {"id": "EX-09", "team": "Climate Resilience", "counterpart": "Kementerian Lingkungan Hidup; Kementerian Kehutanan; Bappenas", "name": "Tree-cover loss and fire alerts", "caps": ["2.4"], "status": "Proposed"}, {"id": "EX-10", "team": "Climate Resilience", "counterpart": "Kementerian Lingkungan Hidup; Kementerian Kehutanan; Bappenas", "name": "Exposure of investment and lending to climate risk", "caps": ["2.4"], "status": "Proposed"}, {"id": "EX-11", "team": "Climate Resilience", "counterpart": "Kementerian Lingkungan Hidup; Kementerian Kehutanan; Bappenas", "name": "Tagging climate spending in regional budgets", "caps": ["2.1", "2.2"], "status": "Proposed"}, {"id": "EX-12", "team": "Climate Resilience", "counterpart": "Kementerian Lingkungan Hidup; Kementerian Kehutanan; Bappenas", "name": "Land-based emissions and carbon risk", "caps": ["2.4"], "status": "Proposed"}, {"id": "EX-13", "team": "Budget and Debt Management", "counterpart": "DJPK; Ditjen Anggaran; DJPPR; Kemendagri", "name": "Regional atlas of spending against outcomes", "caps": ["2.4"], "status": "Proposed"}, {"id": "EX-14", "team": "Budget and Debt Management", "counterpart": "DJPK; Ditjen Anggaran; DJPPR; Kemendagri", "name": "Classifying budget items by function and theme", "caps": ["2.1", "2.2"], "status": "Proposed"}, {"id": "EX-15", "team": "Budget and Debt Management", "counterpart": "DJPK; Ditjen Anggaran; DJPPR; Kemendagri", "name": "Simulating transfer formula changes", "caps": ["2.5"], "status": "Proposed"}, {"id": "EX-16", "team": "Budget and Debt Management", "counterpart": "DJPK; Ditjen Anggaran; DJPPR; Kemendagri", "name": "Market sentiment around debt issuance", "caps": ["2.5"], "status": "Proposed"}, {"id": "EX-17", "team": "Revenue Mobilisation", "counterpart": "Direktorat Jenderal Pajak (DJP)", "name": "Classifying business descriptions in tax records", "caps": ["2.1", "2.2"], "status": "Proposed"}, {"id": "EX-18", "team": "Revenue Mobilisation", "counterpart": "Direktorat Jenderal Pajak (DJP)", "name": "Revenue effects of investment incentives", "caps": ["2.5"], "status": "Proposed"}, {"id": "EX-19", "team": "Revenue Mobilisation", "counterpart": "Direktorat Jenderal Pajak (DJP)", "name": "DJP analytical capacity", "caps": ["2.6"], "status": "Requested by counterpart"}, {"id": "EX-20", "team": "Trade and Investment", "counterpart": "Kementerian Investasi (BKPM); Kementerian Perdagangan; Kementerian Perindustrian", "name": "Green product screening", "caps": ["2.2"], "status": "Under way"}, {"id": "EX-21", "team": "Trade and Investment", "counterpart": "Kementerian Investasi (BKPM); Kementerian Perdagangan; Kementerian Perindustrian", "name": "Suggested HS codes where no official bridge exists", "caps": ["2.2"], "status": "Under way"}, {"id": "EX-22", "team": "Trade and Investment", "counterpart": "Kementerian Investasi (BKPM); Kementerian Perdagangan; Kementerian Perindustrian", "name": "Investment impact by sector and province", "caps": ["2.5"], "status": "Under way"}, {"id": "EX-23", "team": "Trade and Investment", "counterpart": "Kementerian Investasi (BKPM); Kementerian Perdagangan; Kementerian Perindustrian", "name": "Tracking announced investment projects", "caps": ["2.6"], "status": "Proposed"}, {"id": "EX-24", "team": "Labour and Skills", "counterpart": "Kementerian Ketenagakerjaan (Kemnaker); BPS", "name": "IPK Hijau: green jobs from job postings", "caps": ["2.1"], "status": "Under way"}, {"id": "EX-25", "team": "Labour and Skills", "counterpart": "Kementerian Ketenagakerjaan (Kemnaker); BPS", "name": "Comparing skills demand across countries", "caps": ["2.1"], "status": "Subscribed / awaiting"}, {"id": "EX-26", "team": "Labour and Skills", "counterpart": "Kementerian Ketenagakerjaan (Kemnaker); BPS", "name": "Prospera's own posting collection", "caps": ["2.1"], "status": "Proposed"}, {"id": "EX-27", "team": "Labour and Skills", "counterpart": "Kementerian Ketenagakerjaan (Kemnaker); BPS", "name": "Skills taxonomy for career guidance", "caps": ["2.2"], "status": "Proposed"}, {"id": "EX-28", "team": "Labour and Skills", "counterpart": "Kementerian Ketenagakerjaan (Kemnaker); BPS", "name": "Forecasting skills demand", "caps": ["2.5"], "status": "Proposed"}, {"id": "EX-29", "team": "Multilateral Engagement", "counterpart": "Kemenko Perekonomian; Kementerian Perdagangan", "name": "Indexing trade agreement commitments", "caps": ["2.3"], "status": "Proposed"}, {"id": "EX-30", "team": "Multilateral Engagement", "counterpart": "Kemenko Perekonomian; Kementerian Perdagangan", "name": "Use of tariff preferences", "caps": ["2.3"], "status": "Proposed"}, {"id": "EX-31", "team": "Digital Economy and Governance", "counterpart": "Kementerian Komunikasi dan Digital (Komdigi)", "name": "Digital economy measurement", "caps": ["2.6"], "status": "Requested by counterpart"}, {"id": "EX-32", "team": "Digital Economy and Governance", "counterpart": "Kementerian Komunikasi dan Digital (Komdigi)", "name": "Network coverage against population", "caps": ["2.4"], "status": "Proposed"}, {"id": "EX-33", "team": "Digital Economy and Governance", "counterpart": "Kementerian Komunikasi dan Digital (Komdigi)", "name": "Online price and e-commerce data", "caps": ["2.4", "2.5"], "status": "Proposed"}, {"id": "EX-34", "team": "Inclusion (GEDSI)", "counterpart": "Lintas tim", "name": "Gendered language and accessibility in job postings", "caps": ["2.1"], "status": "Proposed"}, {"id": "EX-35", "team": "Inclusion (GEDSI)", "counterpart": "Lintas tim", "name": "Gender and disability spending", "caps": ["2.1"], "status": "Proposed"}, {"id": "EX-36", "team": "Inclusion (GEDSI)", "counterpart": "Lintas tim", "name": "Disaggregated map-based measures", "caps": ["2.4"], "status": "Proposed"}, {"id": "EX-37", "team": "Communications and Knowledge Management", "counterpart": "Lintas tim", "name": "Semantic search across BTORs and released products", "caps": ["2.1", "2.3"], "status": "Proposed"}, {"id": "EX-38", "team": "Communications and Knowledge Management", "counterpart": "Lintas tim", "name": "Checking claims before publication", "caps": ["2.3"], "status": "Proposed"}, {"id": "EX-39", "team": "All eleven teams", "counterpart": "BPS", "name": "Ready-to-use official microdata", "caps": ["2.7"], "status": "Proposed"}, {"id": "EX-40", "team": "All eleven teams", "counterpart": "BPS", "name": "Mapping datasets to team questions", "caps": ["2.7"], "status": "Proposed"}, {"id": "EX-41", "team": "All eleven teams", "counterpart": "Pemerintah (agenda penyederhanaan regulasi)", "name": "Policy and regulation library", "caps": ["2.3"], "status": "Proposed"}, {"id": "EX-42", "team": "All eleven teams", "counterpart": "Lintas K/L", "name": "Classification link library", "caps": ["2.2"], "status": "Proposed"}, {"id": "EX-43", "team": "All eleven teams", "counterpart": "Pemerintah (deregulasi)", "name": "Regulation network for simplification", "caps": ["2.3"], "status": "Subscribed / awaiting"}];
+const TEAMS = ["Macroeconomic Stability", "Financial Sector", "Climate Resilience", "Budget and Debt Management", "Revenue Mobilisation", "Trade and Investment", "Labour and Skills", "Multilateral Engagement", "Digital Economy and Governance", "Inclusion (GEDSI)", "Communications and Knowledge Management", "All eleven teams"];
+const INT = [{"id": "IN-01", "cat": "Seven-step method", "name": "Screening a request before replying", "type": "Method or template"}, {"id": "IN-02", "cat": "Seven-step method", "name": "Fast verification of screen results", "type": "Evidence / release rule"}, {"id": "IN-03", "cat": "Seven-step method", "name": "One brief agreed in one round", "type": "Method or template"}, {"id": "IN-04", "cat": "Seven-step method", "name": "Capturing a meeting live", "type": "Assistant workflow"}, {"id": "IN-05", "cat": "Seven-step method", "name": "Capturing a meeting afterwards", "type": "Assistant workflow"}, {"id": "IN-06", "cat": "Seven-step method", "name": "Written-notes route", "type": "Method or template"}, {"id": "IN-07", "cat": "Seven-step method", "name": "A BTOR draft to be checked", "type": "Assistant workflow"}, {"id": "IN-08", "cat": "Seven-step method", "name": "One assignment record", "type": "Record or index"}, {"id": "IN-09", "cat": "Seven-step method", "name": "Search in plain language", "type": "Record or index"}, {"id": "IN-10", "cat": "Seven-step method", "name": "Everyday analysis and work at scale", "type": "Support and capacity"}, {"id": "IN-11", "cat": "Seven-step method", "name": "Draft follow-up email", "type": "Assistant workflow"}, {"id": "IN-12", "cat": "Seven-step method", "name": "Checking a Word report", "type": "Assistant workflow"}, {"id": "IN-13", "cat": "Seven-step method", "name": "An Excel workbook that can be inspected", "type": "Evidence / release rule"}, {"id": "IN-14", "cat": "Seven-step method", "name": "Deck production consistent with its sources", "type": "Method or template"}, {"id": "IN-15", "cat": "Seven-step method", "name": "Tracked follow-up", "type": "Record or index"}, {"id": "IN-16", "cat": "Seven-step method", "name": "Fast reaction when a source changes", "type": "Evidence / release rule"}, {"id": "IN-17", "cat": "Seven-step method", "name": "Handover that can be tested", "type": "Support and capacity"}, {"id": "IN-18", "cat": "Assistant tasks (Appendix A)", "name": "A1 Capture and follow up", "type": "Assistant workflow"}, {"id": "IN-19", "cat": "Assistant tasks (Appendix A)", "name": "A2 Recover prior work", "type": "Assistant workflow"}, {"id": "IN-20", "cat": "Assistant tasks (Appendix A)", "name": "A3 Refresh products", "type": "Assistant workflow"}, {"id": "IN-21", "cat": "Assistant tasks (Appendix A)", "name": "B1 Frame the decision", "type": "Assistant workflow"}, {"id": "IN-22", "cat": "Assistant tasks (Appendix A)", "name": "B2 Acquire and analyse", "type": "Assistant workflow"}, {"id": "IN-23", "cat": "Assistant tasks (Appendix A)", "name": "B3 Compare options", "type": "Assistant workflow"}, {"id": "IN-24", "cat": "Assistant tasks (Appendix A)", "name": "C1 Check the evidence", "type": "Assistant workflow"}, {"id": "IN-25", "cat": "Assistant tasks (Appendix A)", "name": "C2 Retain the work", "type": "Assistant workflow"}, {"id": "IN-26", "cat": "Assistant tasks (Appendix A)", "name": "C3 Update and hand over", "type": "Assistant workflow"}, {"id": "IN-27", "cat": "Evidence and data", "name": "Evidence chain for every claim", "type": "Evidence / release rule"}, {"id": "IN-28", "cat": "Evidence and data", "name": "Claims resting on a legal basis", "type": "Method or template"}, {"id": "IN-29", "cat": "Evidence and data", "name": "Statements labelled by type", "type": "Evidence / release rule"}, {"id": "IN-30", "cat": "Evidence and data", "name": "Sensitive data stays with its owner", "type": "Evidence / release rule"}, {"id": "IN-31", "cat": "Evidence and data", "name": "Regulated use of AI", "type": "Evidence / release rule"}, {"id": "IN-32", "cat": "Evidence and data", "name": "The assistant does not act on its own", "type": "Evidence / release rule"}, {"id": "IN-33", "cat": "Evidence and data", "name": "Audio transcription outside Prospera", "type": "Evidence / release rule"}, {"id": "IN-34", "cat": "Evidence and data", "name": "Testing AI support per task type", "type": "Evidence / release rule"}, {"id": "IN-35", "cat": "Evidence and data", "name": "Credit for contribution", "type": "Record or index"}, {"id": "IN-36", "cat": "Capacity and governance", "name": "Methods move to the teams", "type": "Allocation rule"}, {"id": "IN-37", "cat": "Capacity and governance", "name": "Day-to-day support for team staff", "type": "Support and capacity"}, {"id": "IN-38", "cat": "Capacity and governance", "name": "Requests prioritised in the open", "type": "Allocation rule"}, {"id": "IN-39", "cat": "Capacity and governance", "name": "Knowledge base per team", "type": "Record or index"}, {"id": "IN-40", "cat": "Capacity and governance", "name": "A trail for decision reasons", "type": "Record or index"}];
+const TYPE_ORDER = ["Method or template", "Record or index", "Assistant workflow", "Evidence / release rule", "Allocation rule", "Support and capacity"];
+const TYPE_COLOR = {"Method or template": "#2E5288", "Record or index": "#7A8CA6", "Assistant workflow": "#16325C", "Evidence / release rule": "#DCAF27", "Allocation rule": "#8C6D1F", "Support and capacity": "#C9D3E0"};
+const CATS = ["Seven-step method", "Assistant tasks (Appendix A)", "Evidence and data", "Capacity and governance"];
+
+const esc = s => String(s).replace(/[&<>]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function list(rows, cap) {
+  const lim = cap || 14;
+  const shown = rows.slice(0, lim).map(e => `<div class="row"><b>${e.id}</b> ${esc(e.name)} <span class="st">&middot; ${esc(e.team)}</span></div>`).join('');
+  const more = rows.length > lim ? `<div class="row st">+ ${rows.length - lim} more</div>` : '';
+  return shown + more;
+}
+function card(title, note, id, h) {
+  document.write(`<div class="card"><h2>${title}</h2><p>${note}</p><div class="chart" id="${id}" style="height:${h}px"></div></div>`);
+}
+
+// 1. capability demand, stacked by status
+card('1. External requests: where the demand lands',
+     '43 use cases by Sec 2 capability, split by status. A use case can need two capabilities, so the bars add to 49.',
+     'c1', 420);
+// 2. team x capability heatmap
+card('2. Which team asks for which capability',
+     'Number of use cases per owning team and capability; hovering a cell lists them. Empty cells are the palest shade.',
+     'c2', 470);
+// 3. internal types
+card('3. Internal proposals by type',
+     '40 internal use cases by the type of solution proposed. Hover a bar to list the rows.',
+     'c3', 360);
+// 4. categories x types
+card('4. The paper’s own grouping, split by type',
+     '17 seven-step rows, 9 assistant tasks, 9 evidence and data, 5 capacity and governance.',
+     'c4', 340);
+
+const base = { textStyle:{ fontFamily:'-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif', fontSize:12 },
+               grid:{ left:8, right:18, top:10, bottom:8, containLabel:true } };
+
+// ---- 1
+const c1 = echarts.init(document.getElementById('c1'));
+const seg = (st, cap) => EXT.filter(e => e.status === st && e.caps.includes(cap));
+c1.setOption(Object.assign({}, base, {
+  tooltip: { trigger:'item', confine:true, enterable:false, backgroundColor:'#fff', borderColor:'#D6DCE5',
+    textStyle:{ color:'#1F2937', fontSize:12 }, extraCssText:'box-shadow:0 2px 10px rgba(0,0,0,.12);max-width:340px;white-space:normal',
+    formatter: p => {
+      const cap = CAPS[p.dataIndex], rows = seg(p.seriesName, cap);
+      return `<div class="tt"><b>${CAP_LABEL[cap]}</b> &middot; ${p.seriesName}: ${rows.length} use case${rows.length===1?'':'s'}</div>` + list(rows);
+    } },
+  xAxis: { type:'value', splitLine:{ lineStyle:{ color:'#EDF0F5' } }, axisLabel:{ color:'#6B7480' } },
+  yAxis: { type:'category', data: CAPS.map(c => CAP_LABEL[c]), axisTick:{ show:false }, axisLine:{ show:false },
+           axisLabel:{ color:'#1F2937' }, inverse:true },
+  legend: { bottom:0, left:0, icon:'roundRect', itemWidth:12, itemHeight:10, itemGap:14,
+            textStyle:{ fontSize:11, color:'#3C4655' } },
+  series: STATUS_ORDER.map(st => ({
+    name: st, type:'bar', stack:'s', barWidth:'62%', itemStyle:{ color: STATUS_COLOR[st] },
+    label:{ show:true, formatter: p => p.value || '',
+            color: (st === 'Under way' || st === 'Subscribed / awaiting') ? '#fff' : '#16325C', fontSize:11,
+            position:'inside', fontWeight:'bold' },
+    data: CAPS.map(c => seg(st, c).length)
+  }))
+}));
+
+// ---- 2
+const c2 = echarts.init(document.getElementById('c2'));
+const cells = [], maxv = { v: 0 };
+const cellLabel = v => (v / maxv.v >= 0.55 ? '#FFFFFF' : '#16325C');
+TEAMS.forEach((t, yi) => CAPS.forEach((c, xi) => {
+  const rows = EXT.filter(e => e.team === t && e.caps.includes(c));
+  maxv.v = Math.max(maxv.v, rows.length);
+  cells.push({ value: [xi, yi, rows.length], label: { color: cellLabel(rows.length) } });
+}));
+c2.setOption(Object.assign({}, base, {
+  tooltip: { trigger:'item', confine:true, backgroundColor:'#fff', borderColor:'#D6DCE5',
+    textStyle:{ color:'#1F2937', fontSize:12 }, extraCssText:'box-shadow:0 2px 10px rgba(0,0,0,.12);max-width:340px;white-space:normal',
+    formatter: p => {
+      const v = p.data.value || p.data;
+      const cap = CAPS[v[0]], team = TEAMS[v[1]];
+      const rows = EXT.filter(e => e.team === team && e.caps.includes(cap));
+      if (!rows.length) return `<div class="tt"><b>${esc(team)}</b> &middot; ${CAP_LABEL[cap]}<br><span class="st">no use case</span></div>`;
+      return `<div class="tt"><b>${esc(team)}</b> &middot; ${CAP_LABEL[cap]}: ${rows.length}</div>` + list(rows, 10);
+    } },
+  xAxis: { type:'category', data: CAPS.map(c => c), axisTick:{ show:false }, axisLabel:{ color:'#5B6472', fontSize:11 },
+           splitArea:{ show:false } },
+  yAxis: { type:'category', data: TEAMS, axisTick:{ show:false }, axisLine:{ show:false },
+           axisLabel:{ color:'#1F2937', fontSize:11 }, inverse:true },
+  visualMap: { min:0, max:maxv.v, show:false, inRange:{ color:['#F5F7FA', '#C9D3E0', '#7A8CA6', '#2E5288', '#16325C'] } },
+  series: [{ type:'heatmap', data:cells, label:{ show:true, fontWeight:'bold', fontSize:11,
+             formatter: p => p.data.value[2] ? p.data.value[2] : '' },
+             itemStyle:{ borderColor:'#fff', borderWidth:2 },
+             emphasis:{ itemStyle:{ borderColor:'#DCAF27', borderWidth:2 } } }]
+}));
+
+// ---- 3
+const c3 = echarts.init(document.getElementById('c3'));
+c3.setOption(Object.assign({}, base, {
+  tooltip: { trigger:'item', confine:true, backgroundColor:'#fff', borderColor:'#D6DCE5',
+    textStyle:{ color:'#1F2937', fontSize:12 }, extraCssText:'box-shadow:0 2px 10px rgba(0,0,0,.12);max-width:340px;white-space:normal',
+    formatter: p => {
+      const rows = INT.filter(r => r.type === p.name);
+      return `<div class="tt"><b>${p.name}</b>: ${rows.length} of 40</div>` +
+             rows.map(r => `<div class="row"><b>${r.id}</b> ${esc(r.name)} <span class="st">&middot; ${esc(r.cat)}</span></div>`).join('');
+    } },
+  xAxis: { type:'value', splitLine:{ lineStyle:{ color:'#EDF0F5' } }, axisLabel:{ color:'#6B7480' } },
+  yAxis: { type:'category', data: TYPE_ORDER, axisTick:{ show:false }, axisLine:{ show:false },
+           axisLabel:{ color:'#1F2937' }, inverse:true },
+  series: [{ type:'bar', barWidth:'58%', data: TYPE_ORDER.map(t => ({ value: INT.filter(r => r.type === t).length,
+             itemStyle:{ color: TYPE_COLOR[t] } })),
+             label:{ show:true, position:'right', color:'#16325C', fontWeight:'bold', fontSize:12 } }]
+}));
+
+// ---- 4
+const c4 = echarts.init(document.getElementById('c4'));
+c4.setOption(Object.assign({}, base, {
+  tooltip: { trigger:'item', confine:true, backgroundColor:'#fff', borderColor:'#D6DCE5',
+    textStyle:{ color:'#1F2937', fontSize:12 }, extraCssText:'box-shadow:0 2px 10px rgba(0,0,0,.12);max-width:340px;white-space:normal',
+    formatter: p => {
+      const rows = INT.filter(r => r.cat === CATS[p.dataIndex] && r.type === p.seriesName);
+      const head = `<div class="tt"><b>${esc(CATS[p.dataIndex])}</b> &middot; ${p.seriesName}: ${rows.length}</div>`;
+      return head + rows.map(r => `<div class="row"><b>${r.id}</b> ${esc(r.name)}</div>`).join('');
+    } },
+  xAxis: { type:'value', splitLine:{ lineStyle:{ color:'#EDF0F5' } }, axisLabel:{ color:'#6B7480' } },
+  yAxis: { type:'category', data: CATS, axisTick:{ show:false }, axisLine:{ show:false },
+           axisLabel:{ color:'#1F2937', fontSize:11 }, inverse:true },
+  series: TYPE_ORDER.map(t => ({ name:t, type:'bar', stack:'s', barWidth:'56%',
+    itemStyle:{ color: TYPE_COLOR[t] },
+    data: CATS.map(c => INT.filter(r => r.cat === c && r.type === t).length),
+    label:{ show:true, position:'inside', color: t === 'Assistant workflow' ? '#fff' : '#16325C', fontSize:10,
+            formatter: p => p.value ? p.value : '' } }))
+}));
+
+window.addEventListener('resize', () => { [c1,c2,c3,c4].forEach(c => c.resize()); });
+</script>
+</body>
+</html>

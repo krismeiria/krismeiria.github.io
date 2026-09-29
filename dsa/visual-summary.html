@@ -27,8 +27,8 @@
 </head>
 <body>
 <h1>DSA visual summary</h1>
-<p class="sub">Same two figures as the PNGs on this page, but interactive: hover a segment or a cell to see which use
-cases it holds. Source: DSA Discussion Paper, September 2026; status column of the use-case inventory
+<p class="sub">Interactive visual summary: hover (or tap) a segment, a heatmap cell or a bar to list the use cases
+behind it. Source: DSA Discussion Paper, September 2026; status column of the use-case inventory
 (5 under way &middot; 2 requested by a counterpart &middot; 2 subscribed or awaiting &middot; 34 proposals).</p>
 <span class="hint">Hover or tap a bar segment, a heatmap cell or a bar to list the use cases behind it.</span>
 <div id="app"></div>
@@ -106,7 +106,7 @@ c1.setOption(Object.assign({}, base, {
 // ---- 2
 const c2 = echarts.init(document.getElementById('c2'));
 const cells = [], maxv = { v: 0 };
-const cellLabel = v => (v / maxv.v >= 0.55 ? '#FFFFFF' : '#16325C');
+const cellLabel = () => '#16325C';   // labels stay navy; the shading palette is kept light enough to read them
 TEAMS.forEach((t, yi) => CAPS.forEach((c, xi) => {
   const rows = EXT.filter(e => e.team === t && e.caps.includes(c));
   maxv.v = Math.max(maxv.v, rows.length);
@@ -126,7 +126,7 @@ c2.setOption(Object.assign({}, base, {
            splitArea:{ show:false } },
   yAxis: { type:'category', data: TEAMS, axisTick:{ show:false }, axisLine:{ show:false },
            axisLabel:{ color:'#1F2937', fontSize:11 }, inverse:true },
-  visualMap: { min:0, max:maxv.v, show:false, inRange:{ color:['#F5F7FA', '#C9D3E0', '#7A8CA6', '#2E5288', '#16325C'] } },
+  visualMap: { min:0, max:maxv.v, show:false, inRange:{ color:['#F5F7FA', '#E3E9F2', '#C9D3E0', '#A8B8CE', '#8199B8'] } },
   series: [{ type:'heatmap', data:cells, label:{ show:true, fontWeight:'bold', fontSize:11,
              formatter: p => p.data.value[2] ? p.data.value[2] : '' },
              itemStyle:{ borderColor:'#fff', borderWidth:2 },
